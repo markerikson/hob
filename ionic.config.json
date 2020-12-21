@@ -1,0 +1,8 @@
+{
+  "name": "HOB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "bbae3cda"
+}
