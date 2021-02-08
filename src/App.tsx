@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect, useState } from 'react';
 
 import {
   IonApp,
@@ -43,6 +43,14 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const App: React.FC = () => {
+
+  const [hooks, setHooks] = useState(null)
+
+  useEffect(() => {
+    fetch('http://161.97.167.92:1337/hooks?style=main')
+      .then(res => res.json())
+      .then(setHooks)
+  }, [])
 
   return (
     <IonApp>
@@ -105,6 +113,7 @@ const App: React.FC = () => {
 
     </IonApp>
   );
+
 };
 
 export default App;
