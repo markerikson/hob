@@ -1,0 +1,9 @@
+ion-content ion-toolbar {
+  --background: translucent;
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
