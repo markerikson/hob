@@ -1,119 +1,116 @@
-import React , { useEffect, useState } from 'react';
+import * as Const from './services/constants'
 
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs
-} from '@ionic/react';
+import React, { useEffect, useState } from 'react'
+import { IonReactRouter } from '@ionic/react-router'
 
-import { IonReactRouter } from '@ionic/react-router';
-import { square, triangle, images } from 'ionicons/icons';
-import { Redirect, Route } from 'react-router-dom';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
+import { square, triangle, images } from 'ionicons/icons'
+import { Redirect, Route } from 'react-router-dom'
+import axios from 'axios'
 
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
-import Tab4 from './pages/Tab4';
-import Tab5 from './pages/Tab5';
-import Tab6 from './pages/Tab6';
-import Tab7 from './pages/Tab7';
-import Details from './pages/Details';
-
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+/* CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import '@ionic/react/css/padding.css'
+import '@ionic/react/css/float-elements.css'
+import '@ionic/react/css/text-alignment.css'
+import '@ionic/react/css/text-transformation.css'
+import '@ionic/react/css/flex-utils.css'
+import '@ionic/react/css/display.css'
 
 /* Theme variables */
-import './theme/variables.css';
+import './theme/variables.css'
+
+// App main parts
+import Home         from './pages/menu/Home'
+import Training     from './pages/menu/Training'
+import ExploreEquip from './pages/menu/ExploreEquip'
+import Navigate     from './pages/menu/Navigate'
+import Assistance   from './pages/menu/Assistance'
+import Routes       from './pages/menu/Routes'
+import LiveMap      from './pages/menu/LiveMap'
+import Route1        from './pages/menu/Route1'
+import BoatTypes        from './pages/menu/BoatTypes'
 
 const App: React.FC = () => {
 
-  const [hooks, setHooks] = useState(null)
+  const [hooks, setHooks] = useState<any[]>([])
 
   useEffect(() => {
-    fetch('http://161.97.167.92:1337/hooks?style=main')
+    fetch( Const.RestAPI + 'hooks?style=main')
       .then(res => res.json())
       .then(setHooks)
   }, [])
 
-  return (
+  return(
     <IonApp>
       <IonReactRouter>
         <IonTabs>
-
+          
           <IonRouterOutlet>
-            <Route path="/tab1" component={Tab1} exact={true} />
-            <Route path="/tab2" component={Tab2} exact={true} />
-            <Route path="/tab2/details" component={Details} />
-            <Route path="/tab3" component={Tab3} />
-            <Route path="/tab4" component={Tab4} />
-            <Route path="/tab5" component={Tab5} />
-            <Route path="/tab6" component={Tab6} />
-            <Route path="/tab7" component={Tab7} />
-            <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+            <Route path='/Home'           component={Home}          />
+            <Route path='/Training'       component={Training}      />
+            <Route path='/ExploreEquip'   component={ExploreEquip}  />
+            <Route path='/Navigate'       component={Navigate}      />
+            <Route path='/Routes'         component={Routes}      />
+            <Route path='/Route1'         component={Route1}      />
+            <Route path='/LiveMap'        component={LiveMap}      />
+            <Route path='/BoatTypes'      component={BoatTypes}      />
+            <Route path='/Assistance'     component={Assistance}    />
+            <Route path='/' render={ () => <Redirect to='/Home'   /> } exact={true} />
           </IonRouterOutlet>
 
-          <IonTabBar slot="bottom">
-
-            <IonTabButton tab="tab1" href="/tab1">
+          <IonTabBar slot='bottom'>
+            {hooks.map((hook, index) => {
+              return(            
+                <IonTabButton tab={hook.path} href={hook.path}>
+                  <IonIcon icon={triangle} />
+                  <IonLabel>Home</IonLabel>
+                </IonTabButton>
+              )
+            })}
+          </IonTabBar>
+          {/*<IonTabBar slot='bottom'>
+            
+            <IonTabButton tab='Home' href='/Home'>
               <IonIcon icon={triangle} />
               <IonLabel>Home</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="tab2" href="/tab2">
+            <IonTabButton tab='Training' href='/training'>
               <IonIcon icon={images} />
               <IonLabel>Train yourself</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="tab3" href="/tab3">
+            <IonTabButton tab='ExploreEquip' href='/ExploreEquip'>
               <IonIcon icon={square} />
-              <IonLabel>Explore & equip</IonLabel>
+              <IonLabel>Explore & Equipament</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="tab4" href="/tab4">
+            <IonTabButton tab='Navigate' href='/Navigate'>
               <IonIcon icon={square} />
               <IonLabel>Navigate</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="tab5" href="/tab5">
+            <IonTabButton tab='Assistance' href='/Assistance'>
               <IonIcon icon={square} />
               <IonLabel>Assistance</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="tab6" href="/tab6">
-              <IonIcon icon={square} />
-              <IonLabel>Search</IonLabel>
-            </IonTabButton>
+          </IonTabBar>*/}
 
-            <IonTabButton tab="tab7" href="/tab7">
-              <IonIcon icon={square} />
-              <IonLabel>tryetr</IonLabel>
-            </IonTabButton>
-
-          </IonTabBar>
         </IonTabs>
 
       </IonReactRouter>
 
     </IonApp>
-  );
 
-};
+  )
 
-export default App;
+}
+
+export default App
