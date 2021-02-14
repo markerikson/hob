@@ -25,6 +25,7 @@
     "ionicons": "^5.0.0",
     "leaflet": "^1.7.1",
     "node-gyp": "^3.6.1",
+    "node-sass": "^5.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-leaflet": "^3.1.0",
