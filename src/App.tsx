@@ -9,6 +9,8 @@ import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar,   useIonViewDidE
   useIonViewWillLeave, IonTabButton, IonTabs } from '@ionic/react'
 import { triangle } from 'ionicons/icons'
 import { Redirect, Route } from 'react-router-dom'
+//import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 //import axios from 'axios'
 
 /* CSS required for Ionic components to work properly */
@@ -35,9 +37,9 @@ import ExploreEquip from './pages/menu/ExploreEquip'
 import Navigate     from './pages/menu/Navigate'
 import Assistance   from './pages/menu/Assistance'
 import LiveMenu     from './pages/menu/LiveMenu'
+import Article      from './pages/menu/Article'
 /*import Routes       from './pages/menu/Routes'
 import LiveMap      from './pages/menu/LiveMap'
-import Route1        from './pages/menu/Route1'
 import BoatTypes        from './pages/menu/BoatTypes'*/
 //import RedirectToLogin from './components/RedirectToLogin';
 
@@ -82,42 +84,41 @@ const App: React.FC = () => {
 
   useIonViewDidEnter(() => {
     console.log('APP ionViewDidEnter event fired');
-  });
+  })
 
   useIonViewDidLeave(() => {
     console.log('APP ionViewDidLeave event fired');
-  });
+  })
 
   useIonViewWillEnter(() => {
     console.log('APP ionViewWillEnter event fired');
-  });
+  })
 
   useIonViewWillLeave(() => {
     console.log('APP ionViewWillLeave event fired');
-  });
+  })
 
   function renderFooterMenu(list: FooterMenu[]) {
+    
     /*var list2
-    list.forEach( function(valor1, indice, array) {
-        var ter = valor1.app_hooks_translation.map( function(valor, indice, array) {
-          return valor.title_translation
+      list.forEach( function(valor, indice, array) {
+        var trans = valor.app_hooks_translation.map( function(valor1, indice, array) {
+          return valor1.title_translation
         })
-        alert(ter)
+        return trans[1]
     })
 
-    //alert(JSON.stringify(list2))
-*/
-    var r = list
-      .filter(route => !!route.path)
-      .map(p => (
-        <IonTabButton tab={p.path+p.tag} href={p.path}>
-          <img src={Const.PHOTO_STORAGE + p.icon.url} alt="Ionic logo" />
-          <IonLabel>{p.name}</IonLabel>
+    console.log(list2)*/
+    
+   //renderConsole(hooks)
+    return list.map((p, index) => (
+        <IonTabButton key={index} tab={p.path+p.tag} href={p.path}>
+          <img src={Const.RestStorage.toString() + p.icon.url.toString()} alt={p.name.toString()} />
+          {/*<IonLabel>{p.name}</IonLabel>*/}
         </IonTabButton>
       )
     )
-    //renderConsole(hooks)
-    return r
+
   }
 
 
@@ -138,19 +139,25 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
+            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
+            
+            {/* Main routes */}
             <Route path='/Home' component={Home}/>
             <Route path='/Training' component={Training}/>
             <Route path='/ExploreEquip' component={ExploreEquip}/>
             <Route path='/Navigate' component={Navigate}/>
             <Route path='/Assistance' component={Assistance}/>
+
+            <Route path='/Article/:tag' component={Article}/>
             <Route path='/LiveMenu/:tag' component={LiveMenu}/>
-            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
+
             {/*<Route path="/logout" render={() => {
               return <RedirectToLogin
                 setIsLoggedIn={setIsLoggedIn}
                 setUsername={setUsername}
               />;
-            }} />*/}        
+            }}/>*/}
+
           </IonRouterOutlet>
           <IonTabBar slot='bottom'>
             <IonTabButton tab='/Home' href="/Home">
