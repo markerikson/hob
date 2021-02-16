@@ -101,7 +101,8 @@ const App: React.FC = () => {
     return list.map((item:FooterMenu, index) => (
       <IonTabButton key={index} tab={item.path+item.tag} href={item.path}>
         <img src={MyConst.RestStorage.toString() + item.icon.url.toString()} alt={item.name.toString()} />
-        {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}      </IonTabButton>
+        {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}
+      </IonTabButton>
     ))
   }
 
