@@ -18,18 +18,20 @@ import {
   //useIonViewWillLeave,
 } from '@ionic/react'
 
+
 interface HookInterface {
   name: string,
   path: string,
-  icon: object,
+  icon: {
+    url: string,
+  },
   tag: string,
-  childrens: object,/*,
-  app_hooks_translation: {
-    title_translation: string,
-    language_translation: {
+  app_hooks_translation?: {
+    title_translation?: string,
+    language_translation?: {
       tag: string
     }
-  }*/
+  }
 }
 
 
@@ -43,25 +45,11 @@ const Training: React.FC = () => {
   }, [])
 
   function renderVerticalMenu(list: HookInterface[]) {
-    const menus = [
-      {
-        name: 'Solid hull',
-        path: '/article/SolidHull',
-        tag: '',
-        childrens: '{}'
-      },{
-        name: 'Inflatable',
-        path: '/article/Inflatable',
-        tag: '',
-        childrens: '{}'
-      }
-    ]
-    return menus.map( (p, index) => (
-        <IonItem key={index} routerLink="/article/SolidHull">
-          <IonLabel>{p.name}</IonLabel>
-        </IonItem>
-      )
-    )    
+    return list.map((item:HookInterface, index) => (
+      <IonItem key={index} routerLink="/article/SolidHull">
+        <IonLabel>{item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}</IonLabel>
+      </IonItem>
+    ))
   }
 
   function renderConsole(list: HookInterface[]) {
