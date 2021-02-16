@@ -9,10 +9,10 @@ import {
   IonLabel, 
   IonRouterOutlet, 
   IonTabBar,   
-  useIonViewDidEnter,
-  useIonViewDidLeave,
-  useIonViewWillEnter,
-  useIonViewWillLeave, 
+  //useIonViewDidEnter,
+  //useIonViewDidLeave,
+  //useIonViewWillEnter,
+  //useIonViewWillLeave, 
   IonTabButton, 
   IonTabs 
 } from '@ionic/react'
@@ -42,7 +42,6 @@ import './theme/variables.css'
 
 // App main parts
 import Home         from './pages/menu/Home'
-import Training     from './pages/menu/Training'
 import ExploreEquip from './pages/menu/ExploreEquip'
 import Navigate     from './pages/menu/Navigate'
 import Assistance   from './pages/menu/Assistance'
@@ -56,6 +55,7 @@ import BoatTypes        from './pages/menu/BoatTypes'*/
 import { loadConfData } from './data/sessions/sessions.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 
+/* TODO: PUT SOMEWHERE THE COMPLETE EXTRACTED DATA FOR GET IT FROM IN APP AS INIT APP COMPLEXITY */ 
 /*const routes = {
   appPages: [
     { name: 'Home',             path: '/Home',          icon: square    },
@@ -66,20 +66,24 @@ import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actio
   ]
 }*/
 
-interface FooterMenu {
+interface HookInterface {
   name: string,
   path: string,
-  icon: {
-    url: string,
-  },
+  icon: Icon,
   tag: string,
-  app_hooks_translation?: {
-    title_translation?: string,
-    language_translation?: {
-      tag: string
-    }
+  childrens?: object,
+  app_hooks_translation?: Translations
+}
+interface Translations {
+  title_translation?: string,
+  language_translation?: {
+    tag: string
   }
 }
+interface Icon {
+  url: string
+}
+
 
 interface DispatchProps {
   loadConfData: typeof loadConfData
@@ -97,9 +101,9 @@ const App: React.FC = () => {
     .then(setHooks)
   }, [])
 
-  function renderFooterMenu(list: FooterMenu[]) {
-    return list.map((item:FooterMenu, index) => (
-      <IonTabButton key={index} tab={item.path+item.tag} href={item.path}>
+  function renderFooterMenu(list: HookInterface[]) {
+    return list.map((item:HookInterface, index) => (
+      <IonTabButton key={'footer_'+index} tab={item.tag} href={item.path}>
         <img src={MyConst.RestStorage.toString() + item.icon.url.toString()} alt={item.name.toString()} />
         {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}
       </IonTabButton>
@@ -107,12 +111,12 @@ const App: React.FC = () => {
   }
 
   //TODO: Where and how can i move this kind of functions out of here??
-  function renderConsole(list: FooterMenu[]) {
+  /*function renderConsole(list: FooterMenu[]) {
     console.log(list[0])
   }
   
   renderConsole(hooks)
-
+*/
   return(
     <IonApp>
       <IonReactRouter>
@@ -122,7 +126,6 @@ const App: React.FC = () => {
             
             {/* Main routes */}
             <Route path='/Home' component={Home}/>
-            <Route path='/Training' component={Training}/>
             <Route path='/ExploreEquip' component={ExploreEquip}/>
             <Route path='/Navigate' component={Navigate}/>
             <Route path='/Assistance' component={Assistance}/>

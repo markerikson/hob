@@ -1,4 +1,6 @@
+import * as MyConst from '../../services/constants'
 import React, { useEffect, useState } from 'react'
+import { RouteComponentProps, withRouter, useLocation } from 'react-router'
 import {
   IonPage,
   IonHeader,
@@ -8,40 +10,70 @@ import {
   IonItem,
   IonTitle,
   IonLabel,
+  //useIonViewWillEnter,
+  //useIonViewDidEnter,
+  //useIonViewDidLeave,
+  //useIonViewWillLeave,
 } from '@ionic/react'
-import * as MyConst from '../../services/constants'
 
-const BoatTypes: React.FC = () => {
+interface HookInterface {
+  name: string,
+  path: string,
+  icon: Icon,
+  tag: string,
+  childrens?: HookInterface,
+  app_hooks_translation?: Translations
+}
+interface Translations {
+  title_translation?: string,
+  language_translation?: {
+    tag: string
+  }
+}
+interface Icon {
+  url: string
+}
+interface FooterMenuProps extends RouteComponentProps<{
+  tag: string;
+}> {}
 
-  const [hook, setHook] = useState({'childrens':[]})
-
+const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
+  
+  const [hook, setHook] = useState<HookInterface[]>([])
   useEffect(() => {
-    fetch( MyConst.RestAPI + 'hooks?tag=training')
+    //MyConst.RestAPI + 'hooks?style=main&tag='+match.params.tag)
+    fetch('http://161.97.167.92:1337/hooks?style=main&tag=Training')
       .then(res => res.json())
       .then(setHook)
   }, [])
 
-  console.log(hook)
+  // Fetching the 
+  function renderVerticalMenu(list: HookInterface[]) {
+    return list.map((p:HookInterface, index) => (
+      <IonItem key={index} routerLink={p.path.toString()}>
+        <IonLabel>{p.name.toString()}</IonLabel>
+      </IonItem>
+    ))
+  }
+
+  function renderTitle(list: HookInterface[]) {
+    return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
+  }
 
   return(
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>BOAT TYPES</IonTitle>
+          {renderTitle(hook)}
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem routerLink="/article/SolidHull">
-            <IonLabel>SOLID HULL</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/Inflatables">
-            <IonLabel>INFLATABLES</IonLabel>
-          </IonItem>
+          {renderVerticalMenu(hook)}{/*TODO: Fetch hook.childrens*/}
         </IonList>
       </IonContent>
     </IonPage>
   )
 }
 
-export default BoatTypes
+export default LiveMenu
