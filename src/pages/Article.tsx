@@ -1,34 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import * as MyConst from '../../services/constants'
+//import * as MyConst from '../services/constants'
+
 import React, { useEffect, useState } from 'react'
-import { RouteComponentProps, withRouter, useLocation } from 'react-router'
-import {
-  IonPage,
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonTitle,
+import { RouteComponentProps,
+} from 'react-router'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
   IonSlides,
   IonSlide,
-  IonLabel,
-  IonList,
-  IonItem,
+  //IonLabel,
+  //IonList,
+  //IonItem,
 } from '@ionic/react'
+//import { render } from '@testing-library/react'
 
-import { render } from '@testing-library/react'
-
-const slideOpts = {
-  initialSlide: 1,
-  speed: 400
-};
+const slideOpts = { initialSlide: 1, speed: 400 }
 
 interface Media {
-  url:string
+  url: string
 }
 
 interface Article {
-  name: string,
   url: string,  
+  name: string,
   media: Media
 }
 interface ArticlePageProps extends RouteComponentProps<{
@@ -40,11 +33,11 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   const [article, setArticle] = useState([])
 
   useEffect(() => {
-    fetch( MyConst.RestAPI + 'app-articles?tag=' + match.params.tag )
+    fetch( 'http://161.97.167.92:1337/app-articles?slug='+match.params.tag )
     .then(res => res.json())
     .then(setArticle)
   }, [])
-  
+  console.log(article)
   
   /*function renderSlider(list: Media[]) {
     return (
@@ -54,7 +47,6 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     )
   }*/
   
-  console.log(article) 
 
   return(
     <IonPage>

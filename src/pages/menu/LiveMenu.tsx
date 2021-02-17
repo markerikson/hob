@@ -1,6 +1,8 @@
-import * as MyConst from '../../services/constants'
+//import * as MyConst from '../../services/constants'
 import React, { useEffect, useState } from 'react'
-import { RouteComponentProps, withRouter, useLocation } from 'react-router'
+import { RouteComponentProps, 
+  //withRouter, useLocation 
+} from 'react-router'
 import {
   IonPage,
   IonHeader,
@@ -18,11 +20,11 @@ import {
 
 interface HookInterface {
   name: string,
-  path: string,
   icon: Icon,
+  path: string,
   tag: string,
   childrens?: HookInterface,
-  app_hooks_translation?: Translations
+  translations?: Translations
 }
 interface Translations {
   title_translation?: string,
@@ -42,12 +44,12 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   const [hook, setHook] = useState<HookInterface[]>([])
   useEffect(() => {
     //MyConst.RestAPI + 'hooks?style=main&tag='+match.params.tag)
-    fetch('http://161.97.167.92:1337/hooks?style=main&tag=Training')
+    fetch('http://161.97.167.92:1337/hooks?style=footer&tag='+match.params.tag)
       .then(res => res.json())
       .then(setHook)
-  }, [])
+  }, [match.params.tag])
 
-  // Fetching the 
+  // Fetching the vertical menu
   function renderVerticalMenu(list: HookInterface[]) {
     return list.map((p:HookInterface, index) => (
       <IonItem key={index} routerLink={p.path.toString()}>

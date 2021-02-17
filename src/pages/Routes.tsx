@@ -1,8 +1,8 @@
 import React from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
-import ExploreContainer from '../../components/ExploreContainer'
+import ExploreContainer from '../components/ExploreContainer'
 
-import * as MyConst from '../../services/constants'
+import * as MyConst from '../services/constants'
 
 const Routes: React.FC = () => {
 

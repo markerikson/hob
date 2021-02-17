@@ -1,4 +1,4 @@
-import * as MyConst from '../../services/constants'
+import * as MyConst from '../services/constants'
 
 
 import React, { useEffect, useState } from 'react'

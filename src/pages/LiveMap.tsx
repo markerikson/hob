@@ -1,10 +1,13 @@
-import * as MyConst from '../../services/constants'
+import * as MyConst from '../services/constants'
 
 import React, { useEffect, useState } from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, 
+  //Marker, 
+  //Popup 
+} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import { Plugins } from '@capacitor/core';
+//import { Plugins } from '@capacitor/core';
 
 // get the users current position
 //const position = await Geolocation.getCurrentPosition();
@@ -19,7 +22,7 @@ const LiveMap: React.FC = () => {
 
   const [lang, setLang] = useState(null)
   useEffect(() => {
-    fetch(MyConst.RestAPI+'languages?tag='+MyConst.RestAPI)
+    fetch('http://161.97.167.92:1337/languages?tag='+MyConst.RestAPI)
       .then(res => res.json())
       .then(setLang)
   }, [])

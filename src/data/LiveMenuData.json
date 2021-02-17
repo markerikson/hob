@@ -1,0 +1,436 @@
+[
+  {
+    "id": 4,
+    "name": "Train yourself",
+    "style": "main",
+    "parent": null,
+    "path": "LiveMenu/Training",
+    "ionic_icon": "triangle",
+    "tag": "Training",
+    "order": 1,
+    "app_article": null,
+    "created_at": "2021-02-07T22:28:26.930Z",
+    "updated_at": "2021-02-16T20:22:43.055Z",
+    "app_hooks_translation": [
+      {
+        "id": 21,
+        "title_translation": "Entrena",
+        "language_translation": {
+          "id": 3,
+          "name": "Spanish",
+          "tag": "es_es",
+          "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+          "created_at": "2021-02-07T22:25:07.871Z",
+          "updated_at": "2021-02-08T23:18:00.715Z"
+        }
+      },
+      {
+        "id": 22,
+        "title_translation": "Train yourself",
+        "language_translation": {
+          "id": 4,
+          "name": "English",
+          "tag": "en_uk",
+          "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+          "created_at": "2021-02-07T22:26:36.380Z",
+          "updated_at": "2021-02-08T23:17:54.774Z"
+        }
+      }
+    ],
+    "icon": {
+      "id": 1,
+      "name": "images.jpg",
+      "alternativeText": "",
+      "caption": "",
+      "width": 225,
+      "height": 225,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_images.jpg",
+          "hash": "thumbnail_images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 156,
+          "height": 156,
+          "size": 4.61,
+          "path": null,
+          "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+        }
+      },
+      "hash": "images_d94df67c9f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 7.29,
+      "url": "/uploads/images_d94df67c9f.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-12T01:03:19.114Z",
+      "updated_at": "2021-02-12T01:03:19.143Z"
+    },
+    "childrens": [
+      {
+        "id": 8,
+        "name": "Boat Types",
+        "style": "list",
+        "parent": 4,
+        "path": "BoatTypes",
+        "ionic_icon": "triangle",
+        "tag": null,
+        "order": null,
+        "app_article": null,
+        "created_at": "2021-02-12T22:28:40.653Z",
+        "updated_at": "2021-02-16T20:22:42.943Z",
+        "app_hooks_translation": [
+          {
+            "id": 23,
+            "title_translation": "Boat Types",
+            "language_translation": {
+              "id": 4,
+              "name": "English",
+              "tag": "en_uk",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:26:36.380Z",
+              "updated_at": "2021-02-08T23:17:54.774Z"
+            }
+          },
+          {
+            "id": 24,
+            "title_translation": "Tipos de barco",
+            "language_translation": {
+              "id": 3,
+              "name": "Spanish",
+              "tag": "es_es",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:25:07.871Z",
+              "updated_at": "2021-02-08T23:18:00.715Z"
+            }
+          }
+        ],
+        "icon": {
+          "id": 1,
+          "name": "images.jpg",
+          "alternativeText": "",
+          "caption": "",
+          "width": 225,
+          "height": 225,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_images.jpg",
+              "hash": "thumbnail_images_d94df67c9f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "width": 156,
+              "height": 156,
+              "size": 4.61,
+              "path": null,
+              "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+            }
+          },
+          "hash": "images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 7.29,
+          "url": "/uploads/images_d94df67c9f.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "created_at": "2021-02-12T01:03:19.114Z",
+          "updated_at": "2021-02-12T01:03:19.143Z"
+        }
+      },
+      {
+        "id": 9,
+        "name": "Controls",
+        "style": "list",
+        "parent": 4,
+        "path": "Controls",
+        "ionic_icon": "triangle",
+        "tag": null,
+        "order": null,
+        "app_article": null,
+        "created_at": "2021-02-12T22:29:25.846Z",
+        "updated_at": "2021-02-16T20:22:42.943Z",
+        "app_hooks_translation": [
+          {
+            "id": 25,
+            "title_translation": "Controls",
+            "language_translation": {
+              "id": 4,
+              "name": "English",
+              "tag": "en_uk",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:26:36.380Z",
+              "updated_at": "2021-02-08T23:17:54.774Z"
+            }
+          },
+          {
+            "id": 26,
+            "title_translation": "Controles",
+            "language_translation": {
+              "id": 3,
+              "name": "Spanish",
+              "tag": "es_es",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:25:07.871Z",
+              "updated_at": "2021-02-08T23:18:00.715Z"
+            }
+          }
+        ],
+        "icon": {
+          "id": 1,
+          "name": "images.jpg",
+          "alternativeText": "",
+          "caption": "",
+          "width": 225,
+          "height": 225,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_images.jpg",
+              "hash": "thumbnail_images_d94df67c9f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "width": 156,
+              "height": 156,
+              "size": 4.61,
+              "path": null,
+              "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+            }
+          },
+          "hash": "images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 7.29,
+          "url": "/uploads/images_d94df67c9f.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "created_at": "2021-02-12T01:03:19.114Z",
+          "updated_at": "2021-02-12T01:03:19.143Z"
+        }
+      },
+      {
+        "id": 10,
+        "name": "Rules of the road",
+        "style": "list",
+        "parent": 4,
+        "path": "Rules",
+        "ionic_icon": "triangle",
+        "tag": null,
+        "order": null,
+        "app_article": null,
+        "created_at": "2021-02-12T22:31:05.470Z",
+        "updated_at": "2021-02-16T20:22:42.943Z",
+        "app_hooks_translation": [
+          {
+            "id": 27,
+            "title_translation": "Rules of the road",
+            "language_translation": {
+              "id": 4,
+              "name": "English",
+              "tag": "en_uk",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:26:36.380Z",
+              "updated_at": "2021-02-08T23:17:54.774Z"
+            }
+          },
+          {
+            "id": 28,
+            "title_translation": "Normas",
+            "language_translation": {
+              "id": 3,
+              "name": "Spanish",
+              "tag": "es_es",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:25:07.871Z",
+              "updated_at": "2021-02-08T23:18:00.715Z"
+            }
+          }
+        ],
+        "icon": {
+          "id": 1,
+          "name": "images.jpg",
+          "alternativeText": "",
+          "caption": "",
+          "width": 225,
+          "height": 225,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_images.jpg",
+              "hash": "thumbnail_images_d94df67c9f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "width": 156,
+              "height": 156,
+              "size": 4.61,
+              "path": null,
+              "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+            }
+          },
+          "hash": "images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 7.29,
+          "url": "/uploads/images_d94df67c9f.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "created_at": "2021-02-12T01:03:19.114Z",
+          "updated_at": "2021-02-12T01:03:19.143Z"
+        }
+      },
+      {
+        "id": 11,
+        "name": "Troubleshooting",
+        "style": "list",
+        "parent": 4,
+        "path": "BoatTypes",
+        "ionic_icon": "triangle",
+        "tag": null,
+        "order": null,
+        "app_article": null,
+        "created_at": "2021-02-12T22:32:19.522Z",
+        "updated_at": "2021-02-16T20:22:42.943Z",
+        "app_hooks_translation": [
+          {
+            "id": 29,
+            "title_translation": "Troubleshooting",
+            "language_translation": {
+              "id": 4,
+              "name": "English",
+              "tag": "en_uk",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:26:36.380Z",
+              "updated_at": "2021-02-08T23:17:54.774Z"
+            }
+          },
+          {
+            "id": 30,
+            "title_translation": "Troubleshooting",
+            "language_translation": {
+              "id": 3,
+              "name": "Spanish",
+              "tag": "es_es",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:25:07.871Z",
+              "updated_at": "2021-02-08T23:18:00.715Z"
+            }
+          }
+        ],
+        "icon": {
+          "id": 1,
+          "name": "images.jpg",
+          "alternativeText": "",
+          "caption": "",
+          "width": 225,
+          "height": 225,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_images.jpg",
+              "hash": "thumbnail_images_d94df67c9f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "width": 156,
+              "height": 156,
+              "size": 4.61,
+              "path": null,
+              "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+            }
+          },
+          "hash": "images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 7.29,
+          "url": "/uploads/images_d94df67c9f.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "created_at": "2021-02-12T01:03:19.114Z",
+          "updated_at": "2021-02-12T01:03:19.143Z"
+        }
+      },
+      {
+        "id": 19,
+        "name": "Manouvers",
+        "style": "list",
+        "parent": 4,
+        "path": "Manouvers",
+        "ionic_icon": "triangle",
+        "tag": null,
+        "order": null,
+        "app_article": null,
+        "created_at": "2021-02-12T22:42:01.104Z",
+        "updated_at": "2021-02-16T20:22:42.943Z",
+        "app_hooks_translation": [
+          {
+            "id": 45,
+            "title_translation": "Manouvers",
+            "language_translation": {
+              "id": 4,
+              "name": "English",
+              "tag": "en_uk",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:26:36.380Z",
+              "updated_at": "2021-02-08T23:17:54.774Z"
+            }
+          },
+          {
+            "id": 46,
+            "title_translation": "Maniobras",
+            "language_translation": {
+              "id": 3,
+              "name": "Spanish",
+              "tag": "es_es",
+              "map_tabs_tile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              "map_attribution": "&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors",
+              "created_at": "2021-02-07T22:25:07.871Z",
+              "updated_at": "2021-02-08T23:18:00.715Z"
+            }
+          }
+        ],
+        "icon": {
+          "id": 1,
+          "name": "images.jpg",
+          "alternativeText": "",
+          "caption": "",
+          "width": 225,
+          "height": 225,
+          "formats": {
+            "thumbnail": {
+              "name": "thumbnail_images.jpg",
+              "hash": "thumbnail_images_d94df67c9f",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "width": 156,
+              "height": 156,
+              "size": 4.61,
+              "path": null,
+              "url": "/uploads/thumbnail_images_d94df67c9f.jpg"
+            }
+          },
+          "hash": "images_d94df67c9f",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 7.29,
+          "url": "/uploads/images_d94df67c9f.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "created_at": "2021-02-12T01:03:19.114Z",
+          "updated_at": "2021-02-12T01:03:19.143Z"
+        }
+      }
+    ]
+  }
+]

@@ -41,31 +41,18 @@ import '@ionic/react/css/display.css'
 import './theme/variables.css'
 
 // App main parts
-import Home         from './pages/menu/Home'
-import ExploreEquip from './pages/menu/ExploreEquip'
-import Navigate     from './pages/menu/Navigate'
-import Assistance   from './pages/menu/Assistance'
-import LiveMenu     from './pages/menu/LiveMenu'
-import Article      from './pages/menu/Article'
-import LiveMap      from './pages/menu/LiveMap'
-/*import Routes       from './pages/menu/Routes'
-import BoatTypes        from './pages/menu/BoatTypes'*/
-//import RedirectToLogin from './components/RedirectToLogin';
+import Home         from './pages/Home'
+import Article      from './pages/Article'
+import LiveMap      from './pages/LiveMap'
 
+//Complements (future)
+import LiveMenu     from './pages/menu/LiveMenu'
+
+//Others....
 import { loadConfData } from './data/sessions/sessions.actions';
 import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
 
 /* TODO: PUT SOMEWHERE THE COMPLETE EXTRACTED DATA FOR GET IT FROM IN APP AS INIT APP COMPLEXITY */ 
-/*const routes = {
-  appPages: [
-    { name: 'Home',             path: '/Home',          icon: square    },
-    { name: 'Train yourself',   path: '/Training',      icon: square    },
-    { name: 'Explore & Equip',  path: '/ExploreEquip',  icon: triangle  },
-    { name: 'Navigate',         path: '/Navigate',      icon: images    },
-    { name: 'Assistance',       path: '/Assistance',    icon: language  }
-  ]
-}*/
-
 interface HookInterface {
   name: string,
   path: string,
@@ -84,7 +71,6 @@ interface Icon {
   url: string
 }
 
-
 interface DispatchProps {
   loadConfData: typeof loadConfData
   loadUserData: typeof loadUserData
@@ -95,44 +81,36 @@ interface DispatchProps {
 const App: React.FC = () => {
 
   const [hooks, setHooks] = useState<any[]>([])
+
   useEffect(() => {
-    fetch(MyConst.RestAPI+'hooks?style=main')
+    fetch('http://161.97.167.92:1337/hooks?style=main')
     .then(res => res.json())
     .then(setHooks)
   }, [])
 
   function renderFooterMenu(list: HookInterface[]) {
     return list.map((item:HookInterface, index) => (
-      <IonTabButton key={'footer_'+index} tab={item.tag} href={item.path}>
-        <img src={MyConst.RestStorage.toString() + item.icon.url.toString()} alt={item.name.toString()} />
-        {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}
+      <IonTabButton key={'footer_'+index} tab={item.tag} href={item.path+'/'+item.tag} disabled={false}>
+        <img src={MyConst.RestStorage + item.icon.url} alt={item.name.toString()} />
+        {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel> }
       </IonTabButton>
     ))
   }
 
-  //TODO: Where and how can i move this kind of functions out of here??
-  /*function renderConsole(list: FooterMenu[]) {
-    console.log(list[0])
-  }
-  
-  renderConsole(hooks)
-*/
   return(
     <IonApp>
       <IonReactRouter>
         <IonTabs>
+
           <IonRouterOutlet>
+            
             <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
             
             {/* Main routes */}
             <Route path='/Home' component={Home}/>
-            <Route path='/ExploreEquip' component={ExploreEquip}/>
-            <Route path='/Navigate' component={Navigate}/>
-            <Route path='/Assistance' component={Assistance}/>
-
-            <Route path='/LiveMap' component={LiveMap}/>
-            <Route path='/Article/:tag' component={Article}/>
             <Route path='/LiveMenu/:tag' component={LiveMenu}/>
+            <Route path='/LiveMap/:route' component={LiveMap}/>
+            <Route path='/Article/:tag' component={Article}/>
 
             {/*<Route path="/logout" render={() => {
               return <RedirectToLogin
@@ -144,14 +122,13 @@ const App: React.FC = () => {
           </IonRouterOutlet>
 
           <IonTabBar slot='bottom'>
-
             <IonTabButton tab='/Home' href="/Home">
               <IonIcon icon={triangle} />
               <IonLabel>Home</IonLabel>
             </IonTabButton>
             {renderFooterMenu(hooks)}
-
           </IonTabBar>
+
         </IonTabs>
       </IonReactRouter>
     </IonApp>

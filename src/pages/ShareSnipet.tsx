@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import * as MyConst from '../../services/constants'
+import * as MyConst from '../services/constants'
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps, withRouter, useLocation } from 'react-router'
 import {

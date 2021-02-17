@@ -1,4 +1,4 @@
-import * as MyConsts from '../../services/constants'
+//import * as MyConsts from '../services/constants'
 
 import React, { useState } from 'react'
 
@@ -23,9 +23,9 @@ import {
   IonInput,
   IonText
 } from '@ionic/react'
-//import '../../styles/Login.scss';
-import { setIsLoggedIn, setUsername } from '../../data/user/user.actions'
-import { connect } from '../../data/connect'
+//import '../styles/Login.scss';
+import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
+import { connect } from '../data/connect'
 import { RouteComponentProps } from 'react-router'
 
 interface OwnProps extends RouteComponentProps {}
