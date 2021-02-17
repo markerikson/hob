@@ -1,119 +1,162 @@
-import React , { useEffect, useState } from 'react';
+import * as MyConst from './services/constants'
 
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs
-} from '@ionic/react';
+import React, { useEffect, useState } from 'react'
+import { IonReactRouter,  } from '@ionic/react-router'
 
-import { IonReactRouter } from '@ionic/react-router';
-import { square, triangle, images } from 'ionicons/icons';
-import { Redirect, Route } from 'react-router-dom';
+import { 
+  IonApp, 
+  IonIcon, 
+  IonLabel, 
+  IonRouterOutlet, 
+  IonTabBar,   
+  //useIonViewDidEnter,
+  //useIonViewDidLeave,
+  //useIonViewWillEnter,
+  //useIonViewWillLeave, 
+  IonTabButton, 
+  IonTabs 
+} from '@ionic/react'
 
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
-import Tab4 from './pages/Tab4';
-import Tab5 from './pages/Tab5';
-import Tab6 from './pages/Tab6';
-import Tab7 from './pages/Tab7';
-import Details from './pages/Details';
+import { triangle } from 'ionicons/icons'
+import { Redirect, Route } from 'react-router-dom'
 
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+//import { defineCustomElements } from '@ionic/pwa-elements/loader'
+//import axios from 'axios'
 
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+/* CSS required for Ionic components to work properly */
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import '@ionic/react/css/padding.css'
+import '@ionic/react/css/float-elements.css'
+import '@ionic/react/css/text-alignment.css'
+import '@ionic/react/css/text-transformation.css'
+import '@ionic/react/css/flex-utils.css'
+import '@ionic/react/css/display.css'
 
 /* Theme variables */
-import './theme/variables.css';
+import './theme/variables.css'
+
+// App main parts
+import Home         from './pages/menu/Home'
+import ExploreEquip from './pages/menu/ExploreEquip'
+import Navigate     from './pages/menu/Navigate'
+import Assistance   from './pages/menu/Assistance'
+import LiveMenu     from './pages/menu/LiveMenu'
+import Article      from './pages/menu/Article'
+import LiveMap      from './pages/menu/LiveMap'
+/*import Routes       from './pages/menu/Routes'
+import BoatTypes        from './pages/menu/BoatTypes'*/
+//import RedirectToLogin from './components/RedirectToLogin';
+
+import { loadConfData } from './data/sessions/sessions.actions';
+import { setIsLoggedIn, setUsername, loadUserData } from './data/user/user.actions';
+
+/* TODO: PUT SOMEWHERE THE COMPLETE EXTRACTED DATA FOR GET IT FROM IN APP AS INIT APP COMPLEXITY */ 
+/*const routes = {
+  appPages: [
+    { name: 'Home',             path: '/Home',          icon: square    },
+    { name: 'Train yourself',   path: '/Training',      icon: square    },
+    { name: 'Explore & Equip',  path: '/ExploreEquip',  icon: triangle  },
+    { name: 'Navigate',         path: '/Navigate',      icon: images    },
+    { name: 'Assistance',       path: '/Assistance',    icon: language  }
+  ]
+}*/
+
+interface HookInterface {
+  name: string,
+  path: string,
+  icon: Icon,
+  tag: string,
+  childrens?: object,
+  app_hooks_translation?: Translations
+}
+interface Translations {
+  title_translation?: string,
+  language_translation?: {
+    tag: string
+  }
+}
+interface Icon {
+  url: string
+}
+
+
+interface DispatchProps {
+  loadConfData: typeof loadConfData
+  loadUserData: typeof loadUserData
+  setIsLoggedIn: typeof setIsLoggedIn
+  setUsername: typeof setUsername
+}
 
 const App: React.FC = () => {
 
-  const [hooks, setHooks] = useState(null)
-
+  const [hooks, setHooks] = useState<any[]>([])
   useEffect(() => {
-    fetch('http://161.97.167.92:1337/hooks?style=main')
-      .then(res => res.json())
-      .then(setHooks)
+    fetch(MyConst.RestAPI+'hooks?style=main')
+    .then(res => res.json())
+    .then(setHooks)
   }, [])
 
-  return (
+  function renderFooterMenu(list: HookInterface[]) {
+    return list.map((item:HookInterface, index) => (
+      <IonTabButton key={'footer_'+index} tab={item.tag} href={item.path}>
+        <img src={MyConst.RestStorage.toString() + item.icon.url.toString()} alt={item.name.toString()} />
+        {item?.app_hooks_translation?.language_translation?.tag === 'es_es' && <IonLabel>{item.app_hooks_translation.title_translation}</IonLabel>}
+      </IonTabButton>
+    ))
+  }
+
+  //TODO: Where and how can i move this kind of functions out of here??
+  /*function renderConsole(list: FooterMenu[]) {
+    console.log(list[0])
+  }
+  
+  renderConsole(hooks)
+*/
+  return(
     <IonApp>
       <IonReactRouter>
         <IonTabs>
-
           <IonRouterOutlet>
-            <Route path="/tab1" component={Tab1} exact={true} />
-            <Route path="/tab2" component={Tab2} exact={true} />
-            <Route path="/tab2/details" component={Details} />
-            <Route path="/tab3" component={Tab3} />
-            <Route path="/tab4" component={Tab4} />
-            <Route path="/tab5" component={Tab5} />
-            <Route path="/tab6" component={Tab6} />
-            <Route path="/tab7" component={Tab7} />
-            <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
+            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
+            
+            {/* Main routes */}
+            <Route path='/Home' component={Home}/>
+            <Route path='/ExploreEquip' component={ExploreEquip}/>
+            <Route path='/Navigate' component={Navigate}/>
+            <Route path='/Assistance' component={Assistance}/>
+
+            <Route path='/LiveMap' component={LiveMap}/>
+            <Route path='/Article/:tag' component={Article}/>
+            <Route path='/LiveMenu/:tag' component={LiveMenu}/>
+
+            {/*<Route path="/logout" render={() => {
+              return <RedirectToLogin
+                setIsLoggedIn={setIsLoggedIn}
+                setUsername={setUsername}
+              />;
+            }}/>*/}
+
           </IonRouterOutlet>
 
-          <IonTabBar slot="bottom">
+          <IonTabBar slot='bottom'>
 
-            <IonTabButton tab="tab1" href="/tab1">
+            <IonTabButton tab='/Home' href="/Home">
               <IonIcon icon={triangle} />
               <IonLabel>Home</IonLabel>
             </IonTabButton>
-
-            <IonTabButton tab="tab2" href="/tab2">
-              <IonIcon icon={images} />
-              <IonLabel>Train yourself</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="tab3" href="/tab3">
-              <IonIcon icon={square} />
-              <IonLabel>Explore & equip</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="tab4" href="/tab4">
-              <IonIcon icon={square} />
-              <IonLabel>Navigate</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="tab5" href="/tab5">
-              <IonIcon icon={square} />
-              <IonLabel>Assistance</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="tab6" href="/tab6">
-              <IonIcon icon={square} />
-              <IonLabel>Search</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="tab7" href="/tab7">
-              <IonIcon icon={square} />
-              <IonLabel>tryetr</IonLabel>
-            </IonTabButton>
+            {renderFooterMenu(hooks)}
 
           </IonTabBar>
         </IonTabs>
-
       </IonReactRouter>
-
     </IonApp>
-  );
+  )
 
-};
+}
 
-export default App;
+export default App
