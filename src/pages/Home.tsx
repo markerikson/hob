@@ -9,10 +9,10 @@ import {
   IonContent,
   IonPage,
   IonButtons,
-  useIonViewDidEnter,
-  useIonViewDidLeave,
-  useIonViewWillEnter,
-  useIonViewWillLeave,
+  //useIonViewDidEnter,
+  //useIonViewDidLeave,
+  //useIonViewWillEnter,
+  //useIonViewWillLeave,
   IonMenuButton,
   IonRow,
   IonCol,
@@ -45,7 +45,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
 
-  useIonViewDidEnter(() => {
+  /*useIonViewDidEnter(() => {
     console.log('HOME ionViewDidEnter event fired');
   });
 
@@ -59,7 +59,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
 
   useIonViewWillLeave(() => {
     console.log('HOME ionViewWillLeave event fired');
-  });
+  });*/
 
   const login = async (e: React.FormEvent) => {
 

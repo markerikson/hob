@@ -1,64 +1,98 @@
-//import * as MyConst from '../../services/constants'
+import * as MyConst from '../../services/constants'
+import {  IonPage,  IonHeader,  IonContent,  IonToolbar,  IonList,  IonItem,  IonLabel,  IonTitle,  //IonButtons,  //IonBackButton,  //useIonViewWillEnter,  //useIonViewDidEnter,  //useIonViewDidLeave,  //useIonViewWillLeave,
+} from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps, 
   //withRouter, useLocation 
 } from 'react-router'
-import {
-  IonPage,
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonList,
-  IonItem,
-  IonTitle,
-  IonLabel,
-  //useIonViewWillEnter,
-  //useIonViewDidEnter,
-  //useIonViewDidLeave,
-  //useIonViewWillLeave,
-} from '@ionic/react'
+import axios from 'axios';
 
-interface HookInterface {
+/* TODO: PUT SOMEWHERE THE COMPLETE EXTRACTED DATA FOR GET IT FROM IN APP AS INIT APP COMPLEXITY */ 
+interface MenuInterface {
+  id: number,
   name: string,
-  icon: Icon,
-  path: string,
-  tag: string,
-  childrens?: HookInterface,
-  translations?: Translations
-}
-interface Translations {
-  title_translation?: string,
-  language_translation?: {
-    tag: string
+  icon: {
+    url: string
+  },
+  label?: {
+    label: string,
+    language: {
+      id: string,
+      name: string,
+      code: string
+    }
+  },
+  ionic_resource: string,
+  description: string,
+  children?: {
+    [key: string]: ChildrenInterface
   }
 }
-interface Icon {
-  url: string
+
+interface ChildrenInterface {
+  contents?: ContentInterface[],
+  menus?: SubmenuInterface[]  
 }
+
+interface SubmenuInterface {
+  id: number,
+  name: string,
+  icon: {
+    url: string
+  },
+  ionic_resource: string,
+  description: string,
+  children?: {
+    [key: string]: ChildrenInterface
+  }
+}
+
+interface ContentInterface {
+  id: string,
+  name: string,
+  icon: {
+    url: string
+  },
+  media?: {
+    label: string,
+    language: {
+      id: string,
+      name: string,
+      code: string
+    }
+  }
+}
+
 interface FooterMenuProps extends RouteComponentProps<{
-  tag: string;
+  id: string;
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   
-  const [hook, setHook] = useState<HookInterface[]>([])
+  const uri1 = 'http://161.97.167.92:1337/app-menus?id='+match.params.id;
+  const [menu, setMenu] = useState<MenuInterface[]>([])
+
   useEffect(() => {
-    //MyConst.RestAPI + 'hooks?style=main&tag='+match.params.tag)
-    fetch('http://161.97.167.92:1337/hooks?style=footer&tag='+match.params.tag)
+    fetch(uri1)
       .then(res => res.json())
-      .then(setHook)
-  }, [match.params.tag])
+      .then(setMenu)
+  }, [])
+
+  //console.log(menu)
+
 
   // Fetching the vertical menu
-  function renderVerticalMenu(list: HookInterface[]) {
-    return list.map((p:HookInterface, index) => (
-      <IonItem key={index} routerLink={p.path.toString()}>
-        <IonLabel>{p.name.toString()}</IonLabel>
+  function renderVerticalMenu(list: SubmenuInterface[]) {
+    var res = list.map((r: SubmenuInterface, i) => (
+      <IonItem key={'list_'+i}>
+        <img src={ MyConst.RestStorage + r.icon.url } alt={r.name.toString()} width="50px"/>
+        <IonLabel>{r.name}</IonLabel>
       </IonItem>
     ))
+    return res
   }
 
-  function renderTitle(list: HookInterface[]) {
+  function renderTitle(list: MenuInterface[]) {
     return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
   }
 
@@ -66,12 +100,15 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          {renderTitle(hook)}
+          {/*<IonButtons slot="start">
+            <IonBackButton defaultHref="/" />
+          </IonButtons>*/}
+          {renderTitle(menu)}
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList>
-          {renderVerticalMenu(hook)}{/*TODO: Fetch hook.childrens*/}
+          {renderVerticalMenu(menu)}
         </IonList>
       </IonContent>
     </IonPage>
