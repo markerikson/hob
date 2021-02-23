@@ -1,0 +1,613 @@
+[
+  {
+    "id": 1,
+    "name": "Home",
+    "created_at": "2021-02-20T23:27:49.000Z",
+    "updated_at": "2021-02-22T01:31:52.000Z",
+    "ionic_resource": "Home",
+    "main": true,
+    "description": [],
+    "label": [
+      {
+        "id": 1,
+        "label": "Home",
+        "language": {
+          "id": 1,
+          "name": "English (UK)",
+          "code": "en_uk",
+          "published_at": "2021-02-20T04:46:51.000Z",
+          "created_at": "2021-02-20T04:46:47.000Z",
+          "updated_at": "2021-02-20T04:46:51.000Z"
+        }
+      },
+      {
+        "id": 2,
+        "label": "Home",
+        "language": {
+          "id": 2,
+          "name": "Spanish (ES)",
+          "code": "es_es",
+          "published_at": "2021-02-20T04:47:09.000Z",
+          "created_at": "2021-02-20T04:47:05.000Z",
+          "updated_at": "2021-02-20T04:47:09.000Z"
+        }
+      }
+    ],
+    "children": [],
+    "icon": {
+      "id": 21,
+      "name": "home.PNG",
+      "alternativeText": "",
+      "caption": "",
+      "width": 174,
+      "height": 151,
+      "formats": null,
+      "hash": "home_6819f55139",
+      "ext": ".PNG",
+      "mime": "image/png",
+      "size": 5.79,
+      "url": "/uploads/home_6819f55139.PNG",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-20T22:52:46.000Z",
+      "updated_at": "2021-02-20T22:52:47.000Z"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Training",
+    "created_at": "2021-02-20T23:31:13.000Z",
+    "updated_at": "2021-02-21T00:52:48.000Z",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "description": [],
+    "label": [
+      {
+        "id": 3,
+        "label": "Training",
+        "language": {
+          "id": 1,
+          "name": "English (UK)",
+          "code": "en_uk",
+          "published_at": "2021-02-20T04:46:51.000Z",
+          "created_at": "2021-02-20T04:46:47.000Z",
+          "updated_at": "2021-02-20T04:46:51.000Z"
+        }
+      },
+      {
+        "id": 4,
+        "label": "Entrenamiento",
+        "language": {
+          "id": 2,
+          "name": "Spanish (ES)",
+          "code": "es_es",
+          "published_at": "2021-02-20T04:47:09.000Z",
+          "created_at": "2021-02-20T04:47:05.000Z",
+          "updated_at": "2021-02-20T04:47:09.000Z"
+        }
+      }
+    ],
+    "children": [
+      {
+        "id": 1,
+        "contents": [],
+        "menus": [
+          {
+            "id": 6,
+            "name": "Boat Types",
+            "created_at": "2021-02-20T23:33:49.000Z",
+            "updated_at": "2021-02-21T00:53:38.000Z",
+            "ionic_resource": "LiveMenu",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 7,
+            "name": "Controls",
+            "created_at": "2021-02-20T23:36:25.000Z",
+            "updated_at": "2021-02-21T01:07:42.000Z",
+            "ionic_resource": "LiveMenu",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 8,
+            "name": "Manoeveures",
+            "created_at": "2021-02-20T23:36:51.000Z",
+            "updated_at": "2021-02-21T23:27:57.000Z",
+            "ionic_resource": "LiveMenu",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 9,
+            "name": "Rules of the road",
+            "created_at": "2021-02-20T23:37:19.000Z",
+            "updated_at": "2021-02-21T01:04:02.000Z",
+            "ionic_resource": "LiveMenu",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 10,
+            "name": "Emergencies",
+            "created_at": "2021-02-20T23:37:41.000Z",
+            "updated_at": "2021-02-21T01:04:41.000Z",
+            "ionic_resource": "LiveMenu",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          }
+        ]
+      }
+    ],
+    "icon": {
+      "id": 19,
+      "name": "owl.PNG",
+      "alternativeText": "",
+      "caption": "",
+      "width": 112,
+      "height": 109,
+      "formats": null,
+      "hash": "owl_e45f0349d9",
+      "ext": ".PNG",
+      "mime": "image/png",
+      "size": 4.67,
+      "url": "/uploads/owl_e45f0349d9.PNG",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-20T22:52:46.000Z",
+      "updated_at": "2021-02-20T22:52:47.000Z"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Explore & Equip",
+    "created_at": "2021-02-20T23:31:50.000Z",
+    "updated_at": "2021-02-21T01:05:22.000Z",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "description": [],
+    "label": [
+      {
+        "id": 5,
+        "label": "Explore & Equip",
+        "language": {
+          "id": 1,
+          "name": "English (UK)",
+          "code": "en_uk",
+          "published_at": "2021-02-20T04:46:51.000Z",
+          "created_at": "2021-02-20T04:46:47.000Z",
+          "updated_at": "2021-02-20T04:46:51.000Z"
+        }
+      },
+      {
+        "id": 6,
+        "label": "Exploración y equipo",
+        "language": {
+          "id": 2,
+          "name": "Spanish (ES)",
+          "code": "es_es",
+          "published_at": "2021-02-20T04:47:09.000Z",
+          "created_at": "2021-02-20T04:47:05.000Z",
+          "updated_at": "2021-02-20T04:47:09.000Z"
+        }
+      }
+    ],
+    "children": [
+      {
+        "id": 8,
+        "contents": [],
+        "menus": [
+          {
+            "id": 11,
+            "name": "Routes",
+            "created_at": "2021-02-20T23:38:05.000Z",
+            "updated_at": "2021-02-22T01:02:59.000Z",
+            "ionic_resource": "LiveMap",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 12,
+            "name": "Equipment",
+            "created_at": "2021-02-20T23:38:33.000Z",
+            "updated_at": "2021-02-21T00:24:29.000Z",
+            "ionic_resource": "Equipment",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 11,
+              "name": "4.1.2.Aa. Reverse.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 17,
+              "url": "/uploads/4_1_2_Aa_Reverse_98c00eac0a.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          }
+        ]
+      }
+    ],
+    "icon": {
+      "id": 6,
+      "name": "exploreequip.PNG",
+      "alternativeText": "",
+      "caption": "",
+      "width": 109,
+      "height": 103,
+      "formats": null,
+      "hash": "exploreequip_bc40f3273e",
+      "ext": ".PNG",
+      "mime": "image/png",
+      "size": 4.51,
+      "url": "/uploads/exploreequip_bc40f3273e.PNG",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-20T22:52:45.000Z",
+      "updated_at": "2021-02-20T22:52:45.000Z"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Navigate",
+    "created_at": "2021-02-20T23:32:37.000Z",
+    "updated_at": "2021-02-22T22:39:36.000Z",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "description": [],
+    "label": [
+      {
+        "id": 7,
+        "label": "Navigate",
+        "language": {
+          "id": 1,
+          "name": "English (UK)",
+          "code": "en_uk",
+          "published_at": "2021-02-20T04:46:51.000Z",
+          "created_at": "2021-02-20T04:46:47.000Z",
+          "updated_at": "2021-02-20T04:46:51.000Z"
+        }
+      },
+      {
+        "id": 8,
+        "label": "Navegación",
+        "language": {
+          "id": 2,
+          "name": "Spanish (ES)",
+          "code": "es_es",
+          "published_at": "2021-02-20T04:47:09.000Z",
+          "created_at": "2021-02-20T04:47:05.000Z",
+          "updated_at": "2021-02-20T04:47:09.000Z"
+        }
+      }
+    ],
+    "children": [
+      {
+        "id": 10,
+        "contents": [],
+        "menus": [
+          {
+            "id": 14,
+            "name": "Load your route",
+            "created_at": "2021-02-22T22:31:14.000Z",
+            "updated_at": "2021-02-22T22:39:52.000Z",
+            "ionic_resource": "LiveMap",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 12,
+              "name": "4.1.3.Aa1.Chaleco.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_3_Aa1_Chaleco_007c7407e5",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 16.46,
+              "url": "/uploads/4_1_3_Aa1_Chaleco_007c7407e5.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          },
+          {
+            "id": 15,
+            "name": "Live Map",
+            "created_at": "2021-02-22T22:32:00.000Z",
+            "updated_at": "2021-02-22T22:40:16.000Z",
+            "ionic_resource": "LiveMap",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 16,
+              "name": "4.1.3.D.1metre.svg",
+              "alternativeText": "",
+              "caption": "",
+              "width": 800,
+              "height": 800,
+              "formats": null,
+              "hash": "4_1_3_D_1metre_25296a3bf2",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 39.14,
+              "url": "/uploads/4_1_3_D_1metre_25296a3bf2.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:46.000Z",
+              "updated_at": "2021-02-20T22:52:46.000Z"
+            }
+          }
+        ]
+      }
+    ],
+    "icon": {
+      "id": 20,
+      "name": "navigate.PNG",
+      "alternativeText": "",
+      "caption": "",
+      "width": 122,
+      "height": 109,
+      "formats": null,
+      "hash": "navigate_45e086ac39",
+      "ext": ".PNG",
+      "mime": "image/png",
+      "size": 2.52,
+      "url": "/uploads/navigate_45e086ac39.PNG",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-20T22:52:46.000Z",
+      "updated_at": "2021-02-20T22:52:47.000Z"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Assistance",
+    "created_at": "2021-02-20T23:32:59.000Z",
+    "updated_at": "2021-02-22T22:59:08.000Z",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "description": [],
+    "label": [
+      {
+        "id": 9,
+        "label": "Assistance",
+        "language": {
+          "id": 1,
+          "name": "English (UK)",
+          "code": "en_uk",
+          "published_at": "2021-02-20T04:46:51.000Z",
+          "created_at": "2021-02-20T04:46:47.000Z",
+          "updated_at": "2021-02-20T04:46:51.000Z"
+        }
+      },
+      {
+        "id": 10,
+        "label": "Asistencia",
+        "language": {
+          "id": 2,
+          "name": "Spanish (ES)",
+          "code": "es_es",
+          "published_at": "2021-02-20T04:47:09.000Z",
+          "created_at": "2021-02-20T04:47:05.000Z",
+          "updated_at": "2021-02-20T04:47:09.000Z"
+        }
+      }
+    ],
+    "children": [
+      {
+        "id": 11,
+        "contents": [],
+        "menus": [
+          {
+            "id": 16,
+            "name": "Call emergencies",
+            "created_at": "2021-02-22T22:44:26.000Z",
+            "updated_at": "2021-02-22T22:46:41.000Z",
+            "ionic_resource": "Assistance",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 4,
+              "name": "assistance.PNG",
+              "alternativeText": "",
+              "caption": "",
+              "width": 119,
+              "height": 120,
+              "formats": null,
+              "hash": "assistance_239417fa65",
+              "ext": ".PNG",
+              "mime": "image/png",
+              "size": 3.6,
+              "url": "/uploads/assistance_239417fa65.PNG",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:45.000Z",
+              "updated_at": "2021-02-20T22:52:45.000Z"
+            }
+          },
+          {
+            "id": 17,
+            "name": "Call base",
+            "created_at": "2021-02-22T22:58:46.000Z",
+            "updated_at": "2021-02-22T22:58:46.000Z",
+            "ionic_resource": "Assistance/base",
+            "main": false,
+            "description": null,
+            "icon": {
+              "id": 4,
+              "name": "assistance.PNG",
+              "alternativeText": "",
+              "caption": "",
+              "width": 119,
+              "height": 120,
+              "formats": null,
+              "hash": "assistance_239417fa65",
+              "ext": ".PNG",
+              "mime": "image/png",
+              "size": 3.6,
+              "url": "/uploads/assistance_239417fa65.PNG",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "created_at": "2021-02-20T22:52:45.000Z",
+              "updated_at": "2021-02-20T22:52:45.000Z"
+            }
+          }
+        ]
+      }
+    ],
+    "icon": {
+      "id": 4,
+      "name": "assistance.PNG",
+      "alternativeText": "",
+      "caption": "",
+      "width": 119,
+      "height": 120,
+      "formats": null,
+      "hash": "assistance_239417fa65",
+      "ext": ".PNG",
+      "mime": "image/png",
+      "size": 3.6,
+      "url": "/uploads/assistance_239417fa65.PNG",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-02-20T22:52:45.000Z",
+      "updated_at": "2021-02-20T22:52:45.000Z"
+    }
+  }
+]

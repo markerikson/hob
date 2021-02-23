@@ -1,29 +1,5 @@
-//import * as MyConsts from '../services/constants'
-
 import React, { useState } from 'react'
-
-import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonPage,
-  IonButtons,
-  //useIonViewDidEnter,
-  //useIonViewDidLeave,
-  //useIonViewWillEnter,
-  //useIonViewWillLeave,
-  IonMenuButton,
-  IonRow,
-  IonCol,
-  IonButton,
-  IonList,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonText
-} from '@ionic/react'
-//import '../styles/Login.scss';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
 import { connect } from '../data/connect'
 import { RouteComponentProps } from 'react-router'
@@ -44,22 +20,6 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
-
-  /*useIonViewDidEnter(() => {
-    console.log('HOME ionViewDidEnter event fired');
-  });
-
-  useIonViewDidLeave(() => {
-    console.log('HOME ionViewDidLeave event fired');
-  });
-
-  useIonViewWillEnter(() => {
-    console.log('HOME ionViewWillEnter event fired');
-  });
-
-  useIonViewWillLeave(() => {
-    console.log('HOME ionViewWillLeave event fired');
-  });*/
 
   const login = async (e: React.FormEvent) => {
 
@@ -98,7 +58,8 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
           <img src="assets/img/appicon.svg" alt="Ionic logo" />
         </div>
 
-        <form noValidate onSubmit={login}>
+        <form noValidate /*{onSubmit={login}}*/>
+          
           <IonList>
             <IonItem>
               <IonLabel position="stacked" color="primary">Username</IonLabel>

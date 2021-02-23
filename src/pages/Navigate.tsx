@@ -33,7 +33,7 @@ interface HookInterface {
 }
 
 
-const Weather: React.FC = () => {
+const Navigate: React.FC = () => {
   
   const [hook, setHook] = useState<HookInterface[]>([])
   useEffect(() => {
@@ -88,4 +88,4 @@ const Weather: React.FC = () => {
   )
 }
 
-export default Weather
+export default Navigate
