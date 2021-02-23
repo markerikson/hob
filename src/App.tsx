@@ -27,6 +27,7 @@ import Article from './components/Article'
 
 // App main pages
 import Home from './pages/Home'
+import Support from './pages/Home'
 import LiveMap from './pages/LiveMap'
 
 // Data Interfaces
@@ -57,6 +58,7 @@ const App: React.FC = () => {
             <Route path='/LiveMenu/:id' component={LiveMenu}/>
             <Route path='/LiveMap/:id' component={LiveMap}/>
             <Route path='/Article/:id' component={Article}/>
+            <Route path='/Support' component={Article}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom'>
             {renderFooterMenu(my_menu)}

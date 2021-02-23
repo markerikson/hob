@@ -1,6 +1,5 @@
 import * as MyConst from '../services/constants'
-import {  IonPage,  IonHeader,  IonContent,  IonToolbar,  IonList,  IonItem,  IonLabel,  IonTitle,  //IonButtons,  //IonBackButton,  //useIonViewWillEnter,  //useIonViewDidEnter,  //useIonViewDidLeave,  //useIonViewWillLeave,
-} from '@ionic/react'
+import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonItem, IonLabel, IonTitle, IonBackButton } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { useLocation } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { Menu } from '../models/Menu'
 
 interface FooterMenuProps extends RouteComponentProps<{
-  id: string;
+  id: string
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
@@ -22,11 +21,12 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
       .then(setMenu)
   }, [match.params.id])
   //console.log(menu)
-
+  
   // Fetching the vertical menu
   function renderVerticalMenu(list: Menu[]) {/*MAIN TODO JEFF!!!! En realidad tendrían que ser submenús... Estos no incluyen */
     var res = list.map((r: Menu, i) => (
       <IonItem key={'list_'+i} className={location.pathname === r.ionic_resource ? 'selected' : ''} >
+        {/* MyConst.DefaultLanguage == es_es the paint label*/}
         <img src={ MyConst.RestStorage + r.icon.url } alt={r.name.toString()} width="50px"/>
         <IonLabel>{r.name}</IonLabel>{/*MAIN TODO JEFF!!!! Aquí lo que quiero es imprimir la primera fila del Array children, tanto los que son contents como menus */}
       </IonItem>
@@ -42,9 +42,9 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          {/*<IonButtons slot="start">
+          <IonButtons slot="start">
             <IonBackButton defaultHref="/" />
-          </IonButtons>*/}
+          </IonButtons>
           {renderTitle(menu)}
         </IonToolbar>
       </IonHeader>

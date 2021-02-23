@@ -1,7 +1,7 @@
-import { Label } from './Label';
-import { Icon } from './Icon';
+import { Icon } from './Icon'
+import { Label } from './Label'
 export interface Children {
-  id:   number,
+  id: number,
   name: string,
   icon: Icon,
   ionic_resource: string,

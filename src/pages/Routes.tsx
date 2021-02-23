@@ -20,14 +20,14 @@ interface MapProps extends RouteComponentProps<{
 
 const Routes: React.FC<MapProps> = ({match}) => {
 
-  const [route, setRoute] = useState<RouteInterface[]>([])
+  const [routes, setRoute] = useState<RouteInterface[]>([])
   useEffect(() => {
-    fetch('http://161.97.167.92:1337/my-routes?id='+match.params.id)
+    fetch('http://161.97.167.92:1337/my-routes')
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])
 
-  console.log(route)  
+  console.log(routes)  
 
   return(
     <IonPage>

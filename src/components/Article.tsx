@@ -5,6 +5,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonSlides, IonSli
 
 // Interfaces
 import { Content } from '../models/Content'
+import { ArticleItf } from '../models/Article'
 
 const slideOpts = { initialSlide: 1, speed: 400 }
 
@@ -23,6 +24,26 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   console.log(content)
 
+  // Fetching the vertical menu
+  function rendertSlider(list: Content[]){
+    var res = list.map((r: Content, i) => (
+      <IonSlides key={'slider_'+r.id} pager={true} options={slideOpts}>
+        <IonSlide>
+          <img src={MyConst.RestStorage + r.icon.url.toString()} alt={r.name} width="50px"/>
+        </IonSlide>   
+      </IonSlides>
+    ))
+    return res
+  }
+
+  function renderTitle(list: Content[]) {
+    return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
+  }
+
+  function renderArticle(list: Content[]) {
+    return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
+  }
+
   return(
     <IonPage>
       <IonHeader>
@@ -30,14 +51,12 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
             <IonButtons slot="start">
               <IonBackButton defaultHref="/" />
             </IonButtons>
-          <IonTitle>{match.params.id}</IonTitle>
+          <IonTitle>{renderTitle(content)}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonSlides pager={true} options={slideOpts}>
-          <IonSlide>
-            <h1>Slide 1</h1>
-          </IonSlide>   
+          {rendertSlider(content)} 
         </IonSlides>
       </IonContent>
     </IonPage>

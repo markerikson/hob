@@ -17,6 +17,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
@@ -91,9 +92,9 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
             <IonCol>
               <IonButton type="submit" expand="block">Login</IonButton>
             </IonCol>
-            {/*<IonCol>
+            <IonCol>
               <IonButton routerLink="/signup" color="light" expand="block">Signup</IonButton>
-            </IonCol>*/}
+            </IonCol>
           </IonRow>
         </form>
 

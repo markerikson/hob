@@ -152,8 +152,6 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
       .then(setRoute)
   }, [match.params.id])
 
-  console.log(route)
-
   // get the users current position
   //const position = await Geolocation.getCurrentPosition();
 
@@ -177,8 +175,8 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
       </MapContainer>
       </IonContent>
     </IonPage>
-  );
+  )
 
-};
+}
 
 export default LiveMap;

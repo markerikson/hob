@@ -1,6 +1,6 @@
-import { Language } from './Language'
 import { Page } from './Page'
-export interface Article {
+import { Language } from './Language'
+export interface ArticleItf {
   id: number,
   title: string,
   language: Language,
