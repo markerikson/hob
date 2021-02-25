@@ -1,11 +1,23 @@
-import * as MyConst from '../services/constants'
+//import * as MyConst from '../services/constants'
 import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonItem, IonLabel, IonTitle, IonBackButton } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { useLocation } from 'react-router-dom';
+import axios from 'axios'
+// Importing language and menu dumped data...
+//import AllMenus from '../data/dump/others/all_menus.json'
 
 // Data Interfaces
-import { Menu } from '../models/Menu'
+//import { Menu } from '../models/Menu'
+
+interface Menu {
+  id: number,
+  name: string,
+  ionic_resource: string,
+  main: boolean,
+  background_color: string,
+  icon_url: string
+}
 
 interface FooterMenuProps extends RouteComponentProps<{
   id: string
@@ -13,45 +25,32 @@ interface FooterMenuProps extends RouteComponentProps<{
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
-  const location = useLocation();
-  const [menu, setMenu] = useState<Menu[]>([])
+ 
+  const [videos, setVideos] = useState(null);
   useEffect(() => {
-    fetch('http://161.97.167.92:1337/app-menus?id='+match.params.id)/*2 is a nice one!!*/
+  let url = '../data/dump/menus/menu-'+match.params.id+'.json';
+    console.log(url)
+    fetch(url)
       .then(res => res.json())
-      .then(setMenu)
-  }, [match.params.id])
-  //console.log(menu)
+      .then(setVideos)
+  }, [match.params.id]);
+  console.log(videos)
   
-  // Fetching the vertical menu
-  function renderVerticalMenu(list: Menu[]) {/*MAIN TODO JEFF!!!! En realidad tendrían que ser submenús... Estos no incluyen */
-    var res = list.map((r: Menu, i) => (
-      <IonItem key={'list_'+i} className={location.pathname === r.ionic_resource ? 'selected' : ''} >
-        {/* MyConst.DefaultLanguage == es_es the paint label*/}
-        <img src={ MyConst.RestStorage + r.icon.url } alt={r.name.toString()} width="50px"/>
-        <IonLabel>{r.name}</IonLabel>{/*MAIN TODO JEFF!!!! Aquí lo que quiero es imprimir la primera fila del Array children, tanto los que son contents como menus */}
-      </IonItem>
-    ))
-    return res
+  function renderTitle(menu: Menu) {
+    return <IonTitle key={'jhg'}>{menu.name}</IonTitle>
   }
 
-  function renderTitle(list: Menu[]) {
-    return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
-  }
-
-  return(
+  return(    
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/" />
           </IonButtons>
-          {renderTitle(menu)}
+          {/*renderTitle(data)*/}
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonList>
-          {renderVerticalMenu(menu)}
-        </IonList>
       </IonContent>
     </IonPage>
   )
