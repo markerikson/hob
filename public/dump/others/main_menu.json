@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Home",
+        "ionic_resource": "Home",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/home_6819f55139.PNG"
+    },
+    {
+        "id": 2,
+        "name": "Train yourself",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/owl_e45f0349d9.PNG"
+    },
+    {
+        "id": 3,
+        "name": "Explore & Equip",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/exploreequip_bc40f3273e.PNG"
+    },
+    {
+        "id": 4,
+        "name": "Navigate",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/navigate_45e086ac39.PNG"
+    },
+    {
+        "id": 5,
+        "name": "Assistance",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": null,
+        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+    }
+]

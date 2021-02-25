@@ -24,17 +24,16 @@ interface FooterMenuProps extends RouteComponentProps<{
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
-
  
-  const [videos, setVideos] = useState(null);
-  useEffect(() => {
-  let url = '../data/dump/menus/menu-'+match.params.id+'.json';
-    console.log(url)
-    fetch(url)
-      .then(res => res.json())
-      .then(setVideos)
-  }, [match.params.id]);
-  console.log(videos)
+  function readJsonData(){    
+    fetch('../data/dump/menus/menu-'+match.params.id+'.json')
+      .then(res=>res.json()).then(json=>{
+        console.log("OUTPUT: ");
+        //DO YOUR STAFF
+    });
+  }
+
+  readJsonData();
   
   function renderTitle(menu: Menu) {
     return <IonTitle key={'jhg'}>{menu.name}</IonTitle>

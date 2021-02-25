@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "name": "Home",
+        "ionic_resource": "Home",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/home_6819f55139.PNG"
+    },
+    {
+        "id": 2,
+        "name": "Train yourself",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/owl_e45f0349d9.PNG"
+    },
+    {
+        "id": 3,
+        "name": "Explore & Equip",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/exploreequip_bc40f3273e.PNG"
+    },
+    {
+        "id": 4,
+        "name": "Navigate",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": "#123456",
+        "icon_url": "\/uploads\/navigate_45e086ac39.PNG"
+    },
+    {
+        "id": 5,
+        "name": "Assistance",
+        "ionic_resource": "LiveMenu",
+        "main": true,
+        "background_color": null,
+        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+    },
+    {
+        "id": 6,
+        "name": "Boat Types",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 7,
+        "name": "Controls",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 8,
+        "name": "Manoeveures",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 9,
+        "name": "Rules of the road",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 10,
+        "name": "Emergencies",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 11,
+        "name": "Routes",
+        "ionic_resource": "LiveMap",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 12,
+        "name": "Equipment",
+        "ionic_resource": "Equipment",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 13,
+        "name": "Command station",
+        "ionic_resource": "LiveMenu",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+    },
+    {
+        "id": 14,
+        "name": "Load your route",
+        "ionic_resource": "LiveMap",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg"
+    },
+    {
+        "id": 15,
+        "name": "Live Map",
+        "ionic_resource": "LiveMap",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/4_1_3_D_1metre_25296a3bf2.svg"
+    },
+    {
+        "id": 16,
+        "name": "Call emergencies",
+        "ionic_resource": "Assistance",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+    },
+    {
+        "id": 17,
+        "name": "Call base",
+        "ionic_resource": "Assistance\/base",
+        "main": false,
+        "background_color": null,
+        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+    }
+]
