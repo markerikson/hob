@@ -26,9 +26,8 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   function renderVerticalMenu(list: Menu[]) {/*MAIN TODO JEFF!!!! En realidad tendrían que ser submenús... Estos no incluyen */
     var res = list.map((r: Menu, i) => (
       <IonItem key={'list_'+i} className={location.pathname === r.ionic_resource ? 'selected' : ''} >
-        {/* MyConst.DefaultLanguage == es_es the paint label*/}
         <img src={ MyConst.RestStorage + r.icon.url } alt={r.name.toString()} width="50px"/>
-        <IonLabel>{r.name}</IonLabel>{/*MAIN TODO JEFF!!!! Aquí lo que quiero es imprimir la primera fila del Array children, tanto los que son contents como menus */}
+        <IonLabel>{r.name}</IonLabel>
       </IonItem>
     ))
     return res
