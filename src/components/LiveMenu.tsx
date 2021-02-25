@@ -3,12 +3,6 @@ import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonIte
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { useLocation } from 'react-router-dom';
-import axios from 'axios'
-// Importing language and menu dumped data...
-//import AllMenus from '../data/dump/others/all_menus.json'
-
-// Data Interfaces
-//import { Menu } from '../models/Menu'
 
 interface Menu {
   id: number,
@@ -25,15 +19,7 @@ interface FooterMenuProps extends RouteComponentProps<{
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
  
-  function readJsonData(){    
-    fetch('../data/dump/menus/menu-'+match.params.id+'.json')
-      .then(res=>res.json()).then(json=>{
-        console.log("OUTPUT: ");
-        //DO YOUR STAFF
-    });
-  }
-
-  readJsonData();
+  let url = '../data/dump/menus/menu-'+match.params.id+'.json';
   
   function renderTitle(menu: Menu) {
     return <IonTitle key={'jhg'}>{menu.name}</IonTitle>

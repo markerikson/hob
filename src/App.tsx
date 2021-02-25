@@ -1,4 +1,3 @@
-import * as MyConst from './services/constants'
 import React from 'react'
 import { IonApp, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter,  } from '@ionic/react-router'
@@ -27,14 +26,18 @@ import Article from './components/Article'
 
 // App main pages
 import Home from './pages/Home'
-import Support from './pages/Home'
 import LiveMap from './pages/LiveMap'
 
-// Data Interfaces
-import { Menu } from './models/Menu'
+import { MainMenu } from './dump/others/main_menu.json'
 
-// Menu data (imported from http://161.97.167.92:1337/app-menus?main=true). Reimport each update ;)
-import my_menu from './data/dump/LiveMenuData.json'
+interface Menu {
+  id: number,
+  name: string,
+  ionic_resource: string,
+  main: boolean,
+  background_color: string,
+  icon_url: string
+}
 
 const App: React.FC = () => {
   
@@ -42,7 +45,7 @@ const App: React.FC = () => {
   function renderFooterMenu(list: Menu[]) {
     return list.map((r: Menu, index) => (
       <IonTabButton key={'footer_'+index} tab={r.name} href={'/'+r.ionic_resource+'/'+r.id} disabled={false}>
-        <img src={MyConst.RestStorage + r.icon.url} alt={r.name.toString()} />
+        <img src={r.icon_url} alt={r.name.toString()} />
         <IonLabel>{r.name}</IonLabel>
       </IonTabButton>
     ))
@@ -61,7 +64,7 @@ const App: React.FC = () => {
             <Route path='/Support' component={Article}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom'>
-            {renderFooterMenu(my_menu)}
+            {renderFooterMenu(MainMenu)}
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
