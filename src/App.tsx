@@ -28,25 +28,23 @@ import Article from './components/Article'
 import Home from './pages/Home'
 import LiveMap from './pages/LiveMap'
 
-import { MainMenu } from './dump/others/main_menu.json'
+// Dumped data! ;)
+import MainMenu from './dump/others/main_menu.json'
 
 interface Menu {
   id: number,
   name: string,
   ionic_resource: string,
-  main: boolean,
-  background_color: string,
   icon_url: string
 }
 
 const App: React.FC = () => {
-  
+
   // Setting footer icons from LiveMenu file... Must be INSIDE for performance reasons, as each content :P
   function renderFooterMenu(list: Menu[]) {
     return list.map((r: Menu, index) => (
       <IonTabButton key={'footer_'+index} tab={r.name} href={'/'+r.ionic_resource+'/'+r.id} disabled={false}>
         <img src={r.icon_url} alt={r.name.toString()} />
-        <IonLabel>{r.name}</IonLabel>
       </IonTabButton>
     ))
   }

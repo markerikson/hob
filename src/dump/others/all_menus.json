@@ -5,7 +5,7 @@
         "ionic_resource": "Home",
         "main": true,
         "background_color": "#123456",
-        "icon_url": "\/uploads\/home_6819f55139.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/home_6819f55139.PNG"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "ionic_resource": "LiveMenu",
         "main": true,
         "background_color": "#123456",
-        "icon_url": "\/uploads\/owl_e45f0349d9.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/owl_e45f0349d9.PNG"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "ionic_resource": "LiveMenu",
         "main": true,
         "background_color": "#123456",
-        "icon_url": "\/uploads\/exploreequip_bc40f3273e.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/exploreequip_bc40f3273e.PNG"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "ionic_resource": "LiveMenu",
         "main": true,
         "background_color": "#123456",
-        "icon_url": "\/uploads\/navigate_45e086ac39.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/navigate_45e086ac39.PNG"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "ionic_resource": "LiveMenu",
         "main": true,
         "background_color": null,
-        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 10,
@@ -77,7 +77,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 11,
@@ -85,7 +85,7 @@
         "ionic_resource": "LiveMap",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 12,
@@ -93,7 +93,7 @@
         "ionic_resource": "Equipment",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 13,
@@ -101,7 +101,7 @@
         "ionic_resource": "LiveMenu",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
     },
     {
         "id": 14,
@@ -109,7 +109,7 @@
         "ionic_resource": "LiveMap",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg"
     },
     {
         "id": 15,
@@ -117,7 +117,7 @@
         "ionic_resource": "LiveMap",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/4_1_3_D_1metre_25296a3bf2.svg"
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg"
     },
     {
         "id": 16,
@@ -125,7 +125,7 @@
         "ionic_resource": "Assistance",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
     },
     {
         "id": 17,
@@ -133,6 +133,6 @@
         "ionic_resource": "Assistance\/base",
         "main": false,
         "background_color": null,
-        "icon_url": "\/uploads\/assistance_239417fa65.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
     }
 ]

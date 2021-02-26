@@ -103,7 +103,7 @@ function getImages($images){
 function getStrapiImage($image){
     $filename = explode('/', $image->url)[2];
     $url = 'http://hoponboard.eu:1337' . $image->url;
-    file_put_contents('./dump/images/uploads/' . $filename, file_get_contents($url));
+    file_put_contents('../public/assets/dump/images/uploads/' . $filename, file_get_contents($url));
 }
 
 function setMenuContent($menus, $structs){
@@ -181,7 +181,7 @@ if($version == 2){
             unset($menu->menus[$key]->background_color);
         }*/
 
-        $menu->icon_url = $menu->icon->url;
+        $menu->icon_url = 'assets/dump/images'.$menu->icon->url;
         unset($menu->icon); 
         unset($menu->description);
 
