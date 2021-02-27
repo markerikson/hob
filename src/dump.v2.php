@@ -6,7 +6,7 @@ $map = [
     'langs' => ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => 'dump/others/languages.json'],
     'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/main_menu.json'],
     'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/all_menus.json'],
-    'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/menus/{id}.json'],
+    'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
     'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => 'dump/articles/{id}.json'],
     'translations' => ['filename' => 'dump/i18next/{lang}/{object}.json'],
     'images' => ['filename' => 'dump/images/uploads/{filename}'],
@@ -143,21 +143,23 @@ function someUnseters(&$old){
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-// ARCHIVOSSSSSSSSSSSSSSSSSSSSSSSSS :: JSON
+// MENUS
 //////////////////////////////////////////////////////////////////////////////////////////
 
 // Languages::
 if($version == 2){
 
+    $imgDump = 'assets/dump/images';
+
     // Created formated new languages object
-    $oldLangs = json_decode(getContent($map['langs']['url']));
-    foreach($oldLangs as $old){
-        someUnseters($old);
-        $old->id = (string) $old->id;        
-        $newLangs[] = (array) $old;
-    }
-    file_put_contents( $map['langs']['filename'], json_encode($newLangs, JSON_PRETTY_PRINT));
-    
+        $oldLangs = json_decode(getContent($map['langs']['url']));
+        foreach($oldLangs as $old){
+            someUnseters($old);
+            $old->id = (string) $old->id;        
+            $newLangs[] = (array) $old;
+        }
+        file_put_contents( $map['langs']['filename'], json_encode($newLangs, JSON_PRETTY_PRINT));
+        
     // Created formated new menus object
     $oldMainMenu = json_decode(getContent($map['main_menu']['url']));
     foreach( $oldMainMenu as $menu ){
@@ -165,35 +167,74 @@ if($version == 2){
         $oldLangs = json_decode(getContent($map['langs']['url']));
 
         // Getting the main menus
-        getImages($menu->icon);
+        if(isset($menu->icon)) getImages($menu->icon);
         someUnseters($menu);
         //$menu->id = (string) $menu->id;
-        unset($menu->children);
-        /*$menu->contents =  $menu->children[0]->contents ?? [];
-        $menu->menus =  $menu->children[0]->menus ?? [];
-        unset($menu->children);
-        foreach($menu->menus as $key => $submenu){
-            someUnseters($menu->menus[$key]);
-            $menu->menus[$key]->icon_url = $menu->menus[$key]->icon->url;
-            unset($menu->menus[$key]->icon);
-            unset($menu->menus[$key]->main);
-            unset($menu->menus[$key]->description);
-            unset($menu->menus[$key]->background_color);
-        }*/
+        //unset($menu->children);
+        $menu->icon_url = $imgDump.$menu->icon->url;
 
-        $menu->icon_url = 'assets/dump/images'.$menu->icon->url;
+        $menu->contents = $contents = $menu->children[0]->contents ?? [];
+        $menu->menus = $menu->children[0]->menus ?? [];
+        
+        unset($menu->children);
+        
+        foreach($menu->menus as $key2 => $submenu){
+            someUnseters($menu->menus[$key2]);
+            $menu->menus[$key2]->icon_url = $imgDump.$menu->menus[$key2]->icon->url;
+            unset($menu->menus[$key2]->icon);
+            unset($menu->menus[$key2]->main);
+            unset($menu->menus[$key2]->description);
+            unset($menu->menus[$key2]->background_color);
+            
+            $menu->menus[$key2]->id = '/LiveMenu/'.$menu->menus[$key2]->id;
+            //unset($menu->menus[$key2]->id);
+        }
+
+        foreach($menu->contents as $key3 => $content){
+
+            if(isset($menu->contents[$key3]->icon)) $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url;
+            
+            someUnseters($menu->contents[$key3]);            
+            unset($menu->contents[$key3]->icon);
+            unset($menu->contents[$key3]->main);
+            unset($menu->contents[$key3]->description);
+            unset($menu->contents[$key3]->background_color);
+            unset($menu->contents[$key3]->media);
+
+            $menu->contents[$key3]->id = '/Article/'.$menu->contents[$key3]->id;
+            //unset($menu->contents[$key3]->id);
+
+            file_put_contents( str_replace('{id}', 'art_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
+            $menu->menus[] =  $menu->contents[$key3];
+
+            //$menu->contents[$key]->icon_url = $imgDump.$menu->contents[$key]->icon->url;
+            //unset($menu->contents[$key]->icon);
+            //unset($menu->contents[$key]->main);
+            //unset($menu->contents[$key]->description);
+            //unset($menu->contents[$key]->background_color);
+
+        }
+
         unset($menu->icon); 
         unset($menu->description);
+        unset($menu->contents);
 
-        /*foreach($menu->label as $key => $label){
+        foreach($menu->label as $key4 => $label){
             $menu->{'label_lang_'.$label->language->code} = $label->label;
-        }*/
+        }
+
         unset($menu->label);
+
         if($menu->main){
             $newMainMenu[] = $menu;
         }
-        // Saving each menu ;)
-        file_put_contents( str_replace('{id}', 'menu-'.$menu->id, $map['menus']['filename']), json_encode($menu, JSON_PRETTY_PRINT));
+
+        // Guardo los submenús por separado (cuando hay...)
+        file_put_contents( str_replace('{id}', 'sub_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu->menus, JSON_PRETTY_PRINT));
+
+        // Guardo los menús completos por separado
+        file_put_contents( str_replace('{id}', 'full_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu, JSON_PRETTY_PRINT));
+
     }
 
     // Guardar el archivo de todos los menus principales
@@ -203,9 +244,31 @@ if($version == 2){
     file_put_contents( $map['all_menus']['filename'], json_encode($oldMainMenu, JSON_PRETTY_PRINT));
 
 
+    //////////////////////////////////////////////////////////////////////////////////////////
+    // ARTICLES
+    //////////////////////////////////////////////////////////////////////////////////////////
 
 
+    // Recuperamos todos los menús en archivos con el ID en su nombre
+    $articles = json_decode(getContent($map['articles']['url']));
 
+    // Saving articles to dump !!
+    foreach ($articles as $article) {
+
+        // Getting App Content icons to dump
+        if (!empty($article->icon)) {
+            getImages($article->icon);
+        }
+
+        // Getting App Content media to dump
+        if (!empty($article->media)) {
+            getImages($article->media);
+            unset($article->media);
+        }
+
+        file_put_contents(str_replace('{id}', $menu->id, $map['articles']['filename']), json_encode($articles, JSON_PRETTY_PRINT));
+
+    }
 
 
 

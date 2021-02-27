@@ -35,6 +35,14 @@ interface Menu {
   id: number,
   name: string,
   ionic_resource: string,
+  icon_url: string,
+  //children: SubMenu[]
+}
+
+interface SubMenu {
+  id: number,
+  name: string,
+  ionic_resource: string,
   icon_url: string
 }
 

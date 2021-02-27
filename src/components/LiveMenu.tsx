@@ -1,15 +1,11 @@
-//import * as MyConst from '../services/constants'
 import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonItem, IonLabel, IonTitle, IonBackButton } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { useLocation } from 'react-router-dom';
+import { Menu } from '../models/Menu'
 
-interface Menu {
-  id: number,
+interface SubMenu {
+  id: string,
   name: string,
-  ionic_resource: string,
-  main: boolean,
-  background_color: string,
   icon_url: string
 }
 
@@ -18,11 +14,32 @@ interface FooterMenuProps extends RouteComponentProps<{
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
- 
-  let url = '../data/dump/menus/menu-'+match.params.id+'.json';
-  
-  function renderTitle(menu: Menu) {
-    return <IonTitle key={'jhg'}>{menu.name}</IonTitle>
+
+  const [sub_menus, setMenus] = useState<SubMenu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/menus/sub_menu-'+match.params.id+'.json')
+      .then(res => res.json())
+      .then(setMenus)
+  }, [match.params.id])
+
+  const [menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/menus/full_menu-'+match.params.id+'.json')
+      .then(res => res.json())
+      .then(setMenu)
+  }, [match.params.id])
+
+  function renderTitle(menu: Menu[]) {
+    console.log(menu)
+  }
+
+  function renderMenuTitles(menus: SubMenu[]) {
+    return menus.map((r: SubMenu, index) => (
+      <IonItem key={'list_'+index} href={r.id} disabled={false}>
+        <img src={r.icon_url} alt={r.name.toString()} width='50px'/>
+        <IonLabel>{r.name.toString()}</IonLabel>
+      </IonItem>
+    ))
   }
 
   return(    
@@ -32,10 +49,13 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/" />
           </IonButtons>
-          {/*renderTitle(data)*/}
+          {renderTitle(menu)}
         </IonToolbar>
       </IonHeader>
       <IonContent>
+      <IonList>
+        {renderMenuTitles(sub_menus)}
+      </IonList>
       </IonContent>
     </IonPage>
   )
