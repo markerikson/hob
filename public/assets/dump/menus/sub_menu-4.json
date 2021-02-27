@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Load your route",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
+        "resource": "\/LiveMap\/1"
+    },
+    {
+        "name": "Live Map",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg",
+        "resource": "\/LiveMap\/1"
+    }
+]

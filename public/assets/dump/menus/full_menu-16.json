@@ -1,0 +1,11 @@
+{
+    "id": 16,
+    "name": "Call emergencies",
+    "ionic_resource": "Assistance",
+    "main": false,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+    "menus": [],
+    "label_lang_en_uk": "Call base",
+    "label_lang_es_es": "Call base Es"
+}

@@ -1,0 +1,30 @@
+{
+    "id": 8,
+    "name": "Manoeveures",
+    "ionic_resource": "LiveMenu",
+    "main": false,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+    "menus": [
+        {
+            "name": "Rules of the road",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/9"
+        },
+        {
+            "name": "Base operations",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/Article\/8"
+        },
+        {
+            "name": "Cruising",
+            "resource": "\/Article\/9"
+        },
+        {
+            "name": "Anchoring",
+            "resource": "\/Article\/10"
+        }
+    ],
+    "label_lang_en_uk": "Manoeveures",
+    "label_lang_es_es": "Maniobras"
+}

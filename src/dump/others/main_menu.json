@@ -19,34 +19,29 @@
         "icon_url": "assets\/dump\/images\/uploads\/owl_e45f0349d9.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/6",
                 "name": "Boat Types",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/6"
             },
             {
-                "id": "\/LiveMenu\/7",
                 "name": "Controls",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/7"
             },
             {
-                "id": "\/LiveMenu\/8",
                 "name": "Manoeveures",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/8"
             },
             {
-                "id": "\/LiveMenu\/9",
                 "name": "Rules of the road",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/9"
             },
             {
-                "id": "\/LiveMenu\/10",
                 "name": "Emergencies",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/10"
             }
         ],
         "label_lang_en_uk": "Training yourself",
@@ -61,15 +56,12 @@
         "icon_url": "assets\/dump\/images\/uploads\/exploreequip_bc40f3273e.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/11",
                 "name": "Routes",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMap\/1"
             },
             {
-                "id": "\/LiveMenu\/12",
                 "name": "Equipment",
-                "ionic_resource": "Equipment",
                 "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
             }
         ],
@@ -85,16 +77,14 @@
         "icon_url": "assets\/dump\/images\/uploads\/navigate_45e086ac39.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/14",
                 "name": "Load your route",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
+                "resource": "\/LiveMap\/1"
             },
             {
-                "id": "\/LiveMenu\/15",
                 "name": "Live Map",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg",
+                "resource": "\/LiveMap\/1"
             }
         ],
         "label_lang_en_uk": "Navigate",
@@ -109,15 +99,11 @@
         "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/16",
                 "name": "Call emergencies",
-                "ionic_resource": "Assistance",
                 "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
             },
             {
-                "id": "\/LiveMenu\/17",
                 "name": "Call base",
-                "ionic_resource": "Assistance\/base",
                 "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
             }
         ],

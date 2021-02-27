@@ -1,0 +1,89 @@
+{
+    "id": 7,
+    "name": "Start motor",
+    "created_at": "2021-02-20T23:56:19.000Z",
+    "updated_at": "2021-02-25T00:32:04.000Z",
+    "articles": [
+        {
+            "id": 17,
+            "language": {
+                "id": 1,
+                "name": "English (UK)",
+                "code": "en_uk",
+                "published_at": "2021-02-20T04:46:51.000Z",
+                "created_at": "2021-02-20T04:46:47.000Z",
+                "updated_at": "2021-02-20T04:46:51.000Z"
+            },
+            "title": "Start motor",
+            "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+            "pages": [
+                {
+                    "id": 33,
+                    "title": "thgdf",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                    "images": [
+                        {
+                            "id": 20,
+                            "name": "navigate.PNG",
+                            "alternativeText": "",
+                            "caption": "",
+                            "width": 122,
+                            "height": 109,
+                            "formats": null,
+                            "hash": "navigate_45e086ac39",
+                            "ext": ".PNG",
+                            "mime": "image\/png",
+                            "size": 2.52,
+                            "url": "\/uploads\/navigate_45e086ac39.PNG",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "created_at": "2021-02-20T22:52:46.000Z",
+                            "updated_at": "2021-02-20T22:52:47.000Z"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "language": {
+                "id": 2,
+                "name": "Spanish (ES)",
+                "code": "es_es",
+                "published_at": "2021-02-20T04:47:09.000Z",
+                "created_at": "2021-02-20T04:47:05.000Z",
+                "updated_at": "2021-02-20T04:47:09.000Z"
+            },
+            "title": "Arrancar motor",
+            "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+            "pages": [
+                {
+                    "id": 34,
+                    "title": "bsfdgsfd",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                    "images": []
+                }
+            ]
+        }
+    ],
+    "icon": {
+        "id": 22,
+        "name": "4.1.3.D.10 metres.svg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 800,
+        "height": 800,
+        "formats": null,
+        "hash": "4_1_3_D_10_metres_5d9f4e3376",
+        "ext": ".svg",
+        "mime": "image\/svg+xml",
+        "size": 54.69,
+        "url": "\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-02-20T22:52:46.000Z",
+        "updated_at": "2021-02-20T22:52:47.000Z"
+    }
+}

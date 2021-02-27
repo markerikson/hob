@@ -1,0 +1,28 @@
+{
+    "id": 10,
+    "name": "Emergencies",
+    "ionic_resource": "LiveMenu",
+    "main": false,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+    "menus": [
+        {
+            "name": "Motor stopped under way",
+            "resource": "\/Article\/15"
+        },
+        {
+            "name": "MOB",
+            "resource": "\/Article\/16"
+        },
+        {
+            "name": "Troubleshooting",
+            "resource": "\/Article\/17"
+        },
+        {
+            "name": "First aid guide",
+            "resource": "\/Article\/18"
+        }
+    ],
+    "label_lang_en_uk": "Emergencies",
+    "label_lang_es_es": "Emergencias"
+}

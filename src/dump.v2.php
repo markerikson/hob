@@ -7,7 +7,7 @@ $map = [
     'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/main_menu.json'],
     'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/all_menus.json'],
     'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => 'dump/articles/{id}.json'],
+    'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/articles/{id}.json'],
     'translations' => ['filename' => 'dump/i18next/{lang}/{object}.json'],
     'images' => ['filename' => 'dump/images/uploads/{filename}'],
 ];
@@ -185,9 +185,13 @@ if($version == 2){
             unset($menu->menus[$key2]->main);
             unset($menu->menus[$key2]->description);
             unset($menu->menus[$key2]->background_color);
-            
-            $menu->menus[$key2]->id = '/LiveMenu/'.$menu->menus[$key2]->id;
-            //unset($menu->menus[$key2]->id);
+            if(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMenu'])){
+                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->id;
+            }elseif(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMap'])){
+                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';
+            }
+            unset($menu->menus[$key2]->ionic_resource);
+            unset($menu->menus[$key2]->id);
         }
 
         foreach($menu->contents as $key3 => $content){
@@ -200,18 +204,11 @@ if($version == 2){
             unset($menu->contents[$key3]->description);
             unset($menu->contents[$key3]->background_color);
             unset($menu->contents[$key3]->media);
+            $menu->contents[$key3]->resource = '/Article/'.$menu->contents[$key3]->id;
+            unset($menu->contents[$key3]->id);
 
-            $menu->contents[$key3]->id = '/Article/'.$menu->contents[$key3]->id;
-            //unset($menu->contents[$key3]->id);
-
-            file_put_contents( str_replace('{id}', 'art_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
+            file_put_contents( str_replace('{id}', 'menu-contents-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
             $menu->menus[] =  $menu->contents[$key3];
-
-            //$menu->contents[$key]->icon_url = $imgDump.$menu->contents[$key]->icon->url;
-            //unset($menu->contents[$key]->icon);
-            //unset($menu->contents[$key]->main);
-            //unset($menu->contents[$key]->description);
-            //unset($menu->contents[$key]->background_color);
 
         }
 
@@ -266,7 +263,7 @@ if($version == 2){
             unset($article->media);
         }
 
-        file_put_contents(str_replace('{id}', $menu->id, $map['articles']['filename']), json_encode($articles, JSON_PRETTY_PRINT));
+        file_put_contents(str_replace('{id}', $article->id, $map['articles']['filename']), json_encode($article, JSON_PRETTY_PRINT));
 
     }
 

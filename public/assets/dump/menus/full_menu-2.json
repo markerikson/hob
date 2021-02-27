@@ -1,0 +1,37 @@
+{
+    "id": 2,
+    "name": "Train yourself",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "background_color": "#123456",
+    "icon_url": "assets\/dump\/images\/uploads\/owl_e45f0349d9.PNG",
+    "menus": [
+        {
+            "name": "Boat Types",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/6"
+        },
+        {
+            "name": "Controls",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/7"
+        },
+        {
+            "name": "Manoeveures",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/8"
+        },
+        {
+            "name": "Rules of the road",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/9"
+        },
+        {
+            "name": "Emergencies",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMenu\/10"
+        }
+    ],
+    "label_lang_en_uk": "Training yourself",
+    "label_lang_es_es": "Entrenamiento"
+}

@@ -1,0 +1,21 @@
+{
+    "id": 3,
+    "name": "Explore & Equip",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "background_color": "#123456",
+    "icon_url": "assets\/dump\/images\/uploads\/exploreequip_bc40f3273e.PNG",
+    "menus": [
+        {
+            "name": "Routes",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "resource": "\/LiveMap\/1"
+        },
+        {
+            "name": "Equipment",
+            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+        }
+    ],
+    "label_lang_en_uk": "Explore & Equip",
+    "label_lang_es_es": "Exploraci\u00f3n y equipo"
+}

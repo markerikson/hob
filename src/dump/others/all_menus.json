@@ -19,34 +19,29 @@
         "icon_url": "assets\/dump\/images\/uploads\/owl_e45f0349d9.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/6",
                 "name": "Boat Types",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/6"
             },
             {
-                "id": "\/LiveMenu\/7",
                 "name": "Controls",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/7"
             },
             {
-                "id": "\/LiveMenu\/8",
                 "name": "Manoeveures",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/8"
             },
             {
-                "id": "\/LiveMenu\/9",
                 "name": "Rules of the road",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/9"
             },
             {
-                "id": "\/LiveMenu\/10",
                 "name": "Emergencies",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/10"
             }
         ],
         "label_lang_en_uk": "Training yourself",
@@ -61,15 +56,12 @@
         "icon_url": "assets\/dump\/images\/uploads\/exploreequip_bc40f3273e.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/11",
                 "name": "Routes",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMap\/1"
             },
             {
-                "id": "\/LiveMenu\/12",
                 "name": "Equipment",
-                "ionic_resource": "Equipment",
                 "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
             }
         ],
@@ -85,16 +77,14 @@
         "icon_url": "assets\/dump\/images\/uploads\/navigate_45e086ac39.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/14",
                 "name": "Load your route",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
+                "resource": "\/LiveMap\/1"
             },
             {
-                "id": "\/LiveMenu\/15",
                 "name": "Live Map",
-                "ionic_resource": "LiveMap",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg",
+                "resource": "\/LiveMap\/1"
             }
         ],
         "label_lang_en_uk": "Navigate",
@@ -109,15 +99,11 @@
         "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
         "menus": [
             {
-                "id": "\/LiveMenu\/16",
                 "name": "Call emergencies",
-                "ionic_resource": "Assistance",
                 "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
             },
             {
-                "id": "\/LiveMenu\/17",
                 "name": "Call base",
-                "ionic_resource": "Assistance\/base",
                 "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
             }
         ],
@@ -133,14 +119,14 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/Article\/1",
                 "name": "Solid hull",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Solid_a5e33c7d44.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Solid_a5e33c7d44.svg",
+                "resource": "\/Article\/1"
             },
             {
-                "id": "\/Article\/2",
                 "name": "Inflatable",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Inflatable_b8ea8f8155.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Inflatable_b8ea8f8155.svg",
+                "resource": "\/Article\/2"
             }
         ],
         "label_lang_en_uk": "Boat Types",
@@ -155,20 +141,19 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/LiveMenu\/13",
                 "name": "Command station",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/13"
             },
             {
-                "id": "\/Article\/7",
                 "name": "Start motor",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/7"
             },
             {
-                "id": "\/Article\/19",
                 "name": "Stop motor",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/19"
             }
         ],
         "label_lang_en_uk": "Controls",
@@ -183,23 +168,22 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/LiveMenu\/9",
                 "name": "Rules of the road",
-                "ionic_resource": "LiveMenu",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/LiveMenu\/9"
             },
             {
-                "id": "\/Article\/8",
                 "name": "Base operations",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/Article\/8"
             },
             {
-                "id": "\/Article\/9",
-                "name": "Cruising"
+                "name": "Cruising",
+                "resource": "\/Article\/9"
             },
             {
-                "id": "\/Article\/10",
-                "name": "Anchoring"
+                "name": "Anchoring",
+                "resource": "\/Article\/10"
             }
         ],
         "label_lang_en_uk": "Manoeveures",
@@ -214,20 +198,20 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/Article\/11",
-                "name": "Give way"
+                "name": "Give way",
+                "resource": "\/Article\/11"
             },
             {
-                "id": "\/Article\/12",
-                "name": "In the port"
+                "name": "In the port",
+                "resource": "\/Article\/12"
             },
             {
-                "id": "\/Article\/13",
-                "name": "Anchorage"
+                "name": "Anchorage",
+                "resource": "\/Article\/13"
             },
             {
-                "id": "\/Article\/14",
-                "name": "Do not!"
+                "name": "Do not!",
+                "resource": "\/Article\/14"
             }
         ],
         "label_lang_en_uk": "Rules of the road",
@@ -242,20 +226,20 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/Article\/15",
-                "name": "Motor stopped under way"
+                "name": "Motor stopped under way",
+                "resource": "\/Article\/15"
             },
             {
-                "id": "\/Article\/16",
-                "name": "MOB"
+                "name": "MOB",
+                "resource": "\/Article\/16"
             },
             {
-                "id": "\/Article\/17",
-                "name": "Troubleshooting"
+                "name": "Troubleshooting",
+                "resource": "\/Article\/17"
             },
             {
-                "id": "\/Article\/18",
-                "name": "First aid guide"
+                "name": "First aid guide",
+                "resource": "\/Article\/18"
             }
         ],
         "label_lang_en_uk": "Emergencies",
@@ -292,24 +276,24 @@
         "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
         "menus": [
             {
-                "id": "\/Article\/3",
                 "name": "Steering",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/3"
             },
             {
-                "id": "\/Article\/4",
                 "name": "Gear shift & Thottle",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/4"
             },
             {
-                "id": "\/Article\/5",
                 "name": "Kill cord",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/5"
             },
             {
-                "id": "\/Article\/6",
                 "name": "Contact key",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_10_metres_5d9f4e3376.svg",
+                "resource": "\/Article\/6"
             }
         ],
         "label_lang_en_uk": "Command station",

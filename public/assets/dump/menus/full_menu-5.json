@@ -1,0 +1,20 @@
+{
+    "id": 5,
+    "name": "Assistance",
+    "ionic_resource": "LiveMenu",
+    "main": true,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+    "menus": [
+        {
+            "name": "Call emergencies",
+            "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+        },
+        {
+            "name": "Call base",
+            "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+        }
+    ],
+    "label_lang_en_uk": "Assistance",
+    "label_lang_es_es": "Asistencia"
+}

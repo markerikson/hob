@@ -4,8 +4,8 @@ import { RouteComponentProps } from 'react-router'
 import { Menu } from '../models/Menu'
 
 interface SubMenu {
-  id: string,
   name: string,
+  resource: string,
   icon_url: string
 }
 
@@ -35,7 +35,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   function renderMenuTitles(menus: SubMenu[]) {
     return menus.map((r: SubMenu, index) => (
-      <IonItem key={'list_'+index} href={r.id} disabled={false}>
+      <IonItem key={r.resource} href={r.resource} disabled={false}>
         <img src={r.icon_url} alt={r.name.toString()} width='50px'/>
         <IonLabel>{r.name.toString()}</IonLabel>
       </IonItem>

@@ -1,0 +1,28 @@
+{
+    "id": 9,
+    "name": "Rules of the road",
+    "ionic_resource": "LiveMenu",
+    "main": false,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+    "menus": [
+        {
+            "name": "Give way",
+            "resource": "\/Article\/11"
+        },
+        {
+            "name": "In the port",
+            "resource": "\/Article\/12"
+        },
+        {
+            "name": "Anchorage",
+            "resource": "\/Article\/13"
+        },
+        {
+            "name": "Do not!",
+            "resource": "\/Article\/14"
+        }
+    ],
+    "label_lang_en_uk": "Rules of the road",
+    "label_lang_es_es": "Reglas de navegaci\u00f3n"
+}

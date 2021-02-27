@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Boat Types",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "resource": "\/LiveMenu\/6"
+    },
+    {
+        "name": "Controls",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "resource": "\/LiveMenu\/7"
+    },
+    {
+        "name": "Manoeveures",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "resource": "\/LiveMenu\/8"
+    },
+    {
+        "name": "Rules of the road",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "resource": "\/LiveMenu\/9"
+    },
+    {
+        "name": "Emergencies",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "resource": "\/LiveMenu\/10"
+    }
+]

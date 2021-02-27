@@ -1,0 +1,11 @@
+{
+    "id": 17,
+    "name": "Call base",
+    "ionic_resource": "Assistance\/base",
+    "main": false,
+    "background_color": null,
+    "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+    "menus": [],
+    "label_lang_en_uk": "Call base",
+    "label_lang_es_es": "Call base Es"
+}
