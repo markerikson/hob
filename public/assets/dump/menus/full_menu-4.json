@@ -9,7 +9,7 @@
         {
             "name": "Load your route",
             "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
-            "resource": "\/LiveMap\/1"
+            "resource": "\/LiveRoute"
         },
         {
             "name": "Live Map",

@@ -1,10 +1,12 @@
 [
     {
         "name": "Call emergencies",
-        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+        "resource": "\/Assistance"
     },
     {
         "name": "Call base",
-        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+        "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+        "resource": "\/Assistance\/base"
     }
 ]

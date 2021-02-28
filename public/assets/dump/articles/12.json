@@ -2,7 +2,7 @@
     "id": 12,
     "name": "In the port",
     "created_at": "2021-02-21T00:09:19.000Z",
-    "updated_at": "2021-02-21T00:09:19.000Z",
+    "updated_at": "2021-02-28T15:51:43.000Z",
     "articles": [
         {
             "id": 27,
@@ -33,6 +33,24 @@
             "pages": []
         }
     ],
-    "icon": null,
+    "icon": {
+        "id": 5,
+        "name": "4.1.2.Ae.Bot\u00f3.svg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 800,
+        "height": 800,
+        "formats": null,
+        "hash": "4_1_2_Ae_Boto_1ff7b727d1",
+        "ext": ".svg",
+        "mime": "image\/svg+xml",
+        "size": 6.18,
+        "url": "\/uploads\/4_1_2_Ae_Boto_1ff7b727d1.svg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-02-20T22:52:45.000Z",
+        "updated_at": "2021-02-20T22:52:45.000Z"
+    },
     "media": []
 }

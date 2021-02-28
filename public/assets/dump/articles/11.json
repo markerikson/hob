@@ -2,7 +2,7 @@
     "id": 11,
     "name": "Give way",
     "created_at": "2021-02-21T00:09:00.000Z",
-    "updated_at": "2021-02-21T00:09:01.000Z",
+    "updated_at": "2021-02-28T15:51:28.000Z",
     "articles": [
         {
             "id": 25,
@@ -33,6 +33,24 @@
             "pages": []
         }
     ],
-    "icon": null,
+    "icon": {
+        "id": 10,
+        "name": "4.1.2.Ae.Water.svg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 800,
+        "height": 800,
+        "formats": null,
+        "hash": "4_1_2_Ae_Water_f4ef4d7452",
+        "ext": ".svg",
+        "mime": "image\/svg+xml",
+        "size": 7.71,
+        "url": "\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-02-20T22:52:46.000Z",
+        "updated_at": "2021-02-20T22:52:46.000Z"
+    },
     "media": []
 }

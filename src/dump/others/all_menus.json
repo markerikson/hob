@@ -62,7 +62,8 @@
             },
             {
                 "name": "Equipment",
-                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg"
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+                "resource": "\/Equipment"
             }
         ],
         "label_lang_en_uk": "Explore & Equip",
@@ -79,7 +80,7 @@
             {
                 "name": "Load your route",
                 "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
-                "resource": "\/LiveMap\/1"
+                "resource": "\/LiveRoute"
             },
             {
                 "name": "Live Map",
@@ -100,11 +101,13 @@
         "menus": [
             {
                 "name": "Call emergencies",
-                "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+                "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+                "resource": "\/Assistance"
             },
             {
                 "name": "Call base",
-                "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG"
+                "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+                "resource": "\/Assistance\/base"
             }
         ],
         "label_lang_en_uk": "Assistance",
@@ -179,10 +182,12 @@
             },
             {
                 "name": "Cruising",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_5_metres_66be286fb1.svg",
                 "resource": "\/Article\/9"
             },
             {
                 "name": "Anchoring",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
                 "resource": "\/Article\/10"
             }
         ],
@@ -199,18 +204,22 @@
         "menus": [
             {
                 "name": "Give way",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
                 "resource": "\/Article\/11"
             },
             {
                 "name": "In the port",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Boto_1ff7b727d1.svg",
                 "resource": "\/Article\/12"
             },
             {
                 "name": "Anchorage",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_B_3_eb71956e24.svg",
                 "resource": "\/Article\/13"
             },
             {
                 "name": "Do not!",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
                 "resource": "\/Article\/14"
             }
         ],
@@ -227,18 +236,22 @@
         "menus": [
             {
                 "name": "Motor stopped under way",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
                 "resource": "\/Article\/15"
             },
             {
                 "name": "MOB",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_5_metres_66be286fb1.svg",
                 "resource": "\/Article\/16"
             },
             {
                 "name": "Troubleshooting",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_3_B_3_eb71956e24.svg",
                 "resource": "\/Article\/17"
             },
             {
                 "name": "First aid guide",
+                "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
                 "resource": "\/Article\/18"
             }
         ],
@@ -302,7 +315,7 @@
     {
         "id": 14,
         "name": "Load your route",
-        "ionic_resource": "LiveMap",
+        "ionic_resource": "LiveRoute",
         "main": false,
         "background_color": null,
         "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",

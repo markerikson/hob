@@ -5,8 +5,8 @@ import { Menu } from '../models/Menu'
 
 interface SubMenu {
   name: string,
+  icon_url: string,
   resource: string,
-  icon_url: string
 }
 
 interface FooterMenuProps extends RouteComponentProps<{
@@ -18,15 +18,13 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   const [sub_menus, setMenus] = useState<SubMenu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/sub_menu-'+match.params.id+'.json')
-      .then(res => res.json())
-      .then(setMenus)
+      .then(res => res.json()).then(setMenus)
   }, [match.params.id])
 
-  const [menu, setMenu] = useState<Menu[]>([])
+  const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/full_menu-'+match.params.id+'.json')
-      .then(res => res.json())
-      .then(setMenu)
+      .then(res => res.json()).then(setMenu)
   }, [match.params.id])
 
   function renderTitle(menu: Menu[]) {
@@ -49,7 +47,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/" />
           </IonButtons>
-          {renderTitle(menu)}
+          {renderTitle(full_menu)}
         </IonToolbar>
       </IonHeader>
       <IonContent>

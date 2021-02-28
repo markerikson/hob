@@ -2,7 +2,7 @@
     "id": 15,
     "name": "Motor stopped under way",
     "created_at": "2021-02-21T00:12:56.000Z",
-    "updated_at": "2021-02-21T00:12:56.000Z",
+    "updated_at": "2021-02-28T15:52:15.000Z",
     "articles": [
         {
             "id": 33,
@@ -33,6 +33,24 @@
             "pages": []
         }
     ],
-    "icon": null,
+    "icon": {
+        "id": 11,
+        "name": "4.1.2.Aa. Reverse.svg",
+        "alternativeText": "",
+        "caption": "",
+        "width": 800,
+        "height": 800,
+        "formats": null,
+        "hash": "4_1_2_Aa_Reverse_98c00eac0a",
+        "ext": ".svg",
+        "mime": "image\/svg+xml",
+        "size": 17,
+        "url": "\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "created_at": "2021-02-20T22:52:46.000Z",
+        "updated_at": "2021-02-20T22:52:46.000Z"
+    },
     "media": []
 }

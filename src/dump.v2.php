@@ -189,6 +189,8 @@ if($version == 2){
                 $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->id;
             }elseif(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMap'])){
                 $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';
+            }else{
+                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource;
             }
             unset($menu->menus[$key2]->ionic_resource);
             unset($menu->menus[$key2]->id);
