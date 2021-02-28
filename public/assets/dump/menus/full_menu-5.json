@@ -1,22 +1,22 @@
 {
-    "id": 5,
     "name": "Assistance",
-    "ionic_resource": "LiveMenu",
-    "main": true,
-    "background_color": null,
-    "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
+    "background_color": "#DB6400",
+    "resource": "\/LiveMenu\/5",
+    "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
     "menus": [
         {
             "name": "Call emergencies",
-            "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
-            "resource": "\/Assistance"
+            "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
+            "background_color": "#DB6400",
+            "resource": "\/Assistance",
+            "parent": "\/LiveMenu\/5"
         },
         {
             "name": "Call base",
-            "icon_url": "assets\/dump\/images\/uploads\/assistance_239417fa65.PNG",
-            "resource": "\/Assistance\/base"
+            "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
+            "background_color": "#DB6400",
+            "resource": "\/Assistance\/base",
+            "parent": "\/LiveMenu\/5"
         }
-    ],
-    "label_lang_en_uk": "Assistance",
-    "label_lang_es_es": "Asistencia"
+    ]
 }

@@ -1,0 +1,118 @@
+[
+    {
+        "name": "Home",
+        "background_color": "#123456",
+        "resource": "\/Home\/1",
+        "icon_url": "assets\/dump\/images\/uploads\/main_home_ee2b5cff11.png",
+        "menus": []
+    },
+    {
+        "name": "Train yourself",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/2",
+        "icon_url": "assets\/dump\/images\/uploads\/main_train_yourself_131305b497.png",
+        "menus": [
+            {
+                "name": "Boat Types",
+                "icon_url": "assets\/dump\/images\/uploads\/boat_types_50c8b18502.png",
+                "background_color": "#FCF8E8",
+                "resource": "\/LiveMenu\/6",
+                "parent": "\/LiveMenu\/2"
+            },
+            {
+                "name": "Controls",
+                "icon_url": "assets\/dump\/images\/uploads\/controls_c9a331850f.png",
+                "background_color": "#FCF8E8",
+                "resource": "\/LiveMenu\/7",
+                "parent": "\/LiveMenu\/2"
+            },
+            {
+                "name": "Manoeveures",
+                "icon_url": "assets\/dump\/images\/uploads\/manoeuvers_7ef0a703c6.png",
+                "background_color": "#FCF8E8",
+                "resource": "\/LiveMenu\/8",
+                "parent": "\/LiveMenu\/2"
+            },
+            {
+                "name": "Rules of the road",
+                "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
+                "background_color": "#FCF8E8",
+                "resource": "\/LiveMenu\/9",
+                "parent": "\/LiveMenu\/2"
+            },
+            {
+                "name": "Emergencies",
+                "icon_url": "assets\/dump\/images\/uploads\/troubleshooting_ca0038b1af.png",
+                "background_color": "#FCF8E8",
+                "resource": "\/LiveMenu\/10",
+                "parent": "\/LiveMenu\/2"
+            }
+        ]
+    },
+    {
+        "name": "Explore & Equip",
+        "background_color": "#F8DDD1",
+        "resource": "\/LiveMenu\/3",
+        "icon_url": "assets\/dump\/images\/uploads\/main_explore_and_equip_7ec25332e4.png",
+        "menus": [
+            {
+                "name": "Routes",
+                "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+                "background_color": "#F8DDD1",
+                "resource": "\/LiveMap\/1",
+                "parent": "\/LiveMenu\/3"
+            },
+            {
+                "name": "Equipment",
+                "icon_url": "assets\/dump\/images\/uploads\/equipment_19aea1da08.png",
+                "background_color": "#F8DDD1",
+                "resource": "\/Equipment",
+                "parent": "\/LiveMenu\/3"
+            }
+        ]
+    },
+    {
+        "name": "Navigate",
+        "background_color": "#9E0FBFC",
+        "resource": "\/LiveMenu\/4",
+        "icon_url": "assets\/dump\/images\/uploads\/main_navigate_7c40a6d517.png",
+        "menus": [
+            {
+                "name": "Load your route",
+                "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+                "background_color": "#9E0FBFC",
+                "resource": "\/LiveRoute",
+                "parent": "\/LiveMenu\/4"
+            },
+            {
+                "name": "Live Map",
+                "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+                "background_color": "#9E0FBFC",
+                "resource": "\/LiveMap\/1",
+                "parent": "\/LiveMenu\/4"
+            }
+        ]
+    },
+    {
+        "name": "Assistance",
+        "background_color": "#DB6400",
+        "resource": "\/LiveMenu\/5",
+        "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
+        "menus": [
+            {
+                "name": "Call emergencies",
+                "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
+                "background_color": "#DB6400",
+                "resource": "\/Assistance",
+                "parent": "\/LiveMenu\/5"
+            },
+            {
+                "name": "Call base",
+                "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
+                "background_color": "#DB6400",
+                "resource": "\/Assistance\/base",
+                "parent": "\/LiveMenu\/5"
+            }
+        ]
+    }
+]

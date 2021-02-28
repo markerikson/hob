@@ -1,27 +1,37 @@
 [
     {
         "name": "Boat Types",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMenu\/6"
+        "icon_url": "assets\/dump\/images\/uploads\/boat_types_50c8b18502.png",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/6",
+        "parent": "\/LiveMenu\/2"
     },
     {
         "name": "Controls",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMenu\/7"
+        "icon_url": "assets\/dump\/images\/uploads\/controls_c9a331850f.png",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/7",
+        "parent": "\/LiveMenu\/2"
     },
     {
         "name": "Manoeveures",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMenu\/8"
+        "icon_url": "assets\/dump\/images\/uploads\/manoeuvers_7ef0a703c6.png",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/8",
+        "parent": "\/LiveMenu\/2"
     },
     {
         "name": "Rules of the road",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMenu\/9"
+        "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/9",
+        "parent": "\/LiveMenu\/2"
     },
     {
         "name": "Emergencies",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMenu\/10"
+        "icon_url": "assets\/dump\/images\/uploads\/troubleshooting_ca0038b1af.png",
+        "background_color": "#FCF8E8",
+        "resource": "\/LiveMenu\/10",
+        "parent": "\/LiveMenu\/2"
     }
 ]

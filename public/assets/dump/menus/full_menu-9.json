@@ -1,32 +1,32 @@
 {
-    "id": 9,
     "name": "Rules of the road",
-    "ionic_resource": "LiveMenu",
-    "main": false,
     "background_color": null,
-    "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+    "resource": "\/LiveMenu\/9",
+    "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
     "menus": [
         {
             "name": "Give way",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/11"
         },
         {
             "name": "In the port",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Boto_1ff7b727d1.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/12"
         },
         {
             "name": "Anchorage",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_3_B_3_eb71956e24.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/13"
         },
         {
             "name": "Do not!",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/14"
         }
-    ],
-    "label_lang_en_uk": "Rules of the road",
-    "label_lang_es_es": "Reglas de navegaci\u00f3n"
+    ]
 }

@@ -1,11 +1,7 @@
 {
-    "id": 14,
     "name": "Load your route",
-    "ionic_resource": "LiveRoute",
-    "main": false,
     "background_color": null,
-    "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
-    "menus": [],
-    "label_lang_en_uk": "Load your route",
-    "label_lang_es_es": "Load your route ES"
+    "resource": "\/LiveRoute\/14",
+    "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+    "menus": []
 }

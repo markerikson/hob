@@ -2,12 +2,7 @@ import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonIte
 import React, { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { Menu } from '../models/Menu'
-
-interface SubMenu {
-  name: string,
-  icon_url: string,
-  resource: string,
-}
+import { SubMenu } from '../models/SubMenu'
 
 interface FooterMenuProps extends RouteComponentProps<{
   id: string
@@ -28,7 +23,11 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   }, [match.params.id])
 
   function renderTitle(menu: Menu[]) {
-    console.log(menu)
+    //console.log(menu)
+  }
+
+  function renderLangs(menu: Menu[]) {
+    //console.log(menu)
   }
 
   function renderMenuTitles(menus: SubMenu[]) {

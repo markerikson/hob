@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { IonApp, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter,  } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
@@ -27,31 +27,25 @@ import Article from './components/Article'
 // App main pages
 import Home from './pages/Home'
 import LiveMap from './pages/LiveMap'
-
-// Dumped data! ;)
-import MainMenu from './dump/others/main_menu.json'
-
-interface Menu {
-  id: number,
-  name: string,
-  ionic_resource: string,
-  icon_url: string,
-  //children: SubMenu[]
-}
+import { Menu } from './models/Menu'
 
 interface SubMenu {
-  id: number,
   name: string,
-  ionic_resource: string,
-  icon_url: string
+  resource: string,
+  icon_url: string,
 }
 
 const App: React.FC = () => {
 
-  // Setting footer icons from LiveMenu file... Must be INSIDE for performance reasons, as each content :P
+  const [main_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/others/main_menu.json')
+      .then(res => res.json()).then(setMenu)
+  }, [])
+
   function renderFooterMenu(list: Menu[]) {
     return list.map((r: Menu, index) => (
-      <IonTabButton key={'footer_'+index} tab={r.name} href={'/'+r.ionic_resource+'/'+r.id} disabled={false}>
+      <IonTabButton key={r.resource} tab={r.name} href={r.resource} disabled={false}>
         <img src={r.icon_url} alt={r.name.toString()} />
       </IonTabButton>
     ))
@@ -70,7 +64,7 @@ const App: React.FC = () => {
             <Route path='/Support' component={Article}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom'>
-            {renderFooterMenu(MainMenu)}
+            {renderFooterMenu(main_menu)}
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>

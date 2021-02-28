@@ -1,22 +1,26 @@
 [
     {
         "name": "Motor stopped under way",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
         "resource": "\/Article\/15"
     },
     {
         "name": "MOB",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_5_metres_66be286fb1.svg",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
         "resource": "\/Article\/16"
     },
     {
         "name": "Troubleshooting",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_3_B_3_eb71956e24.svg",
+        "icon_url": "assets\/dump\/images\/uploads\/troubleshooting_ca0038b1af.png",
+        "background_color": null,
         "resource": "\/Article\/17"
     },
     {
         "name": "First aid guide",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Ae_Water_f4ef4d7452.svg",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
         "resource": "\/Article\/18"
     }
 ]

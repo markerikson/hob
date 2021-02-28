@@ -1,11 +1,7 @@
 {
-    "id": 15,
     "name": "Live Map",
-    "ionic_resource": "LiveMap",
-    "main": false,
     "background_color": null,
-    "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_1metre_25296a3bf2.svg",
-    "menus": [],
-    "label_lang_en_uk": "Live Map",
-    "label_lang_es_es": "Live Map"
+    "resource": "\/LiveMap\/15",
+    "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+    "menus": []
 }

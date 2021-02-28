@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
 import { connect } from '../data/connect'
 import { RouteComponentProps } from 'react-router'
+import { Language } from '../models/Language'
 
 interface OwnProps extends RouteComponentProps {}
 
@@ -42,6 +43,22 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
     }
 
   }
+
+  const [languages, setLanguages] = useState<Language[]>([])
+  useEffect(() => {
+    fetch('assets/dump/others/languages.json')
+      .then(res => res.json()).then(setLanguages)
+  }, [])
+
+  // Setting footer icons from LiveMenu file... Must be INSIDE for performance reasons, as each content :P
+  function renderLangs(list: Language[]) {
+    return list.map((r: Language, index) => (
+      <IonButtons key={index}>
+        <IonLabel position="stacked" color="primary">{r.name}</IonLabel>
+      </IonButtons>
+    ))
+  }
+
 
   return (
     <IonPage id="login-page">
@@ -97,6 +114,8 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
             </IonCol>
           </IonRow>
         </form>
+        
+        {renderLangs(languages)}
 
       </IonContent>
 

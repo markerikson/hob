@@ -1,12 +1,16 @@
 [
     {
         "name": "Routes",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/LiveMap\/1"
+        "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+        "background_color": "#F8DDD1",
+        "resource": "\/LiveMap\/1",
+        "parent": "\/LiveMenu\/3"
     },
     {
         "name": "Equipment",
-        "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-        "resource": "\/Equipment"
+        "icon_url": "assets\/dump\/images\/uploads\/equipment_19aea1da08.png",
+        "background_color": "#F8DDD1",
+        "resource": "\/Equipment",
+        "parent": "\/LiveMenu\/3"
     }
 ]

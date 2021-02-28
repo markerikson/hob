@@ -1,22 +1,22 @@
 {
-    "id": 3,
     "name": "Explore & Equip",
-    "ionic_resource": "LiveMenu",
-    "main": true,
-    "background_color": "#123456",
-    "icon_url": "assets\/dump\/images\/uploads\/exploreequip_bc40f3273e.PNG",
+    "background_color": "#F8DDD1",
+    "resource": "\/LiveMenu\/3",
+    "icon_url": "assets\/dump\/images\/uploads\/main_explore_and_equip_7ec25332e4.png",
     "menus": [
         {
             "name": "Routes",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-            "resource": "\/LiveMap\/1"
+            "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+            "background_color": "#F8DDD1",
+            "resource": "\/LiveMap\/1",
+            "parent": "\/LiveMenu\/3"
         },
         {
             "name": "Equipment",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-            "resource": "\/Equipment"
+            "icon_url": "assets\/dump\/images\/uploads\/equipment_19aea1da08.png",
+            "background_color": "#F8DDD1",
+            "resource": "\/Equipment",
+            "parent": "\/LiveMenu\/3"
         }
-    ],
-    "label_lang_en_uk": "Explore & Equip",
-    "label_lang_es_es": "Exploraci\u00f3n y equipo"
+    ]
 }

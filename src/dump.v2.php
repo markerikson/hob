@@ -3,12 +3,12 @@
 $version = 2;
 
 $map = [
-    'langs' => ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => 'dump/others/languages.json'],
-    'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/main_menu.json'],
-    'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => 'dump/others/all_menus.json'],
+    'langs' => ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
+    'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main_menu.json'],
+    'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all_menus.json'],
     'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/articles/{id}.json'],
-    'translations' => ['filename' => 'dump/i18next/{lang}/{object}.json'],
+    'contents' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
+    'translations' => ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
     'images' => ['filename' => 'dump/images/uploads/{filename}'],
 ];
 
@@ -19,9 +19,9 @@ $structs = [
             'name' => '',
             'icon' => '',
             'media' => [],
-            'articles' => '',
+            'contents' => '',
         ],
-        'articles' => [
+        'contents' => [
             'title' =>  '',
             'lang' => '',
             'pages' => '',
@@ -146,10 +146,10 @@ function someUnseters(&$old){
 // MENUS
 //////////////////////////////////////////////////////////////////////////////////////////
 
+$imgDump = 'assets/dump/images';
+
 // Languages::
 if($version == 2){
-
-    $imgDump = 'assets/dump/images';
 
     // Created formated new languages object
         $oldLangs = json_decode(getContent($map['langs']['url']));
@@ -167,17 +167,20 @@ if($version == 2){
         $oldLangs = json_decode(getContent($map['langs']['url']));
 
         // Getting the main menus
-        if(isset($menu->icon)) getImages($menu->icon);
+        if(isset($menu->icon)){ getImages($menu->icon); }
         someUnseters($menu);
-        //$menu->id = (string) $menu->id;
-        //unset($menu->children);
+        $menu->resource = '/'.$menu->ionic_resource.'/'.$menu->id;
+        unset($menu->ionic_resource);
         $menu->icon_url = $imgDump.$menu->icon->url;
+
+        //foreach($menu->label as $key4 => $label){
+        //    $menu->{'label_lang_'.$label->language->code} = $label->label;
+        //}
 
         $menu->contents = $contents = $menu->children[0]->contents ?? [];
         $menu->menus = $menu->children[0]->menus ?? [];
         
         unset($menu->children);
-        
         foreach($menu->menus as $key2 => $submenu){
             someUnseters($menu->menus[$key2]);
             $menu->menus[$key2]->icon_url = $imgDump.$menu->menus[$key2]->icon->url;
@@ -185,31 +188,34 @@ if($version == 2){
             unset($menu->menus[$key2]->main);
             unset($menu->menus[$key2]->description);
             unset($menu->menus[$key2]->background_color);
+            $menu->menus[$key2]->background_color = $menu->background_color;
             if(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMenu'])){
                 $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->id;
-            }elseif(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMap'])){
-                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';
+            }elseif(in_array($menu->menus[$key2]->ionic_resource, ['LiveMap'])){
+                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';// While only one map ;)
             }else{
                 $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource;
             }
             unset($menu->menus[$key2]->ionic_resource);
             unset($menu->menus[$key2]->id);
+            $menu->menus[$key2]->parent = $menu->resource;
         }
 
         foreach($menu->contents as $key3 => $content){
 
-            if(isset($menu->contents[$key3]->icon)) $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url;
+            if(isset($menu->contents[$key3]->icon)){ $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url; }
             
             someUnseters($menu->contents[$key3]);            
             unset($menu->contents[$key3]->icon);
             unset($menu->contents[$key3]->main);
             unset($menu->contents[$key3]->description);
             unset($menu->contents[$key3]->background_color);
+            $menu->contents[$key3]->background_color = $menu->background_color;
             unset($menu->contents[$key3]->media);
             $menu->contents[$key3]->resource = '/Article/'.$menu->contents[$key3]->id;
             unset($menu->contents[$key3]->id);
 
-            file_put_contents( str_replace('{id}', 'menu-contents-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
+            //file_put_contents( str_replace('{id}', 'menu-contents-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
             $menu->menus[] =  $menu->contents[$key3];
 
         }
@@ -218,21 +224,22 @@ if($version == 2){
         unset($menu->description);
         unset($menu->contents);
 
-        foreach($menu->label as $key4 => $label){
-            $menu->{'label_lang_'.$label->language->code} = $label->label;
-        }
+
 
         unset($menu->label);
 
         if($menu->main){
             $newMainMenu[] = $menu;
         }
+        unset($menu->main);
 
         // Guardo los submenús por separado (cuando hay...)
-        file_put_contents( str_replace('{id}', 'sub_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu->menus, JSON_PRETTY_PRINT));
+        $menuId = $menu->id;        
+        unset($menu->id);
+        file_put_contents( str_replace('{id}', 'sub_menu-'.$menuId, $map['menus']['filename']), json_encode($menu->menus, JSON_PRETTY_PRINT));
 
         // Guardo los menús completos por separado
-        file_put_contents( str_replace('{id}', 'full_menu-'.$menu->id, $map['menus']['filename']), json_encode($menu, JSON_PRETTY_PRINT));
+        file_put_contents( str_replace('{id}', 'full_menu-'.$menuId, $map['menus']['filename']), json_encode($menu, JSON_PRETTY_PRINT));
 
     }
 
@@ -240,16 +247,15 @@ if($version == 2){
     file_put_contents( $map['main_menu']['filename'], json_encode($newMainMenu, JSON_PRETTY_PRINT));
     
     // Guardar el archivo de todos los menus
-    file_put_contents( $map['all_menus']['filename'], json_encode($oldMainMenu, JSON_PRETTY_PRINT));
+    //file_put_contents( $map['all_menus']['filename'], json_encode($oldMainMenu, JSON_PRETTY_PRINT));
 
 
     //////////////////////////////////////////////////////////////////////////////////////////
     // ARTICLES
     //////////////////////////////////////////////////////////////////////////////////////////
 
-
     // Recuperamos todos los menús en archivos con el ID en su nombre
-    $articles = json_decode(getContent($map['articles']['url']));
+    $articles = json_decode(getContent($map['contents']['url']));
 
     // Saving articles to dump !!
     foreach ($articles as $article) {
@@ -265,7 +271,7 @@ if($version == 2){
             unset($article->media);
         }
 
-        file_put_contents(str_replace('{id}', $article->id, $map['articles']['filename']), json_encode($article, JSON_PRETTY_PRINT));
+        file_put_contents(str_replace('{id}', $article->id, $map['contents']['filename']), json_encode($article, JSON_PRETTY_PRINT));
 
     }
 
@@ -362,7 +368,7 @@ $output = setMenuContent($menus, $structs);
 
 
 // Recuperamos todos los menús en archivos con el ID en su nombre
-$articles = json_decode(getContent($map['articles']['url'], $map['articles']['queryString'] ?? null));
+$articles = json_decode(getContent($map['contents']['url'], $map['contents']['queryString'] ?? null));
 
 // Saving articles to dump !!
 foreach ($articles as $article) {
@@ -377,12 +383,12 @@ foreach ($articles as $article) {
         getImages($article->media);
     }
 
-    file_put_contents(str_replace('{id}', $menu->id, $map['articles']['filename']), json_encode($articles, JSON_PRETTY_PRINT));
+    file_put_contents(str_replace('{id}', $menu->id, $map['contents']['filename']), json_encode($articles, JSON_PRETTY_PRINT));
 
 }
 
 
-$output['articles'] = $structs['json_header'];
+$output['contents'] = $structs['json_header'];
 foreach ($articles as $article) {
 
     // Getting the article content
@@ -392,12 +398,12 @@ foreach ($articles as $article) {
 
             // Getting App Content title i18next translation
             if (isset($art->title) && !empty($art->title)) {
-                $output['articles'][$art->language->code]['art:title:' . $art->id] = trim($art->title);
+                $output['contents'][$art->language->code]['art:title:' . $art->id] = trim($art->title);
             }
 
             // Getting App Content extra_content i18next translation
             if (isset($art->extra_content) && !empty($art->extra_content)) {
-                $output['articles'][$art->language->code]['art:extra_content:' . $art->id] = trim($art->extra_content);
+                $output['contents'][$art->language->code]['art:extra_content:' . $art->id] = trim($art->extra_content);
             }
 
             // About pages
@@ -405,11 +411,11 @@ foreach ($articles as $article) {
                 foreach ($art->pages as $page) {
 
                     // Getting App Content - Page - Title i18next translation
-                    $output['articles'][$art->language->code]['art:page:title:' . $page->id] = trim($art->title);
+                    $output['contents'][$art->language->code]['art:page:title:' . $page->id] = trim($art->title);
 
                     // Getting App Content - Page - description i18next translation
                     if (!empty($art->description)) {
-                        $output['articles'][$art->language->code]['art:page:description:' . $page->id] = trim($art->description);
+                        $output['contents'][$art->language->code]['art:page:description:' . $page->id] = trim($art->description);
                     }
 
                     // Getting App Content - Page images
@@ -429,6 +435,6 @@ foreach ($articles as $article) {
 
 // Saving article i18next translations
 foreach ($languages as $key => $language) {
-    file_put_contents(str_replace('{lang}', $language->code, str_replace('{object}', 'articles', $map['translations']['filename'])), json_encode($output['articles'][$language->code], JSON_PRETTY_PRINT));
+    file_put_contents(str_replace('{lang}', $language->code, str_replace('{object}', 'contents', $map['translations']['filename'])), json_encode($output['contents'][$language->code], JSON_PRETTY_PRINT));
 }
 */

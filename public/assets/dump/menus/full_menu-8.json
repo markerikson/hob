@@ -1,32 +1,33 @@
 {
-    "id": 8,
     "name": "Manoeveures",
-    "ionic_resource": "LiveMenu",
-    "main": false,
     "background_color": null,
-    "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+    "resource": "\/LiveMenu\/8",
+    "icon_url": "assets\/dump\/images\/uploads\/manoeuvers_7ef0a703c6.png",
     "menus": [
         {
             "name": "Rules of the road",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
-            "resource": "\/LiveMenu\/9"
+            "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
+            "background_color": null,
+            "resource": "\/LiveMenu\/9",
+            "parent": "\/LiveMenu\/8"
         },
         {
             "name": "Base operations",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_2_Aa_Reverse_98c00eac0a.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/8"
         },
         {
             "name": "Cruising",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_3_D_5_metres_66be286fb1.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/9"
         },
         {
             "name": "Anchoring",
-            "icon_url": "assets\/dump\/images\/uploads\/4_1_3_Aa1_Chaleco_007c7407e5.svg",
+            "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+            "background_color": null,
             "resource": "\/Article\/10"
         }
-    ],
-    "label_lang_en_uk": "Manoeveures",
-    "label_lang_es_es": "Maniobras"
+    ]
 }
