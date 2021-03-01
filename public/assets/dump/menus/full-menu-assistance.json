@@ -1,24 +1,23 @@
-[
-    {
-        "name": "Assistance",
-        "background_color": "#DB6400",
-        "resource": "\/LiveMenu\/assistance",
-        "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
-        "menus": [
-            {
-                "name": "Call emergencies",
-                "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
-                "background_color": "#DB6400",
-                "resource": "\/Assistance",
-                "parent": "\/LiveMenu\/assistance"
-            },
-            {
-                "name": "Call base",
-                "icon_url": "assets\/dump\/images\/uploads\/main_assistance_8ebc33d016.png",
-                "background_color": "#DB6400",
-                "resource": "\/Assistance\/base",
-                "parent": "\/LiveMenu\/assistance"
-            }
-        ]
-    }
-]
+{
+    "name": "Assistance",
+    "resource": "\/LiveMenu\/assistance",
+    "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+    "background_color": "#DB6400",
+    "parent": "\/Home",
+    "menus": [
+        {
+            "name": "Call base",
+            "resource": "\/Assistance\/emergencies",
+            "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+            "background_color": "#DB6400",
+            "parent": "\/LiveMenu\/assistance"
+        },
+        {
+            "name": "Call base",
+            "resource": "\/Assistance\/base",
+            "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+            "background_color": "#DB6400",
+            "parent": "\/LiveMenu\/assistance"
+        }
+    ]
+}

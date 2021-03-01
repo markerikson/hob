@@ -7,7 +7,9 @@ $map = [
     'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
     'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
     'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'contents' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
+    'contents' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
+    'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
+    'pages' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
     'translations' => ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
     'images' => ['filename' => 'dump/images/uploads/{filename}'],
 ];
@@ -142,11 +144,39 @@ function someUnseters(&$old){
     unset($old->published_at, $old->created_at, $old->updated_at );
 }
 
+/*function setSlug(&$menu, $key2){
+    if(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMenu'])){
+        $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->slug;
+    }elseif(in_array($menu->menus[$key2]->ionic_resource, ['LiveMap'])){
+        $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';// While only one map ;)
+    }else{
+        $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource;
+    }
+    unset($menu->menus[$key2]->ionic_resource);
+    unset($menu->menus[$key2]->slug);
+}*/
+
+function getSlug($case, $object){
+    switch($case){
+        case 'Article':
+        case 'LiveMenu':{
+            return '/'.$object->ionic_resource.'/'.$object->slug;
+        }break;
+        case 'LiveMap':{
+            return '/'.$object->ionic_resource.'/1';
+        }break;
+        default:{
+            return '/'.$object->ionic_resource;
+        }break;
+    }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // MENUS
 //////////////////////////////////////////////////////////////////////////////////////////
 
 $imgDump = 'assets/dump/images';
+$mainLang = 'en_uk';
 
 // Languages::
 if($version == 2){
@@ -162,58 +192,56 @@ if($version == 2){
         
     // Created formated new menus object
     $oldMainMenu = json_decode(getContent($map['main_menu']['url']));
-    foreach( $oldMainMenu as $menu ){
+    foreach( $oldMainMenu as $key => $menu ){
 
-        $oldLangs = json_decode(getContent($map['langs']['url']));
-
-        // Getting the main menus
-        if(isset($menu->icon)){ getImages($menu->icon); }
-        someUnseters($menu);
-        $menu->resource = '/'.$menu->ionic_resource.'/'.$menu->slug;
-        unset($menu->ionic_resource);
-        $menu->icon_url = $imgDump.$menu->icon->url;
-
-        //foreach($menu->label as $key4 => $label){
-        //    $menu->{'label_lang_'.$label->language->code} = $label->label;
-        //}
-
-        $menu->contents = $contents = $menu->children[0]->contents ?? [];
-        $menu->menus = $menu->children[0]->menus ?? [];
-        
-        unset($menu->children);
-        foreach($menu->menus as $key2 => $submenu){
-            someUnseters($menu->menus[$key2]);
-            $menu->menus[$key2]->icon_url = $imgDump.$menu->menus[$key2]->icon->url;
-            unset($menu->menus[$key2]->icon);
-            unset($menu->menus[$key2]->main);
-            unset($menu->menus[$key2]->description);
-            unset($menu->menus[$key2]->background_color);
-            $menu->menus[$key2]->background_color = $menu->background_color;
-            if(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMenu'])){
-                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->slug;
-            }elseif(in_array($menu->menus[$key2]->ionic_resource, ['LiveMap'])){
-                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';// While only one map ;)
-            }else{
-                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource;
-            }
-            unset($menu->menus[$key2]->ionic_resource);
-            unset($menu->menus[$key2]->id);
-            unset($menu->menus[$key2]->slug);
-            $menu->menus[$key2]->parent = $menu->resource;
+        foreach($menu->label as $key4 => $label){
+            if( $label->language->code == $nameDefault ) $mainName = $label->label;
         }
 
+        $newMenu[$key] = [
+            'name' => $mainName,
+            'parent' => '/Home',
+            'resource' => getSlug($menu->ionic_resource, $menu),
+            'icon_url' => ($menu->icon->url) ? $imgDump.$menu->icon->url : '',
+            'background_color' => $menu->background_color,
+        ];
+
+        if(isset($menu->icon)){ getImages($menu->icon); }
+
+        $menu->menus = $menu->children[0]->menus ?? [];        
+        foreach($menu->menus as $key2 => $submenu){             
+            
+            $thisMenu = json_decode(getContent($map['main_menu']['url']));
+            //$oldLangs = json_decode(getContent($map['langs']['url']));
+            foreach($thisMenu->label as $key4 => $label){
+                if( $label->language->code == $langDefault ) $mainName2 = $label->label;
+            }
+            
+            $newMenu[$key]['menus'][] = [
+                'name' => $mainName,
+                'parent' => $newMenu[$key]['resource'],
+                'resource' => getSlug($submenu->ionic_resource, $submenu),
+                'icon_url' => $imgDump.$submenu->icon->url,
+                'background_color' => $submenu->background_color,
+            ];          
+        }
+        
         // Converting articles in menu fields ;)
+        $menu->contents = $contents = $menu->children[0]->contents ?? [];
         foreach($menu->contents as $key3 => $content){
 
-            if(isset($menu->contents[$key3]->icon)){ $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url; }
-            
-            someUnseters($menu->contents[$key3]);            
-            unset($menu->contents[$key3]->id);
-            unset($menu->contents[$key3]->icon);
-            unset($menu->contents[$key3]->main);
-            unset($menu->contents[$key3]->media);
-            unset($menu->contents[$key3]->description);
-            unset($menu->contents[$key3]->background_color);
+            $newMenu[$key]['menus'][] = [
+                'name' => $mainName,
+                'parent' => $newMenu[$key]['resource'],
+                'resource' => getSlug($submenu->ionic_resource, $submenu),
+                'icon_url' => $imgDump.$submenu->icon->url,
+                'background_color' => $submenu->background_color,
+            ];   
+
+            if(isset($menu->contents[$key3]->icon)){
+                $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url;
+            }
+
             $menu->contents[$key3]->background_color = $menu->background_color;
             $menu->contents[$key3]->resource = '/Article/'.$menu->contents[$key3]->slug;
 
@@ -221,18 +249,9 @@ if($version == 2){
 
         }
 
-        unset($menu->icon); 
-        unset($menu->description);
-        unset($menu->contents);
-
-
-
-        unset($menu->label);
-
         if($menu->main){
             $newMainMenu[] = $menu;
         }
-        unset($menu->main);
 
         // Guardo los submenús por separado (cuando hay...)
         $menuId = $menu->slug;        
@@ -244,6 +263,7 @@ if($version == 2){
         $menu_[] = $menu;
         file_put_contents( str_replace('{id}', 'full-menu-'.$menuId, $map['menus']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
         unset($menu_);
+
     }
 
     // Guardar el archivo de todos los menus principales
@@ -258,27 +278,42 @@ if($version == 2){
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // Recuperamos todos los menús en archivos con el ID en su nombre
-    $articles = json_decode(getContent($map['contents']['url']));
+    $contents = json_decode(getContent($map['contents']['url']));
 
     // Saving articles to dump !!
-    foreach ($articles as $article) {
+    foreach ($contents as $content) {
+
+        $media = [];
 
         // Getting App Content icons to dump
-        if (!empty($article->icon)) {
+        if (!empty($content->icon)) {
             getImages($article->icon);
         }
 
         // Getting App Content media to dump
-        if (!empty($article->media)) {
-            getImages($article->media);
-            unset($article->media);
+        if (!empty($content->media)) {
+            getImages($content->media);
         }
 
-        file_put_contents(str_replace('{id}', $article->id, $map['contents']['filename']), json_encode($article, JSON_PRETTY_PRINT));
+
+
+        $content_ = [
+            'name' => $content->name,
+            'icon_url' => $imgDump.$content->icon->url,
+            'parent' => '/Home',
+        ];
+
+        $content__[] = $content_;
+        file_put_contents(str_replace('{id}', $content->slug, $map['contents']['filename']), json_encode($content__, JSON_PRETTY_PRINT));
+        unset($content__);
+
+        foreach($content->articles as $article){
+
+        }
+
+
 
     }
-
-
 
 
 

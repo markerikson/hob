@@ -33,11 +33,10 @@ const App: React.FC = () => {
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/others/main-menu.json')
-      .then(res => res.json()).then(setMenu)
+    fetch('assets/dump/others/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
-  function renderFooterMenu(list: Menu[]) {
+  function renderFooterMenu(list: Menu[]) {    
     return list.map((r: Menu, index) => (
       <IonTabButton key={r.resource} tab={r.name} href={r.resource} disabled={false}>
         <img src={r.icon_url} alt={r.name.toString()} />

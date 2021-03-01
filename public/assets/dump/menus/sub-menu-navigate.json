@@ -1,16 +1,16 @@
 [
     {
         "name": "Load your route",
-        "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
-        "background_color": "#9E0FBFC",
         "resource": "\/LiveRoute",
+        "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
+        "background_color": "#9E0FBFC",
         "parent": "\/LiveMenu\/navigate"
     },
     {
         "name": "Live Map",
-        "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
-        "background_color": "#9E0FBFC",
         "resource": "\/LiveMap\/1",
+        "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
+        "background_color": "#9E0FBFC",
         "parent": "\/LiveMenu\/navigate"
     }
 ]

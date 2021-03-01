@@ -14,14 +14,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   const [sub_menus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
-    fetch('assets/dump/menus/sub-menu-'+match.params.slug+'.json')
-      .then(res => res.json()).then(setMenus)
-  }, [match.params.slug])
-
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json')
-      .then(res => res.json()).then(setMenu)
+    fetch('assets/dump/menus/sub-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenus)
   }, [match.params.slug])
 
   function renderSubMenus(menus: Submenu[]) {
@@ -32,6 +25,12 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
       </IonItem>
     ))
   }
+
+/*
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
+  }, [match.params.slug])
 
   function renderMenuTitle(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
@@ -51,14 +50,15 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
         <IonBackButton defaultHref={'/'} />
       </IonButtons>
     ))  
-  }
+  }*/
+
 
   return(    
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          {renderBackButton(full_menu)}          
-          {renderMenuTitle(full_menu)}
+          {/*renderBackButton(full_menu)*/}          
+          {/*renderMenuTitle(full_menu)*/}
         </IonToolbar>
       </IonHeader>
       <IonContent>

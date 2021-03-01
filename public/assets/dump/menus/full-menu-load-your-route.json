@@ -1,9 +1,7 @@
-[
-    {
-        "name": "Load your route",
-        "background_color": null,
-        "resource": "\/LiveRoute\/load-your-route",
-        "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
-        "menus": []
-    }
-]
+{
+    "name": "Load your route",
+    "resource": "\/LiveRoute",
+    "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
+    "background_color": null,
+    "parent": "\/Home"
+}
