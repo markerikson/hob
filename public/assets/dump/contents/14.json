@@ -2,7 +2,8 @@
     "id": 14,
     "name": "Do not!",
     "created_at": "2021-02-21T00:10:54.000Z",
-    "updated_at": "2021-02-28T21:05:21.000Z",
+    "updated_at": "2021-02-28T21:49:44.000Z",
+    "slug": "do-not",
     "articles": [
         {
             "id": 31,

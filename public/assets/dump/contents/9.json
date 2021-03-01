@@ -2,7 +2,8 @@
     "id": 9,
     "name": "Cruising",
     "created_at": "2021-02-20T23:59:06.000Z",
-    "updated_at": "2021-02-28T21:04:31.000Z",
+    "updated_at": "2021-02-28T21:49:07.000Z",
+    "slug": "cruising",
     "articles": [
         {
             "id": 21,

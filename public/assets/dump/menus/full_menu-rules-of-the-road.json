@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Rules of the road",
+        "background_color": null,
+        "resource": "\/LiveMenu\/rules-of-the-road",
+        "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
+        "menus": [
+            {
+                "name": "Give way",
+                "slug": "give-way",
+                "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+                "background_color": null,
+                "resource": "\/Article\/give-way"
+            },
+            {
+                "name": "In the port",
+                "slug": "in-the-port",
+                "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+                "background_color": null,
+                "resource": "\/Article\/in-the-port"
+            },
+            {
+                "name": "Anchorage",
+                "slug": "anchorage",
+                "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+                "background_color": null,
+                "resource": "\/Article\/anchorage"
+            },
+            {
+                "name": "Do not!",
+                "slug": "do-not",
+                "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+                "background_color": null,
+                "resource": "\/Article\/do-not"
+            }
+        ]
+    }
+]

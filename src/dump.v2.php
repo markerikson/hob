@@ -4,8 +4,8 @@ $version = 2;
 
 $map = [
     'langs' => ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
-    'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main_menu.json'],
-    'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all_menus.json'],
+    'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
+    'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
     'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
     'contents' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
     'translations' => ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
@@ -169,7 +169,7 @@ if($version == 2){
         // Getting the main menus
         if(isset($menu->icon)){ getImages($menu->icon); }
         someUnseters($menu);
-        $menu->resource = '/'.$menu->ionic_resource.'/'.$menu->id;
+        $menu->resource = '/'.$menu->ionic_resource.'/'.$menu->slug;
         unset($menu->ionic_resource);
         $menu->icon_url = $imgDump.$menu->icon->url;
 
@@ -190,7 +190,7 @@ if($version == 2){
             unset($menu->menus[$key2]->background_color);
             $menu->menus[$key2]->background_color = $menu->background_color;
             if(in_array($menu->menus[$key2]->ionic_resource, ['Article', 'LiveMenu'])){
-                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->id;
+                $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/'.$menu->menus[$key2]->slug;
             }elseif(in_array($menu->menus[$key2]->ionic_resource, ['LiveMap'])){
                 $menu->menus[$key2]->resource = '/'.$menu->menus[$key2]->ionic_resource.'/1';// While only one map ;)
             }else{
@@ -198,24 +198,25 @@ if($version == 2){
             }
             unset($menu->menus[$key2]->ionic_resource);
             unset($menu->menus[$key2]->id);
+            unset($menu->menus[$key2]->slug);
             $menu->menus[$key2]->parent = $menu->resource;
         }
 
+        // Converting articles in menu fields ;)
         foreach($menu->contents as $key3 => $content){
 
             if(isset($menu->contents[$key3]->icon)){ $menu->contents[$key3]->icon_url = $imgDump.$menu->contents[$key3]->icon->url; }
             
             someUnseters($menu->contents[$key3]);            
+            unset($menu->contents[$key3]->id);
             unset($menu->contents[$key3]->icon);
             unset($menu->contents[$key3]->main);
+            unset($menu->contents[$key3]->media);
             unset($menu->contents[$key3]->description);
             unset($menu->contents[$key3]->background_color);
             $menu->contents[$key3]->background_color = $menu->background_color;
-            unset($menu->contents[$key3]->media);
-            $menu->contents[$key3]->resource = '/Article/'.$menu->contents[$key3]->id;
-            unset($menu->contents[$key3]->id);
+            $menu->contents[$key3]->resource = '/Article/'.$menu->contents[$key3]->slug;
 
-            //file_put_contents( str_replace('{id}', 'menu-contents-'.$menu->id, $map['menus']['filename']), json_encode($menu->contents, JSON_PRETTY_PRINT));          
             $menu->menus[] =  $menu->contents[$key3];
 
         }
@@ -234,13 +235,15 @@ if($version == 2){
         unset($menu->main);
 
         // Guardo los submenús por separado (cuando hay...)
-        $menuId = $menu->id;        
+        $menuId = $menu->slug;        
         unset($menu->id);
-        file_put_contents( str_replace('{id}', 'sub_menu-'.$menuId, $map['menus']['filename']), json_encode($menu->menus, JSON_PRETTY_PRINT));
+        unset($menu->slug);
+        file_put_contents( str_replace('{id}', 'sub-menu-'.$menuId, $map['menus']['filename']), json_encode($menu->menus, JSON_PRETTY_PRINT));
 
         // Guardo los menús completos por separado
-        file_put_contents( str_replace('{id}', 'full_menu-'.$menuId, $map['menus']['filename']), json_encode($menu, JSON_PRETTY_PRINT));
-
+        $menu_[] = $menu;
+        file_put_contents( str_replace('{id}', 'full-menu-'.$menuId, $map['menus']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
+        unset($menu_);
     }
 
     // Guardar el archivo de todos los menus principales

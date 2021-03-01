@@ -2,7 +2,8 @@
     "id": 15,
     "name": "Motor stopped under way",
     "created_at": "2021-02-21T00:12:56.000Z",
-    "updated_at": "2021-02-28T21:05:30.000Z",
+    "updated_at": "2021-02-28T21:50:29.000Z",
+    "slug": "motor-stopped-under-way",
     "articles": [
         {
             "id": 33,

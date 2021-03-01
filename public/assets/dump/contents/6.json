@@ -2,7 +2,8 @@
     "id": 6,
     "name": "Contact key",
     "created_at": "2021-02-20T23:54:53.000Z",
-    "updated_at": "2021-02-28T21:04:09.000Z",
+    "updated_at": "2021-02-28T21:48:34.000Z",
+    "slug": "contact-key",
     "articles": [
         {
             "id": 15,

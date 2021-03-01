@@ -2,7 +2,8 @@
     "id": 19,
     "name": "Stop motor",
     "created_at": "2021-02-21T00:59:50.000Z",
-    "updated_at": "2021-02-28T21:05:52.000Z",
+    "updated_at": "2021-02-28T21:49:58.000Z",
+    "slug": "stop-motor",
     "articles": [
         {
             "id": 41,

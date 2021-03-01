@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IonApp, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
+import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter,  } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
 
@@ -29,17 +29,11 @@ import Home from './pages/Home'
 import LiveMap from './pages/LiveMap'
 import { Menu } from './models/Menu'
 
-interface SubMenu {
-  name: string,
-  resource: string,
-  icon_url: string,
-}
-
 const App: React.FC = () => {
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/others/main_menu.json')
+    fetch('assets/dump/others/main-menu.json')
       .then(res => res.json()).then(setMenu)
   }, [])
 
@@ -58,9 +52,9 @@ const App: React.FC = () => {
           <IonRouterOutlet>            
             <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
             <Route path='/Home' component={Home}/>
-            <Route path='/LiveMenu/:id' component={LiveMenu}/>
-            <Route path='/LiveMap/:id' component={LiveMap}/>
-            <Route path='/Article/:id' component={Article}/>
+            <Route path='/LiveMenu/:slug' component={LiveMenu}/>
+            <Route path='/LiveMap/:slug' component={LiveMap}/>
+            <Route path='/Article/:slug' component={Article}/>
             <Route path='/Support' component={Article}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom'>

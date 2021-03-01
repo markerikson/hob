@@ -2,7 +2,8 @@
     "id": 16,
     "name": "MOB",
     "created_at": "2021-02-21T00:13:23.000Z",
-    "updated_at": "2021-02-28T21:05:37.000Z",
+    "updated_at": "2021-02-28T21:50:20.000Z",
+    "slug": "mob",
     "articles": [
         {
             "id": 35,

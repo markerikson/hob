@@ -1,5 +1,6 @@
-export interface SubMenu {
+export interface Submenu {
   name: string,
-  icon_url: string,
   resource: string,
+  icon_url: string,
+  parent?: string,
 }

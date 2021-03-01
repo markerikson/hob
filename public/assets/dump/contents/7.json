@@ -2,7 +2,8 @@
     "id": 7,
     "name": "Start motor",
     "created_at": "2021-02-20T23:56:19.000Z",
-    "updated_at": "2021-02-28T21:01:58.000Z",
+    "updated_at": "2021-02-28T21:48:44.000Z",
+    "slug": "start-motor",
     "articles": [
         {
             "id": 17,

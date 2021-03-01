@@ -2,7 +2,8 @@
     "id": 11,
     "name": "Give way",
     "created_at": "2021-02-21T00:09:00.000Z",
-    "updated_at": "2021-02-28T21:04:53.000Z",
+    "updated_at": "2021-02-28T21:49:24.000Z",
+    "slug": "give-way",
     "articles": [
         {
             "id": 25,

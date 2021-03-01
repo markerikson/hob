@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Explore & Equip",
+        "background_color": "#F8DDD1",
+        "resource": "\/LiveMenu\/explore-and-equip",
+        "icon_url": "assets\/dump\/images\/uploads\/main_explore_and_equip_7ec25332e4.png",
+        "menus": [
+            {
+                "name": "Routes",
+                "icon_url": "assets\/dump\/images\/uploads\/live_map_3308755788.PNG",
+                "background_color": "#F8DDD1",
+                "resource": "\/LiveMap\/1",
+                "parent": "\/LiveMenu\/explore-and-equip"
+            },
+            {
+                "name": "Equipment",
+                "icon_url": "assets\/dump\/images\/uploads\/equipment_19aea1da08.png",
+                "background_color": "#F8DDD1",
+                "resource": "\/Equipment",
+                "parent": "\/LiveMenu\/explore-and-equip"
+            }
+        ]
+    }
+]

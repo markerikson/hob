@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Rules of the road",
+        "icon_url": "assets\/dump\/images\/uploads\/rules_of_the_road_fe7702beaa.png",
+        "background_color": null,
+        "resource": "\/LiveMenu\/rules-of-the-road",
+        "parent": "\/LiveMenu\/manoeveures"
+    },
+    {
+        "name": "Base operations",
+        "slug": "base-operations",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
+        "resource": "\/Article\/base-operations"
+    },
+    {
+        "name": "Cruising",
+        "slug": "cruising",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
+        "resource": "\/Article\/cruising"
+    },
+    {
+        "name": "Anchoring",
+        "slug": "anchoring",
+        "icon_url": "assets\/dump\/images\/uploads\/748518_7116a3a57c.png",
+        "background_color": null,
+        "resource": "\/Article\/anchoring"
+    }
+]

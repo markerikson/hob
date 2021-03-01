@@ -2,7 +2,8 @@
     "id": 8,
     "name": "Base operations",
     "created_at": "2021-02-20T23:58:37.000Z",
-    "updated_at": "2021-02-28T21:04:19.000Z",
+    "updated_at": "2021-02-28T21:48:54.000Z",
+    "slug": "base-operations",
     "articles": [
         {
             "id": 19,

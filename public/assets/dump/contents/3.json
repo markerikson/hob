@@ -2,7 +2,8 @@
     "id": 3,
     "name": "Steering",
     "created_at": "2021-02-20T23:53:26.000Z",
-    "updated_at": "2021-02-28T21:03:37.000Z",
+    "updated_at": "2021-02-28T21:48:11.000Z",
+    "slug": "steering",
     "articles": [
         {
             "id": 9,

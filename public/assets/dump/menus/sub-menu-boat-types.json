@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Solid hull",
+        "slug": "solid-hull",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Solid_a5e33c7d44.svg",
+        "background_color": null,
+        "resource": "\/Article\/solid-hull"
+    },
+    {
+        "name": "Inflatable",
+        "slug": "inflatable",
+        "icon_url": "assets\/dump\/images\/uploads\/4_1_1_Inflatable_b8ea8f8155.svg",
+        "background_color": null,
+        "resource": "\/Article\/inflatable"
+    }
+]
