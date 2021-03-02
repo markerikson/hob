@@ -7,7 +7,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 // About leafLet
 import 'leaflet/dist/leaflet.css'
 //import L from 'leaflet';
-import { GeoJSON } from 'react-leaflet';
+import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { MyRoute } from '../models/MyRoute'
 //import { Plugins } from '@capacitor/core';
 
@@ -158,6 +158,26 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
   // grab latitude & longitude
   //const latitude = position.coords.latitude;
   //const longitude = position.coords.longitude;
+  /*const position = [51.505, -0.09]
+  function LocationMarker() {
+
+    const [position, setPosition] = useState(null)
+    const map = useMapEvents({
+      click() {
+        map.locate()
+      },
+      locationfound(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
+    })
+  
+    return position === null ? null : (
+      <Marker position={[39.798052, 2.6952100]}>
+        <Popup>You are here</Popup>
+      </Marker>
+    )
+  }*/
 
   return (
     <IonPage>
@@ -167,12 +187,18 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-      <MapContainer style={styleMap} center={[39.798052, 2.6952100]} zoom={15} scrollWheelZoom={false}>      
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
-        />
-      </MapContainer>
+        <MapContainer style={styleMap} center={[39.798052, 2.6952100]} zoom={15} scrollWheelZoom={false} >      
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
+          />
+          <Marker position={[39.798052, 2.6952100]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+
+        </MapContainer>
       </IonContent>
     </IonPage>
   )

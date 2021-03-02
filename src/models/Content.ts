@@ -1,5 +1,7 @@
 export interface Content {
   name: string,
-  icon_ulr: string,
+  resource: string,
+  icon_url: string,
+  background_color?: string,
   parent: string
 }

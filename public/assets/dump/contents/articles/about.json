@@ -1,7 +1,7 @@
 [
     {
-        "name": "About",
-        "icon_url": "assets\/dump\/images\/uploads\/icon_search_93463d32d4.png",
-        "parent": "\/Home"
+        "lang": "en_uk",
+        "title": "About",
+        "extra_content": null
     }
 ]

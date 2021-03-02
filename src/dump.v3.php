@@ -1,18 +1,21 @@
 <?php
 
 $version = 3;
+$imgDump = 'assets/dump/images';
+$mainLang = 'en_uk';
 
 $map = [
-    'langs' => ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
-    'main_menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
-    'all_menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
-    'menus' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'menu' => ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'contents' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
-    'articles' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
-    'pages' => ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
-    'translations' => ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
-    'images' => ['filename' => 'dump/images/uploads/{filename}'],
+    'langs' =>          ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
+    'main_menu' =>      ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
+    'all_menus' =>      ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
+    'menus' =>          ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
+    'menu' =>           ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
+    'contents' =>       ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
+    'content_slide' =>  ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/slides/{id}.json'],
+    'articles' =>       ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
+    'pages' =>          ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
+    'translations' =>   ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
+    'images' =>         ['filename' => 'dump/images/uploads/{filename}'],
 ];
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -113,6 +116,10 @@ $map = [
         return str_replace('dump/images/uploads/', 'images/dump/',$url) ?? '';
     }
 
+    function getImageUrl2($url = null){
+        return str_replace('uploads/', 'assets/images/dump/',$url) ?? '';
+    }
+
     function getLabelTranslation($labels, &$translations, $mainLang = 'en_uk'){
         foreach($labels as $label){
             if( $label->language->code == $mainLang ){
@@ -125,12 +132,67 @@ $map = [
         return $inMain;
     }
 
+    function completeAppContent(&$addMenu, $allData, &$translations, $map, $color, $mainLang = 'en_uk'){
+
+        getImages($allData->media);
+
+        foreach($allData->media as $key => $image){
+            $media[] = ['icon_url' => getImageUrl2($image->url)];
+        }
+
+        file_put_contents(str_replace('{id}', $allData->slug, $map['content_slide']['filename']), json_encode($media, JSON_PRETTY_PRINT));
+
+
+        foreach($allData->articles as $key => $article){
+
+            // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
+            $mainTitle = $article->title;
+
+            if($article->language->code == $mainLang){
+
+                $addMenu['articles'][] = [
+                    'lang' => $article->language->code,
+                    'title' => $article->title,
+                    'extra_content' => $article->extra_content,
+                    'background_color'
+                ];
+                $tans[$article->language->code] = $article->title;
+
+                foreach($article->pages as $key => $page){
+                    $addMenu['pages'][] = [
+                        'id' => $page->id,
+                        'lang' => $article->language->code,
+                        'title' => $page->title,
+                        'description' => $article->description,
+                    ];
+                }
+
+            }
+
+            $translations[$article->language->code][$mainTitle] = $article->title;
+
+        }
+
+        if(!empty($addMenu['pages'])) file_put_contents (str_replace('{id}', $allData->slug, $map['pages']['filename']), json_encode($addMenu['pages'] ?? [], JSON_PRETTY_PRINT));
+
+        file_put_contents (str_replace('{id}', $allData->slug, $map['articles']['filename']), json_encode($addMenu['articles'], JSON_PRETTY_PRINT));
+
+    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// ARTICLES
+//////////////////////////////////////////////////////////////////////////////////////////
+
+    // Getting App Contents...
+    $oldContents = json_decode(getContent($map['contents']['url']));
+    foreach( $oldContents as $key => $content ){
+        $newContents[$content->slug] = $content;
+    }
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // MENUS
 //////////////////////////////////////////////////////////////////////////////////////////
-
-    $imgDump = 'assets/dump/images';
-    $mainLang = 'en_uk';
 
     // Created formated new languages file and object
     $oldLangs = json_decode(getContent($map['langs']['url']));
@@ -140,8 +202,10 @@ $map = [
     }
     file_put_contents( $map['langs']['filename'], json_encode($newLangs, JSON_PRETTY_PRINT));
         
-    // Created formated new menus object
+    // Getting Menus...
     $oldMainMenu = json_decode(getContent($map['main_menu']['url']));
+    
+    // Created formated new menus object
     foreach( $oldMainMenu as $key => $menu ){
         $oldMainMenu_[$menu->slug] = $menu;
     }
@@ -178,46 +242,39 @@ $map = [
         // Converting articles in menu fields ;)
         $menu->contents = $contents = $menu->children[0]->contents ?? [];
         foreach($menu->contents as $key3 => $content){
+
             $content->ionic_resource = 'Article';
             if(isset($content->icon)){ getImages($content->icon); }
-            $newMenu[$key]['menus'][] = [
+
+            $addMenu = [
                 'name' => $content->name,
                 'resource' => getSlug('Article', $content),
                 'icon_url' => getImageUrl($imgDump.$content->icon->url),
                 'background_color' => $menu->background_color,
                 'parent' => $newMenu[$key]['resource'],
-            ];   
+            ]; 
+            $newMenu[$key]['menus'][] = $addMenu; // Apto para la navegación del menú
 
+            // Dedicado al detalle sobre los artículos a nivel de artículo...
+            completeAppContent($addMenu, $newContents[$content->slug], $translations, $map, $menu->background_color);
+            $menu_[] = $addMenu;
+            file_put_contents(str_replace('{id}', $content->slug, $map['contents']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
+            unset($menu_);
         }
 
         if($menu->main){
             $mainMenu[] = $newMenu[$key];
         }
+        $menu_[] = $newMenu[$key];
+        file_put_contents( str_replace('{id}','full-menu-'.$menu->slug, $map['menus']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
+        unset($menu_);
 
-        file_put_contents( str_replace('{id}','full-menu-'.$menu->slug, $map['menus']['filename']), json_encode($newMenu[$key], JSON_PRETTY_PRINT));
-
-        if(!empty($newMenu[$key]['menus'] )) file_put_contents( str_replace('{id}','sub-menu-'.$menu->slug, $map['menus']['filename']), json_encode($newMenu[$key]['menus'], JSON_PRETTY_PRINT));
+        file_put_contents( str_replace('{id}','sub-menu-'.$menu->slug, $map['menus']['filename']), json_encode($newMenu[$key]['menus'] ?? [], JSON_PRETTY_PRINT));
 
     }
 
-    // Guardar todos los menus principales...
+    // Guardar todos los Menus Principales...
     file_put_contents( $map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// ARTICLES
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

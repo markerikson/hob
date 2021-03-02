@@ -1,30 +1,32 @@
-{
-    "name": "Manoeveures",
-    "resource": "\/LiveMenu\/manoeveures",
-    "icon_url": "assets\/images\/dump\/manoeuvers_7ef0a703c6.png",
-    "background_color": null,
-    "parent": "\/Home",
-    "menus": [
-        {
-            "name": "Base operations",
-            "resource": "\/Article\/base-operations",
-            "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/manoeveures"
-        },
-        {
-            "name": "Cruising",
-            "resource": "\/Article\/cruising",
-            "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/manoeveures"
-        },
-        {
-            "name": "Anchoring",
-            "resource": "\/Article\/anchoring",
-            "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/manoeveures"
-        }
-    ]
-}
+[
+    {
+        "name": "Manoeveures",
+        "resource": "\/LiveMenu\/manoeveures",
+        "icon_url": "assets\/images\/dump\/manoeuvers_7ef0a703c6.png",
+        "background_color": null,
+        "parent": "\/Home",
+        "menus": [
+            {
+                "name": "Base operations",
+                "resource": "\/Article\/base-operations",
+                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/manoeveures"
+            },
+            {
+                "name": "Cruising",
+                "resource": "\/Article\/cruising",
+                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/manoeveures"
+            },
+            {
+                "name": "Anchoring",
+                "resource": "\/Article\/anchoring",
+                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/manoeveures"
+            }
+        ]
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "lang": "en_uk",
+        "title": "Brief",
+        "description": null
+    },
+    {
+        "id": 2,
+        "lang": "en_uk",
+        "title": "Departure",
+        "description": null
+    },
+    {
+        "id": 3,
+        "lang": "en_uk",
+        "title": "Base",
+        "description": null
+    }
+]

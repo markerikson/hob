@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Base operations",
+        "resource": "\/Article\/base-operations",
+        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "background_color": null,
+        "parent": "\/LiveMenu\/manoeveures",
+        "articles": [
+            {
+                "lang": "en_uk",
+                "title": "Base operations",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            }
+        ],
+        "pages": [
+            {
+                "id": 1,
+                "lang": "en_uk",
+                "title": "Brief",
+                "description": null
+            },
+            {
+                "id": 2,
+                "lang": "en_uk",
+                "title": "Departure",
+                "description": null
+            },
+            {
+                "id": 3,
+                "lang": "en_uk",
+                "title": "Base",
+                "description": null
+            }
+        ]
+    }
+]

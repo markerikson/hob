@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Anchorage",
+        "resource": "\/Article\/anchorage",
+        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "background_color": null,
+        "parent": "\/LiveMenu\/rules-of-the-road",
+        "articles": [
+            {
+                "lang": "en_uk",
+                "title": "Anchorage",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            }
+        ]
+    }
+]

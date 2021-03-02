@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Anchoring",
+        "resource": "\/Article\/anchoring",
+        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "background_color": null,
+        "parent": "\/LiveMenu\/manoeveures",
+        "articles": [
+            {
+                "lang": "en_uk",
+                "title": "Anchoring",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            }
+        ],
+        "pages": [
+            {
+                "id": 7,
+                "lang": "en_uk",
+                "title": "What is?",
+                "description": null
+            },
+            {
+                "id": 8,
+                "lang": "en_uk",
+                "title": "How to?",
+                "description": null
+            },
+            {
+                "id": 9,
+                "lang": "en_uk",
+                "title": "Where to?",
+                "description": null
+            },
+            {
+                "id": 10,
+                "lang": "en_uk",
+                "title": "Proceed to drop the anchor",
+                "description": null
+            },
+            {
+                "id": 11,
+                "lang": "en_uk",
+                "title": "At anchor",
+                "description": null
+            },
+            {
+                "id": 12,
+                "lang": "en_uk",
+                "title": "Lifting up",
+                "description": null
+            }
+        ]
+    }
+]

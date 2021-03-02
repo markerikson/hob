@@ -1,7 +1,7 @@
 [
     {
-        "name": "Start motor",
-        "icon_url": "assets\/dump\/images\/uploads\/controls_c9a331850f.png",
-        "parent": "\/Home"
+        "lang": "en_uk",
+        "title": "Start motor",
+        "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
     }
 ]

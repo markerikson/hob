@@ -1,30 +1,32 @@
-{
-    "name": "Controls",
-    "resource": "\/LiveMenu\/controls",
-    "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
-    "background_color": null,
-    "parent": "\/Home",
-    "menus": [
-        {
-            "name": "Command station",
-            "resource": "\/LiveMenu\/command-station",
-            "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/controls"
-        },
-        {
-            "name": "Start motor",
-            "resource": "\/Article\/start-motor",
-            "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/controls"
-        },
-        {
-            "name": "Stop motor",
-            "resource": "\/Article\/stop-motor",
-            "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
-            "background_color": null,
-            "parent": "\/LiveMenu\/controls"
-        }
-    ]
-}
+[
+    {
+        "name": "Controls",
+        "resource": "\/LiveMenu\/controls",
+        "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
+        "background_color": null,
+        "parent": "\/Home",
+        "menus": [
+            {
+                "name": "Command station",
+                "resource": "\/LiveMenu\/command-station",
+                "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/controls"
+            },
+            {
+                "name": "Start motor",
+                "resource": "\/Article\/start-motor",
+                "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/controls"
+            },
+            {
+                "name": "Stop motor",
+                "resource": "\/Article\/stop-motor",
+                "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
+                "background_color": null,
+                "parent": "\/LiveMenu\/controls"
+            }
+        ]
+    }
+]
