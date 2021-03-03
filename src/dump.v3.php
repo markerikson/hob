@@ -142,35 +142,38 @@ $map = [
 
         file_put_contents(str_replace('{id}', $allData->slug, $map['content_slide']['filename']), json_encode($media, JSON_PRETTY_PRINT));
 
-
         foreach($allData->articles as $key => $article){
 
             // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
             $mainTitle = $article->title;
+            $matchMainLang = ( $article->language->code == $mainLang );
 
-            if($article->language->code == $mainLang){
-
+            if($matchMainLang){
+                $mainTitle2 = $article->title;
                 $addMenu['articles'][] = [
                     'lang' => $article->language->code,
                     'title' => $article->title,
                     'extra_content' => $article->extra_content,
-                    'background_color'
+                    'background_color' =>  $color,
                 ];
-                $tans[$article->language->code] = $article->title;
+            }
 
-                foreach($article->pages as $key => $page){
+            foreach($article->pages as $key => $page){
+
+                if($matchMainLang){
+                    $mainTitle3 = $page->title;
                     $addMenu['pages'][] = [
-                        'id' => $page->id,
-                        'lang' => $article->language->code,
-                        'title' => $page->title,
-                        'description' => $article->description,
+                        'title' => $page->title ?? '',
+                        'image_url' => getImageUrl2($page->image->url),
+                        'description' => $page->description ?? '',
                     ];
                 }
+                $translations[$article->language->code][$mainTitle3] = $page->title;
 
             }
 
             $translations[$article->language->code][$mainTitle] = $article->title;
-
+        
         }
 
         if(!empty($addMenu['pages'])) file_put_contents (str_replace('{id}', $allData->slug, $map['pages']['filename']), json_encode($addMenu['pages'] ?? [], JSON_PRETTY_PRINT));

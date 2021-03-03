@@ -9,45 +9,40 @@
             {
                 "lang": "en_uk",
                 "title": "Anchoring",
-                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
             }
         ],
         "pages": [
             {
-                "id": 7,
-                "lang": "en_uk",
                 "title": "What is?",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             },
             {
-                "id": 8,
-                "lang": "en_uk",
                 "title": "How to?",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             },
             {
-                "id": 9,
-                "lang": "en_uk",
                 "title": "Where to?",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_3_B_2_fac00bda76.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             },
             {
-                "id": 10,
-                "lang": "en_uk",
                 "title": "Proceed to drop the anchor",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_9226051fee.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             },
             {
-                "id": 11,
-                "lang": "en_uk",
                 "title": "At anchor",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_1_Solid_67f566df13.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             },
             {
-                "id": 12,
-                "lang": "en_uk",
                 "title": "Lifting up",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_3_Aa1_Chaleco_6deb3bc135.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             }
         ]
     }

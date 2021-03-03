@@ -9,15 +9,15 @@
             {
                 "lang": "en_uk",
                 "title": "Gear shift & Thottle",
-                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
             }
         ],
         "pages": [
             {
-                "id": 27,
-                "lang": "en_uk",
                 "title": "fdsgsdfg",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             }
         ]
     }

@@ -10,13 +10,19 @@ interface FooterMenuProps extends RouteComponentProps<{
   slug: string
 }> {}
 
-const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
+const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {  
+
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
+  }, [match.params.slug])
 
   const [sub_menus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/sub-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenus)
   }, [match.params.slug])
 
+  
   function renderSubMenus(menus: Submenu[]) {
     return menus.map((r: Submenu, index) => (
       <IonItem key={r.resource} href={r.resource} disabled={false}>
@@ -25,12 +31,6 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
       </IonItem>
     ))
   }
-
-
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
-  }, [match.params.slug])
 
   function renderMenuTitle(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
@@ -45,9 +45,9 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   }
 
   function renderBackButton(menus: Menu[]) {
-    return menus.map((r: Submenu, index) => (
+    return menus.map((r: Menu, index) => (
       <IonButtons key={r.resource.toString()} slot="start">
-        <IonBackButton defaultHref={'/'} />
+        <IonBackButton defaultHref={r.parent.toString()} />
       </IonButtons>
     ))  
   }

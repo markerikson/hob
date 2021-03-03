@@ -9,7 +9,8 @@
             {
                 "lang": "en_uk",
                 "title": "About",
-                "extra_content": null
+                "extra_content": null,
+                "background_color": null
             }
         ]
     }

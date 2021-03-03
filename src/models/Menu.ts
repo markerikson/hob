@@ -4,6 +4,6 @@ export interface Menu {
   resource: string,
   icon_url: string,
   background_color?: string,
-  parent: boolean,
+  parent: string,
   //menus?: Submenu[],
 }

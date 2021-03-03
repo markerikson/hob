@@ -1,20 +1,17 @@
 [
     {
-        "id": 1,
-        "lang": "en_uk",
         "title": "Brief",
-        "description": null
+        "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_9226051fee.svg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
     },
     {
-        "id": 2,
-        "lang": "en_uk",
         "title": "Departure",
-        "description": null
+        "image_url": "\/assets\/images\/dump\/4_1_1_Solid_67f566df13.svg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
     },
     {
-        "id": 3,
-        "lang": "en_uk",
         "title": "Base",
-        "description": null
+        "image_url": "\/assets\/images\/dump\/4_1_3_B_1_d1ea2b0921.svg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
     }
 ]

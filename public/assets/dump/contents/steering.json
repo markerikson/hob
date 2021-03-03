@@ -9,15 +9,15 @@
             {
                 "lang": "en_uk",
                 "title": "Steering",
-                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
             }
         ],
         "pages": [
             {
-                "id": 25,
-                "lang": "en_uk",
                 "title": "fsdfgsd",
-                "description": null
+                "image_url": "\/assets\/images\/dump\/4_1_1_Solid_67f566df13.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             }
         ]
     }
