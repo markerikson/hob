@@ -3,8 +3,8 @@ import { IonPage, IonHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonT
 import { RouteComponentProps } from 'react-router'
 
 // Interfaces
-import { Content } from '../models/Content'
-import { Slide } from '../models/Slide'
+//import { Content } from '../models/Content'
+//import { Slide } from '../models/Slide'
 import { Menu } from '../models/Menu'
 import { Page } from '../models/Page'
 
@@ -20,7 +20,7 @@ interface ArticlePageProps extends RouteComponentProps<{
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
 
-  const [slides, setSlides] = useState([{'icon_url':''}])
+  /*const [slides, setSlides] = useState([{'icon_url':''}])
   useEffect(() => {
     fetch( 'assets/dump/contents/slides/'+match.params.slug+'.json' ).then(res => res.json()).then(setSlides)
   }, [match.params.slug])
@@ -29,7 +29,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     return list.map((r: Slide, i) => (
         <IonSlide key={i}><img src={r.icon_url.toString()} alt={r.icon_url}/></IonSlide>   
     ))
-  }
+  }*/
 
   const [content, setContent] = useState<Menu[]>([])
   useEffect(() => {

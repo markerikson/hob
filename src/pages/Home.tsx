@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonSelect, IonSelectOption,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
 import { connect } from '../data/connect'
 import { Language } from '../models/Language'
+//import i18n from '../helpers/i18n';
 
 interface OwnProps extends RouteComponentProps {}
 
@@ -12,6 +13,8 @@ interface DispatchProps {
   setIsLoggedIn: typeof setIsLoggedIn
   setUsername: typeof setUsername
 }
+
+
 
 interface LoginProps extends OwnProps,  DispatchProps { }
 
@@ -24,7 +27,11 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
 
-  const login = async (e: React.FormEvent) => {
+  
+  const [showAlert1, setShowAlert1] = useState(false);
+  const [showAlert2, setShowAlert2] = useState(false);
+
+  /*const login = async (e: React.FormEvent) => {
 
     e.preventDefault();
 
@@ -43,7 +50,7 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
       history.push('/tabs/schedule', {direction: 'none'});
     }
 
-  }
+  }*/
 
   const [languages, setLanguages] = useState<Language[]>([])
   useEffect(() => {
@@ -117,7 +124,14 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
         </form>
         
         {renderLangs(languages)}
-
+        <IonItem>
+          <IonLabel position="stacked">{'selector_title'}</IonLabel>
+          <IonSelect value={i18n.language} okText={'ok'} cancelText={'dismiss'} onIonChange={e => i18n.changeLanguage(e.detail.value)}>
+          <IonSelectOption value="en">{'english'}</IonSelectOption>
+          <IonSelectOption value="tr">{'turkish'}</IonSelectOption>
+          <IonSelectOption value="fr">{'french'}</IonSelectOption>
+          </IonSelect>
+        </IonItem>
       </IonContent>
 
     </IonPage>

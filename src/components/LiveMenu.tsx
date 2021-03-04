@@ -9,8 +9,6 @@ import './i18n';
 import { Menu } from '../models/Menu'
 import { Submenu } from '../models/Submenu'
 
-import resources  from '../i18next/translations.json'
-
 interface FooterMenuProps extends RouteComponentProps<{
   slug: string
 }> {}

@@ -1,4 +1,4 @@
-import * as MyConst from '../services/constants'
+//import * as MyConst from '../services/constants'
 import React, { useEffect, useState } from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
@@ -7,15 +7,15 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 // About leafLet
 import 'leaflet/dist/leaflet.css'
 //import L from 'leaflet';
-import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
+//import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 import { MyRoute } from '../models/MyRoute'
 //import { Plugins } from '@capacitor/core';
 
 // Interfaces
-import { Content } from '../models/Content'
-import { RouteData } from '../models/RouteData'
+//import { Content } from '../models/Content'
+//import { RouteData } from '../models/RouteData'
 
-const my_route = {
+/*const my_route = {
   "type": "Feature",
   "properties": {},
   "geometry": {
@@ -136,7 +136,7 @@ const my_route = {
     ]
   }
 }
-
+*/
 interface MapProps extends RouteComponentProps<{
   id: string;
 }> {}
@@ -144,14 +144,14 @@ interface MapProps extends RouteComponentProps<{
 const LiveMap: React.FC<MapProps> =  ({match}) => {
 
   const styleMap = { 'width': '100%', 'height': '80vh' }  
-
+/*
   const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
     fetch('http://161.97.167.92:1337/my-routes?id='+match.params.id)
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])
-
+*/
   // get the users current position
   //const position = await Geolocation.getCurrentPosition();
 
@@ -192,12 +192,6 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
           />
-          <Marker position={[39.798052, 2.6952100]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-
         </MapContainer>
       </IonContent>
     </IonPage>
@@ -205,4 +199,4 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
 
 }
 
-export default LiveMap;
+export default LiveMap
