@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonItem, IonThumbnail, IonLabel, IonImg, IonSearchbar, IonTitle, IonBackButton } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
+import { useTranslation } from 'react-i18next'
+
+import './i18n';
 
 // Models...
 import { Menu } from '../models/Menu'
 import { Submenu } from '../models/Submenu'
+
+import resources  from '../i18next/translations.json'
 
 interface FooterMenuProps extends RouteComponentProps<{
   slug: string
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {  
-
+  const { t, i18n } = useTranslation();
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
@@ -27,7 +32,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     return menus.map((r: Submenu, index) => (
       <IonItem key={r.resource} href={r.resource} disabled={false}>
         <img src={r.icon_url} alt={r.name.toString()} width='50px'/>
-        <IonLabel>{r.name.toString()}</IonLabel>
+        <IonLabel>{t(r.name.toString())}</IonLabel>
       </IonItem>
     ))
   }

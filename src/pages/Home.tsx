@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
+import { RouteComponentProps } from 'react-router'
+
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
 import { connect } from '../data/connect'
-import { RouteComponentProps } from 'react-router'
 import { Language } from '../models/Language'
 
 interface OwnProps extends RouteComponentProps {}

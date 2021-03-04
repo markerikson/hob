@@ -23,7 +23,7 @@
     "bootstrap": "^4.6.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-splashscreen": "^6.0.0",
-    "i18next": "^19.9.0",
+    "i18next": "^19.9.1",
     "ionicons": "^5.0.0",
     "leaflet": "^1.7.1",
     "leaflet-draw": "^1.0.4",

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter,  } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
+import './components/i18n';
 
 // CSS required for Ionic components to work properly
 import '@ionic/react/css/core.css'
@@ -28,6 +29,7 @@ import Article from './components/Article'
 import Home from './pages/Home'
 import LiveMap from './pages/LiveMap'
 import { Menu } from './models/Menu'
+
 
 const App: React.FC = () => {
 

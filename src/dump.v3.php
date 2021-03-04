@@ -2,7 +2,7 @@
 
 $version = 3;
 $imgDump = 'assets/dump/images';
-$mainLang = 'en_uk';
+$mainLang = 'en';
 
 $map = [
     'langs' =>          ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
@@ -14,7 +14,8 @@ $map = [
     'content_slide' =>  ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/slides/{id}.json'],
     'articles' =>       ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
     'pages' =>          ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
-    'translations' =>   ['filename' => '../public/assets/dump/i18next/{lang}/{object}.json'],
+    'translations' =>   ['filename' => './i18next/{lang}/{object}.json'],
+    'translation' =>   ['filename' => './i18next/{object}.json'],
     'images' =>         ['filename' => 'dump/images/uploads/{filename}'],
 ];
 
@@ -120,7 +121,7 @@ $map = [
         return str_replace('uploads/', 'assets/images/dump/',$url) ?? '';
     }
 
-    function getLabelTranslation($labels, &$translations, $mainLang = 'en_uk'){
+    function getLabelTranslation($labels, &$translations, $mainLang = 'en'){
         foreach($labels as $label){
             if( $label->language->code == $mainLang ){
                 $inMain = $label->label; 
@@ -132,7 +133,7 @@ $map = [
         return $inMain;
     }
 
-    function completeAppContent(&$addMenu, $allData, &$translations, $map, $color, $mainLang = 'en_uk'){
+    function completeAppContent(&$addMenu, $allData, &$translations, $map, $color, $mainLang = 'en'){
 
         getImages($allData->media);
 
@@ -145,11 +146,10 @@ $map = [
         foreach($allData->articles as $key => $article){
 
             // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
-            $mainTitle = $article->title;
             $matchMainLang = ( $article->language->code == $mainLang );
 
             if($matchMainLang){
-                $mainTitle2 = $article->title;
+                $mainTitle = $article->title;
                 $addMenu['articles'][] = [
                     'lang' => $article->language->code,
                     'title' => $article->title,
@@ -231,6 +231,7 @@ $map = [
             $thisMenu = $oldMainMenu_[$submenu->slug];
 
             if(isset($submenu->icon)){ getImages($submenu->icon); }
+
             $addMenu = [
                 'name' => getLabelTranslation($thisMenu->label, $translations),
                 'resource' => getSlug($thisMenu->ionic_resource, $thisMenu),
@@ -263,11 +264,13 @@ $map = [
             $menu_[] = $addMenu;
             file_put_contents(str_replace('{id}', $content->slug, $map['contents']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
             unset($menu_);
+
         }
 
         if($menu->main){
             $mainMenu[] = $newMenu[$key];
         }
+
         $menu_[] = $newMenu[$key];
         file_put_contents( str_replace('{id}','full-menu-'.$menu->slug, $map['menus']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
         unset($menu_);
@@ -284,6 +287,19 @@ $map = [
 // TRANSLATIONS
 //////////////////////////////////////////////////////////////////////////////////////////
 
+    // One file for each translation pack
     foreach($translations as $key => $translation){
-        file_put_contents (str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
+        //file_put_contents (str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
     }   
+
+    // Preparing a unique file with the i18next format ;)
+    foreach($oldLangs as $old){
+        $outTrans[$old->code]['translation'] = [];
+        foreach($translations[$old->code] as $key => $translation){
+            $outTrans[$old->code]['translation'][$key] = $translation;            
+        }
+    }
+
+    file_put_contents( str_replace('{object}','translations',$map['translation']['filename']), json_encode($outTrans, JSON_PRETTY_PRINT));
+    
+    //file_put_contents( str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
