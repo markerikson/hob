@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IonPage, IonHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonToolbar, IonItem, IonCard, IonCardHeader, IonTitle, IonContent, IonSlides, IonSlide, IonButtons, IonBackButton } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
+import { useTranslation } from 'react-i18next'
+import '../i18n'
 
 // Interfaces
 //import { Content } from '../models/Content'
@@ -19,6 +21,8 @@ interface ArticlePageProps extends RouteComponentProps<{
 }> {}
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
+
+  const { t, i18n } = useTranslation()
 
   /*const [slides, setSlides] = useState([{'icon_url':''}])
   useEffect(() => {
@@ -40,7 +44,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     return list.map((r: Menu, i) => (
       <IonTitle key={i}>
         <img src={r.icon_url.toString()} alt={r.icon_url} width={'50px'}/>
-        {r.name.toString()}
+        {t(r.name.toString())}
       </IonTitle>   
     ))
   }

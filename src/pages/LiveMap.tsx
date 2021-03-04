@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 import { MapContainer, TileLayer } from 'react-leaflet'
+import { useTranslation } from 'react-i18next'
+import '../i18n';
 
 // About leafLet
 import 'leaflet/dist/leaflet.css'

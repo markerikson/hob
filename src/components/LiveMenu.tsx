@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { IonPage, IonHeader, IonContent, IonToolbar, IonButtons, IonList, IonItem, IonThumbnail, IonLabel, IonImg, IonSearchbar, IonTitle, IonBackButton } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
-import { useTranslation } from 'react-i18next'
 
-import './i18n';
+// Translations...
+import './i18n'
+import { useTranslation } from 'react-i18next'
 
 // Models...
 import { Menu } from '../models/Menu'
 import { Submenu } from '../models/Submenu'
 
 interface FooterMenuProps extends RouteComponentProps<{
-  slug: string
+  slug: string;
 }> {}
 
-const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {  
-  const { t, i18n } = useTranslation();
+const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
+  
+  // Data captures...
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/full-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
   }, [match.params.slug])
-
+  
   const [sub_menus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/sub-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenus)
   }, [match.params.slug])
-
   
+  // Translations
+  const { t, i18n } = useTranslation()
+
   function renderSubMenus(menus: Submenu[]) {
     return menus.map((r: Submenu, index) => (
       <IonItem key={r.resource} href={r.resource} disabled={false}>
-        <img src={r.icon_url} alt={r.name.toString()} width='50px'/>
+        <img src={r.icon_url} alt={t(r.name.toString())} width='50px'/>
         <IonLabel>{t(r.name.toString())}</IonLabel>
       </IonItem>
     ))
@@ -38,28 +42,29 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   function renderMenuTitle(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
       <IonItem key={i}>
-        <IonThumbnail slot="start">
-          <IonImg src={r.icon_url} alt={r.name.toString()}/>
+        <IonThumbnail slot='start'>
+          <IonImg src={r.icon_url} alt={t(r.name.toString())}/>
         </IonThumbnail>
-        <IonLabel>{r.name.toString()}</IonLabel>
-        <IonSearchbar value={'test'} showCancelButton="focus"></IonSearchbar>
+        <IonLabel>{t(r.name.toString())}</IonLabel>
+        {/*<IonSearchbar value={'test'} showCancelButton='focus'></IonSearchbar>*/}
       </IonItem>
     ))
   }
 
   function renderBackButton(menus: Menu[]) {
     return menus.map((r: Menu, index) => (
-      <IonButtons key={r.resource.toString()} slot="start">
+      <IonButtons key={r.resource.toString()} slot='start'>
         <IonBackButton defaultHref={r.parent.toString()} />
       </IonButtons>
-    ))  
+    ))
   }
 
-  return(    
+  return(
+
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          {renderBackButton(full_menu)}          
+          {renderBackButton(full_menu)}
           {renderMenuTitle(full_menu)}
         </IonToolbar>
       </IonHeader>
@@ -69,6 +74,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
         </IonList>
       </IonContent>
     </IonPage>
+
   )
 
 }
