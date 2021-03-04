@@ -1,7 +1,8 @@
-import resources from '../i18next/translations.json'
+import i18n from 'i18next'
 import detector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
-import i18n from 'i18next'
+
+import resources  from '../i18next/translations.json'
 
 i18n
   .use(detector)
@@ -9,7 +10,7 @@ i18n
   .init({
     resources,
     lng: 'es',
-    fallbackLng: 'es', // use en if detected lng is not available
+    fallbackLng: 'en', // use en if detected lng is not available
     keySeparator: false, // we do not use keys in form messages.welcome
     interpolation: {
       escapeValue: false // react already safes from xss

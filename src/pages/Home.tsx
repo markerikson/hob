@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonIcon, IonSelect, IonSelectOption,  IonButtons,  IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
-import { useTranslation } from 'react-i18next'
-import '../i18n'
-
-import { connect } from '../data/connect'
-import { Language } from '../models/Language'
 
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
+import { connect } from '../data/connect'
+import { Language } from '../models/Language'
+//import i18n from '../helpers/i18n';
 
 interface OwnProps extends RouteComponentProps {}
 
@@ -16,11 +14,11 @@ interface DispatchProps {
   setUsername: typeof setUsername
 }
 
+
+
 interface LoginProps extends OwnProps,  DispatchProps { }
 
 const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUsernameAction}) => {
-
-  const { t, i18n } = useTranslation()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -30,29 +28,29 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   const [passwordError, setPasswordError] = useState(false)
 
   
-  const [showAlert1, setShowAlert1] = useState(false)
-  const [showAlert2, setShowAlert2] = useState(false)
+  const [showAlert1, setShowAlert1] = useState(false);
+  const [showAlert2, setShowAlert2] = useState(false);
 
-  const login = async (e: React.FormEvent) => {
+  /*const login = async (e: React.FormEvent) => {
 
-    e.preventDefault()
+    e.preventDefault();
 
-    setFormSubmitted(true)
+    setFormSubmitted(true);
 
     if(!username) {
-      setUsernameError(true)
+      setUsernameError(true);
     }
     if(!password) {
-      setPasswordError(true)
+      setPasswordError(true);
     }
 
     if(username && password) {
-      await setIsLoggedIn(true)
-      await setUsernameAction(username)
-      history.push('/tabs/schedule', {direction: 'none'})
+      await setIsLoggedIn(true);
+      await setUsernameAction(username);
+      history.push('/tabs/schedule', {direction: 'none'});
     }
 
-  }
+  }*/
 
   const [languages, setLanguages] = useState<Language[]>([])
   useEffect(() => {
@@ -63,16 +61,18 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
   // Setting footer icons from LiveMenu file... Must be INSIDE for performance reasons, as each content :P
   function renderLangs(list: Language[]) {
     return list.map((r: Language, index) => (
-      <IonSelectOption value={r.code}>{r.name.toString()}</IonSelectOption>
+      <IonButtons key={index}>
+        <IonLabel position="stacked" color="primary">{r.name}</IonLabel>
+      </IonButtons>
     ))
   }
 
-  return (
 
-    <IonPage id='login-page'>
+  return (
+    <IonPage id="login-page">
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot='start'>
+          <IonButtons slot="start">
             <IonMenuButton></IonMenuButton>
           </IonButtons>
           <IonTitle>Login</IonTitle>
@@ -80,34 +80,34 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
       </IonHeader>
       <IonContent>
 
-        <div className='login-logo'>
-          <img src='assets/img/appicon.svg' alt='Ionic logo' />
+        <div className="login-logo">
+          <img src="assets/img/appicon.svg" alt="Ionic logo" />
         </div>
 
         <form noValidate /*{onSubmit={login}}*/>
           
           <IonList>
             <IonItem>
-              <IonLabel position='stacked' color='primary'>Username</IonLabel>
-              <IonInput name='username' type='text' value={username} spellCheck={false} autocapitalize='off' onIonChange={e => setUsername(e.detail.value!)}
+              <IonLabel position="stacked" color="primary">Username</IonLabel>
+              <IonInput name="username" type="text" value={username} spellCheck={false} autocapitalize="off" onIonChange={e => setUsername(e.detail.value!)}
                 required>
               </IonInput>
             </IonItem>
 
-            {formSubmitted && usernameError && <IonText color='danger'>
-              <p className='ion-padding-start'>
+            {formSubmitted && usernameError && <IonText color="danger">
+              <p className="ion-padding-start">
                 Username is required
               </p>
             </IonText>}
 
             <IonItem>
-              <IonLabel position='stacked' color='primary'>Password</IonLabel>
-              <IonInput name='password' type='password' value={password} onIonChange={e => setPassword(e.detail.value!)}>
+              <IonLabel position="stacked" color="primary">Password</IonLabel>
+              <IonInput name="password" type="password" value={password} onIonChange={e => setPassword(e.detail.value!)}>
               </IonInput>
             </IonItem>
 
-            {formSubmitted && passwordError && <IonText color='danger'>
-              <p className='ion-padding-start'>
+            {formSubmitted && passwordError && <IonText color="danger">
+              <p className="ion-padding-start">
                 Password is required
               </p>
             </IonText>}
@@ -115,28 +115,28 @@ const Login: React.FC<LoginProps> = ({setIsLoggedIn, history, setUsername: setUs
 
           <IonRow>
             <IonCol>
-              <IonButton type='submit' expand='block'>Login</IonButton>
+              <IonButton type="submit" expand="block">Login</IonButton>
             </IonCol>
             <IonCol>
-              <IonButton routerLink='/signup' color='light' expand='block'>Signup</IonButton>
+              <IonButton routerLink="/signup" color="light" expand="block">Signup</IonButton>
             </IonCol>
           </IonRow>
-        </form>       
-   
+        </form>
+        
+        {renderLangs(languages)}
         <IonItem>
-          <IonLabel position='stacked'>Select your language</IonLabel>
-          <IonSelect value={'es'} okText={'ok'} cancelText={'dismiss'} >
-            {renderLangs(languages)}
+          <IonLabel position="stacked">{'selector_title'}</IonLabel>
+          <IonSelect value={i18n.language} okText={'ok'} cancelText={'dismiss'} onIonChange={e => i18n.changeLanguage(e.detail.value)}>
+          <IonSelectOption value="en">{'english'}</IonSelectOption>
+          <IonSelectOption value="tr">{'turkish'}</IonSelectOption>
+          <IonSelectOption value="fr">{'french'}</IonSelectOption>
           </IonSelect>
         </IonItem>
-
       </IonContent>
 
     </IonPage>
-
-  )
-
-}
+  );
+};
 
 export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: {
