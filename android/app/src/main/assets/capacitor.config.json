@@ -1,8 +1,13 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "photo-gallery-capacitor-react",
+  "appName": "HOB",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
   "cordova": {}
 }

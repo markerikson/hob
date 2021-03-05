@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Solid hull",
+        "resource": "\/Article\/solid-hull",
+        "icon_url": "assets\/images\/dump\/4_1_1_Solid_a5e33c7d44.svg",
+        "background_color": null,
+        "parent": "\/LiveMenu\/boat-types"
+    },
+    {
+        "name": "Inflatable",
+        "resource": "\/Article\/inflatable",
+        "icon_url": "assets\/images\/dump\/4_1_1_Inflatable_b8ea8f8155.svg",
+        "background_color": null,
+        "parent": "\/LiveMenu\/boat-types"
+    }
+]

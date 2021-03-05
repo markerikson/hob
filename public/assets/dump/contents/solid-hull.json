@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Solid hull",
+        "resource": "\/Article\/solid-hull",
+        "icon_url": "assets\/images\/dump\/4_1_1_Solid_a5e33c7d44.svg",
+        "background_color": null,
+        "parent": "\/LiveMenu\/boat-types",
+        "articles": [
+            {
+                "lang": "en",
+                "title": "Solid hull",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
+            }
+        ],
+        "pages": [
+            {
+                "title": "Titlewerwqr",
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "rethyreyhr",
+                "image_url": "\/assets\/images\/dump\/4_1_3_a2c80cd123.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            }
+        ]
+    }
+]

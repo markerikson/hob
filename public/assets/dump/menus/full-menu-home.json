@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Home",
+        "resource": "\/Home",
+        "icon_url": "assets\/images\/dump\/main_home_0066b276e4.png",
+        "background_color": "#123456",
+        "parent": "\/Home"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Equipment",
+        "resource": "\/Equipment",
+        "icon_url": "assets\/images\/dump\/equipment_19aea1da08.png",
+        "background_color": null,
+        "parent": "\/Home"
+    }
+]

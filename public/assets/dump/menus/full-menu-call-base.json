@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Call base",
+        "resource": "\/Assistance\/base",
+        "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+        "background_color": null,
+        "parent": "\/Home"
+    }
+]

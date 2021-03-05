@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Anchoring",
+        "resource": "\/Article\/anchoring",
+        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "background_color": null,
+        "parent": "\/LiveMenu\/manoeveures",
+        "articles": [
+            {
+                "lang": "en",
+                "title": "Anchoring",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
+            }
+        ],
+        "pages": [
+            {
+                "title": "What is?",
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "How to?",
+                "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_371fc815aa.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "Where to?",
+                "image_url": "\/assets\/images\/dump\/4_1_3_B_2_fac00bda76.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "Proceed to drop the anchor",
+                "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_9226051fee.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "At anchor",
+                "image_url": "\/assets\/images\/dump\/4_1_1_Solid_67f566df13.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            },
+            {
+                "title": "Lifting up",
+                "image_url": "\/assets\/images\/dump\/4_1_3_Aa1_Chaleco_6deb3bc135.svg",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+            }
+        ]
+    }
+]

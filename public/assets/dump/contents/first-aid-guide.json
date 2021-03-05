@@ -1,0 +1,17 @@
+[
+    {
+        "name": "First aid guide",
+        "resource": "\/Article\/first-aid-guide",
+        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "background_color": null,
+        "parent": "\/LiveMenu\/emergencies",
+        "articles": [
+            {
+                "lang": "en",
+                "title": "First aid guide",
+                "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
+                "background_color": null
+            }
+        ]
+    }
+]
