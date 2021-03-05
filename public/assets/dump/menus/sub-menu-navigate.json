@@ -7,7 +7,7 @@
         "parent": "\/LiveMenu\/navigate"
     },
     {
-        "name": "Live Map",
+        "name": "Live Map!",
         "resource": "\/LiveMap\/1",
         "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
         "background_color": "#9E0FBFC",

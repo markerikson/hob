@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { IonPage, IonHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonToolbar, IonItem, IonCard, IonCardHeader, IonTitle, IonContent, IonSlides, IonSlide, IonButtons, IonBackButton } from '@ionic/react'
+import { IonPage, IonHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonToolbar, IonCard, IonCardHeader, IonTitle, IonContent, IonSlides, IonSlide, IonButtons, IonBackButton
+  //IonItem, 
+} from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
 // Interfaces
@@ -71,8 +73,8 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
+          <IonButtons slot='start'>
+            <IonBackButton defaultHref='/' />
           </IonButtons>
           {renderIconTitle(content)}
         </IonToolbar>

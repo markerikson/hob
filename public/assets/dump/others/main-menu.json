@@ -88,7 +88,7 @@
                 "parent": "\/LiveMenu\/navigate"
             },
             {
-                "name": "Live Map",
+                "name": "Live Map!",
                 "resource": "\/LiveMap\/1",
                 "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
                 "background_color": "#9E0FBFC",
@@ -104,7 +104,7 @@
         "parent": "\/Home",
         "menus": [
             {
-                "name": "Call base",
+                "name": "Call emergencies",
                 "resource": "\/Assistance\/emergencies",
                 "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
                 "background_color": "#DB6400",

@@ -19,7 +19,7 @@ i18n
 
   i18n.on('languageChanged', function(lng) {
     // then re-render your app
-    //App.render();
+    //App.render()
   })
 
 export default i18n

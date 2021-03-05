@@ -1,5 +1,6 @@
-//import * as MyConst from '../services/constants'
-import React, { useEffect, useState } from 'react'
+import React
+//, { useEffect, useState }
+from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 import { MapContainer, TileLayer } from 'react-leaflet'
@@ -8,7 +9,7 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 //import L from 'leaflet';
 //import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
-import { MyRoute } from '../models/MyRoute'
+
 //import { Plugins } from '@capacitor/core';
 
 // Interfaces
@@ -178,7 +179,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
       </Marker>
     )
   }*/
-
+  
   return (
     <IonPage>
       <IonHeader>
