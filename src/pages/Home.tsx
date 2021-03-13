@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonImg, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 import { useTranslation } from 'react-i18next'
 //import axios from 'axios'

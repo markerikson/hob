@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>            
             <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
-            <Route path='/LiveMenu/training' component={Home}/>
+            <Route path='/LiveMenu/train-yourself' component={Home}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug' component={Article}/>
             <Route path='/Support' component={Article}/>
