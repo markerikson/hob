@@ -1,8 +1,9 @@
 [
     {
-        "name": "Call base",
+        "name": "CALL BASE",
         "resource": "\/Assistance\/base",
-        "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+        "active_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "inactive_icon": "assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
         "background_color": null,
         "parent": "\/Home"
     }

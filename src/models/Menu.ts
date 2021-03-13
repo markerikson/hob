@@ -2,7 +2,7 @@
 export interface Menu {
   name: string,
   resource: string,
-  icon_url: string,
+  active_icon: string,
   background_color?: string,
   parent: string,
   //menus?: Submenu[],

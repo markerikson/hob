@@ -2,12 +2,14 @@
     {
         "name": "MOB",
         "resource": "\/Article\/mob",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/dump\/images",
+        "inactive_icon": "assets\/dump\/images",
+        "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/emergencies",
         "articles": [
             {
-                "lang": "en",
+                "lang": "en-GB",
                 "title": "MOB",
                 "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
                 "background_color": null

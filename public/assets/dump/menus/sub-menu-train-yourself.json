@@ -1,36 +1,37 @@
 [
     {
-        "name": "Boat Types",
+        "name": "BOAT TYPES",
         "resource": "\/LiveMenu\/boat-types",
-        "icon_url": "assets\/images\/dump\/boat_types_50c8b18502.png",
+        "active_icon": "assets\/images\/dump\/boat_types_7d299f4689.svg",
+        "inactive_icon": "assets\/images\/dump\/boat_types_7d299f4689.svg",
+        "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "background_color": "#FCF8E8",
         "parent": "\/LiveMenu\/train-yourself"
     },
     {
-        "name": "Controls",
+        "name": "CONTROLS",
         "resource": "\/LiveMenu\/controls",
-        "icon_url": "assets\/images\/dump\/controls_c9a331850f.png",
+        "active_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "inactive_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "background_color": "#FCF8E8",
         "parent": "\/LiveMenu\/train-yourself"
     },
     {
-        "name": "Manoeveures",
+        "name": "MANOEVEURES",
         "resource": "\/LiveMenu\/manoeveures",
-        "icon_url": "assets\/images\/dump\/manoeuvers_7ef0a703c6.png",
+        "active_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "inactive_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "background_color": "#FCF8E8",
         "parent": "\/LiveMenu\/train-yourself"
     },
     {
-        "name": "Rules of the road",
+        "name": "RULES OF THE ROAD",
         "resource": "\/LiveMenu\/rules-of-the-road",
-        "icon_url": "assets\/images\/dump\/rules_of_the_road_fe7702beaa.png",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
-    },
-    {
-        "name": "Emergencies",
-        "resource": "\/LiveMenu\/emergencies",
-        "icon_url": "assets\/images\/dump\/troubleshooting_ca0038b1af.png",
+        "active_icon": "assets\/images\/dump\/rules_of_the_road_91ce4f4972.svg",
+        "inactive_icon": "assets\/images\/dump\/rules_of_the_road_91ce4f4972.svg",
+        "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "background_color": "#FCF8E8",
         "parent": "\/LiveMenu\/train-yourself"
     }

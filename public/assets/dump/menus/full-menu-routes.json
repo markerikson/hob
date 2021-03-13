@@ -1,8 +1,9 @@
 [
     {
-        "name": "Routes",
+        "name": "ROUTES",
         "resource": "\/LiveMap\/1",
-        "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
+        "active_icon": "assets\/images\/dump\/748518_c83141fb25.png",
+        "inactive_icon": "assets\/images\/dump\/748518_c83141fb25.png",
         "background_color": null,
         "parent": "\/Home"
     }

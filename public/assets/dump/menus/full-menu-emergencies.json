@@ -1,36 +1,45 @@
 [
     {
-        "name": "Emergencies",
+        "name": "EMERGENCIES",
         "resource": "\/LiveMenu\/emergencies",
-        "icon_url": "assets\/images\/dump\/troubleshooting_ca0038b1af.png",
+        "active_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "inactive_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
         "background_color": null,
         "parent": "\/Home",
         "menus": [
             {
                 "name": "Motor stopped under way",
                 "resource": "\/Article\/motor-stopped-under-way",
-                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "active_icon": "assets\/dump\/images",
+                "inactive_icon": "assets\/dump\/images",
+                "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
                 "background_color": null,
                 "parent": "\/LiveMenu\/emergencies"
             },
             {
                 "name": "MOB",
                 "resource": "\/Article\/mob",
-                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "active_icon": "assets\/dump\/images",
+                "inactive_icon": "assets\/dump\/images",
+                "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
                 "background_color": null,
                 "parent": "\/LiveMenu\/emergencies"
             },
             {
                 "name": "Troubleshooting",
                 "resource": "\/Article\/troubleshooting",
-                "icon_url": "assets\/images\/dump\/troubleshooting_ca0038b1af.png",
+                "active_icon": "assets\/dump\/images",
+                "inactive_icon": "assets\/dump\/images",
+                "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
                 "background_color": null,
                 "parent": "\/LiveMenu\/emergencies"
             },
             {
                 "name": "First aid guide",
                 "resource": "\/Article\/first-aid-guide",
-                "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+                "active_icon": "assets\/dump\/images",
+                "inactive_icon": "assets\/dump\/images",
+                "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
                 "background_color": null,
                 "parent": "\/LiveMenu\/emergencies"
             }

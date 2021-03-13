@@ -27,6 +27,38 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-tertiary-shade: #4854e0;
   --ion-color-tertiary-tint: #6370ff;
 
+  /** EXTRA **/
+
+  --ion-color-training: #FCF8E8;
+  --ion-color-training-rgb: 252,248,232;
+  --ion-color-training-contrast: #000000;
+  --ion-color-training-contrast-rgb: 0,0,0;
+  --ion-color-training-shade: #dedacc;
+  --ion-color-training-tint: #fcf9ea;
+
+  --ion-color-equipment: #F8DDD1;
+  --ion-color-equipment-rgb: 248,221,209;
+  --ion-color-equipment-contrast: #000000;
+  --ion-color-equipment-contrast-rgb: 0,0,0;
+  --ion-color-equipment-shade: #dac2b8;
+  --ion-color-equipment-tint: #f9e0d6;
+
+  --ion-color-navigate: #9E0BFC;
+  --ion-color-navigate-rgb: 158,11,252;
+  --ion-color-navigate-contrast: #ffffff;
+  --ion-color-navigate-contrast-rgb: 255,255,255;
+  --ion-color-navigate-shade: #8b0ade;
+  --ion-color-navigate-tint: #a823fc;
+
+  --ion-color-assistance: #DB6400;
+  --ion-color-assistance-rgb: 219,100,0;
+  --ion-color-assistance-contrast: #ffffff;
+  --ion-color-assistance-contrast-rgb: 255,255,255;
+  --ion-color-assistance-shade: #c15800;
+  --ion-color-assistance-tint: #df741a;
+
+  /** EXTRA **/
+
   /** success **/
   --ion-color-success: #2dd36f;
   --ion-color-success-rgb: 45, 211, 111;
@@ -153,11 +185,11 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .ios body {
-    --ion-background-color: #000000;
-    --ion-background-color-rgb: 0,0,0;
+    --ion-background-color: #FFFFFF;
+    --ion-background-color-rgb: 255,255,255;
 
-    --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255,255,255;
+    --ion-text-color: #000000;
+    --ion-text-color-rgb: 0,0,0;
 
     --ion-color-step-50: #0d0d0d;
     --ion-color-step-100: #1a1a1a;
@@ -193,8 +225,8 @@ http://ionicframework.com/docs/theming/ */
    */
 
   .md body {
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+    --ion-background-color: #ffffff;
+    --ion-background-color-rgb: 255,255,255;
 
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;

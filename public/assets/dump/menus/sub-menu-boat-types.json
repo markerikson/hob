@@ -2,14 +2,18 @@
     {
         "name": "Solid hull",
         "resource": "\/Article\/solid-hull",
-        "icon_url": "assets\/images\/dump\/4_1_1_Solid_a5e33c7d44.svg",
+        "active_icon": "assets\/images\/dump\/solid_hull_619df175f3.svg",
+        "inactive_icon": "assets\/images\/dump\/solid_hull_619df175f3.svg",
+        "parent_icon": "assets\/images\/dump\/boat_types_7d299f4689.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/boat-types"
     },
     {
         "name": "Inflatable",
         "resource": "\/Article\/inflatable",
-        "icon_url": "assets\/images\/dump\/4_1_1_Inflatable_b8ea8f8155.svg",
+        "active_icon": "assets\/images\/dump\/inflatable_eaca4f4375.svg",
+        "inactive_icon": "assets\/images\/dump\/inflatable_eaca4f4375.svg",
+        "parent_icon": "assets\/images\/dump\/boat_types_7d299f4689.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/boat-types"
     }

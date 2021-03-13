@@ -1,5 +1,7 @@
 export interface Submenu {
   name: string,
   resource: string,
-  icon_url: string,
+  active_icon: string,
+  inactive_icon?: string,
+  parent_icon: string,
 }

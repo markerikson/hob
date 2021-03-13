@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Command station",
+        "resource": "\/Article\/command-station",
+        "active_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "inactive_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "background_color": null,
+        "parent": "\/LiveMenu\/controls",
+        "articles": [
+            {
+                "lang": "en-GB",
+                "title": "COMMAND STATION",
+                "extra_content": null,
+                "background_color": null
+            }
+        ],
+        "pages": [
+            {
+                "title": "Full panel",
+                "image_url": "\/assets\/images\/dump\/4_1_2_A_313dd83691.svg",
+                "description": "wait"
+            }
+        ]
+    }
+]

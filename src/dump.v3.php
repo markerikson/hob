@@ -5,18 +5,19 @@ $imgDump = 'assets/dump/images';
 $mainLang = 'en';
 
 $map = [
-    'langs' =>          ['url' => 'http://hoponboard.eu:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
-    'main_menu' =>      ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
-    'all_menus' =>      ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
-    'menus' =>          ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'menu' =>           ['url' => 'http://hoponboard.eu:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
-    'contents' =>       ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
-    'content_slide' =>  ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/slides/{id}.json'],
-    'articles' =>       ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
-    'pages' =>          ['url' => 'http://hoponboard.eu:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
+    'langs' =>          ['url' => 'http://161.97.167.92:1337/languages', 'filename' => '../public/assets/dump/others/languages.json'],
+    'main_menu' =>      ['url' => 'http://161.97.167.92:1337/app-menus', 'filename' => '../public/assets/dump/others/main-menu.json'],
+    'all_menus' =>      ['url' => 'http://161.97.167.92:1337/app-menus', 'filename' => '../public/assets/dump/others/all-menus.json'],
+    'menus' =>          ['url' => 'http://161.97.167.92:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
+    'menu' =>           ['url' => 'http://161.97.167.92:1337/app-menus', 'filename' => '../public/assets/dump/menus/{id}.json'],
+    'contents' =>       ['url' => 'http://161.97.167.92:1337/app-contents', 'filename' => '../public/assets/dump/contents/{id}.json'],
+    'content_slide' =>  ['url' => 'http://161.97.167.92:1337/app-contents', 'filename' => '../public/assets/dump/contents/slides/{id}.json'],
+    'articles' =>       ['url' => 'http://161.97.167.92:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/{id}.json'],
+    'pages' =>          ['url' => 'http://161.97.167.92:1337/app-contents', 'filename' => '../public/assets/dump/contents/articles/pages/{id}.json'],
     'translations' =>   ['filename' => './i18next/{lang}/{object}.json'],
-    'translation' =>   ['filename' => './i18next/{object}.json'],
+    'translation' =>    ['filename' => './i18next/{object}.json'],
     'images' =>         ['filename' => 'dump/images/uploads/{filename}'],
+    'strapi_trans'  =>  ['url' => 'http://161.97.167.92:1337/translations' ]
 ];
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +63,7 @@ $map = [
 
     function getStrapiImage($image){
         $filename = explode('/', $image->url)[2];
-        $url = 'http://hoponboard.eu:1337' . $image->url;
+        $url = 'http://161.97.167.92:1337' . $image->url;
         file_put_contents('../public/assets/images/dump/' . $filename, file_get_contents($url));
     }
 
@@ -162,6 +163,7 @@ $map = [
 
                 if($matchMainLang){
                     $mainTitle3 = $page->title;
+                    $mainDescription = $page->description ?? 'page_'.$page->id;
                     $addMenu['pages'][] = [
                         'title' => $page->title ?? '',
                         'image_url' => getImageUrl2($page->image->url),
@@ -169,7 +171,7 @@ $map = [
                     ];
                 }
                 $translations[$article->language->code][$mainTitle3] = $page->title;
-
+                $translations[$article->language->code][$mainDescription] = $page->description;
             }
 
             $translations[$article->language->code][$mainTitle] = $article->title;
@@ -287,6 +289,14 @@ $map = [
 // TRANSLATIONS
 //////////////////////////////////////////////////////////////////////////////////////////
 
+    // Getting all the translations...
+    $strapiTrans = json_decode(getContent($map['strapi_trans']['url']));
+    foreach( $strapiTrans as $key => $trans ){
+        foreach( $trans->translations as $key2 => $trans2 ){
+            $translations[$trans2->language->code][$trans->name] = $trans2->label;
+        }
+    }
+
     // One file for each translation pack
     foreach($translations as $key => $translation){
         //file_put_contents (str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
@@ -303,3 +313,6 @@ $map = [
     file_put_contents( str_replace('{object}','translations',$map['translation']['filename']), json_encode($outTrans, JSON_PRETTY_PRINT));
     
     //file_put_contents( str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
+
+
+    

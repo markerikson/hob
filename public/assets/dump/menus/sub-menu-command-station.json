@@ -2,28 +2,36 @@
     {
         "name": "Steering",
         "resource": "\/Article\/steering",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "inactive_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/command-station"
     },
     {
         "name": "Gear shift & Thottle",
         "resource": "\/Article\/gear-shift-and-thottle",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/dump\/images",
+        "inactive_icon": "assets\/dump\/images",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/command-station"
     },
     {
         "name": "Kill cord",
         "resource": "\/Article\/kill-cord",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/dump\/images",
+        "inactive_icon": "assets\/dump\/images",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/command-station"
     },
     {
         "name": "Contact key",
         "resource": "\/Article\/contact-key",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "inactive_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/command-station"
     }

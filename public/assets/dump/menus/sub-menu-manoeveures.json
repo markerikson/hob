@@ -2,21 +2,27 @@
     {
         "name": "Base operations",
         "resource": "\/Article\/base-operations",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "inactive_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "parent_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/manoeveures"
     },
     {
         "name": "Cruising",
         "resource": "\/Article\/cruising",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "inactive_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "parent_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/manoeveures"
     },
     {
         "name": "Anchoring",
         "resource": "\/Article\/anchoring",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "inactive_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
+        "parent_icon": "assets\/images\/dump\/manoeveurs_1451e165c8.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/manoeveures"
     }

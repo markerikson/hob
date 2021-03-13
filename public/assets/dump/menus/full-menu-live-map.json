@@ -1,8 +1,9 @@
 [
     {
-        "name": "Live Map!",
+        "name": "LIVE MAP!",
         "resource": "\/LiveMap\/1",
-        "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
+        "active_icon": "assets\/images\/dump\/active_navigation_e494bbf2e9.svg",
+        "inactive_icon": "assets\/images\/dump\/inactive_navigation_39529f4dd8.svg",
         "background_color": null,
         "parent": "\/Home"
     }

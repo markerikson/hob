@@ -2,12 +2,14 @@
     {
         "name": "Kill cord",
         "resource": "\/Article\/kill-cord",
-        "icon_url": "assets\/images\/dump\/748518_7116a3a57c.png",
+        "active_icon": "assets\/dump\/images",
+        "inactive_icon": "assets\/dump\/images",
+        "parent_icon": "assets\/images\/dump\/controls_20fe897a0d.svg",
         "background_color": null,
         "parent": "\/LiveMenu\/command-station",
         "articles": [
             {
-                "lang": "en",
+                "lang": "en-GB",
                 "title": "Kill cord",
                 "extra_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
                 "background_color": null
@@ -16,7 +18,7 @@
         "pages": [
             {
                 "title": "gsfdgsd",
-                "image_url": "\/assets\/images\/dump\/4_1_3_D_1metre_51d29909e8.svg",
+                "image_url": "",
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
             }
         ]

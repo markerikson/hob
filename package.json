@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "@capacitor/core": "2.4.5",
+    "@ionic-native/android-permissions": "^5.31.1",
+    "@ionic-native/core": "^5.31.1",
     "@ionic-native/geolocation": "^5.31.1",
+    "@ionic-native/location-accuracy": "^5.31.1",
     "@ionic-native/splash-screen": "^5.31.1",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/react": "^5.0.7",
@@ -21,8 +24,11 @@
     "@types/react-router-dom": "^5.1.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-geolocation": "^4.1.0",
+    "cordova-plugin-request-location-accuracy": "^2.3.0",
     "cordova-plugin-splashscreen": "^6.0.0",
+    "google-map-react": "^2.1.9",
     "i18next": "^19.9.1",
     "i18next-browser-languagedetector": "^6.0.1",
     "ionicons": "^5.0.0",
@@ -35,7 +41,9 @@
     "react-i18next": "^11.8.8",
     "react-leaflet": "^3.1.0",
     "react-leaflet-geojson-patterns": "^1.1.0",
+    "react-leaflet-polyline": "^1.0.3",
     "react-native-splash-screen": "^3.2.0",
+    "react-redux": "^7.2.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
@@ -73,7 +81,8 @@
     "@storybook/node-logger": "^6.1.18",
     "@storybook/preset-create-react-app": "^3.1.6",
     "@storybook/react": "^6.1.18",
-    "@types/leaflet": "^1.5.21"
+    "@types/leaflet": "^1.5.21",
+    "@types/react-redux": "^7.1.16"
   },
   "description": "An Ionic project"
 }

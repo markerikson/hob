@@ -4,6 +4,9 @@ import { IonPage, IonHeader, IonCardTitle, IonCardContent, IonCardSubtitle, IonT
 } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
+// Translations...
+import { useTranslation } from 'react-i18next'
+
 // Interfaces
 //import { Content } from '../models/Content'
 //import { Slide } from '../models/Slide'
@@ -12,7 +15,7 @@ import { Page } from '../models/Page'
 
 const slideOpts = {
   initialSlide: 1,
-  speed: 400,
+  speed: 500,
   autoplay: true
 }
 
@@ -22,16 +25,7 @@ interface ArticlePageProps extends RouteComponentProps<{
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
 
-  /*const [slides, setSlides] = useState([{'icon_url':''}])
-  useEffect(() => {
-    fetch( 'assets/dump/contents/slides/'+match.params.slug+'.json' ).then(res => res.json()).then(setSlides)
-  }, [match.params.slug])
-
-  function renderSlider(list: Slide[]){
-    return list.map((r: Slide, i) => (
-        <IonSlide key={i}><img src={r.icon_url.toString()} alt={r.icon_url}/></IonSlide>   
-    ))
-  }*/
+  const { t } = useTranslation()
 
   const [content, setContent] = useState<Menu[]>([])
   useEffect(() => {
@@ -41,8 +35,8 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   function renderIconTitle(list: Menu[]) {
     return list.map((r: Menu, i) => (
       <IonTitle key={i}>
-        <img src={r.icon_url.toString()} alt={r.icon_url} width={'50px'}/>
-        {r.name.toString()}
+        <img src={r.active_icon.toString()} alt={r.active_icon} width={'50px'}/>
+        {t(r.name.toString())}
       </IonTitle>   
     ))
   }
@@ -53,20 +47,22 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   }, [match.params.slug])
 
   function renderPages(list: Page[]){
+
     return list.map((r: Page, i) => (
       <IonSlide key={'page_'+i}>
         <IonCard>
           <IonCardHeader>
-            <IonCardSubtitle>{r.title.toString()}</IonCardSubtitle>
-            <IonCardTitle>{r.title.toString()}</IonCardTitle>
+            <IonCardSubtitle>{t(r.title.toString())}</IonCardSubtitle>
+            <IonCardTitle>{t(r.title.toString())}</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-          <img src={r.image_url.toString()} alt={r.image_url}/>
-            {r.description.toString()}
+            <img src={r.image_url.toString()} alt={r.image_url}/>
+            {t(r.description.toString())}
           </IonCardContent>
         </IonCard>
       </IonSlide>
     ))
+    
   }
 
   return(
@@ -87,6 +83,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       </IonContent>
     </IonPage>
   )
+  
 }
 
 export default Article

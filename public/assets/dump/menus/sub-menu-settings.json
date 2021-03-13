@@ -2,7 +2,9 @@
     {
         "name": "About",
         "resource": "\/Article\/about",
-        "icon_url": "assets\/images\/dump\/icon_search_93463d32d4.png",
+        "active_icon": "assets\/dump\/images",
+        "inactive_icon": "assets\/dump\/images",
+        "parent_icon": "assets\/dump\/images",
         "background_color": null,
         "parent": "\/LiveMenu\/settings"
     }

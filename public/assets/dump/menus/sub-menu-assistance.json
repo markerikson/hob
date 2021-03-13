@@ -1,15 +1,19 @@
 [
     {
-        "name": "Call emergencies",
+        "name": "CALL EMERGENCIES",
         "resource": "\/Assistance\/emergencies",
-        "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+        "active_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "inactive_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
         "background_color": "#DB6400",
         "parent": "\/LiveMenu\/assistance"
     },
     {
-        "name": "Call base",
+        "name": "CALL BASE",
         "resource": "\/Assistance\/base",
-        "icon_url": "assets\/images\/dump\/main_assistance_8ebc33d016.png",
+        "active_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "inactive_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
         "background_color": "#DB6400",
         "parent": "\/LiveMenu\/assistance"
     }

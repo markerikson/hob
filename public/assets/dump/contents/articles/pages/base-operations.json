@@ -1,17 +1,47 @@
 [
     {
-        "title": "Brief",
-        "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_9226051fee.svg",
+        "title": "Base briefing",
+        "image_url": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
     },
     {
-        "title": "Departure",
-        "image_url": "\/assets\/images\/dump\/4_1_1_Solid_67f566df13.svg",
+        "title": "Base safety",
+        "image_url": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
     },
     {
-        "title": "Base",
-        "image_url": "\/assets\/images\/dump\/4_1_3_B_1_d1ea2b0921.svg",
+        "title": "Base safety",
+        "image_url": "",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate"
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
+    },
+    {
+        "title": "Base departure",
+        "image_url": "",
+        "description": ""
     }
 ]
