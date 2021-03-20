@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Motor stopped under way",
+        "resource": "\/Article\/motor-stopped",
+        "active_icon": "assets\/images\/dump\/troubleshooting_661e4dc6b6.svg",
+        "inactive_icon": "assets\/images\/dump\/troubleshooting_661e4dc6b6.svg",
+        "parent_icon": "assets\/images\/dump\/active_assistance_05f6358c69.svg",
+        "background_color": null,
+        "parent": "\/LiveMenu\/emergencies"
+    }
+]

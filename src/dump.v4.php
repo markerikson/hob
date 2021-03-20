@@ -2,14 +2,14 @@
 
 class DumperClass {
 
-    private $snapshot = '';
+    private $snapshot = 'cosa';
     private $imgDump = 'assets/dump/images';
     private $origin = 'http://161.97.167.92:1337/';
     private $mainLang = 'en-GB';
 
     function __construct(){
         $this->init();
-        echo 'test';
+        echo 'done';
     }
 
     public function init(){
@@ -38,7 +38,7 @@ class DumperClass {
                 'path'=> '../public/assets/dump/menus/',
                 'filename' => '../public/assets/dump/menus/{id}.json'
             ],
-            'contents' =>       [
+            /*'contents' =>       [
                 'url' => 'app-contents',
                 'path'=> '../public/assets/dump/contents/',
                 'filename' => '../public/assets/dump/contents/{id}.json'
@@ -47,9 +47,9 @@ class DumperClass {
                 'url' => 'app-contents',
                 'path'=> '../public/assets/dump/contents/',
                 'filename' => '../public/assets/dump/contents/slides/{id}.json'
-            ],
+            ],*/
             'articles' =>       [
-                'url' => 'app-contents',
+                'url' => 'app-articles',
                 'path'=> '../public/assets/dump/contents/articles/',
                 'filename' => '../public/assets/dump/contents/articles/{id}.json'
             ],
@@ -76,8 +76,12 @@ class DumperClass {
         ];
 
         foreach( $map as $key => $row){
-            if(isset($row['url']) && !empty($row['url'])) $map[$key]['url'] = $this->origin . $map[$key]['url'];
-            if(isset($row['path']) && !empty($row['path']))  $this->cleanPath($row['path']);            
+            if(isset($row['url']) && !empty($row['url'])){
+                $map[$key]['url'] = $this->origin . $map[$key]['url'];
+            }
+            if(isset($row['path']) && !empty($row['path'])){
+                $this->cleanPath($row['path']);
+            }
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -85,10 +89,17 @@ class DumperClass {
         //////////////////////////////////////////////////////////////////////////////////////////
 
         // Getting App Contents...
-        $oldContents = json_decode($this->getContent($map['contents']['url']));
-        foreach( $oldContents as $key => $content ){
-            $newContents[$content->slug] = $content;
+        //$oldContents = json_decode($this->getContent($map['contents']['url']));
+        //foreach( $oldContents as $key => $content ){
+        //    $newContents[$content->slug] = $content;
+        //}
+
+        // Getting App Contents...
+        $oldArticles = json_decode($this->getContent($map['articles']['url']));
+        foreach( $oldArticles as $key => $content ){
+            $newArticles[$content->slug] = $content;
         }
+
 
         //////////////////////////////////////////////////////////////////////////////////////////
         // MENUS
@@ -167,7 +178,7 @@ class DumperClass {
                 $newMenu[$key]['menus'][] = $addMenu; // Apto para la navegación del menú
 
                 // Dedicado al detalle sobre los artículos a nivel de artículo...
-                $this->completeAppContent($addMenu, $newContents[$content->slug], $translations, $map, $menu->background_color);
+                $this->completeAppArticle($addMenu, $newArticles[$content->slug], $translations, $map, $menu->background_color);
                 $menu_[] = $addMenu;
                 file_put_contents(str_replace('{id}', $content->slug, $map['contents']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
                 unset($menu_);

@@ -1,14 +1,5 @@
 [
     {
-        "name": "ROUTES",
-        "resource": "\/LiveMap\/1",
-        "active_icon": "assets\/images\/dump\/748518_c83141fb25.png",
-        "inactive_icon": "assets\/images\/dump\/748518_c83141fb25.png",
-        "parent_icon": "assets\/images\/dump\/active_explore_and_equip_e6918b9c08.svg",
-        "background_color": "#F8DDD1",
-        "parent": "\/LiveMenu\/explore-and-equip"
-    },
-    {
         "name": "EQUIPMENT",
         "resource": "\/Equipment",
         "active_icon": "assets\/images\/dump\/748518_c83141fb25.png",

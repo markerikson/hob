@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
-import { IonReactRouter,  } from '@ionic/react-router'
+import { IonReactRouter } from '@ionic/react-router'
+import { useLocation } from 'react-router'
 import { Redirect, Route } from 'react-router-dom'
 import './components/i18n'
 //import FooterMenu from './components/FooterMenu'
@@ -24,20 +25,23 @@ import { Plugins } from '@capacitor/core'
 
   // Theme variables
   import './theme/variables.css'
+  import './theme/myVariables.css'
 
 // STYLE
 
 // App Components
 import Article  from './components/Article'
 
+// Models
+import { Menu } from './models/Menu'
+
 // App main pages
-import Home     from './pages/Home'
 import LiveMenu from './pages/LiveMenu'
 import Settings from './pages/Settings'
-import Routes   from './pages/Routes'
+//import Home     from './pages/Home'
+//import Routes   from './pages/Routes'
 //import LiveMap  from './pages/LiveMap'
 
-import { Menu } from './models/Menu'
 
 //import Sandbox from './pages/Sandbox'
 //import Sandbox2 from './pages/Sandbox2'
@@ -52,6 +56,8 @@ SplashScreen.show({
 
 const App: React.FC = () => {
 
+  //const location = useLocation()
+
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch('assets/dump/others/main-menu.json').then(res => res.json()).then(setMenu)
@@ -60,7 +66,12 @@ const App: React.FC = () => {
   function renderFooterMenu(list: Menu[]) {    
     return list.map((r: Menu, index) => (
       <IonTabButton key={r.resource} tab={r.name} href={r.resource} disabled={false}>
-        <img src={r.active_icon} alt={r.name.toString()} />
+        <img 
+          src={true ? r.active_icon : r.inactive_icon} 
+          alt={r.name.toString()}
+          width='60%'
+          height='120px'
+        />
       </IonTabButton>
     ))
   }
@@ -70,25 +81,26 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>            
-            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>
-            <Route path='/LiveMenu/train-yourself' component={Home}/>
+            <Route path='/' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>            
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug' component={Article}/>
-            <Route path='/Support' component={Article}/>
             <Route path='/Settings' component={Settings}/>
+            {/*<Route path='/Home' component={Home}/>
+            <Route path='/Support' component={Article}/>
             <Route path='/Routes' component={Routes}/>
-            {/*<Route path='/LiveMap/:slug' component={LiveMap}/>
+            <Route path='/LiveMap/:slug' component={LiveMap}/>
             <Route path='/Sandbox' component={Sandbox}/>
             <Route path='/Sandbox2' component={Sandbox2}/>
             <Route path='/Sandbox3' component={Sandbox3}/>*/}
           </IonRouterOutlet>
-          <IonTabBar slot='bottom'>
+          <IonTabBar slot='bottom' class="footer">
             {renderFooterMenu(main_menu)}
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
     </IonApp>
   )
+
 }
 
 export default App

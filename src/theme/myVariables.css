@@ -1,0 +1,41 @@
+/* Ionic Variables and Theming. For more info, please see:*/
+
+@font-face {   
+  font-family: 'Advent Pro';
+  src: url('../fonts/AdventPro/AdventPro-Medium.ttf');
+}
+
+* {
+  font-family: 'Advent Pro' !important;
+}
+
+.ion-content { 
+  font-family: 'Advent Pro';
+  font-size: '1.1em';
+}
+
+.text-on-bottom > .button-inner {
+  flex-direction: column;
+}
+
+.fullheight {
+  height: 100%;
+}
+
+.xc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vcs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hcs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

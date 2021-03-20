@@ -34,5 +34,14 @@
         "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "background_color": "#FCF8E8",
         "parent": "\/LiveMenu\/train-yourself"
+    },
+    {
+        "name": "Troubleshooting",
+        "resource": "\/Article\/troubleshooting",
+        "active_icon": "assets\/images\/dump\/troubleshooting_661e4dc6b6.svg",
+        "inactive_icon": "assets\/images\/dump\/troubleshooting_661e4dc6b6.svg",
+        "parent_icon": "assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
+        "background_color": "#FCF8E8",
+        "parent": "\/LiveMenu\/train-yourself"
     }
 ]
