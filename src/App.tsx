@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/others/main-menu.json').then(res => res.json()).then(setMenu)
+    fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
   function renderFooterMenu(list: Menu[]) {    
@@ -82,9 +82,9 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>            
             <Route path='/' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>            
-            <Route path='/LiveMenu/:slug' component={LiveMenu}/>
-            <Route path='/Article/:slug' component={Article}/>
             <Route path='/Settings' component={Settings}/>
+            <Route path='/LiveMenu/:slug' component={LiveMenu}/>
+            <Route path='/Article/:article/:slide' component={Article}/>
             {/*<Route path='/Home' component={Home}/>
             <Route path='/Support' component={Article}/>
             <Route path='/Routes' component={Routes}/>

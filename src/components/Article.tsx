@@ -15,22 +15,23 @@ import { Page } from '../models/Page'
 
 const slideOpts = {
   initialSlide: 1,
-  speed: 500,
+  speed: 4000,
   autoplay: true
 }
 
 interface ArticlePageProps extends RouteComponentProps<{
-  slug: string;
+  article: string;
+  slide?: string;
 }> {}
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const { t } = useTranslation()
 
-  const [content, setContent] = useState<Menu[]>([])
+  /*const [article, setContent] = useState<Menu[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/contents/'+match.params.slug+'.json' ).then(res => res.json()).then(setContent)
-  }, [match.params.slug])
+    fetch( 'assets/dump/articles/article-'+match.params.article+'.json' ).then(res => res.json()).then(setContent)
+  }, [match.params.article])
 
   function renderIconTitle(list: Menu[]) {
     return list.map((r: Menu, i) => (
@@ -39,12 +40,16 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
         {t(r.name.toString())}
       </IonTitle>   
     ))
-  }
+  }*/
 
-  const [pages, setPages] = useState<Page[]>([])
+  const [slides, setPages] = useState<Page[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/contents/articles/pages/'+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
-  }, [match.params.slug])
+    fetch( 'assets/dump/articles/slides/slide-'+match.params.article+'.json' ).then(res => res.json()).then(setPages)
+  }, [match.params.article])
+
+  if(match.params.slide){
+    console.log(match.params.slide)
+  }
 
   function renderPages(list: Page[]){
 
@@ -67,18 +72,17 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   return(
     <IonPage>
-      <IonHeader>
+      {/*<IonHeader>
         <IonToolbar>
           <IonButtons slot='start'>
             <IonBackButton defaultHref='/' />
           </IonButtons>
-          {renderIconTitle(content)}
+          renderIconTitle(article)
         </IonToolbar>
-      </IonHeader>
+      </IonHeader>*/}
       <IonContent>
-        <IonSlides pager={true} options={slideOpts}>
-          {/*renderSlider(slides)*/}        
-          {renderPages(pages)} 
+        <IonSlides pager={true} options={slideOpts}>          
+          {renderPages(slides)}
         </IonSlides>
       </IonContent>
     </IonPage>

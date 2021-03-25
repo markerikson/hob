@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Stability",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    },
+    {
+        "name": "Steering",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    },
+    {
+        "name": "Speed",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    },
+    {
+        "name": "Safety margin",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    },
+    {
+        "name": "Look out",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    },
+    {
+        "name": "GIVE WAY",
+        "resource": "\/LiveMenu\/cruising",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/cruising"
+    }
+]

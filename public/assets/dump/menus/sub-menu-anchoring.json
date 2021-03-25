@@ -1,0 +1,50 @@
+[
+    {
+        "name": "What is anchoring?",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    },
+    {
+        "name": "Where to anchor?",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    },
+    {
+        "name": "How to anchor",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    },
+    {
+        "name": "At anchor",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    },
+    {
+        "name": "Picking up anchor",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    },
+    {
+        "name": "Please don't",
+        "resource": "\/LiveMenu\/anchoring",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": null,
+        "parent": "\/LiveMenu\/anchoring"
+    }
+]

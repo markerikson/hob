@@ -38,6 +38,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     ))
   }
 
+  /*
   function renderMenuTitle(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
       <IonItem key={i}>
@@ -45,7 +46,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
           <IonImg src={r.active_icon} alt={r.name.toString()}/>
         </IonThumbnail>
         <IonLabel>{t(r.name.toString())}</IonLabel>
-        {/*<IonSearchbar value={'test'} showCancelButton='focus'></IonSearchbar>*/}
+        <IonSearchbar value={'test'} showCancelButton='focus'></IonSearchbar>
       </IonItem>
     ))
   }
@@ -56,16 +57,16 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
         <IonBackButton defaultHref={r.parent.toString()} />
       </IonButtons>
     ))  
-  }
+  }*/
 
   return(    
     <IonPage>
-      <IonHeader>
+      {/*<IonHeader>
         <IonToolbar>
           {renderBackButton(full_menu)}          
           {renderMenuTitle(full_menu)}
-        </IonToolbar>
-      </IonHeader>
+      </IonToolbar>
+      </IonHeader>*/}
       <IonContent>
         <IonList>
           {renderSubMenus(sub_menus)}
