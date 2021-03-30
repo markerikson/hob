@@ -1,26 +1,29 @@
 [
     {
-        "name": "Solid hull",
-        "resource": "\/LiveMenu\/the-boat\/solid-hull",
+        "name": "SOLID HULL",
+        "slug": "solid-hull",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "Article\/the-boat\/solid-hull\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/the-boat"
+        "background_color": "soft-blue"
     },
     {
         "name": "INFLATABLES",
-        "resource": "\/LiveMenu\/the-boat\/inflatable",
+        "slug": "inflatable",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "Article\/the-boat\/inflatable\/2",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/the-boat"
+        "background_color": "soft-blue"
     },
     {
         "name": "CONTROLS",
-        "resource": "\/LiveMenu\/the-boat\/controls",
+        "slug": "controls",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "Article\/the-boat\/controls\/4",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/the-boat"
+        "background_color": "soft-blue"
     }
 ]

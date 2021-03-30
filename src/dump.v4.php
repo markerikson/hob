@@ -2,226 +2,208 @@
 
 class DumperClass {
 
-    private $snapshot = 'cosa';
+    private $snapshot = 'HobSnap8 Dump';
     private $imgDump = 'assets/dump/images';
     private $origin = 'http://161.97.167.92:1337/';
     private $mainLang = 'en-GB';
-
+    private $map = [
+        'langs' => [
+            'url'       => 'languages',
+            'filename'  => '../public/assets/dump/others/languages.json'
+        ],            
+        'main_menu' => [
+            'url'       => 'app-menus', 
+            'filename'  => '../public/assets/dump/menus/main-menu.json'
+        ],
+        'submenus' => [
+            'path'      => '../public/assets/dump/menus/',
+            'filename'  => '../public/assets/dump/menus/{id}.json'
+        ],
+        'articles' => [
+            'url'       => 'app-articles',
+            'path'      => '../public/assets/dump/articles/',
+            'filename'  => '../public/assets/dump/articles/{id}.json'
+        ],
+        'slides' => [
+            'url' => 'app-slides',
+            'path' => '../public/assets/dump/articles/slides/',
+            'filename' => '../public/assets/dump/articles/slides/{id}.json'
+        ],
+        'images' => [
+            'path'=> 'dump/images/uploads/',
+            'filename' => 'dump/images/uploads/{filename}'
+        ],
+        'translations' => [
+            'path' => '/i18next/',
+            'filename' => './i18next/{lang}/{object}.json'
+        ],
+        'translation' => [
+            'path'=> '/i18next/',
+            'filename' => './i18next/{object}.json'
+        ],
+        'strapi_trans' => [
+            'url' => 'translations'
+        ]
+        /*
+        'all_menus' =>      [
+            'url' => 'app-menus',
+            'path'=> '../public/assets/dump/others/',
+            'filename' => '../public/assets/dump/others/all-menus.json'
+        ],
+        'menu' =>           [
+            'url' => 'app-menus',
+            'path'=> '../public/assets/dump/menus/',
+            'filename' => '../public/assets/dump/menus/{id}.json'
+        ],
+        */
+    ];
+    
     function __construct(){
         $this->init();
-        echo 'done '.$this->snapshot;
+        echo $this->snapshot. ' was succesfully done!!!';
     }
 
     public function init(){
 
-        $map = [
-            'langs' =>         [
-                'url'       => 'languages',
-                'filename'  => '../public/assets/dump/others/languages.json'
-            ],            
-            'main_menu'     => [
-                'url'       => 'app-menus', 
-                'filename'  => '../public/assets/dump/menus/main-menu.json'
-            ],
-            'submenus'         => [
-                'path'      => '../public/assets/dump/menus/',
-                'filename'  => '../public/assets/dump/menus/{id}.json'
-            ],
-            'articles'      => [
-                'url'       => 'app-articles',
-                'path'      => '../public/assets/dump/articles/',
-                'filename'  => '../public/assets/dump/articles/{id}.json'
-            ],
-            'slides' => [
-                'url' => 'app-slides',
-                'path' => '../public/assets/dump/articles/slides/',
-                'filename' => '../public/assets/dump/articles/slides/{id}.json'
-            ],
-            'images' =>         [
-                'path'=> 'dump/images/uploads/',
-                'filename' => 'dump/images/uploads/{filename}'
-            ],
-            /*
-            'all_menus' =>      [
-                'url' => 'app-menus',
-                'path'=> '../public/assets/dump/others/',
-                'filename' => '../public/assets/dump/others/all-menus.json'
-            ],
-            'menu' =>           [
-                'url' => 'app-menus',
-                'path'=> '../public/assets/dump/menus/',
-                'filename' => '../public/assets/dump/menus/{id}.json'
-            ],
-            'contents' =>       [
-                'url' => 'app-contents',
-                'path'=> '../public/assets/dump/contents/',
-                'filename' => '../public/assets/dump/contents/{id}.json'
-            ],
-            'content_slide' =>  [
-                'url' => 'app-contents',
-                'path'=> '../public/assets/dump/contents/',
-                'filename' => '../public/assets/dump/contents/slides/{id}.json'
-            ],
-            'translations' =>   [
-                'path' => '/i18next/',
-                'filename' => './i18next/{lang}/{object}.json'
-            ],
-            'translation' =>    [
-                'path'=> '/i18next/',
-                'filename' => './i18next/{object}.json'
-            ],
-            'strapi_trans'  =>  [
-                'url' => 'translations'
-            ]*/
-        ];
-
-        foreach( $map as $key => $row){
+        foreach( $this->map as $key => $row){
             if(isset($row['url']) && !empty($row['url'])){
-                $map[$key]['url'] = $this->origin . $map[$key]['url'];
+                $this->map[$key]['url'] = $this->origin . $this->map[$key]['url'];
             }
             if(isset($row['path']) && !empty($row['path'])){
                 $this->cleanPath($row['path']);
             }
         }
 
-        $this->map = $map;
         //////////////////////////////////////////////////////////////////////////////////////////
-        // ARTICLES
+        // ARTICLES - Getting App Articles...
         //////////////////////////////////////////////////////////////////////////////////////////
-
-        // Getting App Articles...
-        $oldArticles = json_decode($this->getContent($map['articles']['url']));
-        foreach( $oldArticles as $key => $content ){
+        foreach( $this->getContent('articles') as $key => $content ){
             $this->newArticles[$content->slug] = $content;
         }
 
-
         //////////////////////////////////////////////////////////////////////////////////////////
-        // LANGUAGES
+        // LANGUAGES - Get Available languages!! 
         //////////////////////////////////////////////////////////////////////////////////////////
-
-        // Get Available languages!!        
-        $oldLangs = json_decode($this->getContent($map['langs']['url']));
-        foreach($oldLangs as $old){        
-            $newLangs[] = (array) $old;
-            $translation[$old->code] = [];
+        $this->oldLangs = $this->getContent('langs');
+        foreach($this->oldLangs as $old){        
+            $this->newLangs[] = (array) $old;
         }
-        file_put_contents( $map['langs']['filename'], json_encode($newLangs, JSON_PRETTY_PRINT));
+        file_put_contents( $this->map['langs']['filename'], json_encode($this->newLangs, JSON_PRETTY_PRINT));
             
         //////////////////////////////////////////////////////////////////////////////////////////
-        // MENUS
-        //////////////////////////////////////////////////////////////////////////////////////////
-
-        // Getting Menus...
-        $oldMainMenu = json_decode($this->getContent($map['main_menu']['url']));
-        
-        // Created formated new menus object
-        foreach( $oldMainMenu as $key => $menu ){
-            $oldMainMenu_[$menu->slug] = $menu;
+        // MENUS - Getting Menus... Created formated new menus object
+        ////////////////////////////////////////////////////////////////////////////////////////// 
+        foreach( $this->getContent('main_menu') as $key => $menu ){
+            $this->oldMenus[$menu->slug] = $menu;
         }
 
-        foreach( $oldMainMenu_ as $key => $menu ){
+        foreach( $this->oldMenus as $key => $menu ){
 
-            if(isset($menu->icon)){ 
-                $this->getImages($menu->icon);
-            }
+            if(isset($menu->icon)) $this->getImages($menu->icon);
 
             //////////////////////////////////////////////////////////////////////////////////////////
-            // SUB MENUS
+            // MENUS - Printing the digested static content for the APK ;)
             //////////////////////////////////////////////////////////////////////////////////////////
+            $newMenu[$key]['slug'] = $menu->slug;
+            $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
+            $newMenu[$key]['parent'] = '/Home';
+            $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
+            $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
+            $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));
+            $newMenu[$key]['background_color'] = $menu->background_color;
 
-            $newMenu[$key] = [
-                'name' => $this->getLabelTranslation($menu->label, $translations),
-                'resource' => $this->getSlug($menu->ionic_resource, $menu),
-                'active_icon' => $this->getImageUrl2(($menu->icon->url ?? '')),
-                'inactive_icon' => $this->getImageUrl2(($menu->icon_inactive->url ?? '')),
-                'background_color' => $menu->background_color,
-                'parent' => '/Home',
-            ];
+            //if($menu->slide_step) $newMenu[$key]['slide_step'] = $menu->slide_step - 1;
 
-            $this->setChildren($oldMainMenu_, $menu);
+            $this->setChildren( $menu, $menu->background_color);
 
             if($menu->main){
                 $mainMenu[] = $newMenu[$key] ?? [];
+                $newMenu[$key]['has_main'] = true;
             }
 
-            /*
-            $menu_[] = $newMenu[$key];
-            file_put_contents( str_replace('{id}','full-menu-'.$menu->slug, $map['menus']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
-            unset($menu_);
-
-            file_put_contents( str_replace('{id}','sub-menu-'.$menu->slug, $map['menus']['filename']), json_encode($newMenu[$key]['menus'] ?? [], JSON_PRETTY_PRINT));
-            */
+            file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
+            file_put_contents( str_replace('{id}','article-'.$menu->slug, $this->map['articles']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
 
         }
 
-        //var_export($mainMenu); die();
-
         // Guardar todos los Menus Principales...
-        file_put_contents( $map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
+        file_put_contents( $this->map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
 
 
         //////////////////////////////////////////////////////////////////////////////////////////
-        // TRANSLATIONS
+        // TRANSLATIONS - Getting all the translations..
         //////////////////////////////////////////////////////////////////////////////////////////
-
-        // Getting all the translations...
-        //$strapiTrans = json_decode($this->getContent($map['strapi_trans']['url']));
-        //foreach( $strapiTrans as $key => $trans ){
-        //    foreach( $trans->translations as $key2 => $trans2 ){
-        //        $translations[$trans2->language->code][$trans->name] = $trans2->label;
-        //    }
-        //}
+        $strapiTrans = $this->getContent('strapi_trans');
+        foreach( $strapiTrans as $key => $trans ){
+            foreach( $trans->translations as $key2 => $trans2 ){
+                $this->translations[$trans2->language->code][$trans->name] = $trans2->label;
+            }
+        }
 
         // One file for each translation pack
-        //foreach($translations as $key => $translation){
-        //    //file_put_contents (str_replace('{lang}',$key, str_replace('{object}','translations',$map['translations']['filename'])), json_encode($translation, JSON_PRETTY_PRINT));
+        //foreach($this->translations as $key => $this->translation){
+        //   file_put_contents (str_replace('{lang}',$key, str_replace('{object}','translations',$this->map['translations']['filename'])), json_encode($this->translation, JSON_PRETTY_PRINT));
         //}   
 
         // Preparing a unique file with the i18next format ;)
-        /*
-        foreach($oldLangs as $old){
+        
+        foreach($this->oldLangs as $old){
             $outTrans[$old->code]['translation'] = [];
-            foreach($translations[$old->code] as $key => $translation){
+            foreach($this->translations[$old->code] as $key => $translation){
                 $outTrans[$old->code]['translation'][$key] = $translation;            
             }
         }
 
-        file_put_contents( str_replace('{object}','translations',$map['translation']['filename']), json_encode($outTrans, JSON_PRETTY_PRINT));
-        */
+        file_put_contents( str_replace('{object}','translations',$this->map['translation']['filename']), json_encode($outTrans, JSON_PRETTY_PRINT));
 
     }
 
-    private function setChildren($oldMainMenu_, $menu){
+    private function setChildren($menu, $color, $parent = null){
 
         //////////////////////////////////////////////////////////////////////////////////////////
-        // CHILDREN MENUS
+        // CHILDREN MENUS - Setting children fields ;)
         //////////////////////////////////////////////////////////////////////////////////////////
 
-        // Setting children fields ;)
         $menu->menus = $menu->children[0]->menus ?? [];
         $menu->articles = $menu->children[0]->articles ?? [];
-        //$menu->slides = $menu->children[0]->slides ?? [];
-        //$menu->forms = $menu->children[0]->forms ?? [];            
-
         $fullMenu = [];
 
         if(!empty($menu->menus)){
 
             foreach( $menu->menus as $key => $value ){                    
-                $fullMenu[] = $oldMainMenu_[$value->slug];                    
+                $fullMenu[] = $this->oldMenus[$value->slug];                    
             }     
+            $g = 0;
+            foreach( $fullMenu as $key2 => $value ){
+                
+                $newSubMenu[$key][$key2]['name'] = $this->getLabelTranslation($value->label);
+                $newSubMenu[$key][$key2]['slug'] = $value->slug;
+                if($value->ionic_resource == 'Article'){
 
-            foreach( $fullMenu as $key2 => $value ){  
+                    if($this->oldMenus[$value->slug]->children[0]->articles[0]->slug == null){
+                        var_export('¡Have no slug! on'.$value->slug); die();
+                    }
 
-                $newSubMenu[$key][$key2] = [
-                    'name' => $this->getLabelTranslation($value->label, $translations),
-                    'resource' => $this->getSlug($value->ionic_resource, $menu, $value->slug),
-                    'active_icon' => $this->getImageUrl(($value->icon->url ?? '')),
-                    'inactive_icon' => $this->getImageUrl(($value->icon_inactive->url ?? '')),
-                    'background_color' => $menu->background_color,
-                    'parent' => $this->getSlug($menu->ionic_resource, $menu),
-                ];
+                    $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.( $value->parent_menu->slug ?? '');
+                    $newSubMenu[$key][$key2]['resource'] =  $value->ionic_resource.'/'.$this->oldMenus[$value->slug]->children[0]->articles[0]->slug.'/'.( $value->slug ?? '');
+                    $g++;
+                }else{
+                    // TODO
+                    $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
+                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$value->slug;
+                }
+
+                if($value->slide_step) $newSubMenu[$key][$key2]['resource'] = $newSubMenu[$key][$key2]['resource'].'/'.$value->slide_step - 1;
+
+                if( $newSubMenu[$key][$key2]['name'] == 'THE BOAT'){
+                    //var_export($this->oldMenus[$value->slug]); die();
+                }
+
+                if(isset($value->icon)) $this->getImages($value->icon);
+
+                $newSubMenu[$key][$key2]['active_icon'] = $this->getImageUrl(($value->icon->url ?? ''));
+                $newSubMenu[$key][$key2]['inactive_icon'] = $this->getImageUrl(($value->icon_inactive->url ?? ''));
+                $newSubMenu[$key][$key2]['background_color'] = (!empty($value->parent_menu->backgrond_color)) ? $value->parent_menu->backgrond_color : $color;            
 
             }
 
@@ -229,29 +211,28 @@ class DumperClass {
 
             file_put_contents( str_replace('{id}','sub-menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode($newSubMenu[$key], JSON_PRETTY_PRINT));
 
-        }elseif(!empty($menu->articles)){
+        }
+        
+        if(!empty($menu->articles)){
 
             //////////////////////////////////////////////////////////////////////////////////////////
             // CHILDREN ARTICLE
             //////////////////////////////////////////////////////////////////////////////////////////
 
+            $thisArticle = $this->newArticles[$menu->articles[0]->slug];
+
+            /*$article = [
+                'id' => $thisArticle->id,
+                'slug' => $thisArticle->slug ?? '',
+                'name' => $this->getLabelTranslation($thisArticle->label),
+                'active_icon' => $this->getImageUrl2(($menu->icon->url ?? '')),
+            ];
+            
+            */
+
             $slides = $this->newArticles[$menu->articles[0]->slug]->children;
             $slidesCount = count($slides);
             $x = 0;
-            foreach($slides as $key4 => $slide){
-                
-                if(!empty($slide->image[0])){ 
-                    $this->getImages($slide->image[0]);
-                }
-
-                $addMenu['pages'][] = [
-                    //'title' => $slide->title ?? '',
-                    'num_tag' => ++$x.'/'.$slidesCount,
-                    'image_url' => $this->getImageUrl2($slide->image[0]->url ?? ''),
-                    //'description' => $slide->description ?? '',
-                ];
-
-            }
 
             foreach($slides as $key => $slide){
 
@@ -259,34 +240,40 @@ class DumperClass {
                     $this->getImages($slide->image);
                 }
 
-
                 foreach($slide->translations as $trans ){
- 
+
                     if(!isset($trans->language->code )) {                        
-                        var_export($trans); die();
+                        var_export($trans); die('Translation without language code for '.$slide->name);
                     }
 
                     if(!isset($trans->description)) {                        
-                        var_export($trans); die();
+                        var_export($trans); die('Translation without description for '.$slide->name);
                     }
-
 
                     // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
                     $matchMainLang = ( $trans->language->code == $this->mainLang );        
         
                     if($matchMainLang){
-                        $mainTitle3 = $slide->name;
-                        $mainDescription = $slide->description ?? 'slide_'.$slide->id;
+                        $mainTitle3 = $trans->title;
+                        $mainLabel3 = $trans->label;
+                        $mainDescription = $trans->description ?? 'slide_'.$slide->id;
+                        $a = ++$x;
                         $addMenu['slides'][] = [
-                            'title' => $slide->name ?? '',
-                            'num_tag' => ++$x.'/'.$slidesCount,
-                            'image_url' => $this->getImageUrl2($slide->image[0]->url ?? ''),
+                            'slug' => $slide->slug ?? '',
+                            'id' => $slide->id,
+                            'icon' => $this->getImageUrl2($menu->icon->url ?? ''),
+                            'title' => $trans->title ?? '',
+                            'label' => $trans->label ?? '',
+                            'num_tag' => $a.'/'.$slidesCount,
+                            'index_num' => $x-1,
+                            'image_url' => $this->getImageUrl2($slide->image->url ?? ''),
                             'description' => $trans->description ?? '',
                         ];
                     }    
-    
-                    $translations[$trans->language->code][$mainTitle3] = $slide->name;
-                    $translations[$trans->language->code][$mainDescription] = $slide->description ?? '';
+
+                    $this->translations[$trans->language->code][$mainTitle3] = $trans->title;
+                    $this->translations[$trans->language->code][$mainLabel3] = $trans->label;
+                    $this->translations[$trans->language->code][$mainDescription] = $trans->description ?? '';
 
                 }
 
@@ -300,64 +287,10 @@ class DumperClass {
         // SUB-MENUS
         //////////////////////////////////////////////////////////////////////////////////////////
 
-        /*
-                    //var_export($newMenu[$key]); die();
-        
-                    // Setting submenu fields ;)
-                    $menu->menus = $menu->children[0]->menus ?? [];
-                    $menu->slides = $menu->children[0]->slides ?? [];
-        
-                    var_export($menu->children); die();
-        
-                    foreach($menu->menus as $key2 => $submenu){             
-                        
-                        $thisMenu = $oldMainMenu_[$submenu->slug];
-        
-                        if(isset($submenu->icon)){ $this->getImages($submenu->icon); }
-        
-                        $addMenu = [
-                            'name' => $this->getLabelTranslation($thisMenu->label, $translations),
-                            'resource' => $this->getSlug($thisMenu->ionic_resource ?? '/LiveMenu', $thisMenu),
-                            'inactive_icon' => $this->getImageUrl($this->imgDump.($thisMenu->icon->url ?? $menu->icon->url)),
-                            'parent_icon' => $this->getImageUrl($this->imgDump.($menu->icon->url ?? '')),
-                            'background_color' => $menu->background_color,
-                            'parent' => $newMenu[$key]['resource'],
-                        ];        
-                        $newMenu[$key]['menus'][] = $addMenu;
-                        var_export($thisMenu); die();
-                    }
-        
-                    // Converting articles in menu fields ;)
-                    $menu->contents = $menu->children[0]->contents ?? [];
-                    foreach($menu->contents as $key3 => $content){
-        
-                        $content->ionic_resource = 'Article';
-                        if(isset($content->icon)){
-                            $this->getImages($content->icon);
-                        }
-                        $addMenu = [
-                            'name' => $content->name,
-                            'resource' => $this->getSlug('Article', $content),
-                            'active_icon' => $this->getImageUrl($this->imgDump.($content->icon->url ?? '')),
-                            'inactive_icon' => $this->getImageUrl($this->imgDump.($content->icon->url ?? '')),
-                            'parent_icon' => $this->getImageUrl($this->imgDump.($menu->icon->url ?? '')),
-                            'background_color' => $menu->background_color,
-                            'parent' => $newMenu[$key]['resource'],
-                        ]; 
-                        $newMenu[$key]['menus'][] = $addMenu; // Apto para la navegación del menú
-        
-                        // Dedicado al detalle sobre los artículos a nivel de artículo...
-                        $this->completeAppArticle($addMenu, $newArticles[$content->slug], $translations, $map, $menu->background_color);
-                        $menu_[] = $addMenu;
-                        file_put_contents(str_replace('{id}', $content->slug, $map['contents']['filename']), json_encode($menu_, JSON_PRETTY_PRINT));
-                        unset($menu_);
-        
-                    }
-        */
-
     }
 
-    private function getContent($url){
+    private function getContent($mappedType){
+        $url = $this->map[$mappedType]['url'];        
         $ch = curl_init();
         $headers = array('Accept: application/json', 'Content-Type: application/json');
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -366,7 +299,7 @@ class DumperClass {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        return curl_exec($ch);
+        return json_decode(curl_exec($ch));
     }
 
     private function getImages($images){
@@ -406,9 +339,14 @@ class DumperClass {
         return $return;
     }
 
+    private function getSlug2($params = []){
+        return '/'.implode('/', $params);
+    }
+
     private function getImageUrl($url){
         if(!empty($url)){
-            return  str_replace('dump/images/uploads/', 'images/dump/',$url);
+            $return = str_replace('dump/images/uploads/', 'images/dump/',$url);
+            return str_replace('uploads/', 'assets/images/dump/',$return);
         }else{
             return '';
         }
@@ -418,126 +356,16 @@ class DumperClass {
         return str_replace('uploads/', 'assets/images/dump/',$url) ?? '';
     }
 
-    private function getLabelTranslation($labels, &$translations){
+    private function getLabelTranslation($labels){
         foreach($labels as $label){
             if( $label->language->code == $this->mainLang ){
                 $inMain = $label->label;
             }
         }
         foreach($labels as $label){
-            $translations[$label->language->code][$inMain] = $label->label; 
+            $this->translations[$label->language->code][$inMain] = $label->label; 
         }
         return $inMain ?? '';
-    }
-
-    private function completeAppArticle(&$addMenu, $allData, &$translations, $map, $color ){
-
-        //$this->getImages($allData->media);
-
-        //foreach($allData->media as $key => $image){
-        //    $media[] = ['icon_url' => $this->getImageUrl2($image->url)];
-        //}
-
-        //file_put_contents(str_replace('{id}', $allData->slug, $map['content_slide']['filename']), json_encode($media, JSON_PRETTY_PRINT));
-
-        foreach($allData->articles as $key => $article){
-
-            // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
-            $matchMainLang = ( $article->language->code == $this->mainLang );
-
-            if($matchMainLang){
-                $mainTitle = $article->title;
-                $addMenu['articles'][] = [
-                    'lang' => $article->language->code,
-                    'title' => $article->title,
-                    'extra_content' => $article->extra_content,
-                    'background_color' =>  $color,
-                ];
-            }
-
-            foreach($article->pages as $key => $page){
-                if(isset($page->image)){ 
-                    $this->getImages($page->image);
-                }
-    
-                if($matchMainLang){
-                    $mainTitle3 = $page->title;
-                    $mainDescription = $page->description ?? 'page_'.$page->id;
-                    $addMenu['pages'][] = [
-                        'title' => $page->title ?? '',
-                        'image_url' => $this->getImageUrl2($page->image->url ?? ''),
-                        'description' => $page->description ?? '',
-                    ];
-                }
-                $translations[$article->language->code][$mainTitle3] = $page->title;
-                $translations[$article->language->code][$mainDescription] = $page->description;
-            }
-
-            $translations[$article->language->code][$mainTitle] = $article->title;
-        
-        }
-
-        if(!empty($addMenu['pages'])){
-            file_put_contents (str_replace('{id}', $allData->slug, $map['pages']['filename']), json_encode($addMenu['pages'] ?? [], JSON_PRETTY_PRINT));
-        }            
-
-        file_put_contents (str_replace('{id}', $allData->slug, $map['articles']['filename']), json_encode($addMenu['articles'], JSON_PRETTY_PRINT));
-
-    }
- 
-    private function completeAppContent(&$addMenu, $allData, &$translations, $map, $color ){
-
-        //$this->getImages($allData->media);
-
-        //foreach($allData->media as $key => $image){
-        //    $media[] = ['icon_url' => $this->getImageUrl2($image->url)];
-        //}
-
-        //file_put_contents(str_replace('{id}', $allData->slug, $map['content_slide']['filename']), json_encode($media, JSON_PRETTY_PRINT));
-
-        foreach($allData->articles as $key => $article){
-
-            // Están en dos idiomas, pero vamos a recoger solamente en uno de los dos...
-            $matchMainLang = ( $article->language->code == $this->mainLang );
-
-            if($matchMainLang){
-                $mainTitle = $article->title;
-                $addMenu['articles'][] = [
-                    'lang' => $article->language->code,
-                    'title' => $article->title,
-                    'extra_content' => $article->extra_content,
-                    'background_color' =>  $color,
-                ];
-            }
-
-            foreach($article->pages as $key => $page){
-                if(isset($page->image)){ 
-                    $this->getImages($page->image);
-                }
-    
-                if($matchMainLang){
-                    $mainTitle3 = $page->title;
-                    $mainDescription = $page->description ?? 'page_'.$page->id;
-                    $addMenu['pages'][] = [
-                        'title' => $page->title ?? '',
-                        'image_url' => $this->getImageUrl2($page->image->url ?? ''),
-                        'description' => $page->description ?? '',
-                    ];
-                }
-                $translations[$article->language->code][$mainTitle3] = $page->title;
-                $translations[$article->language->code][$mainDescription] = $page->description;
-            }
-
-            $translations[$article->language->code][$mainTitle] = $article->title;
-        
-        }
-
-        if(!empty($addMenu['pages'])){
-            file_put_contents (str_replace('{id}', $allData->slug, $map['pages']['filename']), json_encode($addMenu['pages'] ?? [], JSON_PRETTY_PRINT));
-        }            
-
-        file_put_contents (str_replace('{id}', $allData->slug, $map['articles']['filename']), json_encode($addMenu['articles'], JSON_PRETTY_PRINT));
-
     }
 
     private function cleanPath($path){

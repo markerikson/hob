@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+import React, { 
+  //useState
+} from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON, Polyline } from 'react-leaflet'
-import { Plugins } from '@capacitor/core'
+import { MapContainer, TileLayer, 
+  //Marker, Popup, GeoJSON, Polyline 
+} from 'react-leaflet'
+//import { Plugins } from '@capacitor/core'
 import { useTranslation } from 'react-i18next'
 
 // About leafLet
 import 'leaflet/dist/leaflet.css'
 
-import L from 'leaflet';
+//import L from 'leaflet';
 //import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 
 //import { Plugins } from '@capacitor/core';
 
 const styleMap = { 'width': '100%', 'height': '80vh' }  
-const { Geolocation } = Plugins
+//const { Geolocation } = Plugins
 
 // Interfaces
 //import { Content } from '../models/Content'
@@ -48,7 +52,7 @@ const my_route = {
     }
   ]
 }
-*/
+
 
 const my_route = [
   {
@@ -177,11 +181,11 @@ const my_route = [
     }
   }
 ]
+*/
 
 interface MapProps extends RouteComponentProps<{
   id: string;
 }> {}
-
 
 const LiveMap: React.FC<MapProps> =  ({match}) => {
   

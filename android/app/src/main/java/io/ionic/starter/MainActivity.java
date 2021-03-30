@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class MainActivity extends BridgeActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
+    SplashScreen.show(this);  // here
     super.onCreate(savedInstanceState);
 
     // Initializes the Bridge

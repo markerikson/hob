@@ -1,26 +1,29 @@
 [
     {
         "name": "Motor Stopped under way",
-        "resource": "\/LiveMenu\/troubleshooting",
+        "slug": "motor-stopped-under-way",
+        "parent": "LiveMenu\/troubleshooting",
+        "resource": "Article\/troubleshooting\/motor-stopped-under-way",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/troubleshooting"
+        "background_color": "soft-blue"
     },
     {
         "name": "Man over board",
-        "resource": "\/LiveMenu\/troubleshooting",
+        "slug": "man-over-board",
+        "parent": "LiveMenu\/troubleshooting",
+        "resource": "Article\/troubleshooting\/man-over-board",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/troubleshooting"
+        "background_color": "soft-blue"
     },
     {
         "name": "Anchor stuck",
-        "resource": "\/LiveMenu\/troubleshooting",
+        "slug": "anchor-stuck",
+        "parent": "LiveMenu\/troubleshooting",
+        "resource": "Article\/troubleshooting\/anchor-stuck",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/troubleshooting"
+        "background_color": "soft-blue"
     }
 ]

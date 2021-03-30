@@ -1,6 +1,7 @@
 //import { Submenu } from './Submenu'
 export interface Menu {
   name: string,
+  slug: string,
   resource: string,
   active_icon: string,
   inactive_icon?: string,

@@ -1,50 +1,56 @@
 [
     {
         "name": "THE BOAT",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "\/uploads\/748518_c83141fb25.png",
+        "slug": "the-boat",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "LiveMenu\/the-boat",
+        "active_icon": "\/assets\/images\/dump\/boat_types_7d299f4689.svg",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     },
     {
         "name": "CRUISING",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "\/uploads\/748518_c83141fb25.png",
+        "slug": "cruising",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "LiveMenu\/cruising",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     },
     {
         "name": "ANCHORING",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "\/uploads\/748518_c83141fb25.png",
+        "slug": "anchoring",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "LiveMenu\/anchoring\/0",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     },
     {
         "name": "BASE ARRIVAL",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "",
+        "slug": "base-arrival",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "Article\/base-arrival\/base-arrival",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     },
     {
         "name": "TROUBLESHOOTING",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "\/uploads\/troubleshooting_661e4dc6b6.svg",
+        "slug": "troubleshooting",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "LiveMenu\/troubleshooting",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     },
     {
         "name": "BASE DEPARTURE",
-        "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "",
+        "slug": "base-departure",
+        "parent": "LiveMenu\/train-yourself",
+        "resource": "Article\/base-departure\/base-departure",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
-        "background_color": "#FCF8E8",
-        "parent": "\/LiveMenu\/train-yourself"
+        "background_color": "soft-blue"
     }
 ]

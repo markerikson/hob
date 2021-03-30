@@ -4,4 +4,5 @@ export interface Submenu {
   active_icon: string,
   inactive_icon?: string,
   parent_icon: string,
+  background_color?: string,
 }

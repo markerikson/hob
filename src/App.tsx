@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+//import { AppStateContext } from "../contexts/AppStateContext";
 import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-import { useLocation } from 'react-router'
-import { Redirect, Route } from 'react-router-dom'
+import {
+  Redirect, Route,
+  //useLocation 
+} from 'react-router-dom'
+
 import './components/i18n'
 //import FooterMenu from './components/FooterMenu'
 import { Plugins } from '@capacitor/core'
@@ -29,23 +33,17 @@ import { Plugins } from '@capacitor/core'
 
 // STYLE
 
-// App Components
-import Article  from './components/Article'
-
 // Models
 import { Menu } from './models/Menu'
 
 // App main pages
 import LiveMenu from './pages/LiveMenu'
+import Article  from './pages/Article'
+import Home     from './pages/Home'
 import Settings from './pages/Settings'
-//import Home     from './pages/Home'
-//import Routes   from './pages/Routes'
-//import LiveMap  from './pages/LiveMap'
-
-
-//import Sandbox from './pages/Sandbox'
-//import Sandbox2 from './pages/Sandbox2'
-//import Sandbox3 from './pages/Sandbox3'
+import Routes   from './pages/Routes'
+import LiveMap  from './pages/LiveMap'
+import Navigation from './pages/Navigation'
 
 // Show the splash for 4 seconds and then auto hide:
 const { SplashScreen } = Plugins
@@ -65,7 +63,7 @@ const App: React.FC = () => {
 
   function renderFooterMenu(list: Menu[]) {    
     return list.map((r: Menu, index) => (
-      <IonTabButton key={r.resource} tab={r.name} href={r.resource} disabled={false}>
+      <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
         <img 
           src={true ? r.active_icon : r.inactive_icon} 
           alt={r.name.toString()}
@@ -84,16 +82,18 @@ const App: React.FC = () => {
             <Route path='/' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>            
             <Route path='/Settings' component={Settings}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
-            <Route path='/Article/:article/:slide' component={Article}/>
-            {/*<Route path='/Home' component={Home}/>
-            <Route path='/Support' component={Article}/>
+            <Route path='/Article/:article/:slide/:step' component={Article}/>
+            <Route path='/Home' component={Home}/>
             <Route path='/Routes' component={Routes}/>
+            <Route path='/Navigation' component={Navigation}/>
             <Route path='/LiveMap/:slug' component={LiveMap}/>
+            {/*
+            <Route path='/Support' component={Article}/>
             <Route path='/Sandbox' component={Sandbox}/>
             <Route path='/Sandbox2' component={Sandbox2}/>
             <Route path='/Sandbox3' component={Sandbox3}/>*/}
           </IonRouterOutlet>
-          <IonTabBar slot='bottom' class="footer">
+          <IonTabBar slot='bottom' class='hob-footer'>
             {renderFooterMenu(main_menu)}
           </IonTabBar>
         </IonTabs>

@@ -7,13 +7,13 @@ import { RouteComponentProps,
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 //import ExploreContainer from '../components/ExploreContainer'
 
-interface RouteInterface {
+/*interface RouteInterface {
   id: number,
   name: string,
   data: string,
   center_lat: number,
   center_long: number
-}
+}*/
 
 interface MapProps extends RouteComponentProps<{
   id: string;

@@ -1,50 +1,56 @@
 [
     {
         "name": "What is anchoring?",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "what-is-anchoring",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/what-is-anchoring\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     },
     {
         "name": "Where to anchor?",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "where-to-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/where-to-anchor\/2",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     },
     {
         "name": "How to anchor",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "how-to-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/how-to-anchor\/9",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     },
     {
         "name": "At anchor",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "at-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/at-anchor\/15",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     },
     {
         "name": "Picking up anchor",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "picking-up-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/picking-up-anchor\/18",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     },
     {
         "name": "Please don't",
-        "resource": "\/LiveMenu\/anchoring",
+        "slug": "please-don-t",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/please-don-t\/23",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/anchoring"
+        "background_color": "soft-blue"
     }
 ]

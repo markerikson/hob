@@ -1,50 +1,56 @@
 [
     {
         "name": "Stability",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "stability",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/stability\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     },
     {
         "name": "Steering",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "steering",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/steering\/1",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     },
     {
         "name": "Speed",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "speed",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/speed\/2",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     },
     {
         "name": "Safety margin",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "safety-margin",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/safety-margin\/3",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     },
     {
         "name": "Look out",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "look-out",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/look-out\/4",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     },
     {
         "name": "GIVE WAY",
-        "resource": "\/LiveMenu\/cruising",
+        "slug": "give-way",
+        "parent": "LiveMenu\/cruising",
+        "resource": "Article\/cruising\/give-way\/6",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": null,
-        "parent": "\/LiveMenu\/cruising"
+        "background_color": "soft-blue"
     }
 ]

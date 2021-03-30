@@ -5,6 +5,24 @@
   src: url('../fonts/AdventPro/AdventPro-Medium.ttf');
 }
 
+:root {
+  --ion-color-soft-blue: #E0F7FA;
+  --ion-color-soft-blue-rgb: 224,247,250;
+  --ion-color-soft-blue-contrast: #000000;
+  --ion-color-soft-blue-contrast-rgb: 0,0,0;
+  --ion-color-soft-blue-shade: #c5d9dc;
+  --ion-color-soft-blue-tint: #e3f8fb;
+}
+
+.ion-color-soft-blue {
+  --ion-color-base: var(--ion-color-soft-blue);
+  --ion-color-base-rgb: var(--ion-color-soft-blue-rgb);
+  --ion-color-contrast: var(--ion-color-soft-blue-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-soft-blue-contrast-rgb);
+  --ion-color-shade: var(--ion-color-soft-blue-shade);
+  --ion-color-tint: var(--ion-color-soft-blue-tint);
+}
+
 * {
   font-family: 'Advent Pro' !important;
 }
@@ -12,6 +30,7 @@
 .ion-content { 
   font-family: 'Advent Pro';
   font-size: '1.1em';
+  background-color: '#E0F7FA';
 }
 
 .text-on-bottom > .button-inner {
@@ -23,19 +42,47 @@
 }
 
 .xc {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 
 .vcs {
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   align-items: center;
 }
 
 .hcs {
-  display: flex;
+  /*display: flex;*/
   flex-direction: row;
   align-items: center;
+}
+
+.ion-slides {
+  height: 100%;
+}
+
+.hob-footer {
+  background-color: #F8F8F8  !important;
+}
+
+.hob-header {
+  background-color: #FFFCFC !important;
+}
+
+.card-content-md{
+  height: 76vh;
+}
+
+.border-none {
+  border: none;
+}
+
+.inner-item {
+  width: 80%;
+}
+
+.button-inner {
+  width: 80%;
 }
