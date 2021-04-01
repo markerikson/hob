@@ -173,11 +173,13 @@ class DumperClass {
             foreach( $menu->menus as $key => $value ){                    
                 $fullMenu[] = $this->oldMenus[$value->slug];                    
             }     
-            $g = 0;
+
             foreach( $fullMenu as $key2 => $value ){
                 
                 $newSubMenu[$key][$key2]['name'] = $this->getLabelTranslation($value->label);
                 $newSubMenu[$key][$key2]['slug'] = $value->slug;
+
+                
                 if($value->ionic_resource == 'Article'){
 
                     if($this->oldMenus[$value->slug]->children[0]->articles[0]->slug == null){
@@ -186,11 +188,15 @@ class DumperClass {
 
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.( $value->parent_menu->slug ?? '');
                     $newSubMenu[$key][$key2]['resource'] =  $value->ionic_resource.'/'.$this->oldMenus[$value->slug]->children[0]->articles[0]->slug.'/'.( $value->slug ?? '');
-                    $g++;
-                }else{
+
+                }elseif($value->ionic_resource == 'LiveMenu'){
                     // TODO
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
                     $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$value->slug;
+                }else{
+                    // TODO
+                    $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
+                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource;
                 }
 
                 if($value->slide_step) $newSubMenu[$key][$key2]['resource'] = $newSubMenu[$key][$key2]['resource'].'/'.$value->slide_step - 1;

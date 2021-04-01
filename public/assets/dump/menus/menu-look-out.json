@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "look-out",
+        "name": "Look out",
+        "parent": "\/Home",
+        "resource": "\/Article\/look-out",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

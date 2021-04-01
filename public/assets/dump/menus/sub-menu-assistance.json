@@ -1,0 +1,20 @@
+[
+    {
+        "name": "CALL BASE",
+        "slug": "call-base",
+        "parent": "LiveMenu\/assistance",
+        "resource": "LiveMenu\/call-base",
+        "active_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    },
+    {
+        "name": "CALL EMERGENCIES",
+        "slug": "call-emergencies",
+        "parent": "LiveMenu\/assistance",
+        "resource": "LiveMenu\/call-emergencies",
+        "active_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

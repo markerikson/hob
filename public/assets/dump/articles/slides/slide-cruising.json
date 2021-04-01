@@ -1,0 +1,123 @@
+[
+    {
+        "slug": "cruising-stability",
+        "id": 34,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Stability",
+        "num_tag": "1\/11",
+        "index_num": 0,
+        "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_equilibri_28f42c9c03.svg",
+        "description": "When boarding the boat, keep the weight evenly distributed  for best stability and comfort.\nMove gently around it while you get used to the new space ."
+    },
+    {
+        "slug": "cruising-steering",
+        "id": 35,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Steering",
+        "num_tag": "2\/11",
+        "index_num": 1,
+        "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_Rectes_27b3811aca.svg",
+        "description": "When under way, make small adjustments to the helm to keep a straight course and best stability.\nBig corrections will lead to curvy performance and a less comfortable ride."
+    },
+    {
+        "slug": "cruising-speed",
+        "id": 36,
+        "icon": "",
+        "title": "",
+        "label": "",
+        "num_tag": "3\/11",
+        "index_num": 2,
+        "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "description": "Adjust your speed to the circumstances.\nIt\u2019s ok to create a wake and move fast in the open sea but allways slow down when approaching an anchorage, point of interst, swiming area or in the port.\nWake can cause damage to moored boats and may ruin a luch at anchor if it all ends up on the floor."
+    },
+    {
+        "slug": "cruising-safety-margin",
+        "id": 37,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Safety Margin",
+        "num_tag": "4\/11",
+        "index_num": 3,
+        "image_url": "\/assets\/images\/dump\/4_1_3_B_Roques_47b9d37196.svg",
+        "description": "We have marked in the map the dangerous water rocks and shallows, anyhow, a safety distance must be kept from the shore at all times when cruising.\nPlease check your map often in order to locate the dangerous areas."
+    },
+    {
+        "slug": "cruising-look-out",
+        "id": 38,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Look Out",
+        "num_tag": "5\/11",
+        "index_num": 4,
+        "image_url": "\/assets\/images\/dump\/4_1_3_B_windsurf_cabd371c0a.svg",
+        "description": "Keep a sharp look out at all times.\nYou may encounter other boats, swimmers, kayaks, etc in unexpected locations.\nIf at any moment your not sure on how to proceed, gently slow down or even stop for a moment to reassess."
+    },
+    {
+        "slug": "cruising-stability-2",
+        "id": 43,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Stability",
+        "num_tag": "6\/11",
+        "index_num": 5,
+        "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_500dc8ddb2.svg",
+        "description": "When cruising, you may encounter big swell created by the wake of a big motor boat or ship. \nIn this case, slow down to minimum speed and approach the waves at a 45\u00ba angle.\nResume your course and speed once they are past."
+    },
+    {
+        "slug": "cruising-give-way-1",
+        "id": 39,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "7\/11",
+        "index_num": 6,
+        "image_url": "\/assets\/images\/dump\/4_1_4_A_Give_way_1c9d6f616d.svg",
+        "description": "Give way by crossing through the back of these vessels independently of the approach.\nAllways anticipate and execute your maneuvers with time and avoid last minute actions."
+    },
+    {
+        "slug": "cruising-give-way-2",
+        "id": 40,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "8\/11",
+        "index_num": 7,
+        "image_url": "\/assets\/images\/dump\/4_1_4_A_caracara_317562c237.svg",
+        "description": "When approaching another vessel head to head, both vessels will turn to the right and resume their course.\nThis manouver must be taken with anticipation and as soon as possible avoiding last minute calls."
+    },
+    {
+        "slug": "cruising-give-way-3",
+        "id": 41,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "9\/11",
+        "index_num": 8,
+        "image_url": "\/assets\/images\/dump\/4_1_4_A_delateral_40d2e3601b.svg",
+        "description": "Give way to vessels approaching from your right hand side by crossing through the back of them.\nNever cross their front path if you are the give way vessel. \n\n"
+    },
+    {
+        "slug": "cruising-give-way-4",
+        "id": 42,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "10\/11",
+        "index_num": 9,
+        "image_url": "\/assets\/images\/dump\/4_1_45_A_Veler_13f8a0b827.svg",
+        "description": "Give way to  sailing vessels independently of their approach when they are sailing. \nIf their sails are not up then apply the general rule to give way to vessels coming from the right hand side.\n\n"
+    },
+    {
+        "slug": "cruising-give-way-5",
+        "id": 83,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "11\/11",
+        "index_num": 10,
+        "image_url": "\/assets\/images\/dump\/4_1_4_A_adelantar_2dc19c46f0.svg",
+        "description": "When overtaking another vessel, kayak, windsurf etc. leave plenty safety distance between the boats.\n\n\n\n"
+    }
+]

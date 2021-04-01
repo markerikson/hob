@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "solid-hull",
+        "name": "SOLID HULL",
+        "parent": "\/Home",
+        "resource": "\/Article\/solid-hull",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

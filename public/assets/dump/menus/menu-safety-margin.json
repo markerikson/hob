@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "safety-margin",
+        "name": "Safety margin",
+        "parent": "\/Home",
+        "resource": "\/Article\/safety-margin",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

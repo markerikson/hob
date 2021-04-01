@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "please-don-t",
+        "name": "Please don't",
+        "parent": "\/Home",
+        "resource": "\/Article\/please-don-t",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "ROUTES",
+        "slug": "routes",
+        "parent": "LiveMenu\/explore-and-equip",
+        "resource": "Routes",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    },
+    {
+        "name": "EQUIPMENT",
+        "slug": "equipment",
+        "parent": "LiveMenu\/explore-and-equip",
+        "resource": "Equipment",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "stability",
+        "name": "Stability",
+        "parent": "\/Home",
+        "resource": "\/Article\/stability",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,41 +1,43 @@
-import * as MyConst from '../services/constants'
+//import * as MyConst from '../services/constants'
 
 
-import React, { useEffect, useState } from 'react'
+import React, { 
+  //useEffect, useState
+} from 'react'
 
 import {
   IonPage,
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonList,
-  IonItem,
-  IonTitle,
-  IonLabel,
+  // IonHeader,
+  // IonContent,
+  // IonToolbar,
+  // IonList,
+  // IonItem,
+  // IonTitle,
+  // IonLabel,
   //useIonViewWillEnter,
   //useIonViewDidEnter,
   //useIonViewDidLeave,
   //useIonViewWillLeave,
 } from '@ionic/react'
-
+/*
 interface HookInterface {
   name: string,
   path: string,
   icon: object,
   tag: string,
-  childrens: object,/*,
+  childrens: object,,
   app_hooks_translation: {
     title_translation: string,
     language_translation: {
       tag: string
     }
-  }*/
+  }
 }
+*/
 
-
-const Assistance: React.FC = () => {
+const Navigation: React.FC = () => {
   
-  const [hook, setHook] = useState<HookInterface[]>([])
+  /*const [hook, setHook] = useState<HookInterface[]>([])
   useEffect(() => {
     fetch( MyConst.RestAPI + 'hooks?tag=training')
       .then(res => res.json())
@@ -70,11 +72,11 @@ const Assistance: React.FC = () => {
 
   function renderTitle(list: HookInterface[]) {
     return list.map((p, index) => (<IonTitle key={index}>{p.name.toString()}</IonTitle>))
-  }
+  }*/
 
   return(
     <IonPage>
-      <IonHeader>
+      {/*<IonHeader>
         <IonToolbar>
           {renderTitle(hook)}
         </IonToolbar>
@@ -83,9 +85,9 @@ const Assistance: React.FC = () => {
         <IonList>
           {renderVerticalMenu(hook)}
         </IonList>
-      </IonContent>
+      </IonContent>*/}
     </IonPage>
   )
 }
 
-export default Assistance
+export default Navigation

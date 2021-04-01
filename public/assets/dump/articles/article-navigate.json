@@ -1,0 +1,12 @@
+[
+    {
+        "slug": "navigate",
+        "name": "NAVIGATE",
+        "parent": "\/Home",
+        "resource": "\/LiveMap\/1",
+        "active_icon": "\/assets\/images\/dump\/active_navigation_e494bbf2e9.svg",
+        "inactive_icon": "\/assets\/images\/dump\/inactive_navigation_39529f4dd8.svg",
+        "background_color": "soft-blue",
+        "has_main": true
+    }
+]

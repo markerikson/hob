@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "motor-stopped-under-way",
+        "name": "Motor Stopped under way",
+        "parent": "\/Home",
+        "resource": "\/Article\/motor-stopped-under-way",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "speed",
+        "name": "Speed",
+        "parent": "\/Home",
+        "resource": "\/Article\/speed",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

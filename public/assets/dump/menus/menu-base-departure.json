@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "base-departure",
+        "name": "BASE DEPARTURE",
+        "parent": "\/Home",
+        "resource": "\/Article\/base-departure",
+        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

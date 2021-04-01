@@ -37,14 +37,13 @@ import { Plugins } from '@capacitor/core'
 import { Menu } from './models/Menu'
 
 // App main pages
-import LiveMenu   from './pages/LiveMenu'
-import Article    from './pages/Article'
-import Home       from './pages/Home'
-import Settings   from './pages/Settings'
-import Routes     from './pages/Routes'
-import LiveMap    from './pages/LiveMap'
+import LiveMenu from './pages/LiveMenu'
+import Article  from './pages/Article'
+import Home     from './pages/Home'
+import Settings from './pages/Settings'
+import Routes   from './pages/Routes'
+import LiveMap  from './pages/LiveMap'
 import Navigation from './pages/Navigation'
-import Equipment from './pages/Equipment'
 
 // Show the splash for 4 seconds and then auto hide:
 const { SplashScreen } = Plugins
@@ -81,18 +80,18 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>            
             <Route path='/' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>            
-            <Route path='/Home' component={Home}/>
+            <Route path='/Settings' component={Settings}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:article/:slide/:step' component={Article}/>
-            <Route path='/Equipment/:slug' component={Equipment}/>
+            <Route path='/Home' component={Home}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
-            <Route path='/LiveMap/:id' component={LiveMap}/>
-            <Route path='/Settings' component={Settings}/>
+            <Route path='/LiveMap/:slug' component={LiveMap}/>
             {/*
             <Route path='/Support' component={Article}/>
-            <Route path='/About' component={About}/>
-            */}
+            <Route path='/Sandbox' component={Sandbox}/>
+            <Route path='/Sandbox2' component={Sandbox2}/>
+            <Route path='/Sandbox3' component={Sandbox3}/>*/}
           </IonRouterOutlet>
           <IonTabBar slot='bottom' class='hob-footer'>
             {renderFooterMenu(main_menu)}

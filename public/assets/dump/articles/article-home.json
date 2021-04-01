@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "home",
+        "name": "HOME",
+        "parent": "\/Home",
+        "resource": "\/HellMenu",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

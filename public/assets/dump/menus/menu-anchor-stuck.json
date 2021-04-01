@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "anchor-stuck",
+        "name": "Anchor stuck",
+        "parent": "\/Home",
+        "resource": "\/Article\/anchor-stuck",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

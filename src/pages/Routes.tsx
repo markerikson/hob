@@ -39,9 +39,9 @@ const Routes: React.FC<MapProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonHeader collapse="condense">
+        <IonHeader collapse='condense'>
           <IonToolbar>
-            <IonTitle size="large">The route</IonTitle>
+            <IonTitle size='large'>The route</IonTitle>
           </IonToolbar>
         </IonHeader>
         {/*<ExploreContainer name="The route" />*/}

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "man-over-board",
+        "name": "Man over board",
+        "parent": "\/Home",
+        "resource": "\/Article\/man-over-board",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "give-way",
+        "name": "GIVE WAY",
+        "parent": "\/Home",
+        "resource": "\/Article\/give-way",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

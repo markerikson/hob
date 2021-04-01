@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "inflatable",
+        "name": "INFLATABLES",
+        "parent": "\/Home",
+        "resource": "\/Article\/inflatable",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

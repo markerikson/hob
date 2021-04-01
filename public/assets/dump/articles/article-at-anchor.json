@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "at-anchor",
+        "name": "At anchor",
+        "parent": "\/Home",
+        "resource": "\/Article\/at-anchor",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

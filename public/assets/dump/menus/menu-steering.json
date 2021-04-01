@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "steering",
+        "name": "Steering",
+        "parent": "\/Home",
+        "resource": "\/Article\/steering",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

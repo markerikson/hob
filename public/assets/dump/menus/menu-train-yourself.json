@@ -1,0 +1,12 @@
+[
+    {
+        "slug": "train-yourself",
+        "name": "TRAINING YOURSELF",
+        "parent": "\/Home",
+        "resource": "\/LiveMenu\/train-yourself",
+        "active_icon": "\/assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
+        "inactive_icon": "\/assets\/images\/dump\/inactive_train_yourself_2d8a27749b.svg",
+        "background_color": "soft-blue",
+        "has_main": true
+    }
+]
