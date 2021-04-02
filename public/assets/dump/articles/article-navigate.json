@@ -7,6 +7,7 @@
         "active_icon": "\/assets\/images\/dump\/active_navigation_e494bbf2e9.svg",
         "inactive_icon": "\/assets\/images\/dump\/inactive_navigation_39529f4dd8.svg",
         "background_color": "soft-blue",
+        "access": "\/Access\/navigate",
         "has_main": true
     }
 ]

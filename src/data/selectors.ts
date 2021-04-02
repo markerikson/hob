@@ -6,7 +6,6 @@ const getSchedule = (state: AppState) => {
 
   return state.data.schedule
 };
-export const getSpeakers = (state: AppState) => state.data.speakers;
 const getSessions = (state: AppState) => state.data.sessions;
 const getFilteredTracks = (state: AppState) => state.data.filteredTracks;
 const getFavoriteIds = (state: AppState) => state.data.favorites;
@@ -102,11 +101,6 @@ export const getSession = createSelector(
   (sessions, id) => {
     return sessions.find(s => s.id === id);
   }
-);
-
-export const getSpeaker = createSelector(
-  getSpeakers, getIdParam,
-  (speakers, id) => speakers.find(x => x.id === id)
 );
 
 export const getSpeakerSessions = createSelector(

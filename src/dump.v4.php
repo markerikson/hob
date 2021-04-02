@@ -6,6 +6,7 @@ class DumperClass {
     private $imgDump = 'assets/dump/images';
     private $origin = 'http://161.97.167.92:1337/';
     private $mainLang = 'en-GB';
+    private $jklsdhf = 'https://wa.me/34677628086?text=%C2%A1Hola!%20Me%20gustaria%20contactar%20con%20vosotros.%20Gracias';
     private $map = [
         'langs' => [
             'url'       => 'languages',
@@ -105,6 +106,7 @@ class DumperClass {
             // MENUS - Printing the digested static content for the APK ;)
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
+
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
             $newMenu[$key]['parent'] = '/Home';
             $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
@@ -116,9 +118,10 @@ class DumperClass {
 
             $this->setChildren( $menu, $menu->background_color);
 
-            if($menu->main){
-                $mainMenu[] = $newMenu[$key] ?? [];
+            if($menu->main){            
+                $newMenu[$key]['access'] = '/Access/'.$menu->slug;
                 $newMenu[$key]['has_main'] = true;
+                $mainMenu[] = $newMenu[$key] ?? [];
             }
 
             file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
@@ -262,7 +265,7 @@ class DumperClass {
                     if($matchMainLang){
                         $mainTitle3 = $trans->title;
                         $mainLabel3 = $trans->label;
-                        $mainDescription = $trans->description ?? 'slide_'.$slide->id;
+                        $mainDescription = md5($trans->description) ?? 'slide_'.$slide->id;
                         $a = ++$x;
                         $addMenu['slides'][] = [
                             'slug' => $slide->slug ?? '',
@@ -274,6 +277,7 @@ class DumperClass {
                             'index_num' => $x-1,
                             'image_url' => $this->getImageUrl2($slide->image->url ?? ''),
                             'description' => $trans->description ?? '',
+                            'description_md5' => md5($trans->description) ?? ''
                         ];
                     }    
 

@@ -6,10 +6,8 @@ export const initialState: AppState = {
   data: {
     schedule: { groups: [] } as any,
     sessions: [],
-    speakers: [],
     favorites: [],
     locations: [],
-    allTracks: [],
     filteredTracks: [],
     mapCenterId: 0,
     loading: false,

@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { 
+  useEffect, 
+  useState 
+} from 'react'
+
 import {
   IonPage, 
   IonLabel,
@@ -13,18 +17,14 @@ import {
   IonThumbnail,
   IonHeader,
   IonToolbar,
-  //IonHeader,   
-  //IonCardTitle,
-  //IonCardSubtitle, 
-  //IonToolbar, 
-  //IonTitle,
-  //IonButtons,
-  //IonBackButton,
-  //IonItem,
+  IonButton
 } from '@ionic/react'
-import { RouteComponentProps, 
+
+import { 
+  RouteComponentProps, 
   //useLocation
 } from 'react-router'
+
 
 // Translations...
 import { useTranslation } from 'react-i18next'
@@ -33,15 +33,16 @@ import { useTranslation } from 'react-i18next'
 import { Page } from '../models/Page'
 import { Menu } from '../models/Menu'
 
+
 interface ArticlePageProps extends RouteComponentProps<{
-  article: string;
-  slide?: string;
-  step?: string;
+  slug:   string,
+  slide?: string,
+  step?:  string,
 }> {}
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
 
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   //const location = useLocation()
 
   let slideOpts = {
@@ -52,22 +53,13 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const [article, setContent] = useState<Menu[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/articles/article-'+match.params.article+'.json' ).then(res => res.json()).then(setContent)
-  }, [match.params.article])
-
-  /*function renderIconTitle(list: Menu[]) {
-    return list.map((r: Menu, i) => (
-      <IonTitle key={i}>
-        <img src={r.active_icon.toString()} alt={r.active_icon} width={'50px'}/>
-        {t(r.name.toString())}
-      </IonTitle>   
-    ))
-  }*/
-
+    fetch( 'assets/dump/articles/article-'+match.params.slug+'.json' ).then(res => res.json()).then(setContent)
+  }, [match.params.slug])
+ 
   const [slides, setPages] = useState<Page[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/articles/slides/slide-'+match.params.article+'.json' ).then(res => res.json()).then(setPages)
-  }, [match.params.article])
+    fetch( 'assets/dump/articles/slides/slide-'+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
+  }, [match.params.slug])
 
   function renderSlides(list: Page[]){
     return list.map((r: Page, i) => (
@@ -75,9 +67,13 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
         <IonCard>
           <IonCardHeader>
           <IonItem key={i}>
-            <IonLabel slot='start'>{t(r.title.toString())}</IonLabel>
-            { r.label ? <IonLabel slot='start'>{t(r.label.toString())}</IonLabel> : '' }
-            <IonLabel slot='end'>{t(r.num_tag.toString())}</IonLabel>
+            <IonLabel>
+            { t(r.title.toString())+r.label
+                ? ' - '+t(r.label.toString())
+                : ''
+            }
+            </IonLabel>
+            <IonButton color='soft-blue'>{t(r.num_tag.toString())}</IonButton>
           </IonItem>
           </IonCardHeader>
           <IonCardContent>
@@ -94,7 +90,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       <IonItem class='hob-header' key={i}>
         <a href={r.parent}><img src='/assets/images/arrow-left.svg' alt={t('BACK')} slot='start'></img></a>
         <IonThumbnail>      
-          <IonImg src={r.active_icon} alt={''}/>
+          <IonImg src={r.active_icon} alt={t(r.name.toString())}/>
         </IonThumbnail>
         <IonLabel>{t(r.name.toString())}</IonLabel>
         {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}

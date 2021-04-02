@@ -1,5 +1,4 @@
-import * as MyConst from '../services/constants'
-
+import * as MyConst from '../static/constants'
 
 import React, { useEffect, useState } from 'react'
 
@@ -62,10 +61,6 @@ const Weather: React.FC = () => {
         </IonItem>
       )
     )    
-  }
-
-  function renderConsole(list: HookInterface[]) {
-    console.log(list)
   }
 
   function renderTitle(list: HookInterface[]) {

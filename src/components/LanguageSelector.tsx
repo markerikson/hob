@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IonSelectOption, IonSelect, IonItem, IonLabel } from '@ionic/react'
+import { IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/react'
 import { Language } from '../models/Language'
 import { useTranslation } from 'react-i18next'
 
@@ -21,12 +21,15 @@ const LanguageSelector = () => {
   return (
     <IonItem>
       <IonLabel position='stacked'>{t('Select your language')}</IonLabel>
-      <IonSelect value={i18n.language} cancelText={t('Dismiss')}
+      <IonSelect 
+        value={i18n.language}
+        cancelText={t('Dismiss')}
         onIonChange={e => i18n.changeLanguage(e.detail.value)}>
-          {renderLangs(languages)}
+        {renderLangs(languages)}
       </IonSelect>
     </IonItem>
   )
+
 }
 
 export default LanguageSelector

@@ -8,7 +8,8 @@
         "num_tag": "1\/23",
         "index_num": 0,
         "image_url": "\/assets\/images\/dump\/4_1_1_Solid_fdd118f752.svg",
-        "description": "Solid hulls are great for interior space having inbuilt dry storage in their core and compact sideboards.\nAlways use fenders when berthing or rafting as they can easily scratch or ding when in contact with other solid hull boats or quay sides.\n"
+        "description": "Solid hulls are great for interior space having inbuilt dry storage in their core and compact sideboards.\nAlways use fenders when berthing or rafting as they can easily scratch or ding when in contact with other solid hull boats or quay sides.\n",
+        "description_md5": "55efc412d42fde8b5f9a58dbd44a5fd8"
     },
     {
         "slug": "solid-hull-schema",
@@ -19,7 +20,8 @@
         "num_tag": "2\/23",
         "index_num": 1,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "Solid hulls are great for interior space having inbuilt dry storage in their core and compact sideboards.\nAlways use fenders when berthing or rafting as they can easily scratch or ding when in contact with other solid hull boats or quay sides.\n"
+        "description": "Solid hulls are great for interior space having inbuilt dry storage in their core and compact sideboards.\nAlways use fenders when berthing or rafting as they can easily scratch or ding when in contact with other solid hull boats or quay sides.\n",
+        "description_md5": "55efc412d42fde8b5f9a58dbd44a5fd8"
     },
     {
         "slug": "inflatables-preview",
@@ -30,7 +32,8 @@
         "num_tag": "3\/23",
         "index_num": 2,
         "image_url": "\/assets\/images\/dump\/4_1_1_Inflatable_9f46b7de72.svg",
-        "description": "The command station is equipped with all the controls you need to manouver the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running."
+        "description": "The command station is equipped with all the controls you need to manouver the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running.",
+        "description_md5": "0937d287d57497e28797ad4239f93f20"
     },
     {
         "slug": "inflatables-schema",
@@ -41,7 +44,8 @@
         "num_tag": "4\/23",
         "index_num": 3,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "The command station is equipped with all the controls you need to manouver the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running."
+        "description": "The command station is equipped with all the controls you need to manouver the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running.",
+        "description_md5": "0937d287d57497e28797ad4239f93f20"
     },
     {
         "slug": "command-station-1",
@@ -52,7 +56,8 @@
         "num_tag": "5\/23",
         "index_num": 4,
         "image_url": "\/assets\/images\/dump\/4_1_2_A_313dd83691.svg",
-        "description": "The command station is equipped with all the controls you need to use the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running."
+        "description": "The command station is equipped with all the controls you need to use the boat. From this point you can change direction, adjust speed, start and stop the motor, observe the fuel and temperature gauges among others.\nNever abandon the command station while the engine is running.",
+        "description_md5": "7e24aa7ef66aeeaea5a165234f58b92d"
     },
     {
         "slug": "steering-fwd-motion",
@@ -63,7 +68,8 @@
         "num_tag": "6\/23",
         "index_num": 5,
         "image_url": "\/assets\/images\/dump\/4_1_2_Aa_Forward_2b30cae9f3.svg",
-        "description": "When in forward motion ,turning the helm to the left (anticlockwise) will turn the boat to the left.\nTurning the helm to the right(clockwise) will turn the boat to the right."
+        "description": "When in forward motion ,turning the helm to the left (anticlockwise) will turn the boat to the left.\nTurning the helm to the right(clockwise) will turn the boat to the right.",
+        "description_md5": "6ee75c1ae5b10b89d62e2bf027e27053"
     },
     {
         "slug": "steering-rwd-motion",
@@ -74,7 +80,8 @@
         "num_tag": "7\/23",
         "index_num": 6,
         "image_url": "\/assets\/images\/dump\/4_1_2_Aa_Reverse_76320cb88f.svg",
-        "description": "When in reverse  motion, turning the helm to the left (anticlockwise) will turn the boat to the left.\nTurning the helm to the right(clockwise) will turn the boat to the right."
+        "description": "When in reverse  motion, turning the helm to the left (anticlockwise) will turn the boat to the left.\nTurning the helm to the right(clockwise) will turn the boat to the right.",
+        "description_md5": "565b58a159d384d472859fc437da77fe"
     },
     {
         "slug": "kill-cord",
@@ -85,7 +92,8 @@
         "num_tag": "8\/23",
         "index_num": 7,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ac_2c07127631.svg",
-        "description": "The KILL CORD is a corner stone to a safe trip.  Allways attach the kill cord  to yourself before starting  the engine. This device will STOP the engine if you accidentally fall over board or move away from the control station, avoiding injuries and the boat running away solo."
+        "description": "The KILL CORD is a corner stone to a safe trip.  Allways attach the kill cord  to yourself before starting  the engine. This device will STOP the engine if you accidentally fall over board or move away from the control station, avoiding injuries and the boat running away solo.",
+        "description_md5": "779669bbdf3737b07838db5b738f93d9"
     },
     {
         "slug": "contact-key",
@@ -96,7 +104,8 @@
         "num_tag": "9\/23",
         "index_num": 8,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ad_b46796be74.svg",
-        "description": "The CONTACT KEY has 3 positions:\nOff: Turns off engine. No contact.\nON: Contact is made. The key will remain in this position after starting the motor.\nStart: To start the engine. Once started release the key and it will return to ON.\n"
+        "description": "The CONTACT KEY has 3 positions:\nOff: Turns off engine. No contact.\nON: Contact is made. The key will remain in this position after starting the motor.\nStart: To start the engine. Once started release the key and it will return to ON.\n",
+        "description_md5": "972d2af8774b3a97dfab0cfc07798c50"
     },
     {
         "slug": "gear-shift-and-throttle-1",
@@ -107,7 +116,8 @@
         "num_tag": "10\/23",
         "index_num": 9,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ab_Palanca_6db266a6b2.svg",
-        "description": "The gear shift and throttle are integrated in one unit. \nAllways transition from one gear to another gently and at very low speed to avoid shocking the gearbox.\nAccelaration an decelaration must also be done gradually and slowly.\n\n\n"
+        "description": "The gear shift and throttle are integrated in one unit. \nAllways transition from one gear to another gently and at very low speed to avoid shocking the gearbox.\nAccelaration an decelaration must also be done gradually and slowly.\n\n\n",
+        "description_md5": "868ce5b814d7b68975170c81475e999b"
     },
     {
         "slug": "gear-shift-and-throttle-2",
@@ -118,7 +128,8 @@
         "num_tag": "11\/23",
         "index_num": 10,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "We will start from NEUTRAL position.\nTo find neutral when the engine is OFF, push the throttle  all the way forwards and bring it back until you feel a click or transition. Now you are in neutral."
+        "description": "We will start from NEUTRAL position.\nTo find neutral when the engine is OFF, push the throttle  all the way forwards and bring it back until you feel a click or transition. Now you are in neutral.",
+        "description_md5": "c0478f6d45e539e05bd0768edb8ab7de"
     },
     {
         "slug": "gear-shift-and-throttle-3",
@@ -129,7 +140,8 @@
         "num_tag": "12\/23",
         "index_num": 11,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ab_Neutre_a1a505f387.svg",
-        "description": "From neutral position, gently push the leaver forward until you feel a click or transition. Now you are in FORWARD GEAR minimum power.\nTo accelerate, keep pushing the throttle forwards very slowly. Give the boat some time to speed up and avoid using maximum power for a prolonged time."
+        "description": "From neutral position, gently push the leaver forward until you feel a click or transition. Now you are in FORWARD GEAR minimum power.\nTo accelerate, keep pushing the throttle forwards very slowly. Give the boat some time to speed up and avoid using maximum power for a prolonged time.",
+        "description_md5": "54b2ccdefad5376e7b134fbeb1ea23b5"
     },
     {
         "slug": "gear-shift-and-throttle-4",
@@ -140,7 +152,8 @@
         "num_tag": "13\/23",
         "index_num": 12,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "From neutral position, gently push the throttle backwards until you feel a click or transition.\nNow you are in REVERSE GEAR minimum power.\nYou should only use up to 40% reverse power as it becomes inefficient after that point. "
+        "description": "From neutral position, gently push the throttle backwards until you feel a click or transition.\nNow you are in REVERSE GEAR minimum power.\nYou should only use up to 40% reverse power as it becomes inefficient after that point. ",
+        "description_md5": "b633fa4799305b2f0e39cb420eead9fc"
     },
     {
         "slug": "fuel-temp-and-gauge-fuel",
@@ -151,7 +164,8 @@
         "num_tag": "14\/23",
         "index_num": 13,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ae1_Fuel_d77d8f0494.svg",
-        "description": "The fuel gauge will indicate the amount of fuel in your tank.\nBefore departing, we will make sure the  tank is full for you.\nAvoid running under 25% of the tank capacity."
+        "description": "The fuel gauge will indicate the amount of fuel in your tank.\nBefore departing, we will make sure the  tank is full for you.\nAvoid running under 25% of the tank capacity.",
+        "description_md5": "184239c3bb764a91e8838bad9722c719"
     },
     {
         "slug": "fuel-temp-and-gauge-temp",
@@ -162,7 +176,8 @@
         "num_tag": "15\/23",
         "index_num": 14,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ae3_Boto_8bb395b22e.svg",
-        "description": "In the rare event of the oil pressure alarm being activated, slow down for a minute. If the alarm persists contact base."
+        "description": "In the rare event of the oil pressure alarm being activated, slow down for a minute. If the alarm persists contact base.",
+        "description_md5": "1b92eb9137766b1453e32c97aaca7942"
     },
     {
         "slug": "fuel-temp-and-gauge-gauge",
@@ -173,7 +188,8 @@
         "num_tag": "16\/23",
         "index_num": 15,
         "image_url": "\/assets\/images\/dump\/4_1_2_Ae_Water_c62841d8db.svg",
-        "description": "The temperature gauge indicates the internal engine temperature.\nWhen running, it should indicate digits close to 80-90 C\u00ba.\nIn the rare event of temperature rising over 100C\u00ba , gently slow down to minimum power for a minute. If it remains or continues to raise pick the closest safe anchorage and stop the motor"
+        "description": "The temperature gauge indicates the internal engine temperature.\nWhen running, it should indicate digits close to 80-90 C\u00ba.\nIn the rare event of temperature rising over 100C\u00ba , gently slow down to minimum power for a minute. If it remains or continues to raise pick the closest safe anchorage and stop the motor",
+        "description_md5": "8f9378b4a807cb4341c015ea9991da51"
     },
     {
         "slug": "start-motor-1",
@@ -184,7 +200,8 @@
         "num_tag": "17\/23",
         "index_num": 16,
         "image_url": "\/assets\/images\/dump\/4_1_2_B1_fb394f536a.svg",
-        "description": "(Before starting the motor, make sure that no obstructions or persons are close to the propeller)\n\nConnect the kill cord to the command station and to yourself.\n\n"
+        "description": "(Before starting the motor, make sure that no obstructions or persons are close to the propeller)\n\nConnect the kill cord to the command station and to yourself.\n\n",
+        "description_md5": "4014e9f5e4e16a602f2cdc2a92f1d99a"
     },
     {
         "slug": "start-motor-2",
@@ -195,7 +212,8 @@
         "num_tag": "18\/23",
         "index_num": 17,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "Bring  the gear shift to NEUTRAL position. If you can\u2019t find it, push the shift all the way forwards and bring it back until you  feel  a click. Now you are in Neutral position."
+        "description": "Bring  the gear shift to NEUTRAL position. If you can\u2019t find it, push the shift all the way forwards and bring it back until you  feel  a click. Now you are in Neutral position.",
+        "description_md5": "41ab0db7e79e46ce607deefa48403609"
     },
     {
         "slug": "start-motor-3",
@@ -206,7 +224,8 @@
         "num_tag": "19\/23",
         "index_num": 18,
         "image_url": "\/assets\/images\/dump\/4_1_2_C2_02351d812a.svg",
-        "description": "Center the steering and turn the key clocwise until motor starts and release.\n\nIf the motor doesn\u2019t start  within  5 seconds, stop for a minute, check previous steps, and try again."
+        "description": "Center the steering and turn the key clocwise until motor starts and release.\n\nIf the motor doesn\u2019t start  within  5 seconds, stop for a minute, check previous steps, and try again.",
+        "description_md5": "aee3f35bafdde2551262da9197060217"
     },
     {
         "slug": "stop-motor-1",
@@ -217,7 +236,8 @@
         "num_tag": "20\/23",
         "index_num": 19,
         "image_url": "\/assets\/images\/dump\/4_1_2_C1_1ef362ae9a.svg",
-        "description": "Bring the gear shift to NEUTRAL position.\nTransition from one position to another gently and at very  low speed."
+        "description": "Bring the gear shift to NEUTRAL position.\nTransition from one position to another gently and at very  low speed.",
+        "description_md5": "490def5b468216ee7458a1745366c59e"
     },
     {
         "slug": "stop-motor-2",
@@ -228,7 +248,8 @@
         "num_tag": "21\/23",
         "index_num": 20,
         "image_url": "\/assets\/images\/dump\/4_1_2_B3_0169266fb3.svg",
-        "description": "Turn the CONTACT KEY anticlockwise to STOP position.\nMake sure you are properly moored or anchored before stopping the engine."
+        "description": "Turn the CONTACT KEY anticlockwise to STOP position.\nMake sure you are properly moored or anchored before stopping the engine.",
+        "description_md5": "230f5238cfdeb1ccff07b54a823f9482"
     },
     {
         "slug": "stop-motor-3",
@@ -239,7 +260,8 @@
         "num_tag": "22\/23",
         "index_num": 21,
         "image_url": "\/assets\/images\/dump\/4_1_2_C3_9a3801320a.svg",
-        "description": "Remove the Kill Cord from your wrist\/leg\/life jacket."
+        "description": "Remove the Kill Cord from your wrist\/leg\/life jacket.",
+        "description_md5": "4e55a33138fc1e83eee57fc89201cac1"
     },
     {
         "slug": "stop-motor-4",
@@ -250,6 +272,7 @@
         "num_tag": "23\/23",
         "index_num": 22,
         "image_url": "\/assets\/images\/dump\/4_1_2_C4_fca24acfeb.svg",
-        "description": "To EMERGENCY STOP the motor at any moment, pull firmly from the KILL CORD until it disconnects from the command station."
+        "description": "To EMERGENCY STOP the motor at any moment, pull firmly from the KILL CORD until it disconnects from the command station.",
+        "description_md5": "5802d5d344c85e5109819fd46c908cd5"
     }
 ]

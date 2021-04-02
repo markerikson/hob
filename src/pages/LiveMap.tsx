@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 
 // About leafLet
 import 'leaflet/dist/leaflet.css'
-import { MyRoute } from '../models/MyRoute'
+//import { MyRoute } from '../models/MyRoute'
 //import L from 'leaflet';
 //import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 

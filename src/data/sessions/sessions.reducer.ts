@@ -9,15 +9,6 @@ export const sessionsReducer = (state: ConfState, action: SessionsActions): Conf
     case 'set-conf-data': {
       return { ...state, ...action.data };
     }
-    case 'add-favorite': {
-      return { ...state, favorites: [...(state.favorites), action.sessionId] };
-    }
-    case 'remove-favorite': {
-      return { ...state, favorites: [...(state.favorites).filter(x => x !== action.sessionId)] };
-    }
-    case 'update-filtered-tracks': {
-      return { ...state, filteredTracks: action.filteredTracks };
-    }
     case 'set-search-text': {
       return { ...state, searchText: action.searchText };
     }
