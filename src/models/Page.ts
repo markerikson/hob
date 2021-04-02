@@ -5,7 +5,7 @@ export interface Page {
   label: string,
   image_url: string,
   description: string,
+  description_md5:string,
   num_tag:string,
-  icon?: string,
   parent?:string,
 }

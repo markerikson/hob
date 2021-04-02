@@ -1,135 +1,55 @@
-import React, { useState } from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
+import React, { useEffect, useState } from 'react'
+import {
+  IonPage, 
+  IonContent, 
+  IonTabButton,
+  IonList,
+} from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
+
+// Translations...
 import { useTranslation } from 'react-i18next'
-//import axios from 'axios'
 
-import { connect } from '../data/connect'
-import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
+// Models...
+import { Menu } from '../models/Menu'
+//import { Submenu } from '../models/Submenu'
 
-//import { logIn } from 'ionicons/icons';
+interface HomeProps extends RouteComponentProps<{
+  slug: string
+}> {}
 
-interface OwnProps extends RouteComponentProps {}
+const Home: React.FC<HomeProps> = ({match}) => {
 
-interface DispatchProps {
-  setIsLoggedIn: typeof setIsLoggedIn
-  setUsername: typeof setUsername
-}
+  const {t} = useTranslation()
 
-interface LoginProps extends OwnProps,  DispatchProps { }
-
-const Login: React.FC<LoginProps> = ({
-  setIsLoggedIn,
-  history,
-  setUsername: setUsernameAction
-}) => {
-
-  const { t } = useTranslation()
-
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [usernameError, setUsernameError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-
-  const login = async (e: React.FormEvent) => {
-
-    e.preventDefault()
-
-    setFormSubmitted(true)
-
-    if(!username) {
-      setUsernameError(true)
-    }else{
-      setUsernameError(false)
-    }
-
-    if(!password) {
-      setPasswordError(true)
-    }else{
-      setPasswordError(false)
-    }
-
-    /*if(username && password) {
-
-      const { data } = await axios.post('http://localhost:1337/auth/local', {
-        //data :{
-          identifier: 'reader@strapi.io',
-          password: '2Y2s4qmliad',
-        //}
-      })
-      
-      console.log(data)
-    }*/
-
+  const [main_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
+  }, [])
+  
+  function renderHomeMenu(list: Menu[]) {    
+    return list.map((r: Menu, index) => (
+      <IonTabButton class='hob-footer' key={r.access} tab={r.access} href={r.access} disabled={false}>
+        <img 
+          src={true ? r.active_icon : r.inactive_icon} 
+          alt={t(r.name.toString())}
+          width='60%'
+          height='120px'
+        />{t(r.name.toString())}
+      </IonTabButton>
+    ))
   }
 
-  return (
-    <IonPage id='login-page'>
-
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot='start'>
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>
-            <img src='assets/images/dump/app-logo.png' alt='Hoponboard.eu' width='50px'/>
-            {t('Homepage').toUpperCase()}
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
-
+  return(    
+    <IonPage>
       <IonContent>
-
-        <div className='login-logo'></div>
-
-        <form noValidate onSubmit={login}>
-          
-          <IonList>
-
-            <IonItem>
-              <IonLabel position='stacked' color='primary'>{t('Owner alias')}</IonLabel>
-              <IonInput name='username' type='text' value={username} spellCheck={false}
-                autocapitalize='off' onIonChange={e => setUsername(e.detail.value!)}
-                required>
-              </IonInput>
-            </IonItem>
-
-            {formSubmitted && usernameError && <IonText color='warning'>
-              <p className='ion-padding-start'>{t('Owner alias is required')}</p>
-            </IonText>}
-
-            <IonItem>
-              <IonLabel position='stacked' color='primary'>{t('Access key')}</IonLabel>
-              <IonInput name='password' type='password' value={password}
-                onIonChange={e => setPassword(e.detail.value!)}>
-              </IonInput>
-            </IonItem>
-
-            {formSubmitted && passwordError && <IonText color='warning'>
-              <p className='ion-padding-start'>{t('Password is required')}</p>
-            </IonText>}
-          </IonList>
-
-          <IonRow>
-            <IonCol><IonButton type='submit' expand='block'>{t('Login')}</IonButton></IonCol>
-            <IonCol><IonButton routerLink='/signup' color='light' expand='block'>{t('Signup')}</IonButton></IonCol>
-          </IonRow>
-
-        </form>
-
+        <IonList>
+          {renderHomeMenu(main_menu)}
+        </IonList>
       </IonContent>
-
     </IonPage>
   )
 
 }
 
-export default connect<OwnProps, {}, DispatchProps>({
-  mapDispatchToProps: {
-    setIsLoggedIn,
-    setUsername
-  },
-  component: Login
-})
+export default Home

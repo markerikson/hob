@@ -8,7 +8,8 @@
         "num_tag": "1\/7",
         "index_num": 0,
         "image_url": "\/assets\/images\/dump\/5_a_83bf4d2c80.svg",
-        "description": "In the rare event of the motor suddenly stopping under way, keep calm and check if the KILL CORD has accidentaly been removed. \nIf so, reconnect it and proceed with the START MOTOR steps."
+        "description": "In the rare event of the motor suddenly stopping under way, keep calm and check if the KILL CORD has accidentaly been removed. \nIf so, reconnect it and proceed with the START MOTOR steps.",
+        "description_md5": "bd7b858dc6d83a6c861332b36f02992e"
     },
     {
         "slug": "motor-stopped-under-way-2",
@@ -19,7 +20,8 @@
         "num_tag": "2\/7",
         "index_num": 1,
         "image_url": "\/assets\/images\/dump\/4_1_3_B4_fa6817d5bc.svg",
-        "description": "If not succesful and close to shore, proceed to anchor the boat.\nIf possible, let out and extra length or two of chain or warp.\n"
+        "description": "If not succesful and close to shore, proceed to anchor the boat.\nIf possible, let out and extra length or two of chain or warp.\n",
+        "description_md5": "9f05b78385f9cfe977b5ab97b18012fa"
     },
     {
         "slug": "motor-stopped-under-way-3",
@@ -30,7 +32,8 @@
         "num_tag": "3\/7",
         "index_num": 2,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "Once you \u2018re anchored, check if a warp or debris have seized the propeller.\nIf the water is calm, you can deploy your swimming ladder and try to untangle or cut it free.\nProceed now with the PICK UP ANCHOR process."
+        "description": "Once you \u2018re anchored, check if a warp or debris have seized the propeller.\nIf the water is calm, you can deploy your swimming ladder and try to untangle or cut it free.\nProceed now with the PICK UP ANCHOR process.",
+        "description_md5": "aff3d3ec5b10dc73537f15dc11cd5f68"
     },
     {
         "slug": "motor-stopped-under-way-4",
@@ -41,7 +44,8 @@
         "num_tag": "4\/7",
         "index_num": 3,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
-        "description": "If the propeller is free and the engine is not starting, locate the rubber fuel pump and press it several times untill it becomes hard.\nNow, proceed with the Start Motor process."
+        "description": "If the propeller is free and the engine is not starting, locate the rubber fuel pump and press it several times untill it becomes hard.\nNow, proceed with the Start Motor process.",
+        "description_md5": "e02062b307bdbd225b57aea07d75ef7b"
     },
     {
         "slug": "motor-stopped-under-way-5",
@@ -52,7 +56,8 @@
         "num_tag": "5\/7",
         "index_num": 4,
         "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_Base_634cd26dc5.svg",
-        "description": "If you are not successful or feel uncomfortable doing any of the previous procedures please give us a call for assistance."
+        "description": "If you are not successful or feel uncomfortable doing any of the previous procedures please give us a call for assistance.",
+        "description_md5": "6aca73d044bb93749abcdd2140e765e5"
     },
     {
         "slug": "man-over-board-1",
@@ -63,7 +68,8 @@
         "num_tag": "6\/7",
         "index_num": 5,
         "image_url": "\/assets\/images\/dump\/5_1_1_a3628b9827.svg",
-        "description": "If a person falls over board take a wide turn and gain distance (20m) downwind. Never lose eye contact with the M.O.B\nThen proceed upwind and approach with great care and minimum speed.\nJust before making contact with the M.O.B make sure to put the enging in NEUTRAL or STOP the ENGINE.\n"
+        "description": "If a person falls over board take a wide turn and gain distance (20m) downwind. Never lose eye contact with the M.O.B\nThen proceed upwind and approach with great care and minimum speed.\nJust before making contact with the M.O.B make sure to put the enging in NEUTRAL or STOP the ENGINE.\n",
+        "description_md5": "3b1410d4d0ef3384139e7d2c368def5a"
     },
     {
         "slug": "man-over-board-2",
@@ -74,6 +80,7 @@
         "num_tag": "7\/7",
         "index_num": 6,
         "image_url": "\/assets\/images\/dump\/5_1_2_676a97a519.svg",
-        "description": "Deploy the swimming lader and assist in getting the M.O.B back on board.\n"
+        "description": "Deploy the swimming lader and assist in getting the M.O.B back on board.\n",
+        "description_md5": "bdcccfeefafe9464d26f3958e785caa2"
     }
 ]

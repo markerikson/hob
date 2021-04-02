@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { IonPage, 
+import {
+  IonPage, 
   IonHeader, 
-  IonContent, 
   IonToolbar,
+  IonContent, 
   IonList,
-  IonItem, 
-  IonThumbnail, 
-  IonLabel, 
-  IonImg, 
+  IonItem,
+  IonImg,
+  IonLabel,
   IonButton,
-  //IonBackButton,
-  //IonSearchbar, 
-  //IonTitle, 
+  IonThumbnail,
 } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
@@ -41,16 +39,14 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   }, [match.params.slug])
   
   function renderSubMenus(menus: Submenu[]) {
-    return menus.map(
-      (r: Submenu, index) => (
-        r.active_icon
-        ? <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
-            <img src={r.active_icon} alt='' width='23%' height='auto' max-height='250px'/><br/>
-            <IonLabel>{t(r.name.toString())}</IonLabel>
-          </IonItem>
-        : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name.toString())}</IonButton>
-      )
-    )
+    return menus.map((r: Submenu, index) => (
+      r.active_icon
+      ? <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
+          <img src={r.active_icon} alt='' width='23%' height='auto' max-height='250px'/><br/>
+          <IonLabel>{t(r.name.toString())}</IonLabel>
+        </IonItem>
+      : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name.toString())}</IonButton>
+    ))
   }
 
   function renderMenuTitle(menus: Menu[]) {
@@ -77,36 +73,6 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
         <IonList>
           {renderSubMenus(sub_menus)}
         </IonList>
-        {/*<IonButton color="primary">Primary</IonButton>
-        <IonButton color="secondary">Secondary</IonButton>
-        <IonButton color="tertiary">Tertiary</IonButton>
-        <IonButton color="success">Success</IonButton>
-        <IonButton color="warning">Warning</IonButton>
-        <IonButton color="danger">Danger</IonButton>
-        <IonButton color="light">Light</IonButton>
-        <IonButton color="medium">Medium</IonButton>
-        <IonButton color="dark">Dark</IonButton>
-
-        <IonButton expand="full">Full Button</IonButton>
-        <IonButton expand="block">Block Button</IonButton>
-
-        <IonButton shape="round">Round Button</IonButton>
-
-        <IonButton expand="full" fill="outline">Outline + Full</IonButton>
-        <IonButton expand="block" fill="outline">Outline + Block</IonButton>
-        <IonButton shape="round" fill="outline">Outline + Round</IonButton>
-
-        <IonButton>
-          Left Icon
-        </IonButton>
-
-        <IonButton>
-          Right Icon
-        </IonButton>
-
-        <IonButton size="large">Large</IonButton>
-        <IonButton>Default</IonButton>
-        <IonButton size="small">Small</IonButton>*/}
       </IonContent>
     </IonPage>
   )

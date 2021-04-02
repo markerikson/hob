@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
-//import { AppStateContext } from "../contexts/AppStateContext";
-import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
+
+import { 
+  IonApp,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from '@ionic/react'
+
 import { IonReactRouter } from '@ionic/react-router'
 import {
   Redirect, Route,
-  //useLocation 
 } from 'react-router-dom'
 
 import './components/i18n'
-//import FooterMenu from './components/FooterMenu'
 import { Plugins } from '@capacitor/core'
 
 // STYLE
@@ -37,25 +42,29 @@ import { Plugins } from '@capacitor/core'
 import { Menu } from './models/Menu'
 
 // App main pages
+import Home       from './pages/Home'
+import Access     from './pages/Access'// Soft login
 import LiveMenu   from './pages/LiveMenu'
 import Article    from './pages/Article'
-import Home       from './pages/Home'
-import Settings   from './pages/Settings'
 import Routes     from './pages/Routes'
 import LiveMap    from './pages/LiveMap'
 import Navigation from './pages/Navigation'
-import Equipment from './pages/Equipment'
+import Equipment  from './pages/Equipment'
+
+// TODO
+import Settings   from './pages/Settings'
+//import Login       from './pages/Login'
+//import About       from './pages/About'
 
 // Show the splash for 4 seconds and then auto hide:
 const { SplashScreen } = Plugins
+
 SplashScreen.show({
   showDuration: 4000,
   autoHide: true
 })
 
 const App: React.FC = () => {
-
-  //const location = useLocation()
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -80,19 +89,16 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>            
-            <Route path='/' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>            
+            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>            
             <Route path='/Home' component={Home}/>
+            <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
-            <Route path='/Article/:article/:slide/:step' component={Article}/>
+            <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
-            <Route path='/LiveMap/:id' component={LiveMap}/>
+            <Route path='/LiveMap' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
-            {/*
-            <Route path='/Support' component={Article}/>
-            <Route path='/About' component={About}/>
-            */}
           </IonRouterOutlet>
           <IonTabBar slot='bottom' class='hob-footer'>
             {renderFooterMenu(main_menu)}

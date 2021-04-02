@@ -7,6 +7,7 @@
         "active_icon": "\/assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
         "inactive_icon": "\/assets\/images\/dump\/inactive_train_yourself_2d8a27749b.svg",
         "background_color": "soft-blue",
+        "access": "\/Access\/train-yourself",
         "has_main": true
     }
 ]
