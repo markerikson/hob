@@ -15,7 +15,7 @@ import {
 
 import { RouteComponentProps } from 'react-router'
 
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+//import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 
 import {
   MapContainer,
@@ -29,7 +29,7 @@ import { useTranslation } from 'react-i18next'
 // About leafLet
 import 'leaflet/dist/leaflet.css'
 //import { MyRoute } from '../models/MyRoute'
-import L from 'leaflet';
+//import L from 'leaflet';
 //import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 
 //import { Plugins } from '@capacitor/core';
@@ -67,10 +67,10 @@ export interface Route {
   }
 }
 
-interface LocationError {
+/*interface LocationError {
   showError: boolean;
   message?: string;
-}
+}*/
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -97,6 +97,9 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
   getLocation()
   */ 
 
+  console.log(MyConst.my_route)
+
+
   const [route, setRoute] = useState<Route>()
   useEffect(() => {
     fetch( MyConst.RestAPI + 'my-routes/'+match.params.id )
@@ -106,6 +109,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
 
   console.log(route)
 
+  /*
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -115,7 +119,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
     fillOpacity: 0.8
   }
 
-  /*
+
   L.geoJSON(someGeojsonFeature, {
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
