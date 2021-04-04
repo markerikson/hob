@@ -69,11 +69,16 @@ const App: React.FC = () => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
-  function renderFooterMenu(list: Menu[]) {    
+
+  let location = window.location.pathname.split('/')[2].toLowerCase()
+
+  console.log(location);
+
+  function renderFooterMenu(list: Menu[], location: string) {    
     return list.map((r: Menu, index) => (
       <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
         <img 
-          src={true ? r.active_icon : r.inactive_icon} 
+          src={location === r.resource.split('/')[2].toLowerCase() ? r.active_icon : r.inactive_icon} 
           alt={r.name.toString()}
           width='60%'
           height='120px'
@@ -99,7 +104,7 @@ const App: React.FC = () => {
             <Route path='/Settings' component={Settings}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom' class='hob-footer'>
-            {renderFooterMenu(main_menu)}
+            {renderFooterMenu(main_menu, location)}
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
