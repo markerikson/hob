@@ -2,8 +2,8 @@
     {
         "slug": "motor-stopped-under-way",
         "name": "Motor Stopped under way",
-        "parent": "\/Home",
-        "resource": "\/Article\/motor-stopped-under-way",
+        "parent": "\/LiveMenu\/Troubleshooting",
+        "resource": "\/Article\/motor-stopped-under-way\/0",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

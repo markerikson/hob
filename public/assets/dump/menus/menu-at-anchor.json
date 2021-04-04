@@ -2,8 +2,8 @@
     {
         "slug": "at-anchor",
         "name": "At anchor",
-        "parent": "\/Home",
-        "resource": "\/Article\/at-anchor",
+        "parent": "\/LiveMenu\/Anchoring",
+        "resource": "\/Article\/at-anchor\/15",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

@@ -2,8 +2,8 @@
     {
         "slug": "please-don-t",
         "name": "Please don't",
-        "parent": "\/Home",
-        "resource": "\/Article\/please-don-t",
+        "parent": "\/LiveMenu\/Anchoring",
+        "resource": "\/Article\/please-don-t\/23",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

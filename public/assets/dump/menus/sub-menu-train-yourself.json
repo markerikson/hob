@@ -30,7 +30,7 @@
         "name": "BASE ARRIVAL",
         "slug": "base-arrival",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "Article\/base-arrival\/base-arrival",
+        "resource": "Article\/base-arrival\/base-arrival\/0",
         "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -48,7 +48,7 @@
         "name": "BASE DEPARTURE",
         "slug": "base-departure",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "Article\/base-departure\/base-departure",
+        "resource": "Article\/base-departure\/base-departure\/0",
         "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",
         "background_color": "soft-blue"

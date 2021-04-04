@@ -165,16 +165,14 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
 
-    --ion-tab-button-background: #383a3e;
-
   }
 
   /** IOS Dark Theme **/
 
   .ios body {
 
-    --ion-background-color: #FFFFFF;
-    --ion-background-color-rgb: 255,255,255;
+    --ion-background-color: #F8F8F8;
+    --ion-background-color-rgb: 248,248,248;
 
     --ion-text-color: #000000;
     --ion-text-color-rgb: 0,0,0;

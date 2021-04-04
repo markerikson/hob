@@ -5,7 +5,7 @@
         "icon": "",
         "title": "MOTOR STOPPED",
         "label": "Under way",
-        "num_tag": "1\/7",
+        "num_tag": "1\/9",
         "index_num": 0,
         "image_url": "\/assets\/images\/dump\/5_a_83bf4d2c80.svg",
         "description_md5": "bd7b858dc6d83a6c861332b36f02992e"
@@ -16,7 +16,7 @@
         "icon": "",
         "title": "MOTOR STOPPED",
         "label": "Under way",
-        "num_tag": "2\/7",
+        "num_tag": "2\/9",
         "index_num": 1,
         "image_url": "\/assets\/images\/dump\/4_1_3_B4_fa6817d5bc.svg",
         "description_md5": "9f05b78385f9cfe977b5ab97b18012fa"
@@ -27,7 +27,7 @@
         "icon": "",
         "title": "MOTOR STOPPED",
         "label": "Under way",
-        "num_tag": "3\/7",
+        "num_tag": "3\/9",
         "index_num": 2,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "description_md5": "aff3d3ec5b10dc73537f15dc11cd5f68"
@@ -38,7 +38,7 @@
         "icon": "",
         "title": "MOTOR STOPPED",
         "label": "Under way",
-        "num_tag": "4\/7",
+        "num_tag": "4\/9",
         "index_num": 3,
         "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "description_md5": "e02062b307bdbd225b57aea07d75ef7b"
@@ -49,7 +49,7 @@
         "icon": "",
         "title": "MOTOR STOPPED",
         "label": "Under way",
-        "num_tag": "5\/7",
+        "num_tag": "5\/9",
         "index_num": 4,
         "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_Base_634cd26dc5.svg",
         "description_md5": "6aca73d044bb93749abcdd2140e765e5"
@@ -60,7 +60,7 @@
         "icon": "",
         "title": "MAN OVER BOARD",
         "label": "",
-        "num_tag": "6\/7",
+        "num_tag": "6\/9",
         "index_num": 5,
         "image_url": "\/assets\/images\/dump\/5_1_1_a3628b9827.svg",
         "description_md5": "3b1410d4d0ef3384139e7d2c368def5a"
@@ -71,9 +71,31 @@
         "icon": "",
         "title": "MAN OVER BOARD",
         "label": "",
-        "num_tag": "7\/7",
+        "num_tag": "7\/9",
         "index_num": 6,
         "image_url": "\/assets\/images\/dump\/5_1_2_676a97a519.svg",
         "description_md5": "bdcccfeefafe9464d26f3958e785caa2"
+    },
+    {
+        "slug": "anchor-stuck-1",
+        "id": 81,
+        "icon": "",
+        "title": "ANCHOR STUCK",
+        "label": "",
+        "num_tag": "8\/9",
+        "index_num": 7,
+        "image_url": "\/assets\/images\/dump\/5_2_ancla_6b23b86f66.svg",
+        "description_md5": "0dc977ce2b0538a26ef6d9382e571aee"
+    },
+    {
+        "slug": "anchor-stuck-2",
+        "id": 82,
+        "icon": "",
+        "title": "ANCHOR STUCK",
+        "label": "",
+        "num_tag": "9\/9",
+        "index_num": 8,
+        "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_Cridarbase_64303893f4.svg",
+        "description_md5": "083825bbea65298cf69e5167a183886c"
     }
 ]

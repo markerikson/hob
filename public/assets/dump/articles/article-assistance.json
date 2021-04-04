@@ -2,12 +2,12 @@
     {
         "slug": "assistance",
         "name": "ASSISTANCE !",
-        "parent": "\/Home",
+        "parent": "\/HellMenu\/Home",
         "resource": "\/LiveMenu\/assistance",
         "active_icon": "\/assets\/images\/dump\/active_assistance_05f6358c69.svg",
         "inactive_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
         "background_color": "soft-blue",
-        "access": "\/Access\/assistance",
+        "access": "\/LiveMenu\/assistance",
         "has_main": true
     }
 ]

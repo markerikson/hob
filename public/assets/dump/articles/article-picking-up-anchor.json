@@ -2,8 +2,8 @@
     {
         "slug": "picking-up-anchor",
         "name": "Picking up anchor",
-        "parent": "\/Home",
-        "resource": "\/Article\/picking-up-anchor",
+        "parent": "\/LiveMenu\/Anchoring",
+        "resource": "\/Article\/picking-up-anchor\/18",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

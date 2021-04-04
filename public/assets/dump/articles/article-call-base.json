@@ -2,7 +2,7 @@
     {
         "slug": "call-base",
         "name": "CALL BASE",
-        "parent": "\/Home",
+        "parent": "\/LiveMenu\/Assistance",
         "resource": "\/LiveMenu\/call-base",
         "active_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
         "inactive_icon": "",

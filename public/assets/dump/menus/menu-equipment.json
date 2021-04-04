@@ -2,7 +2,7 @@
     {
         "slug": "equipment",
         "name": "EQUIPMENT",
-        "parent": "\/Home",
+        "parent": "\/LiveMenu\/Explore-and-equip",
         "resource": "\/Equipment",
         "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
         "inactive_icon": "",

@@ -2,8 +2,8 @@
     {
         "slug": "man-over-board",
         "name": "Man over board",
-        "parent": "\/Home",
-        "resource": "\/Article\/man-over-board",
+        "parent": "\/LiveMenu\/Troubleshooting",
+        "resource": "\/Article\/man-over-board\/5",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

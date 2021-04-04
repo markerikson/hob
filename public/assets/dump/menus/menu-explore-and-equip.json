@@ -2,12 +2,12 @@
     {
         "slug": "explore-and-equip",
         "name": "EXPLORE & EQUIP",
-        "parent": "\/Home",
+        "parent": "\/HellMenu\/Home",
         "resource": "\/LiveMenu\/explore-and-equip",
         "active_icon": "\/assets\/images\/dump\/active_explore_and_equip_e6918b9c08.svg",
         "inactive_icon": "\/assets\/images\/dump\/inactive_explore_and_equip_d581e1a8c7.svg",
         "background_color": "soft-blue",
-        "access": "\/Access\/explore-and-equip",
+        "access": "\/LiveMenu\/explore-and-equip",
         "has_main": true
     }
 ]

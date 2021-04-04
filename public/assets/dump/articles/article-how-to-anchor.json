@@ -2,8 +2,8 @@
     {
         "slug": "how-to-anchor",
         "name": "How to anchor",
-        "parent": "\/Home",
-        "resource": "\/Article\/how-to-anchor",
+        "parent": "\/LiveMenu\/Anchoring",
+        "resource": "\/Article\/how-to-anchor\/9",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

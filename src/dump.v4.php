@@ -107,25 +107,41 @@ class DumperClass {
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
 
+            if(empty($menu->parent_menu)){
+                var_dump($menu->slug); die('Menu no have parent');
+            }
+
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
-            $newMenu[$key]['parent'] = '/Home';
+            $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
             $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
             $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
             $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));
             $newMenu[$key]['background_color'] = $menu->background_color;
+
+            /*if($menu->ionic_resource == 'Article'){
+
+                $newMenu[$key]['resource'] =  $menu->ionic_resource.'/'.$this->oldMenus[$menu->slug]->children[0]->articles[0]->slug.'/'.( $menu->slide_step ?? '');
+
+            }elseif($menu->ionic_resource == 'LiveMenu'){
+                
+                $newMenu[$key]['resource'] = $menu->ionic_resource.'/'.$menu->slug;
+            }*/
+
+            if($menu->slide_step) $newMenu[$key]['resource'] = $newMenu[$key]['resource'].'/'.$menu->slide_step - 1;
+
 
             //if($menu->slide_step) $newMenu[$key]['slide_step'] = $menu->slide_step - 1;
 
             $this->setChildren( $menu, $menu->background_color);
 
             if($menu->main){            
-                $newMenu[$key]['access'] = '/Access/'.$menu->slug;
+                $newMenu[$key]['access'] = '/LiveMenu/'.$menu->slug; // TODO :Access
                 $newMenu[$key]['has_main'] = true;
                 $mainMenu[] = $newMenu[$key] ?? [];
             }
 
             if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
-            if(isset($newMenu[$key]))  file_put_contents( str_replace('{id}','article-'.$menu->slug, $this->map['articles']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
+            if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','article-'.$menu->slug, $this->map['articles']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
 
         }
 

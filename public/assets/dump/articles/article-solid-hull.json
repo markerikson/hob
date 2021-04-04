@@ -2,8 +2,8 @@
     {
         "slug": "solid-hull",
         "name": "SOLID HULL",
-        "parent": "\/Home",
-        "resource": "\/Article\/solid-hull",
+        "parent": "\/LiveMenu\/Train-yourself",
+        "resource": "\/Article\/solid-hull\/0",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

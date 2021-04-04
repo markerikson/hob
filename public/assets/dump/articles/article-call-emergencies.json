@@ -2,7 +2,7 @@
     {
         "slug": "call-emergencies",
         "name": "CALL EMERGENCIES",
-        "parent": "\/Home",
+        "parent": "\/LiveMenu\/Assistance",
         "resource": "\/LiveMenu\/call-emergencies",
         "active_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
         "inactive_icon": "",

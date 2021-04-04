@@ -2,8 +2,8 @@
     {
         "slug": "where-to-anchor",
         "name": "Where to anchor?",
-        "parent": "\/Home",
-        "resource": "\/Article\/where-to-anchor",
+        "parent": "\/LiveMenu\/Anchoring",
+        "resource": "\/Article\/where-to-anchor\/2",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
