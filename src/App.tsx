@@ -51,6 +51,7 @@ import Equipment  from './pages/Equipment'
 // TODO
 import Settings   from './pages/Settings'
 //import About       from './pages/About'
+
 // Featured login, only registered users!! (FUTURE!)
 // // import Login       from './pages/Login' 
 
@@ -69,16 +70,14 @@ const App: React.FC = () => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
-
-  let location = window.location.pathname.split('/')[2].toLowerCase()
-
-  console.log(location);
+  // TODO: Revisar, porque no funciona bien jeje
+  let location = window.location.pathname.split('/')[2] ?? ''
 
   function renderFooterMenu(list: Menu[], location: string) {    
     return list.map((r: Menu, index) => (
       <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
         <img 
-          src={location === r.resource.split('/')[2].toLowerCase() ? r.active_icon : r.inactive_icon} 
+          src={r.active_icon} 
           alt={r.name.toString()}
           width='60%'
           height='120px'
@@ -100,7 +99,7 @@ const App: React.FC = () => {
             <Route path='/Equipment/:slug' component={Equipment}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
-            <Route path='/LiveMap' component={LiveMap}/>
+            <Route path='/LiveMap/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom' class='hob-footer'>

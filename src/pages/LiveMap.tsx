@@ -4,18 +4,32 @@ import React, {
   useState,
   useEffect
 } from 'react'
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
+
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/react'
+
 import { RouteComponentProps } from 'react-router'
-import { MapContainer, TileLayer, 
+
+import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+
+import {
+  MapContainer,
+  TileLayer, 
   //Marker, Popup, GeoJSON, Polyline 
 } from 'react-leaflet'
+
 //import { Plugins } from '@capacitor/core'
 import { useTranslation } from 'react-i18next'
 
 // About leafLet
 import 'leaflet/dist/leaflet.css'
 //import { MyRoute } from '../models/MyRoute'
-//import L from 'leaflet';
+import L from 'leaflet';
 //import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
 
 //import { Plugins } from '@capacitor/core';
@@ -53,6 +67,10 @@ export interface Route {
   }
 }
 
+interface LocationError {
+  showError: boolean;
+  message?: string;
+}
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -61,7 +79,23 @@ interface MapProps extends RouteComponentProps<{
 const LiveMap: React.FC<MapProps> =  ({match}) => {
   
   const { t } = useTranslation()
-  //const position = [this.state.lat, this.state.lng]
+  /*
+  const [error, setError] = useState<LocationError>({ showError: false });
+  const [position, setPosition] = useState<Geoposition>();
+
+  const getLocation = async () => {
+    try {
+        const position = await Geolocation.getCurrentPosition()
+        console.log(position)
+        setError({ showError: false })
+        return position
+    } catch (e) {
+        setError({ showError: true, message: e.message })
+    }
+  }
+
+  getLocation()
+  */ 
 
   const [route, setRoute] = useState<Route>()
   useEffect(() => {
@@ -72,33 +106,6 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
 
   console.log(route)
 
-  // get the users current position
-  //const position = await Geolocation.getCurrentPosition();
-
-  // grab latitude & longitude
-  //const latitude = position.coords.latitude;
-  //const longitude = position.coords.longitude;
-  /*const position = [51.505, -0.09]
-  function LocationMarker() {
-
-    const [position, setPosition] = useState(null)
-    const map = useMapEvents({
-      click() {
-        map.locate()
-      },
-      locationfound(e) {
-        setPosition(e.latlng)
-        map.flyTo(e.latlng, map.getZoom())
-      },
-    })
-  
-    return position === null ? null : (
-      <Marker position={[39.798052, 2.6952100]}>
-        <Popup>You are here</Popup>
-      </Marker>
-    )
-  }  
-  
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -106,8 +113,9 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
     weight: 1,
     opacity: 1,
     fillOpacity: 0.8
-  };
+  }
 
+  /*
   L.geoJSON(someGeojsonFeature, {
     pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -116,16 +124,16 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
   
   const [activePoi, setActivePoi] = useState(null);
 
-  var geoJsonLayer = L.geoJSON(my_route, {
+  var geoJsonLayer = L.geoJSON(route, {
     onEachFeature: function (feature, layer) {
       if (layer instanceof L.Polyline) {
         layer.setStyle({
           'color': feature.properties.color
-        });
+        })
       }
     }
-  });*/
-   
+  })   
+  */
 
   return (
     <IonPage>

@@ -53,12 +53,10 @@ const Access: React.FC<LoginProps> = ({
 
     if(username && password){
 
-      // TODO: SET CORS
+      // TODO: SET CORS ON SERVER!!!
       const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
-        //data :{
-          identifier: MyConst.sample_user,
-          password: MyConst.sample_password,
-        //}
+        identifier: MyConst.sample_user,
+        password:   MyConst.sample_password,
       })
 
       console.log(data)
