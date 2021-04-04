@@ -1,8 +1,14 @@
+import * as MyConst from '../static/constants'
+
 import React, { useEffect, useState } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
+
 import { useTranslation } from 'react-i18next'
+
 import axios from 'axios'
+
+
 import { connect } from '../data/connect'
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
 
@@ -21,17 +27,21 @@ interface LoginProps extends OwnProps,  DispatchProps  {}
 const Access: React.FC<LoginProps> = ({
     setIsLoggedIn,
     history,
-    setUsername: setUsernameAction, // TODO: Put slug!!!
+    setUsername: setUsernameAction, 
+    // TODO: Put slug!!!
   }) => {
 
   const {t} = useTranslation()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [access_menu, setAccessMenu] = useState('')
 
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
+
+  //setAccessMenu(slug)
 
   const login = async (e: React.FormEvent) => {
 
@@ -44,10 +54,10 @@ const Access: React.FC<LoginProps> = ({
     if(username && password){
 
       // TODO: SET CORS
-      const { data } = await axios.post('http://localhost:1337/auth/local', {
+      const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
         //data :{
-          identifier: 'reader@strapi.io',
-          password: '2Y2s4qmliad',
+          identifier: MyConst.sample_user,
+          password: MyConst.sample_password,
         //}
       })
 
@@ -66,9 +76,6 @@ const Access: React.FC<LoginProps> = ({
   }, [])
 
   console.log(menu)
-
-
-
 
   return (
     <IonPage id='login-page'>

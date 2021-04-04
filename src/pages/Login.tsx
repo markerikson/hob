@@ -24,7 +24,7 @@ const Login: React.FC<LoginProps> = ({
   setUsername: setUsernameAction
 }) => {
 
-  const { t } = useTranslation()
+  const {t} = useTranslation()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -39,20 +39,11 @@ const Login: React.FC<LoginProps> = ({
 
     setFormSubmitted(true)
 
-    if(!username) {
-      setUsernameError(true)
-    }else{
-      setUsernameError(false)
-    }
-
-    if(!password) {
-      setPasswordError(true)
-    }else{
-      setPasswordError(false)
-    }
+    if(!username) {      setUsernameError(true)    }else{      setUsernameError(false)    }
+    if(!password) {      setPasswordError(true)    }else{      setPasswordError(false)    }
 
     /*if(username && password) {
-
+      // TODO WAIT TO CORS SETTINGS READY TO RUN!!!
       const { data } = await axios.post('http://localhost:1337/auth/local', {
         //data :{
           identifier: 'reader@strapi.io',

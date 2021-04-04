@@ -16,34 +16,31 @@ import {
 import './components/i18n'
 import { Plugins } from '@capacitor/core'
 
-// STYLE
+//CSS required for Ionic components to work properly
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
 
-  //CSS required for Ionic components to work properly
-  import '@ionic/react/css/core.css'
-  import '@ionic/react/css/normalize.css'
-  import '@ionic/react/css/structure.css'
-  import '@ionic/react/css/typography.css'
+// Optional CSS utils that can be commented out
+import '@ionic/react/css/padding.css'
+import '@ionic/react/css/float-elements.css'
+import '@ionic/react/css/text-alignment.css'
+import '@ionic/react/css/text-transformation.css'
+import '@ionic/react/css/flex-utils.css'
+import '@ionic/react/css/display.css'
 
-  // Optional CSS utils that can be commented out
-  import '@ionic/react/css/padding.css'
-  import '@ionic/react/css/float-elements.css'
-  import '@ionic/react/css/text-alignment.css'
-  import '@ionic/react/css/text-transformation.css'
-  import '@ionic/react/css/flex-utils.css'
-  import '@ionic/react/css/display.css'
+// Theme variables
+import './theme/variables.css'
+import './theme/myVariables.css'
 
-  // Theme variables
-  import './theme/variables.css'
-  import './theme/myVariables.css'
-
-// STYLE
 
 // Models
 import { Menu } from './models/Menu'
 
 // App main pages
 import Home       from './pages/Home'
-import Access     from './pages/Access'// Soft login
+import Access     from './pages/Access'// Will runs with soft login!!
 import LiveMenu   from './pages/LiveMenu'
 import Article    from './pages/Article'
 import Routes     from './pages/Routes'
@@ -53,8 +50,9 @@ import Equipment  from './pages/Equipment'
 
 // TODO
 import Settings   from './pages/Settings'
-//import Login       from './pages/Login'
 //import About       from './pages/About'
+// Featured login, only registered users!! (FUTURE!)
+// // import Login       from './pages/Login' 
 
 // Show the splash for 4 seconds and then auto hide:
 const { SplashScreen } = Plugins

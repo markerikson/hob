@@ -1,3 +1,5 @@
+import * as MyConst from '../static/constants'
+
 import React, { 
   useState,
   useEffect
@@ -63,7 +65,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
 
   const [route, setRoute] = useState<Route>()
   useEffect(() => {
-    fetch('http://161.97.167.92:1337/my-routes/'+match.params.id)
+    fetch( MyConst.RestAPI + 'my-routes/'+match.params.id )
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])

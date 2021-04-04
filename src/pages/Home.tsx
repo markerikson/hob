@@ -26,15 +26,20 @@ const Home: React.FC<HomeProps> = ({match}) => {
   useEffect(() => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
-  
+
   function renderHomeMenu(list: Menu[]) {    
     return list.map((r: Menu, index) => (
-      <IonTabButton class='hob-footer' key={r.access} tab={r.access} href={r.access} disabled={false}>
+      <IonTabButton
+        class='hob-footer'
+        key={r.access}
+        tab={r.access}
+        href={r.access}
+        disabled={false}
+      >{/*TODO: Set inactive by location!! ->> */}
         <img 
           src={true ? r.active_icon : r.inactive_icon} 
           alt={t(r.name.toString())}
-          width='60%'
-          height='120px'
+          width='60%' height='120px'
         />{t(r.name.toString())}
       </IonTabButton>
     ))
