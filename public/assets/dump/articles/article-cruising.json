@@ -1,10 +1,10 @@
 [
     {
         "slug": "cruising",
+        "parent": "\/LiveMenu\/Train-yourself",
         "name": "CRUISING",
-        "parent": "\/Home",
         "resource": "\/LiveMenu\/cruising",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/CRUISING_aefe4ee37a.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

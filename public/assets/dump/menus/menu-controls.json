@@ -1,9 +1,9 @@
 [
     {
         "slug": "controls",
+        "parent": "\/LiveMenu\/Train-yourself",
         "name": "CONTROLS",
-        "parent": "\/Home",
-        "resource": "\/Article\/controls",
+        "resource": "\/Article\/controls\/4",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

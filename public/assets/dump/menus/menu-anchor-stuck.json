@@ -1,9 +1,9 @@
 [
     {
         "slug": "anchor-stuck",
+        "parent": "\/LiveMenu\/Troubleshooting",
         "name": "Anchor stuck",
-        "parent": "\/Home",
-        "resource": "\/Article\/anchor-stuck",
+        "resource": "\/Article\/anchor-stuck\/7",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

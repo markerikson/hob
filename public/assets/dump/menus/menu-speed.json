@@ -1,9 +1,9 @@
 [
     {
         "slug": "speed",
+        "parent": "\/LiveMenu\/Cruising",
         "name": "Speed",
-        "parent": "\/Home",
-        "resource": "\/Article\/speed",
+        "resource": "\/Article\/speed\/2",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

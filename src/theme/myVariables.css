@@ -23,6 +23,24 @@
   --ion-color-tint: var(--ion-color-soft-blue-tint);
 }
 
+:root {
+  --ion-color-tag-grey: #d2d2d2;
+  --ion-color-tag-grey-rgb: 210,210,210;
+  --ion-color-tag-grey-contrast: #000000;
+  --ion-color-tag-grey-contrast-rgb: 0,0,0;
+  --ion-color-tag-grey-shade: #b9b9b9;
+  --ion-color-tag-grey-tint: #d7d7d7;
+}
+
+.ion-color-tag-grey {
+  --ion-color-base: var(--ion-color-tag-grey);
+  --ion-color-base-rgb: var(--ion-color-tag-grey-rgb);
+  --ion-color-contrast: var(--ion-color-tag-grey-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-tag-grey-contrast-rgb);
+  --ion-color-shade: var(--ion-color-tag-grey-shade);
+  --ion-color-tint: var(--ion-color-tag-grey-tint);
+}
+
 * {
   font-family: 'Advent Pro' !important;
 }
@@ -85,4 +103,11 @@
 
 .button-inner {
   width: 80%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  /*height: auto;*/
 }

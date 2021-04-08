@@ -3,7 +3,7 @@
         "name": "Motor Stopped under way",
         "slug": "motor-stopped-under-way",
         "parent": "LiveMenu\/troubleshooting",
-        "resource": "Article\/troubleshooting\/motor-stopped-under-way",
+        "resource": "Article\/troubleshooting\/motor-stopped-under-way\/0",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -12,7 +12,7 @@
         "name": "Man over board",
         "slug": "man-over-board",
         "parent": "LiveMenu\/troubleshooting",
-        "resource": "Article\/troubleshooting\/man-over-board",
+        "resource": "Article\/troubleshooting\/man-over-board\/5",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -21,7 +21,7 @@
         "name": "Anchor stuck",
         "slug": "anchor-stuck",
         "parent": "LiveMenu\/troubleshooting",
-        "resource": "Article\/troubleshooting\/anchor-stuck",
+        "resource": "Article\/troubleshooting\/anchor-stuck\/7",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

@@ -4,7 +4,7 @@ class DumperClass {
 
     private $snapshot = 'HobSnap8 Dump';
     private $imgDump = 'assets/dump/images';
-    private $origin = 'http://161.97.167.92:1337/';
+    private $origin = 'http://161.97.167.92:1337';
     private $mainLang = 'en-GB';
     private $jklsdhf = 'https://wa.me/34677628086?text=%C2%A1Hola!%20Me%20gustaria%20contactar%20con%20vosotros.%20Gracias';
     private $map = [
@@ -68,7 +68,7 @@ class DumperClass {
 
         foreach( $this->map as $key => $row){
             if(isset($row['url']) && !empty($row['url'])){
-                $this->map[$key]['url'] = $this->origin . $this->map[$key]['url'];
+                $this->map[$key]['url'] = $this->origin .'/' . $this->map[$key]['url'];
             }
             if(isset($row['path']) && !empty($row['path'])){
                 $this->cleanPath($row['path']);
@@ -107,30 +107,45 @@ class DumperClass {
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
 
+            if(!empty($menu->parent_menu) ){
+                $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
+            }
+
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
-            $newMenu[$key]['parent'] = '/Home';
             $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
             $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
             $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));
             $newMenu[$key]['background_color'] = $menu->background_color;
+
+            /*if($menu->ionic_resource == 'Article'){
+
+                $newMenu[$key]['resource'] =  $menu->ionic_resource.'/'.$this->oldMenus[$menu->slug]->children[0]->articles[0]->slug.'/'.( $menu->slide_step ?? '');
+
+            }elseif($menu->ionic_resource == 'LiveMenu'){
+                
+                $newMenu[$key]['resource'] = $menu->ionic_resource.'/'.$menu->slug;
+            }*/
+
+            if($menu->slide_step) $newMenu[$key]['resource'] = $newMenu[$key]['resource'].'/'.$menu->slide_step - 1;
+
 
             //if($menu->slide_step) $newMenu[$key]['slide_step'] = $menu->slide_step - 1;
 
             $this->setChildren( $menu, $menu->background_color);
 
             if($menu->main){            
-                $newMenu[$key]['access'] = '/Access/'.$menu->slug;
+                $newMenu[$key]['access'] = '/LiveMenu/'.$menu->slug; // TODO :Access
                 $newMenu[$key]['has_main'] = true;
                 $mainMenu[] = $newMenu[$key] ?? [];
             }
 
-            file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
-            file_put_contents( str_replace('{id}','article-'.$menu->slug, $this->map['articles']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
+            if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
+            if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','article-'.$menu->slug, $this->map['articles']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
 
         }
 
         // Guardar todos los Menus Principales...
-        file_put_contents( $this->map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
+        if(!empty($mainMenu)) file_put_contents( $this->map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
 
 
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -161,7 +176,7 @@ class DumperClass {
 
     }
 
-    private function setChildren($menu, $color, $parent = null){
+    private function setChildren($menu, $color){
 
         //////////////////////////////////////////////////////////////////////////////////////////
         // CHILDREN MENUS - Setting children fields ;)
@@ -276,7 +291,7 @@ class DumperClass {
                             'num_tag' => $a.'/'.$slidesCount,
                             'index_num' => $x-1,
                             'image_url' => $this->getImageUrl2($slide->image->url ?? ''),
-                            'description' => $trans->description ?? '',
+                            //'description' => $trans->description ?? '',
                             'description_md5' => md5($trans->description) ?? ''
                         ];
                     }    
@@ -325,8 +340,9 @@ class DumperClass {
     private function getStrapiImage($image = null){
         if(! empty($image->url)){
             $filename = explode('/', $image->url)[2];
-            $url = 'http://161.97.167.92:1337' . ($image->url??'');
-            file_put_contents('../public/assets/images/dump/' . $filename, file_get_contents($url));
+            $url = $this->origin . $image->url;
+            file_put_contents('../public/assets/images/dump/' . 
+            $filename, file_get_contents($url));
         }
     }
 
@@ -347,10 +363,6 @@ class DumperClass {
             }break;
         }
         return $return;
-    }
-
-    private function getSlug2($params = []){
-        return '/'.implode('/', $params);
     }
 
     private function getImageUrl($url){

@@ -1,13 +1,13 @@
 [
     {
         "slug": "navigate",
+        "parent": "\/HellMenu\/Home",
         "name": "NAVIGATE",
-        "parent": "\/Home",
         "resource": "\/LiveMap\/1",
-        "active_icon": "\/assets\/images\/dump\/active_navigation_e494bbf2e9.svg",
-        "inactive_icon": "\/assets\/images\/dump\/inactive_navigation_39529f4dd8.svg",
+        "active_icon": "\/assets\/images\/dump\/NAVIGATE_ACTIVE_d2c977d14c.svg",
+        "inactive_icon": "\/assets\/images\/dump\/NAVIGATE_INACTIVE_984d517b2d.svg",
         "background_color": "soft-blue",
-        "access": "\/Access\/navigate",
+        "access": "\/LiveMenu\/navigate",
         "has_main": true
     }
 ]
