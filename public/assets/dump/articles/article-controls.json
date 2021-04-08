@@ -1,8 +1,8 @@
 [
     {
         "slug": "controls",
-        "name": "CONTROLS",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "CONTROLS",
         "resource": "\/Article\/controls\/4",
         "active_icon": "",
         "inactive_icon": "",

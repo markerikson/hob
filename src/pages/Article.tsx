@@ -49,7 +49,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   let slideOpts = {
     initialSlide: match.params.step ?? 0,
-    speed: 4000,
+    speed: 8000,
     autoplay: false
   }
 

@@ -1,11 +1,11 @@
 [
     {
         "slug": "assistance",
-        "name": "ASSISTANCE !",
         "parent": "\/HellMenu\/Home",
+        "name": "ASSISTANCE !",
         "resource": "\/LiveMenu\/assistance",
-        "active_icon": "\/assets\/images\/dump\/active_assistance_05f6358c69.svg",
-        "inactive_icon": "\/assets\/images\/dump\/inactive_assistance_58e73710f0.svg",
+        "active_icon": "\/assets\/images\/dump\/ASSISTANCE_ACTIVE_a70732cf07.svg",
+        "inactive_icon": "\/assets\/images\/dump\/ASSISTANCE_INACTIVE_caeeb47aee.svg",
         "background_color": "soft-blue",
         "access": "\/LiveMenu\/assistance",
         "has_main": true

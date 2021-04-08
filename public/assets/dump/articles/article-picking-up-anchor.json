@@ -1,8 +1,8 @@
 [
     {
         "slug": "picking-up-anchor",
-        "name": "Picking up anchor",
         "parent": "\/LiveMenu\/Anchoring",
+        "name": "Picking up anchor",
         "resource": "\/Article\/picking-up-anchor\/18",
         "active_icon": "",
         "inactive_icon": "",

@@ -1,11 +1,11 @@
 [
     {
         "slug": "explore-and-equip",
-        "name": "EXPLORE & EQUIP",
         "parent": "\/HellMenu\/Home",
+        "name": "EXPLORE & EQUIP",
         "resource": "\/LiveMenu\/explore-and-equip",
-        "active_icon": "\/assets\/images\/dump\/active_explore_and_equip_e6918b9c08.svg",
-        "inactive_icon": "\/assets\/images\/dump\/inactive_explore_and_equip_d581e1a8c7.svg",
+        "active_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_ACTIVE_724f1c9969.svg",
+        "inactive_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_INACTIVE_455b729e30.svg",
         "background_color": "soft-blue",
         "access": "\/LiveMenu\/explore-and-equip",
         "has_main": true

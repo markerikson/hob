@@ -1,10 +1,10 @@
 [
     {
         "slug": "base-departure",
-        "name": "BASE DEPARTURE",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "BASE DEPARTURE",
         "resource": "\/Article\/base-departure\/0",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

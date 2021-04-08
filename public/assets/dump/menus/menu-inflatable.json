@@ -1,8 +1,8 @@
 [
     {
         "slug": "inflatable",
-        "name": "INFLATABLES",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "INFLATABLES",
         "resource": "\/Article\/inflatable\/2",
         "active_icon": "",
         "inactive_icon": "",

@@ -7,7 +7,7 @@
         "label": "Stability",
         "num_tag": "1\/11",
         "index_num": 0,
-        "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_equilibri_28f42c9c03.svg",
+        "image_url": "",
         "description_md5": "90dda2e5bad250cfbe1a1534f34a8212"
     },
     {
@@ -18,7 +18,7 @@
         "label": "Steering",
         "num_tag": "2\/11",
         "index_num": 1,
-        "image_url": "\/assets\/images\/dump\/4_1_3_Aa3_Rectes_27b3811aca.svg",
+        "image_url": "",
         "description_md5": "0add253b687b7c4c54a65bd9fac6f7f4"
     },
     {
@@ -29,7 +29,7 @@
         "label": "Speed",
         "num_tag": "3\/11",
         "index_num": 2,
-        "image_url": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "image_url": "",
         "description_md5": "ccefa6ce0e98b77a8ebba64331d3085e"
     },
     {
@@ -40,7 +40,7 @@
         "label": "Safety Margin",
         "num_tag": "4\/11",
         "index_num": 3,
-        "image_url": "\/assets\/images\/dump\/4_1_3_B_Roques_47b9d37196.svg",
+        "image_url": "",
         "description_md5": "3c373a9c86fec94132c1d5b3875d9e11"
     },
     {
@@ -51,7 +51,7 @@
         "label": "Look Out",
         "num_tag": "5\/11",
         "index_num": 4,
-        "image_url": "\/assets\/images\/dump\/4_1_3_B_windsurf_cabd371c0a.svg",
+        "image_url": "",
         "description_md5": "388bb7f4515919a9130f3583c7dd5752"
     },
     {
@@ -62,7 +62,7 @@
         "label": "Stability",
         "num_tag": "6\/11",
         "index_num": 5,
-        "image_url": "\/assets\/images\/dump\/4_1_3_B_Cruising_5_500dc8ddb2.svg",
+        "image_url": "",
         "description_md5": "5803780d26dc9c4762ef58782e309d98"
     },
     {
@@ -73,7 +73,7 @@
         "label": "Give way",
         "num_tag": "7\/11",
         "index_num": 6,
-        "image_url": "\/assets\/images\/dump\/4_1_4_A_Give_way_1c9d6f616d.svg",
+        "image_url": "",
         "description_md5": "2e7af8cee05eda190a21d308684b0813"
     },
     {
@@ -84,7 +84,7 @@
         "label": "Give way",
         "num_tag": "8\/11",
         "index_num": 7,
-        "image_url": "\/assets\/images\/dump\/4_1_4_A_caracara_317562c237.svg",
+        "image_url": "",
         "description_md5": "ba8336ec8cdc520ba335da5de7bf08c4"
     },
     {
@@ -95,7 +95,7 @@
         "label": "Give way",
         "num_tag": "9\/11",
         "index_num": 8,
-        "image_url": "\/assets\/images\/dump\/4_1_4_A_delateral_40d2e3601b.svg",
+        "image_url": "",
         "description_md5": "1f859293e9ee63669acc83e61d6d2b9e"
     },
     {
@@ -106,7 +106,7 @@
         "label": "Give way",
         "num_tag": "10\/11",
         "index_num": 9,
-        "image_url": "\/assets\/images\/dump\/4_1_45_A_Veler_13f8a0b827.svg",
+        "image_url": "",
         "description_md5": "9d8b4e9ef0815ed2f80067bd4ed17b22"
     },
     {
@@ -117,7 +117,7 @@
         "label": "Give way",
         "num_tag": "11\/11",
         "index_num": 10,
-        "image_url": "\/assets\/images\/dump\/4_1_4_A_adelantar_2dc19c46f0.svg",
+        "image_url": "",
         "description_md5": "5f883d90167f2cfb193f5638c4526eb0"
     }
 ]

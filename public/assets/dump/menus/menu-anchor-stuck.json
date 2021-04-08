@@ -1,8 +1,8 @@
 [
     {
         "slug": "anchor-stuck",
-        "name": "Anchor stuck",
         "parent": "\/LiveMenu\/Troubleshooting",
+        "name": "Anchor stuck",
         "resource": "\/Article\/anchor-stuck\/7",
         "active_icon": "",
         "inactive_icon": "",

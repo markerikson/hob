@@ -107,12 +107,11 @@ class DumperClass {
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
 
-            if(empty($menu->parent_menu)){
-                var_dump($menu->slug); die('Menu no have parent');
+            if(!empty($menu->parent_menu) ){
+                $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
             }
 
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
-            $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
             $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
             $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
             $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));

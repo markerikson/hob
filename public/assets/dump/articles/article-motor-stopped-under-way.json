@@ -1,8 +1,8 @@
 [
     {
         "slug": "motor-stopped-under-way",
-        "name": "Motor Stopped under way",
         "parent": "\/LiveMenu\/Troubleshooting",
+        "name": "Motor Stopped under way",
         "resource": "\/Article\/motor-stopped-under-way\/0",
         "active_icon": "",
         "inactive_icon": "",

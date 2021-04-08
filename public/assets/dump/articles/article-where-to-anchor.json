@@ -1,8 +1,8 @@
 [
     {
         "slug": "where-to-anchor",
-        "name": "Where to anchor?",
         "parent": "\/LiveMenu\/Anchoring",
+        "name": "Where to anchor?",
         "resource": "\/Article\/where-to-anchor\/2",
         "active_icon": "",
         "inactive_icon": "",

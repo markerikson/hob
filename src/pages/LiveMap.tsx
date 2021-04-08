@@ -1,6 +1,6 @@
 import * as MyConst from '../static/constants'
 
-import React, { 
+import React, {
   useState,
   useEffect
 } from 'react'
@@ -15,62 +15,43 @@ import {
 
 import { RouteComponentProps } from 'react-router'
 
-//import { Geolocation, Geoposition } from '@ionic-native/geolocation';
-
 import {
-  MapContainer,
-  TileLayer, 
-  //Marker, Popup, GeoJSON, Polyline 
+  MapContainer, 
+  TileLayer,
+  Popup,
+  Circle,
+  CircleMarker,
+  Marker,
+  useMapEvents,
+  Polyline,
+  Polygon,
+  //Rectangle,
+  //GeoJSON,
 } from 'react-leaflet'
 
-//import { Plugins } from '@capacitor/core'
-import { useTranslation } from 'react-i18next'
+import {
+  //Plugins
+} from '@capacitor/core'
+
+import {
+  useTranslation
+} from 'react-i18next'
 
 // About leafLet
 import 'leaflet/dist/leaflet.css'
-//import { MyRoute } from '../models/MyRoute'
-//import L from 'leaflet';
-//import { GeoJSON, Marker, Popup, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.js'
 
-//import { Plugins } from '@capacitor/core';
+import { MyRoute } from '../models/MyRoute'
+import { moveSyntheticComments } from 'typescript'
 
-const styleMap = { 'width': '100%', 'height': '80vh' }  
-//const { Geolocation } = Plugins
+import { RouteData } from '../models/RouteData'
+import { Geometry } from '../models/Geometry'
+import { Location } from '../models/Location'
+import { Coordinate } from '../models/Coordinate'
 
-// Interfaces
-//import { Content } from '../models/Content'
-//import { RouteData } from '../models/RouteData'
-
-export interface Route { 
-  id: number,
-  name: string,
-  created_at: string,
-  updated_at: string;
-  data: {
-    type: string;
-    features: {
-        type: string;
-        properties: {
-            "marker-color"?: undefined;
-            "marker-size"?: undefined;
-            "marker-symbol"?: undefined;
-            "fill-opacity"?: undefined;
-        };
-        geometry: {
-          type: string;
-          coordinates:{
-            lat: number;
-            lng: number;
-          }
-      };
-    }[];
-  }
-}
-
-/*interface LocationError {
-  showError: boolean;
-  message?: string;
-}*/
+const styleMap = { 'width': '100%', 'height': '80vh' }
+const fillBlueOptions = { fillColor: 'blue' }
+const redOptions = { color: 'red' }
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -78,66 +59,37 @@ interface MapProps extends RouteComponentProps<{
 
 const LiveMap: React.FC<MapProps> =  ({match}) => {
   
-  const { t } = useTranslation()
-  /*
-  const [error, setError] = useState<LocationError>({ showError: false });
-  const [position, setPosition] = useState<Geoposition>();
-
-  const getLocation = async () => {
-    try {
-        const position = await Geolocation.getCurrentPosition()
-        console.log(position)
-        setError({ showError: false })
-        return position
-    } catch (e) {
-        setError({ showError: true, message: e.message })
-    }
-  }
-
-  getLocation()
-  */ 
-
-  console.log(MyConst.my_route)
-
-
-  const [route, setRoute] = useState<Route>()
+  const {t} = useTranslation()
+  const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
-    fetch( MyConst.RestAPI + 'my-routes/'+match.params.id )
+    fetch(MyConst.RestAPI + 'my-routes?id='+match.params.id)
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])
+  
+  var lat = MyConst.main_center[0]
+  var lng = MyConst.main_center[1]
+  var zoom = MyConst.main_zoom
+  var data = JSON.parse(JSON.stringify(MyConst.my_route))//sample test!! 
+  
+  if(typeof route[0] !== 'undefined'){
 
-  console.log(route)
+    lat = route[0].center_lat
+    lng = route[0].center_long
+    zoom = route[0].zoom
+    data = route[0].data
 
-  /*
-  var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
+  }else{
+    console.log('Sin datos...')
   }
 
-
-  L.geoJSON(someGeojsonFeature, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
+  function renderSwitch(type: string, coordinates: any) {
+    coordinates = Object.values(coordinates)
+    switch(type) {
+      case 'LineString':
+        return <Polygon pathOptions={redOptions} positions={coordinates} />
     }
-  }).addTo(map);
-  
-  const [activePoi, setActivePoi] = useState(null);
-
-  var geoJsonLayer = L.geoJSON(route, {
-    onEachFeature: function (feature, layer) {
-      if (layer instanceof L.Polyline) {
-        layer.setStyle({
-          'color': feature.properties.color
-        })
-      }
-    }
-  })   
-  */
+  }
 
   return (
     <IonPage>
@@ -147,18 +99,16 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <MapContainer style={styleMap} center={[39.798052, 2.6952100]} zoom={14} scrollWheelZoom={false} >      
-          <TileLayer /*onLoad={(e:any)=> { e.target._map.invalidateSize()}}*/
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            {/*my_route.map(poi => (
-              <Polyline color={'red'} 
-                position={poi.geometry.coordinates}*/
-                /*onClick={() => {
-                  setActivePoi(poi);
-                }}
-              />
-            ))*/}
+        <MapContainer style={styleMap} center={[lat, lng]} zoom={zoom} scrollWheelZoom={false}>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {data.features.map((r: RouteData) => (
+            r.type === 'Feature'
+              ? renderSwitch(r.geometry.type, r.geometry.coordinates)
+              : console.log('Not a feature... u.u!')
+          ))}
         </MapContainer>
       </IonContent>
     </IonPage>

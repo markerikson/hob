@@ -1,10 +1,10 @@
 [
     {
         "slug": "the-boat",
-        "name": "THE BOAT",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "THE BOAT",
         "resource": "\/LiveMenu\/the-boat",
-        "active_icon": "\/assets\/images\/dump\/boat_types_7d299f4689.svg",
+        "active_icon": "\/assets\/images\/dump\/THE_BOAT_ea3cf3091e.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

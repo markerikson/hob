@@ -1,10 +1,10 @@
 [
     {
         "slug": "anchoring",
-        "name": "ANCHORING",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "ANCHORING",
         "resource": "\/LiveMenu\/anchoring\/0",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/ANCHORING_ec8d42d109.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

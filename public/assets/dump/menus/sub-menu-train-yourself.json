@@ -4,7 +4,7 @@
         "slug": "the-boat",
         "parent": "LiveMenu\/train-yourself",
         "resource": "LiveMenu\/the-boat",
-        "active_icon": "\/assets\/images\/dump\/boat_types_7d299f4689.svg",
+        "active_icon": "\/assets\/images\/dump\/THE_BOAT_ea3cf3091e.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -13,7 +13,7 @@
         "slug": "cruising",
         "parent": "LiveMenu\/train-yourself",
         "resource": "LiveMenu\/cruising",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/CRUISING_aefe4ee37a.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -22,7 +22,7 @@
         "slug": "anchoring",
         "parent": "LiveMenu\/train-yourself",
         "resource": "LiveMenu\/anchoring\/0",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/ANCHORING_ec8d42d109.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -31,7 +31,7 @@
         "slug": "base-arrival",
         "parent": "LiveMenu\/train-yourself",
         "resource": "Article\/base-arrival\/base-arrival\/0",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -40,7 +40,7 @@
         "slug": "troubleshooting",
         "parent": "LiveMenu\/train-yourself",
         "resource": "LiveMenu\/troubleshooting",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/TROUBLESHOOTING_c32c95d439.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -49,7 +49,7 @@
         "slug": "base-departure",
         "parent": "LiveMenu\/train-yourself",
         "resource": "Article\/base-departure\/base-departure\/0",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

@@ -1,8 +1,8 @@
 [
     {
         "slug": "stability",
-        "name": "Stability",
         "parent": "\/LiveMenu\/Cruising",
+        "name": "Stability",
         "resource": "\/Article\/stability\/0",
         "active_icon": "",
         "inactive_icon": "",

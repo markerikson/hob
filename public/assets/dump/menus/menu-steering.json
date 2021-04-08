@@ -1,8 +1,8 @@
 [
     {
         "slug": "steering",
-        "name": "Steering",
         "parent": "\/LiveMenu\/Cruising",
+        "name": "Steering",
         "resource": "\/Article\/steering\/1",
         "active_icon": "",
         "inactive_icon": "",

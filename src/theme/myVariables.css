@@ -104,3 +104,10 @@
 .button-inner {
   width: 80%;
 }
+
+.swiper-slide img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  /*height: auto;*/
+}

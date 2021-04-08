@@ -1,8 +1,8 @@
 [
     {
         "slug": "solid-hull",
-        "name": "SOLID HULL",
         "parent": "\/LiveMenu\/Train-yourself",
+        "name": "SOLID HULL",
         "resource": "\/Article\/solid-hull\/0",
         "active_icon": "",
         "inactive_icon": "",
