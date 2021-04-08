@@ -1,4 +1,3 @@
-//import { Submenu } from './Submenu'
 export interface Menu {
   name: string,
   slug: string,
@@ -8,5 +7,4 @@ export interface Menu {
   inactive_icon?: string,
   background_color?: string,
   parent: string,
-  //menus?: Submenu[],
 }

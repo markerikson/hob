@@ -1,10 +1,10 @@
 [
     {
         "slug": "equipment",
+        "parent": "\/LiveMenu\/Explore-and-equip",
         "name": "EQUIPMENT",
-        "parent": "\/Home",
         "resource": "\/Equipment",
-        "active_icon": "\/assets\/images\/dump\/748518_c83141fb25.png",
+        "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

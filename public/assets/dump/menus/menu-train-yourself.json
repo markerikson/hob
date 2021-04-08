@@ -1,13 +1,13 @@
 [
     {
         "slug": "train-yourself",
+        "parent": "\/HellMenu\/Home",
         "name": "TRAINING YOURSELF",
-        "parent": "\/Home",
         "resource": "\/LiveMenu\/train-yourself",
-        "active_icon": "\/assets\/images\/dump\/active_train_yourself_b840fad2f3.svg",
-        "inactive_icon": "\/assets\/images\/dump\/inactive_train_yourself_2d8a27749b.svg",
+        "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",
+        "inactive_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_INACTIVE_6bf120c662.svg",
         "background_color": "soft-blue",
-        "access": "\/Access\/train-yourself",
+        "access": "\/LiveMenu\/train-yourself",
         "has_main": true
     }
 ]

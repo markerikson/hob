@@ -2,9 +2,8 @@
     {
         "slug": "home",
         "name": "HOME",
-        "parent": "\/Home",
         "resource": "\/HellMenu",
-        "active_icon": "\/assets\/images\/dump\/splash_logo_ba3a3dad79.svg",
+        "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

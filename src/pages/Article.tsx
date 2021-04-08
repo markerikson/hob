@@ -1,3 +1,5 @@
+//import * as MyConst from '../static/constants'
+
 import React, { 
   useEffect, 
   useState 
@@ -30,7 +32,7 @@ import {
 import { useTranslation } from 'react-i18next'
 
 // Interfaces
-import { Page } from '../models/Page'
+import { Slide } from '../models/Slide'
 import { Menu } from '../models/Menu'
 
 
@@ -47,7 +49,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   let slideOpts = {
     initialSlide: match.params.step ?? 0,
-    speed: 4000,
+    speed: 8000,
     autoplay: false
   }
 
@@ -56,29 +58,29 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     fetch( 'assets/dump/articles/article-'+match.params.slug+'.json' ).then(res => res.json()).then(setContent)
   }, [match.params.slug])
  
-  const [slides, setPages] = useState<Page[]>([])
+  const [slides, setPages] = useState<Slide[]>([])
   useEffect(() => {
     fetch( 'assets/dump/articles/slides/slide-'+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
   }, [match.params.slug])
 
-  function renderSlides(list: Page[]){
-    return list.map((r: Page, i) => (
+  function renderSlides(list: Slide[]){
+    return list.map((r: Slide, i) => (
       <IonSlide key={i}>
         <IonCard>
           <IonCardHeader>
           <IonItem key={i}>
             <IonLabel>
-            { t(r.title.toString())+r.label
-                ? ' - '+t(r.label.toString())
-                : ''
+            { r.label
+                ? t(r.title.toString())+' - '+t(r.label.toString())
+                : t(r.title.toString())
             }
             </IonLabel>
-            <IonButton color='soft-blue'>{t(r.num_tag.toString())}</IonButton>
+            <IonButton color='tag-grey' shape='round'>{t(r.num_tag.toString())}</IonButton>
           </IonItem>
           </IonCardHeader>
           <IonCardContent>
-            <img src={r.image_url.toString()} width='800px' alt={r.image_url}/><br/>
-            {t(r.description.toString())}
+            <img src={r.image_url.toString()} alt={r.image_url}/><br/>
+            {t(r.description_md5.toString())}
           </IonCardContent>
         </IonCard>
       </IonSlide>
