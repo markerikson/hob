@@ -99,7 +99,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
   function twistCoordinates(coordinates: any) {
     let result = []
-    for(var i = 1; i< coordinates.length; i++){
+    for(var i = 0; i< coordinates.length; i++){
       result.push([ coordinates[i][1], coordinates[i][0] ])
     }
     return result
