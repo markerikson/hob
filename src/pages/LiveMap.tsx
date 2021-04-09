@@ -20,11 +20,11 @@ import {
   TileLayer,
   Popup,
   Circle,
-  CircleMarker,
   Marker,
-  useMapEvents,
-  Polyline,
   Polygon,
+  Polyline,
+  CircleMarker,
+  useMapEvents,
   //Rectangle,
   //GeoJSON,
 } from 'react-leaflet'
@@ -42,16 +42,11 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet/dist/leaflet.js'
 
 import { MyRoute } from '../models/MyRoute'
-import { moveSyntheticComments } from 'typescript'
-
 import { RouteData } from '../models/RouteData'
-import { Geometry } from '../models/Geometry'
-import { Location } from '../models/Location'
-import { Coordinate } from '../models/Coordinate'
+import { randomBytes } from 'crypto'
 
 const styleMap = { 'width': '100%', 'height': '80vh' }
 const fillBlueOptions = { fillColor: 'blue' }
-const redOptions = { color: 'red' }
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -60,6 +55,7 @@ interface MapProps extends RouteComponentProps<{
 const LiveMap: React.FC<MapProps> =  ({match}) => {
   
   const {t} = useTranslation()
+
   const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
     fetch(MyConst.RestAPI + 'my-routes?id='+match.params.id)
@@ -84,11 +80,29 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
   }
 
   function renderSwitch(type: string, coordinates: any) {
-    coordinates = Object.values(coordinates)
+
     switch(type) {
+      
       case 'LineString':
-        return <Polygon pathOptions={redOptions} positions={coordinates} />
+        var polycoordinates = twistCoordinates(Object.values(coordinates))
+        return <Polyline key={Math.random()} pathOptions={fillBlueOptions} positions={polycoordinates} />
+      break
+      case 'Point':
+        return <Marker key={Math.random()} position={coordinates}></Marker>
+      break
+      default:
+        return ''
     }
+
+  }
+
+  // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
+  function twistCoordinates(coordinates: any) {
+    let result = []
+    for(var i = 1; i< coordinates.length; i++){
+      result.push([ coordinates[i][1], coordinates[i][0] ])
+    }
+    return result
   }
 
   return (
@@ -107,7 +121,7 @@ const LiveMap: React.FC<MapProps> =  ({match}) => {
           {data.features.map((r: RouteData) => (
             r.type === 'Feature'
               ? renderSwitch(r.geometry.type, r.geometry.coordinates)
-              : console.log('Not a feature... u.u!')
+              : '<div>Loading...</div>'
           ))}
         </MapContainer>
       </IonContent>
