@@ -15,20 +15,25 @@ export const messages = {
   'noData' : 'Waiting remote data... o.o!!',
   'unavailable' : 'The type #type# is missed u.u!!',
   'loading' : 'Loading ^_^!',
+  'routeStart' : 'The route starts here...',
+  'routeEnd' : 'The route ends here...',
 }
 
+// Main labels
 export const labels = { 
   'routeName' : 'Route name...'
 }
 
+// Main icons
 export const icons = {
   'back' : '/assets/images/arrow-left.svg',
   'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
+  'start' : '',
+  'end' : '',
 }
 
+// Static Dumped
 export const mainMenu = 'assets/dump/menus/main-menu.json'
-
-// Static Dumped directories
 export const menuDump = 'assets/dump/menus/menu-'
 export const subMenuDump = 'assets/dump/menus/sub-menu-'
 
@@ -37,8 +42,12 @@ export const sample_user = 'reader@strapi.io'
 export const sample_password = '2Y2s4qmliad'
 
 // Map style and basics
-export const styleMap = { 'width': '100%', 'height': '80vh' }
-export const fillBlueOptions = { fillColor: 'blue' }
+export const style = {
+  'map' : { 'width': '100%', 'height': '80vh' },
+  'polyLine' : { fillColor: '#a2a2a2' },
+  'polygon' : { fillColor: 'red' },
+}
+
 export const mapAttribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 export const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 
@@ -79,5 +88,3 @@ export const my_route = {
     }
   ]
 }
-
-//

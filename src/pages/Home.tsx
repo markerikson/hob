@@ -27,7 +27,8 @@ const Home: React.FC<HomeProps> = ({match}) => {
     fetch(MyConst.mainMenu).then(res => res.json()).then(setMenu)
   }, [])
 
-  function renderHomeMenu(list: Menu[]) {    
+  function renderHomeMenu(list: Menu[]) {
+    //var lineHeightPer = 100 / list.length
     return list.map((r: Menu, index) => (
       <IonTabButton
         class='hob-footer'
