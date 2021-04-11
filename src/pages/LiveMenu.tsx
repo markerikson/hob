@@ -1,16 +1,6 @@
+import * as MyConst from '../static/constants'
 import React, { useEffect, useState } from 'react'
-import {
-  IonPage, 
-  IonHeader, 
-  IonToolbar,
-  IonContent, 
-  IonList,
-  IonItem,
-  IonImg,
-  IonLabel,
-  IonButton,
-  IonThumbnail,
-} from '@ionic/react'
+import { IonPage, IonHeader, IonToolbar, IonContent, IonList, IonItem, IonImg, IonLabel, IonButton, IonThumbnail } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
 // Translations...
@@ -30,12 +20,12 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/menus/menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenu)
+    fetch(MyConst.menuDump+match.params.slug+'.json').then(res => res.json()).then(setMenu)
   }, [match.params.slug])
 
   const [sub_menus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
-    fetch('assets/dump/menus/sub-menu-'+match.params.slug+'.json').then(res => res.json()).then(setMenus)
+    fetch(MyConst.subMenuDump+match.params.slug+'.json').then(res => res.json()).then(setMenus)
   }, [match.params.slug])
   
   function renderSubMenus(menus: Submenu[]) {
@@ -43,20 +33,20 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
       r.active_icon
       ? <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
           <img src={r.active_icon} alt='' width='23%' height='auto' max-height='250px'/><br/>
-          <IonLabel>{t(r.name.toString())}</IonLabel>
+          <IonLabel>{t(r.name)}</IonLabel>
         </IonItem>
-      : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name.toString())}</IonButton>
+      : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
     ))
   }
 
   function renderMenuTitle(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
       <IonItem class='hob-header border-none' key={i}>
-        <a href={r.parent}><IonImg src='/assets/images/arrow-left.svg' slot='start'></IonImg></a>
+        <a href={r.parent}><IonImg src={MyConst.icons.back} slot='start'></IonImg></a>
         <IonThumbnail>      
           <IonImg src={r.active_icon} alt={''}/>
         </IonThumbnail>
-        <IonLabel>{t(r.name.toString())}</IonLabel>
+        <IonLabel>{t(r.name)}</IonLabel>
         {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
       </IonItem>
     ))

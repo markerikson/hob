@@ -1,3 +1,4 @@
+import * as MyConst from '../static/constants'
 import React, { useEffect, useState } from 'react'
 import {
   IonPage, 
@@ -23,7 +24,7 @@ const Home: React.FC<HomeProps> = ({match}) => {
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
+    fetch(MyConst.mainMenu).then(res => res.json()).then(setMenu)
   }, [])
 
   function renderHomeMenu(list: Menu[]) {    

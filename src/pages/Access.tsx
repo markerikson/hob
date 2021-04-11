@@ -1,8 +1,7 @@
 import * as MyConst from '../static/constants'
 
-import React, { 
-  //useEffect,
-  useState
+import React, { useState,
+  //useEffect,  
 } from 'react'
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
@@ -10,7 +9,6 @@ import { RouteComponentProps } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
 import axios from 'axios'
-
 
 import { connect } from '../data/connect'
 import { setIsLoggedIn, setUsername } from '../data/user/user.actions'

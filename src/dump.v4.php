@@ -44,13 +44,13 @@ class DumperClass {
         ],
         'strapi_trans' => [
             'url' => 'translations'
-        ]
-        /*
-        'all_menus' =>      [
-            'url' => 'app-menus',
-            'path'=> '../public/assets/dump/others/',
-            'filename' => '../public/assets/dump/others/all-menus.json'
         ],
+        'all_routes' =>      [
+            'url' => 'my-routes',
+            'path'=> '../public/assets/dump/routes/',
+            'filename' => '../public/assets/dump/routes/{id}.json'
+        ],        
+        /*
         'menu' =>           [
             'url' => 'app-menus',
             'path'=> '../public/assets/dump/menus/',
@@ -80,6 +80,14 @@ class DumperClass {
         //////////////////////////////////////////////////////////////////////////////////////////
         foreach( $this->getContent('articles') as $key => $content ){
             $this->newArticles[$content->slug] = $content;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // ROUTES - Getting All routes to do a 100% offline version available...
+        //////////////////////////////////////////////////////////////////////////////////////////
+        foreach( $this->getContent('all_routes') as $key => $content ){
+            $this->allRoutes[$content->id] = $content;
+            file_put_contents( str_replace('{id}', $content->id, $this->map['all_routes']['filename']), json_encode($content, JSON_PRETTY_PRINT));
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////
