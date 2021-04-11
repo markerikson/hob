@@ -12,14 +12,20 @@ import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline,
 import 'leaflet/dist/leaflet.css'
 //import 'leaflet/dist/leaflet.js'
 
+import markerCameraIconPng from 'leaflet/dist/images/marker-icon.png'
+import markerStartIconPng from 'leaflet/dist/images/marker-icon.png'
+import markerEndIconPng from 'leaflet/dist/images/marker-icon.png'
+import markerIconPng from 'leaflet/dist/images/marker-icon.png'
+
 // Models for the route
 import { MyRoute } from '../models/MyRoute'
 import { RouteData } from '../models/RouteData'
 
-import { camera } from 'ionicons/icons'
-
-const customMarkerIcon = new L.DivIcon({
-  html: "<IonImg src='/assets/images/arrow-left.svg' slot='start'></IonImg>"
+const defaultIcon = new L.Icon({
+  iconUrl: markerIconPng, // your path may vary ...
+  iconSize: [8, 11],
+  iconAnchor: [2, 2],
+  popupAnchor: [0, -2]
 })
 
 interface MapProps extends RouteComponentProps<{
@@ -32,11 +38,15 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
   // Default route data
   var name = MyConst.labels.routeName
-  var description = JSON.parse(JSON.stringify(MyConst.my_route))//sample test!! 
+  var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
   var lat = MyConst.main_center[0]
   var lng = MyConst.main_center[1]
   var zoom = MyConst.main_zoom
-  var data = JSON.parse(JSON.stringify(MyConst.my_route))//sample test!!
+  var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
+
+  // Route initial data
+  var start = [MyConst.main_center[0], MyConst.main_center[1]]
+  var end   = [MyConst.main_center[0], MyConst.main_center[1]]
 
   const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -44,7 +54,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])
-
+ 
   if(typeof route[0] !== 'undefined'){
 
     name = route[0].name
@@ -67,38 +77,56 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     return result
   }
 
-  function setMapContent(type: string, coordinates: any) {
-
-    switch(type) {      
-      
+  function setMapContent(r: any) {
+    switch(r.geometry.type) {
       case 'Point':
-        return (
-          <Marker
-            key={Math.random()}
-            position={[coordinates[1], coordinates[0]]}
-            icon={customMarkerIcon}
-          >
-            <Popup>
-              WIP pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>      
-        )
-        
+        console.log(r.geometry.coordinates)
+        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], defaultIcon, null)
+
       case 'Polygon':
-        var polygon = twistCoordinates(Object.values(coordinates))
-        return <Polygon key={Math.random()} positions={polygon[0]}/>
-          
+        return setPolygon(r)
+
       case 'LineString':
-        var polyLine = twistCoordinates(Object.values(coordinates))
-        return <Polyline key={Math.random()} pathOptions={MyConst.fillBlueOptions} positions={polyLine}/>
-
+        return setPolyLine(r)
+        
       default:
-        if(MyConst.JustTesting) console.log(MyConst.messages.unavailable.replace('#type#', type))
-
+        if(MyConst.JustTesting){
+          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
+          return false
+        }
     }
-
   }
 
+  function setPolygon(r: any){
+    var polygon = twistCoordinates(Object.values(r.geometry.coordinates[0]))
+    return <Polygon
+      key={Math.random()} 
+      positions={[polygon]} 
+      //pathOptions={MyConst.style.polygon}
+    />
+  }
+
+  function setPolyLine(r: any){
+    var polyLine = twistCoordinates(Object.values(r.geometry.coordinates))
+    start = r.geometry.coordinates[0]
+    end = r.geometry.coordinates[r.geometry.coordinates.length - 1]
+    return <Polyline
+      key={Math.random()}
+      positions={polyLine}
+      //pathOptions={MyConst.style.polyLine}
+    />
+  }
+
+  function setMarker(lat:number, long:number, icon: any, popContent:any){
+    return (
+      <Marker
+        key={Math.random()}
+        position={[lat, long]}
+        icon={icon}
+      >{ popContent ? <Popup>{popContent}</Popup> : '' }        
+      </Marker>      
+    )
+  }
 
   return (
     <IonPage>
@@ -111,8 +139,9 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
         {/* Loading map */}
         <MapContainer
-          style={MyConst.styleMap}
-          center={[lat, lng]}
+          key='mainMap'
+          style={MyConst.style.map}
+          center={[start[0], start[1]]}
           zoom={zoom} scrollWheelZoom={false}
         >
 
@@ -124,9 +153,25 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
           {/* Loading map features */}
           {data.features.map((r: RouteData) => (
             r.type === 'Feature'
-              ? setMapContent(r.geometry.type, r.geometry.coordinates)
+              ? setMapContent(r)
               : t(MyConst.messages.loading)
           ))}
+
+          {/* Loading route start */}
+          <Marker
+            key='startMarker'
+            position={[start[1], start[0]]}
+            icon={defaultIcon}
+          ><Popup>{MyConst.messages.routeStart}</Popup>
+          </Marker>
+
+          {/* Loading route end */}
+          <Marker
+            key='endMarker'
+            position={[end[1], end[0]]}
+            icon={defaultIcon}
+          ><Popup>{MyConst.messages.routeEnd}</Popup>
+          </Marker>
 
         </MapContainer>
       </IonContent>

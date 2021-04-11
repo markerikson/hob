@@ -1,25 +1,7 @@
 //import * as MyConst from '../static/constants'
-
-import React, { 
-  useEffect, 
-  useState 
-} from 'react'
-
-import {
-  IonPage, 
-  IonLabel,
-  IonCard,
-  IonCardHeader, 
-  IonCardContent,
-  IonContent,
-  IonSlide,
-  IonSlides,
-  IonImg,
-  IonItem, 
-  IonThumbnail,
-  IonHeader,
-  IonToolbar,
-  IonButton
+import React, { useEffect, useState } from 'react'
+import { IonPage, IonLabel, IonCard, IonCardHeader, IonCardContent, IonContent, IonSlide, IonSlides, IonImg, IonItem, IonThumbnail, IonHeader, IonToolbar,
+  //IonButton
 } from '@ionic/react'
 
 import { 
@@ -75,7 +57,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
                 : t(r.title.toString())
             }
             </IonLabel>
-            <IonButton color='tag-grey' shape='round'>{t(r.num_tag.toString())}</IonButton>
+            {/*<IonButton color='tag-grey' shape='round'>{t(r.num_tag.toString())}</IonButton>*/}
           </IonItem>
           </IonCardHeader>
           <IonCardContent>

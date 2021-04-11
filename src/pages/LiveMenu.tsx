@@ -20,19 +20,20 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch(MyConst.menuDump+match.params.slug+'.json').then(res => res.json()).then(setMenu)
+    fetch(MyConst.menuDump + match.params.slug + '.json').then(res => res.json()).then(setMenu)
   }, [match.params.slug])
 
   const [sub_menus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
-    fetch(MyConst.subMenuDump+match.params.slug+'.json').then(res => res.json()).then(setMenus)
+    fetch(MyConst.subMenuDump + match.params.slug + '.json').then(res => res.json()).then(setMenus)
   }, [match.params.slug])
   
   function renderSubMenus(menus: Submenu[]) {
+    //var lineHeightPer = 100 / menus.length
     return menus.map((r: Submenu, index) => (
       r.active_icon
       ? <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
-          <img src={r.active_icon} alt='' width='23%' height='auto' max-height='250px'/><br/>
+          <img src={r.active_icon} alt='' width='26%' height='auto' max-height='250px'/><br/>
           <IonLabel>{t(r.name)}</IonLabel>
         </IonItem>
       : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
