@@ -25,8 +25,16 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   const {t} = useTranslation()
   //const location = useLocation()
 
-  let slideOpts = MyConst.slideOpts
-  slideOpts.initialSlide = match.params.step ?? '0'
+  const slideOpts = {
+    initialSlide: match.params.step ?? '0',
+    //speed: 500,
+    //autoplay: false,
+    autoHeight: false,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    spaceBetween: 0,
+    loop: false
+  }
 
   const [article, setContent] = useState<Menu[]>([])
   useEffect(() => {
@@ -65,17 +73,6 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       <IonSlide key={i}>
         <IonCard 
           class='hob_card'>
-          {/*<IonCardHeader>
-            <IonItem key={i}>
-              <IonLabel>
-              { r.label
-                  ? t(r.title.toString())+' - '+t(r.label.toString())
-                  : t(r.title.toString())
-              }
-              </IonLabel>
-              <IonButton color='tag-grey' shape='round'>{t(r.num_tag.toString())}</IonButton>
-            </IonItem>
-          </IonCardHeader>*/}
           <IonCardContent>
             <img src={r.image_url.toString()} alt={r.image_url}/><br/>
               <IonTextarea
@@ -110,10 +107,11 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       }
 
       if(result !== now){
-        jQuery(labelClass).fadeOut(MyConst.fadeVelocity,        
+        var fadeVelocity = (match.params.step === index.toString()) ? 100 : MyConst.fadeVelocity
+        jQuery(labelClass).fadeOut(fadeVelocity,        
           function() {          
             jQuery(labelClass).html(result)
-            jQuery(labelClass).fadeIn(MyConst.fadeVelocity)
+            jQuery(labelClass).fadeIn(fadeVelocity)
         })
       }
 
