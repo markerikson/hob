@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { IonPage, IonHeader, IonToolbar, IonContent, IonList, IonItem, IonImg, IonLabel, IonButton, IonThumbnail } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery'
+
 // Translations...
 import { useTranslation } from 'react-i18next'
 
@@ -31,35 +34,50 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   function renderSubMenus(menus: Submenu[]) {
     //var lineHeightPer = 100 / menus.length
     return menus.map((r: Submenu, index) => (
-      r.active_icon
-      ? <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
+      ! r.active_icon
+      ? <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
+      : <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
           <img src={r.active_icon} alt='' width='26%' height='auto' max-height='250px'/><br/>
           <IonLabel>{t(r.name)}</IonLabel>
         </IonItem>
-      : <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
     ))
   }
 
-  function renderMenuTitle(menus: Menu[]) {
-    return menus.map((r: Menu, i) => (
-      <IonItem class='hob-header border-none' key={i}>
-        <a href={r.parent}><IonImg src={MyConst.icons.back} slot='start'></IonImg></a>
-        <IonThumbnail>      
-          <IonImg src={r.active_icon} alt={''}/>
-        </IonThumbnail>
-        <IonLabel>{t(r.name)}</IonLabel>
-        {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
-      </IonItem>
+  function renderMenuTitle(menu: Menu[]) {
+
+    let location = window.location.pathname.split('/')[2] ?? 'no idea'
+    if(menu[0]!== undefined){
+      if(menu[0].slug === location){
+        jQuery('#'+menu[0].slug).attr('src',menu[0].active_icon)
+      }else{
+        jQuery('#'+menu[0].slug).attr('src',menu[0].inactive_icon)
+      }
+    }
+
+    return menu.map((r: Menu, i) => (
+      r.has_main && r.slug === 'train-yourself'
+      ? <a href={r.parent}>
+          <IonImg class='hob_head_back' src={MyConst.icons.back} slot='start'></IonImg>
+        </a>
+      : <IonHeader class='hob-header'>
+          <IonToolbar class='hob-header'> 
+            <IonItem class='hob-header border-none' key={i}>
+              <a href={r.parent}><IonImg src={MyConst.icons.back} slot='start'></IonImg></a>
+              <IonThumbnail>      
+                <IonImg src={r.active_icon} alt={''}/>
+              </IonThumbnail>
+              <IonLabel>{t(r.name)}</IonLabel>
+            {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
+            </IonItem>         
+          </IonToolbar>
+        </IonHeader>
+      
     ))
   }
 
   return(    
-    <IonPage>
-      <IonHeader class='hob-header'>
-        <IonToolbar class='hob-header'>                           
-          {renderMenuTitle(full_menu)}
-        </IonToolbar>
-      </IonHeader>
+    <IonPage>                                
+      {renderMenuTitle(full_menu)}
       <IonContent>
         <IonList>
           {renderSubMenus(sub_menus)}

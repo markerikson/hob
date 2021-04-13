@@ -249,7 +249,8 @@ class DumperClass {
                 }
 
                 if(isset($value->icon)) $this->getImages($value->icon);
-
+                if(isset($value->icon_inactive)) $this->getImages($value->icon_inactive);
+                
                 $newSubMenu[$key][$key2]['active_icon'] = $this->getImageUrl(($value->icon->url ?? ''));
                 $newSubMenu[$key][$key2]['inactive_icon'] = $this->getImageUrl(($value->icon_inactive->url ?? ''));
                 $newSubMenu[$key][$key2]['background_color'] = (!empty($value->parent_menu->backgrond_color)) ? $value->parent_menu->backgrond_color : $color;            

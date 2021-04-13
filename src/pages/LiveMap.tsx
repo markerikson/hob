@@ -6,25 +6,21 @@ import { useTranslation } from 'react-i18next'
 
 // About leafLet
 import L from 'leaflet'
-import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline,
-  //Circle, CircleMarker, useMapEvents 
-} from 'react-leaflet'
+import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-//import 'leaflet/dist/leaflet.js'
-
-import markerEndIconSvg from '../static/icons/end-marker.svg'
-import markerStartIconSvg from '../static/icons/start-marker.svg'
-import markerCameraIconSvg from '../static/icons/camera-marker.svg'
-//import markerDefaultIconSvg from '../static/icons/standar-marker.svg'
 
 // Models for the route
 import { MyRoute } from '../models/MyRoute'
 import { RouteData } from '../models/RouteData'
 
+// Custom Map Markers
+import markerEndIconSvg from '../static/icons/end-marker.svg'
+import markerStartIconSvg from '../static/icons/start-marker.svg'
+import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+//------------------------------------------------------------------
 const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-//const defaultIcon = new L.Icon({ iconUrl: markerDefaultIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -137,7 +133,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
         {/* Loading map */}
         <MapContainer
-          key='mainMap'
+          key='mainMap' 
           style={MyConst.style.map}
           center={[start[0], start[1]]}
           zoom={zoom} scrollWheelZoom={false}

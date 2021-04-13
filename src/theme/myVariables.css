@@ -90,7 +90,9 @@
 }
 
 .card-content-md{
-  height: 76vh;
+  height: 86vh;
+  text-align: left;
+  font-size: 18px;
 }
 
 .border-none {
@@ -116,4 +118,19 @@
   padding-top: 0;
   text-align: left;
   margin-right: 17px;
+}
+
+.hob_head_back {
+  width: 2.5%;
+  margin: 2%;
+  background-color: #FFFFFF;
+}
+
+.hob_slide_textarea {
+  height: 100%;
+}
+
+.textarea-wrapper, .sc-ion-textarea-md{
+  height: 100%;
+  color: #000000;
 }

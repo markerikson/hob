@@ -37,10 +37,17 @@ export const icons = {
 export const mainMenu = 'assets/dump/menus/main-menu.json'
 export const menuDump = 'assets/dump/menus/menu-'
 export const subMenuDump = 'assets/dump/menus/sub-menu-'
+export const articleDump = 'assets/dump/articles/article-'
+export const slideDump = 'assets/dump/articles/slides/slide-'
 
 // Sample user data!!
 export const sample_user = 'reader@strapi.io'
 export const sample_password = '2Y2s4qmliad'
+
+export const splashScreen = {
+  showDuration: 4000,
+  autoHide: true
+}
 
 // Map style and basics
 export const style = {
@@ -55,6 +62,17 @@ export const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 // Map initial data
 export const main_zoom = 13
 export const main_center : [number, number] = [ 39.798052, 2.6952100 ]
+
+export const slideOpts = {
+  initialSlide: '0',
+  speed: 500,
+  autoplay: false,
+  autoHeight: false,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
+  spaceBetween: 0,
+  loop: false
+}
 
 export const my_route = {
   "type": "FeatureCollection",

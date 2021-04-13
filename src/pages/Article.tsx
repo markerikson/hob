@@ -1,15 +1,10 @@
-//import * as MyConst from '../static/constants'
+import * as MyConst from '../static/constants'
 import React, { useEffect, useState } from 'react'
-import { IonPage, IonLabel, IonGrid, IonCard, IonRow, IonCol, IonCardContent, IonContent, IonSlide, IonSlides, IonImg, IonItem, IonThumbnail, IonHeader, IonToolbar,
-  //IonButton,
-  //IonCardHeader
-} from '@ionic/react'
-import jQuery from 'jquery'
-import { 
-  RouteComponentProps, 
-  //useLocation
-} from 'react-router'
+import { IonPage, IonLabel, IonGrid, IonCard, IonTextarea, IonRow, IonCol, IonCardContent, IonContent, IonSlide, IonSlides, IonImg, IonItem, IonThumbnail, IonHeader, IonToolbar } from '@ionic/react'
+import { RouteComponentProps } from 'react-router'
 
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery'
 
 // Translations...
 import { useTranslation } from 'react-i18next'
@@ -20,7 +15,7 @@ import { Menu } from '../models/Menu'
 //import { setIsLoggedInData } from '../data/dataApi'
 
 interface ArticlePageProps extends RouteComponentProps<{
-  slug:   string,
+  slug:  string,
   slide: string,
   step:  string,
 }> {}
@@ -30,23 +25,15 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   const {t} = useTranslation()
   //const location = useLocation()
 
-  let slideOpts = {
-    initialSlide: match.params.step ?? 0,
-    speed: 6000,
-    autoplay: false,
-    autoHeight: false,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
-    spaceBetween: 0,
-    loop: false
-  }
+  let slideOpts = MyConst.slideOpts
+  slideOpts.initialSlide = match.params.step ?? '0'
 
   const [article, setContent] = useState<Menu[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/articles/article-'+match.params.slug+'.json' ).then(res => res.json()).then(setContent)
+    fetch( MyConst.articleDump + match.params.slug+'.json' ).then(res => res.json()).then(setContent)
   }, [match.params.slug])
 
-  var title = article[0] ? article[0].name : ''
+  var title = article[0] ? article[0].name : 'Article name'
  
   function renderHeader(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
@@ -70,7 +57,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const [slides, setPages] = useState<Slide[]>([])
   useEffect(() => {
-    fetch( 'assets/dump/articles/slides/slide-'+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
+    fetch( MyConst.slideDump+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
   }, [match.params.slug])
 
   function renderSlides(list: Slide[]){
@@ -90,7 +77,12 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
           </IonCardHeader>*/}
           <IonCardContent>
             <img src={r.image_url.toString()} alt={r.image_url}/><br/>
-            {t(r.description_md5.toString())}
+              <IonTextarea
+                class='hob_slide_textarea'
+                disabled
+                readonly
+                value={t(r.description_md5.toString())}>
+              </IonTextarea>
           </IonCardContent>
         </IonCard>
       </IonSlide>
@@ -112,7 +104,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
         if(result !== '') result += ' - '        
         result += slides[index].label
       }
-      jQuery(labelClass).fadeOut(500,        
+      jQuery(labelClass).fadeOut(400,        
         function() {          
           jQuery(labelClass).html(result)
           jQuery('.sub_title').fadeIn('slow')

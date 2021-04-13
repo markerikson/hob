@@ -1,17 +1,8 @@
+import * as MyConst from '../src/static/constants'
 import React, { useEffect, useState } from 'react'
-
-import { 
-  IonApp,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs
-} from '@ionic/react'
-
+import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-import {
-  Redirect, Route,
-} from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 
 import './components/i18n'
 import { Plugins } from '@capacitor/core'
@@ -34,7 +25,6 @@ import '@ionic/react/css/display.css'
 import './theme/variables.css'
 import './theme/myVariables.css'
 
-
 // Models
 import { Menu } from './models/Menu'
 
@@ -48,7 +38,7 @@ import LiveMap    from './pages/LiveMap'
 import Navigation from './pages/Navigation'
 import Equipment  from './pages/Equipment'
 
-// TODO
+// TODO: feature harder; now is only app backoffice, not accesible ;)
 import Settings   from './pages/Settings'
 //import About       from './pages/About'
 
@@ -57,11 +47,7 @@ import Settings   from './pages/Settings'
 
 // Show the splash for 4 seconds and then auto hide:
 const { SplashScreen } = Plugins
-
-SplashScreen.show({
-  showDuration: 4000,
-  autoHide: true
-})
+SplashScreen.show(MyConst.splashScreen)
 
 const App: React.FC = () => {
 
@@ -70,17 +56,15 @@ const App: React.FC = () => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
-  // TODO: Revisar, porque no funciona bien jeje
-  let location = window.location.pathname.split('/')[2] ?? ''
-
-  function renderFooterMenu(list: Menu[], location: string) {    
+  function renderFooterMenu(list: Menu[]) {
     return list.map((r: Menu, index) => (
       <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
         <img 
-          src={r.active_icon} 
-          alt={r.name.toString()}
+          id={r.slug}
+          src={r.inactive_icon} 
+          alt={r.name}
           width='60%'
-          height='120px'
+          max-height='120px'
         />
       </IonTabButton>
     ))
@@ -97,13 +81,13 @@ const App: React.FC = () => {
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
-            <Route path='/Routes' component={Routes}/>
+            <Route path='/Routes/:id' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
             <Route path='/LiveMap/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
           </IonRouterOutlet>
           <IonTabBar slot='bottom' class='hob-footer'>
-            {renderFooterMenu(main_menu, location)}
+            {renderFooterMenu(main_menu)}
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
