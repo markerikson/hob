@@ -63,7 +63,8 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   function renderSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
       <IonSlide key={i}>
-        <IonCard>
+        <IonCard 
+          class='hob_card'>
           {/*<IonCardHeader>
             <IonItem key={i}>
               <IonLabel>
@@ -96,22 +97,46 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     if(slides[index] !== undefined){
 
       let result = ''
+      let now = jQuery(labelClass).html()
 
       if( slides[index].title !== title ){
         result += slides[index].title
       }
+
       if(slides[index].label !== ''){
         if(result !== '') result += ' - '        
         result += slides[index].label
       }
-      jQuery(labelClass).fadeOut(400,        
-        function() {          
-          jQuery(labelClass).html(result)
-          jQuery('.sub_title').fadeIn('slow')
-      })
+
+      if(result !== now){
+        jQuery(labelClass).fadeOut(MyConst.fadeVelocity,        
+          function() {          
+            jQuery(labelClass).html(result)
+            jQuery('.sub_title').fadeIn(MyConst.fadeVelocity)
+        })
+      }
 
     }else{
       jQuery(labelClass).fadeOut('fast')
+    }
+  }
+
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch(MyConst.menuDump + 'train-yourself.json').then(res => res.json()).then(setMenu)
+  }, [])
+  
+  renderMenuTitle(full_menu)
+
+  function renderMenuTitle(menus: Menu[]) {
+    if(menus[0]!== undefined){
+      let location = 'train-yourself'
+      console.log(location, menus[0].slug)
+      if( menus[0].slug === location){
+        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+      }else{
+        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+      }      
     }
   }
 

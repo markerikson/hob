@@ -4,23 +4,29 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonLabel
 import { RouteComponentProps } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery'
+
 // About leafLet
-import L from 'leaflet'
-import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react-leaflet'
+//import L from 'leaflet'
+import { MapContainer, TileLayer, 
+  //Popup, Marker, Polygon, Polyline
+} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 // Models for the route
+import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
-import { RouteData } from '../models/RouteData'
+//import { RouteData } from '../models/RouteData'
 
 // Custom Map Markers
-import markerEndIconSvg from '../static/icons/end-marker.svg'
-import markerStartIconSvg from '../static/icons/start-marker.svg'
-import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+//import markerEndIconSvg from '../static/icons/end-marker.svg'
+//import markerStartIconSvg from '../static/icons/start-marker.svg'
+//import markerCameraIconSvg from '../static/icons/camera-marker.svg'
 //------------------------------------------------------------------
-const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+//const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+//const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+//const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
   owner_id: string;
@@ -32,15 +38,12 @@ const Routes: React.FC<MapProps> = ({match}) => {
 
   // Default route data
   var name = MyConst.labels.routeName
-  var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
-  var lat = MyConst.main_center[0]
-  var lng = MyConst.main_center[1]
   var zoom = MyConst.main_zoom
-  var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
+  //var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
 
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
-  var end   = [MyConst.main_center[0], MyConst.main_center[1]]
+  //var end   = [MyConst.main_center[0], MyConst.main_center[1]] ?? []
 
   const [routes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -49,6 +52,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
       .then(setRoutes)
   }, [match.params.owner_id])
 
+  /*
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
   function twistCoordinates(coordinates: any) {
     let result = []
@@ -88,7 +92,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
   function setPolyLine(r: any){
     var polyLine = twistCoordinates(Object.values(r.geometry.coordinates))
     start = r.geometry.coordinates[0]
-    end = r.geometry.coordinates[r.geometry.coordinates.length - 1]
+    //end = r.geometry.coordinates[r.geometry.coordinates.length - 1]
     return <Polyline
       key={Math.random()}
       positions={polyLine}
@@ -105,14 +109,33 @@ const Routes: React.FC<MapProps> = ({match}) => {
       >{ popContent ? <Popup>{popContent}</Popup> : '' }        
       </Marker>      
     )
-  }
+  }*/
 
   function renderRoutesList(routes: MyRoute[]) {
     return routes.map((r: MyRoute, index) => (
       <IonItem key={index}>
-        <IonLabel>{t(r.name)}</IonLabel>
+        <IonLabel>0{index+1} - {t(r.name)}</IonLabel>
       </IonItem>
     ))
+  }
+
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
+  }, [])
+  
+  renderMenuTitle(full_menu)
+
+  function renderMenuTitle(menus: Menu[]) {
+    if(menus[0]!== undefined){
+      let location = 'explore-and-equip'
+      console.log(location, menus[0].slug)
+      if( menus[0].slug === location){
+        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+      }else{
+        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+      }      
+    }
   }
 
   return (
@@ -137,12 +160,12 @@ const Routes: React.FC<MapProps> = ({match}) => {
             url={MyConst.tileUrl}
           />
 
-          {/* Loading map features */}
+          {/* Loading map features
           {data.features.map((r: RouteData) => (
             r.type === 'Feature'
               ? setMapContent(r)
               : t(MyConst.messages.loading)
-          ))}
+          ))} */}
 
           {/* Loading route start 
           <Marker

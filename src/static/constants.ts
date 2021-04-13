@@ -49,6 +49,8 @@ export const splashScreen = {
   autoHide: true
 }
 
+export const fadeVelocity = 300
+
 // Map style and basics
 export const style = {
   'map' : { 'width': '100%', 'height': '80vh' },

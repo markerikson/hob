@@ -13,11 +13,9 @@ import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react
 import 'leaflet/dist/leaflet.css'
 
 // Models for the route
+import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
 import { RouteData } from '../models/RouteData'
-
-// Models...
-import { Menu } from '../models/Menu'
 
 // Custom Map Markers
 import markerEndIconSvg from '../static/icons/end-marker.svg'
@@ -39,9 +37,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
   // Default route data
   var name = MyConst.labels.routeName
-  var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
-  var lat = MyConst.main_center[0]
-  var lng = MyConst.main_center[1]
+  //var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
   var zoom = MyConst.main_zoom
   var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
 
@@ -57,14 +53,10 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   }, [match.params.id])
  
   if(typeof route[0] !== 'undefined'){
-
     name = route[0].name
-    description = JSON.parse(JSON.stringify(route[0].description))
-    lat = route[0].center_lat
-    lng = route[0].center_long
+    //description = JSON.parse(JSON.stringify(route[0].description))
     zoom = route[0].zoom
-    data = route[0].data
-
+    data = route[0].data    
   }else{
     if(MyConst.JustTesting){
       console.log(MyConst.messages.noData)
@@ -79,11 +71,6 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     }
     return result
   }
-
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
-  }, [])
 
   function setMapContent(r: any) {
     switch(r.geometry.type) {
@@ -136,19 +123,20 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   
   function renderMenuTitle(menus: Menu[]) {
     if(menus[0]!== undefined){
-
-      console.log(window.location.pathname.split('/'))
       let location = window.location.pathname.split('/') ?? null
-
       if( menus[0].slug === location[2]){
         jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
       }else{
         jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-      }
-      
+      }      
     }
   }
 
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
+  }, [])
+  
   renderMenuTitle(full_menu)
 
   return (

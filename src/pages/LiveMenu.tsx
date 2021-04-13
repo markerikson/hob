@@ -42,8 +42,8 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     ))
   }
 
-  function renderMenuTitle(menus: Menu[]) { 
-       
+  function renderMenuTitle(menus: Menu[]) {
+           
     if(menus[0]!== undefined){
       console.log(window.location.pathname.split('/'))
       let location = window.location.pathname.split('/') ?? null

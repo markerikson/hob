@@ -135,6 +135,16 @@
   color: #000000;
 }
 
+.native-textarea[disabled].sc-ion-textarea-md {
+  opacity: 0.9;
+}
+
+.hob_card {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .hidden {
   display: none;
 }
