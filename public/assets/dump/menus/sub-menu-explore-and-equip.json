@@ -2,6 +2,7 @@
     {
         "name": "ROUTES",
         "slug": "routes",
+        "section": "explore-and-equip",
         "parent": "LiveMenu\/explore-and-equip",
         "resource": "Routes",
         "active_icon": "\/assets\/images\/dump\/ROUTES_737fa4a31d.svg",
@@ -11,6 +12,7 @@
     {
         "name": "EQUIPMENT",
         "slug": "equipment",
+        "section": "explore-and-equip",
         "parent": "LiveMenu\/explore-and-equip",
         "resource": "Equipment",
         "active_icon": "\/assets\/images\/dump\/EQUIPMENT_8259221dcb.svg",

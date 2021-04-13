@@ -1,6 +1,7 @@
 [
     {
         "slug": "call-base",
+        "section": "assistance",
         "parent": "\/LiveMenu\/Assistance",
         "name": "CALL BASE",
         "resource": "\/LiveMenu\/call-base",

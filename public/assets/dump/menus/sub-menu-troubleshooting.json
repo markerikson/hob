@@ -2,6 +2,7 @@
     {
         "name": "Motor Stopped under way",
         "slug": "motor-stopped-under-way",
+        "section": "troubleshooting",
         "parent": "LiveMenu\/troubleshooting",
         "resource": "Article\/troubleshooting\/motor-stopped-under-way\/0",
         "active_icon": "",
@@ -11,6 +12,7 @@
     {
         "name": "Man over board",
         "slug": "man-over-board",
+        "section": "troubleshooting",
         "parent": "LiveMenu\/troubleshooting",
         "resource": "Article\/troubleshooting\/man-over-board\/5",
         "active_icon": "",
@@ -20,6 +22,7 @@
     {
         "name": "Anchor stuck",
         "slug": "anchor-stuck",
+        "section": "troubleshooting",
         "parent": "LiveMenu\/troubleshooting",
         "resource": "Article\/troubleshooting\/anchor-stuck\/7",
         "active_icon": "",

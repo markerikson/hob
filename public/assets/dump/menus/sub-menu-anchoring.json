@@ -2,6 +2,7 @@
     {
         "name": "What is anchoring?",
         "slug": "what-is-anchoring",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/what-is-anchoring\/0",
         "active_icon": "",
@@ -11,6 +12,7 @@
     {
         "name": "Where to anchor?",
         "slug": "where-to-anchor",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/where-to-anchor\/2",
         "active_icon": "",
@@ -20,6 +22,7 @@
     {
         "name": "How to anchor",
         "slug": "how-to-anchor",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/how-to-anchor\/9",
         "active_icon": "",
@@ -29,6 +32,7 @@
     {
         "name": "At anchor",
         "slug": "at-anchor",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/at-anchor\/15",
         "active_icon": "",
@@ -38,6 +42,7 @@
     {
         "name": "Picking up anchor",
         "slug": "picking-up-anchor",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/picking-up-anchor\/18",
         "active_icon": "",
@@ -47,6 +52,7 @@
     {
         "name": "Please don't",
         "slug": "please-don-t",
+        "section": "anchoring",
         "parent": "LiveMenu\/anchoring",
         "resource": "Article\/anchoring\/please-don-t\/23",
         "active_icon": "",

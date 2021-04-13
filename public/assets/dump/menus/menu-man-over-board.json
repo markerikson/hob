@@ -1,9 +1,10 @@
 [
     {
         "slug": "man-over-board",
+        "section": "troubleshooting",
         "parent": "\/LiveMenu\/Troubleshooting",
         "name": "Man over board",
-        "resource": "\/Article\/man-over-board\/5",
+        "resource": "\/LiveMenu\/man-over-board\/5",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

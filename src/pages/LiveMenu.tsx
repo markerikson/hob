@@ -15,6 +15,7 @@ import { Submenu } from '../models/Submenu'
 
 interface FooterMenuProps extends RouteComponentProps<{
   slug: string
+  parent: string
 }> {}
 
 const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
@@ -45,13 +46,22 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   function renderMenuTitle(menu: Menu[]) {
 
-    let location = window.location.pathname.split('/')[2] ?? 'no idea'
+    let location2 = window.location.pathname.split('/')[2] ?? null
+    let location3 = window.location.pathname.split('/')[3] ?? null
     if(menu[0]!== undefined){
-      if(menu[0].slug === location){
+      if( menu[0].section === location2 ||  menu[0].slug === location2){
+        console.log('2:'+menu[0].slug+' === '+location2+' || '+location3)
+        jQuery('#'+menu[0].slug).attr('src',menu[0].active_icon)
+      }else{
+        jQuery('.'+menu[0].slug).attr('src',menu[0].inactive_icon)
+      }
+      if( menu[0].section === location3){
+        console.log('1:'+menu[0].slug+' === '+location3)
         jQuery('#'+menu[0].slug).attr('src',menu[0].active_icon)
       }else{
         jQuery('#'+menu[0].slug).attr('src',menu[0].inactive_icon)
       }
+      
     }
 
     return menu.map((r: Menu, i) => (

@@ -1,6 +1,7 @@
 [
     {
         "slug": "explore-and-equip",
+        "section": "explore-and-equip",
         "parent": "\/HellMenu\/Home",
         "name": "EXPLORE & EQUIP",
         "resource": "\/LiveMenu\/explore-and-equip",

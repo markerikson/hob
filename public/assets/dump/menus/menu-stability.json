@@ -1,9 +1,10 @@
 [
     {
         "slug": "stability",
+        "section": "cruising",
         "parent": "\/LiveMenu\/Cruising",
         "name": "Stability",
-        "resource": "\/Article\/stability\/0",
+        "resource": "\/LiveMenu\/stability\/0",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

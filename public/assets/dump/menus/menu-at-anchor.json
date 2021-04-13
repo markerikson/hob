@@ -1,9 +1,10 @@
 [
     {
         "slug": "at-anchor",
+        "section": "anchoring",
         "parent": "\/LiveMenu\/Anchoring",
         "name": "At anchor",
-        "resource": "\/Article\/at-anchor\/15",
+        "resource": "\/LiveMenu\/at-anchor\/15",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

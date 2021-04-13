@@ -1,9 +1,10 @@
 [
     {
         "slug": "solid-hull",
+        "section": "train-yourself",
         "parent": "\/LiveMenu\/Train-yourself",
         "name": "SOLID HULL",
-        "resource": "\/Article\/solid-hull\/0",
+        "resource": "\/LiveMenu\/solid-hull\/0",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

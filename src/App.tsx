@@ -57,19 +57,24 @@ const App: React.FC = () => {
   }, [])
 
   function renderFooterMenu(list: Menu[]) {
-    return list.map((r: Menu, index) => (
-      <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
-        <img 
-          id={r.slug}
-          src={r.inactive_icon} 
-          alt={r.name}
-          width='60%'
-          max-height='120px'
-        />
-      </IonTabButton>
-    ))
+    return <IonTabBar slot='bottom' class='hob-footer'>
+      {list.map((r: Menu, index) => (
+        <IonTabButton class='hob-footer' key={r.resource} tab={r.slug} href={r.resource} disabled={false}>
+          <img 
+            id={r.slug}
+            className='footer_button'
+            src={r.inactive_icon} 
+            alt={r.name}
+            width='60%'
+            max-height='120px'
+          />
+        </IonTabButton>
+      ))}
+    </IonTabBar>
   }
 
+  let location2 = window.location.pathname.split('/')[1] ?? null
+console.log(location2)
   return(
     <IonApp>
       <IonReactRouter>
@@ -78,17 +83,18 @@ const App: React.FC = () => {
             <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>            
             <Route path='/Home' component={Home}/>
             <Route path='/Access/:slug' component={Access}/>
-            <Route path='/LiveMenu/:slug' component={LiveMenu}/>
+            <Route path='/LiveMenu/:parent/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
-            <Route path='/Routes/:id' component={Routes}/>
+            <Route path='/Routes/:owner_id' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
             <Route path='/LiveMap/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
-          </IonRouterOutlet>
-          <IonTabBar slot='bottom' class='hob-footer'>
-            {renderFooterMenu(main_menu)}
-          </IonTabBar>
+          </IonRouterOutlet>          
+          {location2 !=='Home' && location2 !=='Settings' 
+            ? renderFooterMenu(main_menu)
+            : <IonTabBar slot='bottom' class='hob-footer hidden'></IonTabBar>
+          }
         </IonTabs>
       </IonReactRouter>
     </IonApp>

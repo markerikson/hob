@@ -1,9 +1,10 @@
 [
     {
         "slug": "please-don-t",
+        "section": "anchoring",
         "parent": "\/LiveMenu\/Anchoring",
         "name": "Please don't",
-        "resource": "\/Article\/please-don-t\/23",
+        "resource": "\/LiveMenu\/please-don-t\/23",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

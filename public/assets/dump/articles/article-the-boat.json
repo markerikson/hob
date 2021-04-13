@@ -1,6 +1,7 @@
 [
     {
         "slug": "the-boat",
+        "section": "train-yourself",
         "parent": "\/LiveMenu\/Train-yourself",
         "name": "THE BOAT",
         "resource": "\/LiveMenu\/the-boat",

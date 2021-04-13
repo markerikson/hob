@@ -1,6 +1,7 @@
 [
     {
         "slug": "assistance",
+        "section": "assistance",
         "parent": "\/HellMenu\/Home",
         "name": "ASSISTANCE !",
         "resource": "\/LiveMenu\/assistance",

@@ -1,6 +1,7 @@
 [
     {
         "slug": "train-yourself",
+        "section": "train-yourself",
         "parent": "\/HellMenu\/Home",
         "name": "TRAINING YOURSELF",
         "resource": "\/LiveMenu\/train-yourself",

@@ -131,13 +131,15 @@ class DumperClass {
             // MENUS - Printing the digested static content for the APK ;)
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
+            $newMenu[$key]['section'] = $menu->slug;
 
             if(!empty($menu->parent_menu) ){
+                $newMenu[$key]['section'] = $menu->parent_menu->slug;
                 $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
             }
 
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
-            $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
+            $newMenu[$key]['resource'] = '/LiveMenu/'.$menu->slug;
             $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
             $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));
             $newMenu[$key]['background_color'] = $menu->background_color;
@@ -162,6 +164,7 @@ class DumperClass {
                 $newMenu[$key]['access'] = '/LiveMenu/'.$menu->slug; // TODO :Access
                 $newMenu[$key]['has_main'] = true;
                 $mainMenu[] = $newMenu[$key] ?? [];
+                $newMenu[$key]['section'] = $menu->slug;
             }
 
             if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
@@ -221,7 +224,7 @@ class DumperClass {
                 
                 $newSubMenu[$key][$key2]['name'] = $this->getLabelTranslation($value->label);
                 $newSubMenu[$key][$key2]['slug'] = $value->slug;
-
+                $newSubMenu[$key][$key2]['section']  = $menu->slug;
                 
                 if($value->ionic_resource == 'Article'){
 
@@ -235,7 +238,7 @@ class DumperClass {
                 }elseif($value->ionic_resource == 'LiveMenu'){
                     // TODO
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
-                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$value->slug;
+                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$menu->slug.'/'.$value->slug;
                 }else{
                     // TODO
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;

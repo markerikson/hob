@@ -23,7 +23,7 @@ const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], 
 const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
-  id: string;
+  owner_id: string;
 }> {}
 
 const Routes: React.FC<MapProps> = ({match}) => {
@@ -44,10 +44,10 @@ const Routes: React.FC<MapProps> = ({match}) => {
 
   const [routes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
-    fetch(MyConst.RestAPI + 'my-routes?created_by='+match.params.id)
+    fetch(MyConst.RestAPI + 'my-routes?created_by='+match.params.owner_id)
       .then(res => res.json())
       .then(setRoutes)
-  }, [match.params.id])
+  }, [match.params.owner_id])
 
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
   function twistCoordinates(coordinates: any) {

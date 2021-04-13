@@ -1,9 +1,10 @@
 [
     {
         "slug": "give-way",
+        "section": "cruising",
         "parent": "\/LiveMenu\/Cruising",
         "name": "GIVE WAY",
-        "resource": "\/Article\/give-way\/6",
+        "resource": "\/LiveMenu\/give-way\/6",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"
