@@ -148,3 +148,7 @@
 .hidden {
   display: none;
 }
+
+.hob_home_button {
+  width: 100%;
+}
