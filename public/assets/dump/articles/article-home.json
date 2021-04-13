@@ -1,7 +1,6 @@
 [
     {
         "slug": "home",
-        "section": "home",
         "name": "HOME",
         "resource": "\/LiveMenu\/home",
         "active_icon": "",

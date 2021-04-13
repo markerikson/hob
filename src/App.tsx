@@ -51,6 +51,8 @@ SplashScreen.show(MyConst.splashScreen)
 
 const App: React.FC = () => {
 
+  let location = window.location.pathname.split('/') ?? null
+
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
@@ -71,27 +73,26 @@ const App: React.FC = () => {
         </IonTabButton>
       ))}
     </IonTabBar>
-  }
+  }  
 
-  let location2 = window.location.pathname.split('/')[1] ?? null
-console.log(location2)
   return(
     <IonApp>
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>            
             <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>            
+            <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
             <Route path='/Home' component={Home}/>
             <Route path='/Access/:slug' component={Access}/>
-            <Route path='/LiveMenu/:parent/:slug' component={LiveMenu}/>
+            <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
             <Route path='/Routes/:owner_id' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
-            <Route path='/LiveMap/:id' component={LiveMap}/>
+            <Route path='/LiveMap/:slug/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
           </IonRouterOutlet>          
-          {location2 !=='Home' && location2 !=='Settings' 
+          {location[1] !=='Home' && location[1] !=='Settings' 
             ? renderFooterMenu(main_menu)
             : <IonTabBar slot='bottom' class='hob-footer hidden'></IonTabBar>
           }

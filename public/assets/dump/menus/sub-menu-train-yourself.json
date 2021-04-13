@@ -2,9 +2,8 @@
     {
         "name": "THE BOAT",
         "slug": "the-boat",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "LiveMenu\/train-yourself\/the-boat",
+        "resource": "LiveMenu\/the-boat",
         "active_icon": "\/assets\/images\/dump\/THE_BOAT_ea3cf3091e.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -12,7 +11,6 @@
     {
         "name": "BASE DEPARTURE",
         "slug": "base-departure",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
         "resource": "Article\/base-departure\/base-departure\/0",
         "active_icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
@@ -22,9 +20,8 @@
     {
         "name": "CRUISING",
         "slug": "cruising",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "LiveMenu\/train-yourself\/cruising",
+        "resource": "LiveMenu\/cruising",
         "active_icon": "\/assets\/images\/dump\/CRUISING_aefe4ee37a.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -32,9 +29,8 @@
     {
         "name": "ANCHORING",
         "slug": "anchoring",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "LiveMenu\/train-yourself\/anchoring\/0",
+        "resource": "LiveMenu\/anchoring\/0",
         "active_icon": "\/assets\/images\/dump\/ANCHORING_ec8d42d109.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
@@ -42,7 +38,6 @@
     {
         "name": "BASE ARRIVAL",
         "slug": "base-arrival",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
         "resource": "Article\/base-arrival\/base-arrival\/0",
         "active_icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
@@ -52,9 +47,8 @@
     {
         "name": "TROUBLESHOOTING",
         "slug": "troubleshooting",
-        "section": "train-yourself",
         "parent": "LiveMenu\/train-yourself",
-        "resource": "LiveMenu\/train-yourself\/troubleshooting",
+        "resource": "LiveMenu\/troubleshooting",
         "active_icon": "\/assets\/images\/dump\/TROUBLESHOOTING_c32c95d439.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"

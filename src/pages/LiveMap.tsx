@@ -4,6 +4,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import { RouteComponentProps } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery'
+
 // About leafLet
 import L from 'leaflet'
 import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react-leaflet'
@@ -12,6 +15,9 @@ import 'leaflet/dist/leaflet.css'
 // Models for the route
 import { MyRoute } from '../models/MyRoute'
 import { RouteData } from '../models/RouteData'
+
+// Models...
+import { Menu } from '../models/Menu'
 
 // Custom Map Markers
 import markerEndIconSvg from '../static/icons/end-marker.svg'
@@ -23,7 +29,8 @@ const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], 
 const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
-  id: string;
+  slug: string
+  id: string
 }> {}
 
 const LiveMap: React.FC<MapProps> = ({match}) => {
@@ -73,6 +80,11 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     return result
   }
 
+  const [full_menu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
+  }, [])
+
   function setMapContent(r: any) {
     switch(r.geometry.type) {
       case 'Point':
@@ -121,6 +133,23 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
       </Marker>      
     )
   }
+  
+  function renderMenuTitle(menus: Menu[]) {
+    if(menus[0]!== undefined){
+
+      console.log(window.location.pathname.split('/'))
+      let location = window.location.pathname.split('/') ?? null
+
+      if( menus[0].slug === location[2]){
+        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+      }else{
+        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+      }
+      
+    }
+  }
+
+  renderMenuTitle(full_menu)
 
   return (
     <IonPage>

@@ -1,10 +1,9 @@
 [
     {
         "slug": "look-out",
-        "section": "cruising",
         "parent": "\/LiveMenu\/Cruising",
         "name": "Look out",
-        "resource": "\/LiveMenu\/look-out\/4",
+        "resource": "\/Article\/look-out\/4",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

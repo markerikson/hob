@@ -131,15 +131,13 @@ class DumperClass {
             // MENUS - Printing the digested static content for the APK ;)
             //////////////////////////////////////////////////////////////////////////////////////////
             $newMenu[$key]['slug'] = $menu->slug;
-            $newMenu[$key]['section'] = $menu->slug;
 
             if(!empty($menu->parent_menu) ){
-                $newMenu[$key]['section'] = $menu->parent_menu->slug;
                 $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
             }
 
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
-            $newMenu[$key]['resource'] = '/LiveMenu/'.$menu->slug;
+            $newMenu[$key]['resource'] = $this->getSlug($menu->ionic_resource, $menu);
             $newMenu[$key]['active_icon'] = $this->getImageUrl2(($menu->icon->url ?? ''));
             $newMenu[$key]['inactive_icon'] = $this->getImageUrl2(($menu->icon_inactive->url ?? ''));
             $newMenu[$key]['background_color'] = $menu->background_color;
@@ -164,7 +162,6 @@ class DumperClass {
                 $newMenu[$key]['access'] = '/LiveMenu/'.$menu->slug; // TODO :Access
                 $newMenu[$key]['has_main'] = true;
                 $mainMenu[] = $newMenu[$key] ?? [];
-                $newMenu[$key]['section'] = $menu->slug;
             }
 
             if(isset($newMenu[$key])) file_put_contents( str_replace('{id}','menu-'.$menu->slug, $this->map['submenus']['filename']), json_encode([$newMenu[$key]], JSON_PRETTY_PRINT));
@@ -224,7 +221,7 @@ class DumperClass {
                 
                 $newSubMenu[$key][$key2]['name'] = $this->getLabelTranslation($value->label);
                 $newSubMenu[$key][$key2]['slug'] = $value->slug;
-                $newSubMenu[$key][$key2]['section']  = $menu->slug;
+
                 
                 if($value->ionic_resource == 'Article'){
 
@@ -238,7 +235,7 @@ class DumperClass {
                 }elseif($value->ionic_resource == 'LiveMenu'){
                     // TODO
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
-                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$menu->slug.'/'.$value->slug;
+                    $newSubMenu[$key][$key2]['resource'] = $value->ionic_resource.'/'.$value->slug;
                 }else{
                     // TODO
                     $newSubMenu[$key][$key2]['parent'] = 'LiveMenu/'.$menu->slug;
@@ -252,8 +249,7 @@ class DumperClass {
                 }
 
                 if(isset($value->icon)) $this->getImages($value->icon);
-                if(isset($value->icon_inactive)) $this->getImages($value->icon_inactive);
-                
+                if(isset($value->icon)) $this->getImages($value->icon_inactive);
                 $newSubMenu[$key][$key2]['active_icon'] = $this->getImageUrl(($value->icon->url ?? ''));
                 $newSubMenu[$key][$key2]['inactive_icon'] = $this->getImageUrl(($value->icon_inactive->url ?? ''));
                 $newSubMenu[$key][$key2]['background_color'] = (!empty($value->parent_menu->backgrond_color)) ? $value->parent_menu->backgrond_color : $color;            
@@ -385,7 +381,7 @@ class DumperClass {
                 if($extra_slug) $return = $return.'/'.$extra_slug;
             }break;
             case 'LiveMap':{
-                $return = '/'.$object->ionic_resource.'/1';
+                $return = '/'.$object->ionic_resource.'/navigate/1';
             }break;
             default:{
                 $return = '/'.$object->ionic_resource;

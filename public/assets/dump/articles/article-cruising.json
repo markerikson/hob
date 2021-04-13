@@ -1,7 +1,6 @@
 [
     {
         "slug": "cruising",
-        "section": "train-yourself",
         "parent": "\/LiveMenu\/Train-yourself",
         "name": "CRUISING",
         "resource": "\/LiveMenu\/cruising",

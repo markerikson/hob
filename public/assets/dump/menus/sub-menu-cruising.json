@@ -2,7 +2,6 @@
     {
         "name": "Stability",
         "slug": "stability",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/stability\/0",
         "active_icon": "",
@@ -12,7 +11,6 @@
     {
         "name": "Steering",
         "slug": "steering",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/steering\/1",
         "active_icon": "",
@@ -22,7 +20,6 @@
     {
         "name": "Speed",
         "slug": "speed",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/speed\/2",
         "active_icon": "",
@@ -32,7 +29,6 @@
     {
         "name": "Safety margin",
         "slug": "safety-margin",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/safety-margin\/3",
         "active_icon": "",
@@ -42,7 +38,6 @@
     {
         "name": "Look out",
         "slug": "look-out",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/look-out\/4",
         "active_icon": "",
@@ -52,7 +47,6 @@
     {
         "name": "GIVE WAY",
         "slug": "give-way",
-        "section": "cruising",
         "parent": "LiveMenu\/cruising",
         "resource": "Article\/cruising\/give-way\/6",
         "active_icon": "",

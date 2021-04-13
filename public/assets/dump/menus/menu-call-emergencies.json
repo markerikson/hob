@@ -1,7 +1,6 @@
 [
     {
         "slug": "call-emergencies",
-        "section": "assistance",
         "parent": "\/LiveMenu\/Assistance",
         "name": "CALL EMERGENCIES",
         "resource": "\/LiveMenu\/call-emergencies",

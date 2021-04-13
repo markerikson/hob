@@ -1,10 +1,9 @@
 [
     {
         "slug": "where-to-anchor",
-        "section": "anchoring",
         "parent": "\/LiveMenu\/Anchoring",
         "name": "Where to anchor?",
-        "resource": "\/LiveMenu\/where-to-anchor\/2",
+        "resource": "\/Article\/where-to-anchor\/2",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

@@ -1,10 +1,9 @@
 [
     {
         "slug": "inflatable",
-        "section": "train-yourself",
         "parent": "\/LiveMenu\/Train-yourself",
         "name": "INFLATABLES",
-        "resource": "\/LiveMenu\/inflatable\/2",
+        "resource": "\/Article\/inflatable\/2",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

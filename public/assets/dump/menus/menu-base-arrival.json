@@ -1,10 +1,9 @@
 [
     {
         "slug": "base-arrival",
-        "section": "train-yourself",
         "parent": "\/LiveMenu\/Train-yourself",
         "name": "BASE ARRIVAL",
-        "resource": "\/LiveMenu\/base-arrival\/0",
+        "resource": "\/Article\/base-arrival\/0",
         "active_icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"

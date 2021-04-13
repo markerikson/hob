@@ -1,8 +1,7 @@
 [
     {
         "slug": "explore-and-equip",
-        "section": "explore-and-equip",
-        "parent": "\/HellMenu\/Home",
+        "parent": "\/LiveMenu\/Home",
         "name": "EXPLORE & EQUIP",
         "resource": "\/LiveMenu\/explore-and-equip",
         "active_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_ACTIVE_724f1c9969.svg",

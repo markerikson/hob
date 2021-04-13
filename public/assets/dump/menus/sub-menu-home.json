@@ -2,9 +2,8 @@
     {
         "name": "TRAINING YOURSELF",
         "slug": "train-yourself",
-        "section": "home",
         "parent": "LiveMenu\/home",
-        "resource": "LiveMenu\/home\/train-yourself",
+        "resource": "LiveMenu\/train-yourself",
         "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",
         "inactive_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_INACTIVE_6bf120c662.svg",
         "background_color": "soft-blue"
@@ -12,9 +11,8 @@
     {
         "name": "EXPLORE & EQUIP",
         "slug": "explore-and-equip",
-        "section": "home",
         "parent": "LiveMenu\/home",
-        "resource": "LiveMenu\/home\/explore-and-equip",
+        "resource": "LiveMenu\/explore-and-equip",
         "active_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_ACTIVE_724f1c9969.svg",
         "inactive_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_INACTIVE_455b729e30.svg",
         "background_color": "soft-blue"
@@ -22,7 +20,6 @@
     {
         "name": "NAVIGATE",
         "slug": "navigate",
-        "section": "home",
         "parent": "LiveMenu\/home",
         "resource": "LiveMap",
         "active_icon": "\/assets\/images\/dump\/NAVIGATE_ACTIVE_d2c977d14c.svg",
@@ -32,9 +29,8 @@
     {
         "name": "ASSISTANCE !",
         "slug": "assistance",
-        "section": "home",
         "parent": "LiveMenu\/home",
-        "resource": "LiveMenu\/home\/assistance",
+        "resource": "LiveMenu\/assistance",
         "active_icon": "\/assets\/images\/dump\/ASSISTANCE_ACTIVE_a70732cf07.svg",
         "inactive_icon": "\/assets\/images\/dump\/ASSISTANCE_INACTIVE_caeeb47aee.svg",
         "background_color": "soft-blue"

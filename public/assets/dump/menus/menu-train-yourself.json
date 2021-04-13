@@ -1,8 +1,7 @@
 [
     {
         "slug": "train-yourself",
-        "section": "train-yourself",
-        "parent": "\/HellMenu\/Home",
+        "parent": "\/LiveMenu\/Home",
         "name": "TRAINING YOURSELF",
         "resource": "\/LiveMenu\/train-yourself",
         "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",

@@ -1,8 +1,7 @@
 [
     {
         "slug": "assistance",
-        "section": "assistance",
-        "parent": "\/HellMenu\/Home",
+        "parent": "\/LiveMenu\/Home",
         "name": "ASSISTANCE !",
         "resource": "\/LiveMenu\/assistance",
         "active_icon": "\/assets\/images\/dump\/ASSISTANCE_ACTIVE_a70732cf07.svg",
