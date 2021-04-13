@@ -12,21 +12,19 @@ import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline,
 import 'leaflet/dist/leaflet.css'
 //import 'leaflet/dist/leaflet.js'
 
-import markerCameraIconPng from 'leaflet/dist/images/marker-icon.png'
-import markerStartIconPng from 'leaflet/dist/images/marker-icon.png'
-import markerEndIconPng from 'leaflet/dist/images/marker-icon.png'
-import markerIconPng from 'leaflet/dist/images/marker-icon.png'
+import markerEndIconSvg from '../static/icons/end-marker.svg'
+import markerStartIconSvg from '../static/icons/start-marker.svg'
+import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+//import markerDefaultIconSvg from '../static/icons/standar-marker.svg'
 
 // Models for the route
 import { MyRoute } from '../models/MyRoute'
 import { RouteData } from '../models/RouteData'
 
-const defaultIcon = new L.Icon({
-  iconUrl: markerIconPng, // your path may vary ...
-  iconSize: [8, 11],
-  iconAnchor: [2, 2],
-  popupAnchor: [0, -2]
-})
+const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+//const defaultIcon = new L.Icon({ iconUrl: markerDefaultIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
   id: string;
@@ -65,7 +63,9 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     data = route[0].data
 
   }else{
-    if(MyConst.JustTesting) console.log(MyConst.messages.noData)
+    if(MyConst.JustTesting){
+      console.log(MyConst.messages.noData)
+    } 
   }
 
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
@@ -80,8 +80,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   function setMapContent(r: any) {
     switch(r.geometry.type) {
       case 'Point':
-        console.log(r.geometry.coordinates)
-        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], defaultIcon, null)
+        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraIcon, null)
 
       case 'Polygon':
         return setPolygon(r)
@@ -92,7 +91,6 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
       default:
         if(MyConst.JustTesting){
           console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
-          return false
         }
     }
   }
@@ -161,7 +159,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
           <Marker
             key='startMarker'
             position={[start[1], start[0]]}
-            icon={defaultIcon}
+            icon={startIcon}
           ><Popup>{MyConst.messages.routeStart}</Popup>
           </Marker>
 
@@ -169,7 +167,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
           <Marker
             key='endMarker'
             position={[end[1], end[0]]}
-            icon={defaultIcon}
+            icon={endIcon}
           ><Popup>{MyConst.messages.routeEnd}</Popup>
           </Marker>
 

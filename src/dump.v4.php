@@ -50,6 +50,11 @@ class DumperClass {
             'path'=> '../public/assets/dump/routes/',
             'filename' => '../public/assets/dump/routes/{id}.json'
         ],        
+        'app_icons' =>      [
+            'url' => 'app-icons',
+            'path'=> '../public/assets/images/dump/icons/',
+            'filename' => '../src/static/icons/{slug}.json'
+        ],  
         /*
         'menu' =>           [
             'url' => 'app-menus',
@@ -88,6 +93,18 @@ class DumperClass {
         foreach( $this->getContent('all_routes') as $key => $content ){
             $this->allRoutes[$content->id] = $content;
             file_put_contents( str_replace('{id}', $content->id, $this->map['all_routes']['filename']), json_encode($content, JSON_PRETTY_PRINT));
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // APP-ICONS - Getting All routes to do a 100% offline version available...
+        //////////////////////////////////////////////////////////////////////////////////////////
+        foreach( $this->getContent('app_icons') as $key => $content ){
+            $filename = explode('/', $content->image->url);
+            $ext = explode('.', $filename[2]);
+            $filename = $content->slug.'.'.$ext[1];
+            $url = $this->origin . $content->image->url;
+            file_put_contents('./static/icons/' . 
+            $filename, file_get_contents($url));
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////

@@ -4,7 +4,7 @@
         "parent": "\/LiveMenu\/Explore-and-equip",
         "name": "EQUIPMENT",
         "resource": "\/Equipment",
-        "active_icon": "",
+        "active_icon": "\/assets\/images\/dump\/EQUIPMENT_8259221dcb.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

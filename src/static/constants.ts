@@ -28,9 +28,9 @@ export const labels = {
 export const icons = {
   'back' : '/assets/images/arrow-left.svg',
   'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
-  'start' : 'leaflet/dist/images/marker-icon.png',
-  'end' : 'leaflet/dist/images/marker-icon.png',
-  'camera' : 'leaflet/dist/images/marker-icon.png',
+  'start' : 'leaflet/dist/images/marker-icon.png',//
+  'end' : 'leaflet/dist/images/marker-icon.png',//
+  'camera' : 'leaflet/dist/images/marker-icon.png',//
 }
 
 // Static Dumped

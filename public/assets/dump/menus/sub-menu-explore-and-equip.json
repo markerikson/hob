@@ -4,7 +4,7 @@
         "slug": "routes",
         "parent": "LiveMenu\/explore-and-equip",
         "resource": "Routes",
-        "active_icon": "",
+        "active_icon": "\/assets\/images\/dump\/ROUTES_737fa4a31d.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     },
@@ -13,7 +13,7 @@
         "slug": "equipment",
         "parent": "LiveMenu\/explore-and-equip",
         "resource": "Equipment",
-        "active_icon": "",
+        "active_icon": "\/assets\/images\/dump\/EQUIPMENT_8259221dcb.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

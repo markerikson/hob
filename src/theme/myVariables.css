@@ -111,3 +111,9 @@
   max-height: none;
   /*height: auto;*/
 }
+
+.ion-card-header + .card-content-md {
+  padding-top: 0;
+  text-align: left;
+  margin-right: 17px;
+}
