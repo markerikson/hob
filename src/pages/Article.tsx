@@ -90,6 +90,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     ))    
   }
   
+  // Change the header subtitle pending on slide 'hidden content'
   var labelClass = '.sub_title'
   const setLabel = async (event: any, slides: Slide[], title: any) => {
     let index = 1
@@ -112,7 +113,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
         jQuery(labelClass).fadeOut(MyConst.fadeVelocity,        
           function() {          
             jQuery(labelClass).html(result)
-            jQuery('.sub_title').fadeIn(MyConst.fadeVelocity)
+            jQuery(labelClass).fadeIn(MyConst.fadeVelocity)
         })
       }
 
@@ -121,14 +122,13 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     }
   }
 
+  // Activate the desired menu for now
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.menuDump + 'train-yourself.json').then(res => res.json()).then(setMenu)
   }, [])
-  
-  renderMenuTitle(full_menu)
-
-  function renderMenuTitle(menus: Menu[]) {
+  setActiveMenu(full_menu)
+  function setActiveMenu(menus: Menu[]) {
     if(menus[0]!== undefined){
       let location = 'train-yourself'
       console.log(location, menus[0].slug)

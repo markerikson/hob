@@ -80,9 +80,9 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>            
-            <Route path='/' render={() => <Redirect to='/Home'/>} exact={true}/>            
-            <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
+            <Route path='/LiveMenu' render={() => <Redirect to='/Home'/>} exact={true}/>            
             <Route path='/Home' component={Home}/>
+            <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
             <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
