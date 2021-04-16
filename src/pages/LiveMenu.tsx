@@ -32,37 +32,34 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
   }, [match.params.slug])
   
   function renderSubMenus(menus: Submenu[]) {
-    return menus.map((r: Submenu, index) => (
+    var result = menus.map((r: Submenu, index) => (
       ! r.active_icon
-      ? <IonButton key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
+      ? <IonButton class='hob_menu_button' key={r.resource} color={r.background_color} href={r.resource} expand='block'>{t(r.name)}</IonButton>
       : <IonItem key={r.resource} href={r.resource} disabled={false} class='xc ion-margin-vertical'>
           <img src={r.active_icon} alt='' width='26%' height='auto' max-height='250px'/><br/>
           <IonLabel>{t(r.name)}</IonLabel>
         </IonItem>
-    ))
+    ))    
+    return result
   }
 
   function renderMenuTitle(menus: Menu[]) {
-           
-    if(menus[0]!== undefined){
-      console.log(window.location.pathname.split('/'))
-      let location = window.location.pathname.split('/') ?? null
-      if( menus[0].slug === location[2]){
-        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
-      }else{
-        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-      }      
-    }
+    
+    setActiveFooterMenu(menus)
 
-    return menus.map((r: Menu, i) => (
+    var result = menus.map((r: Menu, i) => (
       r.has_main && r.slug === 'train-yourself'
       ? <a href={r.parent}>
           <IonImg class='hob_head_back' src={MyConst.icons.back} slot='start'></IonImg>
         </a>
       : <IonHeader class='hob-header'>
           <IonToolbar class='hob-header'> 
-            <IonItem class='hob-header border-none' key={i}>
-              <a href={r.parent}><IonImg src={MyConst.icons.back} slot='start'></IonImg></a>
+            <IonItem
+              key={'head_'+i}
+              class='hob-header border-none' >
+              <a href={r.parent}>
+                <IonImg src={MyConst.icons.back} slot='start'></IonImg>
+              </a>
               <IonThumbnail>      
                 <IonImg src={r.active_icon} alt={''}/>
               </IonThumbnail>
@@ -70,9 +67,34 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
             {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
             </IonItem>         
           </IonToolbar>
-        </IonHeader>
-      
+        </IonHeader>      
     ))
+
+    if(menus[0]!== undefined){
+      setMargin(sub_menus.length)
+    }
+
+    return result
+    
+  }
+
+  function setMargin(amount:number){
+    console.log('here!!');
+    let toset = (501/amount)+'px' 
+    jQuery('.hob_menu_button').css({ 'margin' : toset })
+  }
+
+  setMargin(sub_menus.length)
+
+  function setActiveFooterMenu(menus: Menu[]){
+    if(menus[0]!== undefined){
+      let location = window.location.pathname.split('/') ?? null
+      if( menus[0].slug === location[2]){
+        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+      }else{
+        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+      }      
+    }
   }
 
   return(    

@@ -41,8 +41,8 @@ export const articleDump = 'assets/dump/articles/article-'
 export const slideDump = 'assets/dump/articles/slides/slide-'
 
 // Sample user data!!
-export const sample_user = 'reader@strapi.io'
-export const sample_password = '2Y2s4qmliad'
+export const sample_user = 'test-client@client.com'
+export const sample_password = 'Qwer1234'
 
 export const splashScreen = {
   showDuration: 4000,

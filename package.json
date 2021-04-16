@@ -8,7 +8,7 @@
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/geolocation": "^5.31.1",
     "@ionic-native/location-accuracy": "^5.31.1",
-    "@ionic-native/splash-screen": "^5.31.1",
+    "@ionic-native/splash-screen": "^5.32.1",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/react": "^5.0.7",
     "@ionic/react-hooks": "0.0.8",

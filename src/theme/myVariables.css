@@ -12,6 +12,8 @@
   --ion-color-soft-blue-contrast-rgb: 0,0,0;
   --ion-color-soft-blue-shade: #c5d9dc;
   --ion-color-soft-blue-tint: #e3f8fb;
+
+  --ion-page-background-color: #f8f8f8;
 }
 
 .ion-color-soft-blue {
@@ -43,12 +45,16 @@
 
 * {
   font-family: 'Advent Pro' !important;
+  background-color:#ffffff;
+}
+
+.footer_button {
+  background-color: #F8F8F8  !important;
 }
 
 .ion-content { 
   font-family: 'Advent Pro';
   font-size: '1.1em';
-  background-color: '#E0F7FA';
 }
 
 .text-on-bottom > .button-inner {
@@ -62,6 +68,7 @@
 .xc {
   /*display: flex;*/
   align-items: center;
+  --border-color: white;
   /*justify-content: center;*/
 }
 
@@ -151,4 +158,8 @@
 
 .hob_home_button {
   width: 100%;
+}
+
+.hob_menu_button {
+  margin: 14%
 }
