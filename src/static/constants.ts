@@ -1,14 +1,51 @@
-// Main defaults!!
-export const DefaultLanguage = 'en-GB'
 
-// Data dump origin!!
-export const LocalAPI = 'http://localhost:1337/'
-export const RestAPI = 'http://161.97.167.92:1337/'
-export const RestStorage = 'http://161.97.167.92:1337'
+// MAIN DEFAULTS !!
+  export const DefaultLanguage = 'en-GB'
+  // Cors seted: none!!
+  export const corsSetted = false
+  // App main user data!!
+  export const appSuperUser = 'system-app-user@maindomain.xyz'
+  export const appSuperPass = 'Qwer1234'
+  // The origin of backoffice stuff for the app
+  export const MyIP = '161.97.167.92'
+  export const originRoot = 'http://'+MyIP+':1337'
+// MAIN DEFAULTS !!
+
+
+// Data dump origins!!! ;) TODO: clean duplicated ;);)
+export const LocalAPI = originRoot+'/'
+export const RestAPI = originRoot+'/'
+export const RestStorage = originRoot
 export const PHOTO_STORAGE = RestAPI + 'uploads/'
+
+
+
+
+
 
 // TESTING PURPOSES!!!
 export const JustTesting = true
+// TESTING PURPOSES!!!
+
+  // App ONLY FIRST TEST test!!
+  // TODO: MOVE TO 100% DINAMIC DISABLING JUST TESTING
+  export const accesUserKey = 'client-1-user-1@someone.com'// TODO: would be email, nickname....
+  export const accesUserPass = 'Qwer1234'
+  // App ONLY FIRST TEST test!!
+
+// TESTING PURPOSES!!!
+
+
+
+
+
+
+
+
+
+
+// OTHERS
+
 
 // Main messages
 export const messages = { 
@@ -17,6 +54,18 @@ export const messages = {
   'loading' : 'Loading ^_^!',
   'routeStart' : 'The route starts here...',
   'routeEnd' : 'The route ends here...',
+
+  // ACCESS FORM
+
+  'accessFormTitle' : 'Access to the restricted data!!',
+
+  'userKeyLabel' : 'Owner alias',
+  'userKeyRequired' : 'User key is required...',
+
+  'userPassLabel' : 'Access key',
+  'userPassRequired' : 'Accessc key is required...',
+
+  'submitAcces' : 'Access',
 }
 
 // Main labels
@@ -24,25 +73,24 @@ export const labels = {
   'routeName' : 'Route name...'
 }
 
+export const hideFooter = ['Home', ]
+
 // Main icons
 export const icons = {
   'back' : '/assets/images/arrow-left.svg',
-  'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
+  'camera' : 'leaflet/dist/images/marker-icon.png',//
   'start' : 'leaflet/dist/images/marker-icon.png',//
   'end' : 'leaflet/dist/images/marker-icon.png',//
-  'camera' : 'leaflet/dist/images/marker-icon.png',//
+  'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
 }
 
 // Static Dumped
-export const mainMenu = 'assets/dump/menus/main-menu.json'
-export const menuDump = 'assets/dump/menus/menu-'
-export const subMenuDump = 'assets/dump/menus/sub-menu-'
-export const articleDump = 'assets/dump/articles/article-'
-export const slideDump = 'assets/dump/articles/slides/slide-'
-
-// Sample user data!!
-export const sample_user = 'test-client@client.com'
-export const sample_password = 'Qwer1234'
+export const publicDump   = 'assets/dump/'
+export const mainMenu     = publicDump+'menus/main-menu.json'
+export const menuDump     = publicDump+'menus/menu-'
+export const subMenuDump  = publicDump+'menus/sub-menu-'
+export const articleDump  = publicDump+'articles/article-'
+export const slideDump    = publicDump+'articles/slides/slide-'
 
 export const splashScreen = {
   showDuration: 4000,

@@ -1,8 +1,9 @@
 import * as MyConst from '../src/static/constants'
-import React, { useEffect, useState } from 'react'
 import { IonApp, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
+import React, { useEffect, useState } from 'react'
 import { IonReactRouter } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
+//import axios from 'axios'
 
 import './components/i18n'
 import { Plugins } from '@capacitor/core'
@@ -27,6 +28,9 @@ import './theme/myVariables.css'
 
 // Models
 import { Menu } from './models/Menu'
+
+// Static
+//import { appClient } from './static/appClient'
 
 // App main pages
 import Home       from './pages/Home'
@@ -58,6 +62,7 @@ const App: React.FC = () => {
     fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
   }, [])
 
+  // TODO: Move to component when migrate all project to cleanest possible one
   function renderFooterMenu(list: Menu[]) {
     return <IonTabBar slot='bottom' class='hob-footer'>
       {list.map((r: Menu, index) => (
@@ -73,7 +78,25 @@ const App: React.FC = () => {
         </IonTabButton>
       ))}
     </IonTabBar>
+  }
+
+  // Access to the platform for verify the app .env's and in the future 
+  /*
+  function appLogin() {
+    if(MyConst.corsSetted && !MyConst.JustTesting){
+      // TODO: SET CORS ON SERVER!!!
+      // TODO: Move to awaitable place!!!
+      //const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
+      //  identifier: MyConst.appUserEmail,
+      //  password:   MyConst.appPass,
+      //})
+      return appClient
+    }else{
+      return appClient
+    }
   }  
+  console.log(appLogin())
+  */
 
   return(
     <IonApp>
@@ -82,17 +105,18 @@ const App: React.FC = () => {
           <IonRouterOutlet>            
             <Route path='/LiveMenu' render={() => <Redirect to='/Home'/>} exact={true}/>            
             <Route path='/Home' component={Home}/>
+            <Route path='/Access' component={Access}/>
             <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
-            <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
-            <Route path='/Routes/:owner_id' component={Routes}/>
+            <Route path='/Routes' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
             <Route path='/LiveMap/:slug/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
+            {/*<Route path='/Access/:slug' component={Access}/>*/}
           </IonRouterOutlet>          
-          {location[1] !=='Home' && location[1] !=='Settings' 
+          {location[1] !=='Access' && location[1] !=='Home' && location[1] !=='Settings' 
             ? renderFooterMenu(main_menu)
             : <IonTabBar slot='bottom' class='hob-footer hidden'></IonTabBar>
           }

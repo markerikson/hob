@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 // Interfaces
 import { Slide } from '../models/Slide'
 import { Menu } from '../models/Menu'
-//import { setIsLoggedInData } from '../data/dataApi'
+//import { setAccessAllowedData } from '../data/dataApi'
 
 interface ArticlePageProps extends RouteComponentProps<{
   slug:  string,

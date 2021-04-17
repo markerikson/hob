@@ -10,17 +10,15 @@ import { Menu } from '../models/Menu'
 
 const LiveMap: React.FC =  () => {
 
+  // TODO: Change with the common React way to do this!!!
   const [full_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
-  }, [])
-  
-  renderMenuTitle(full_menu)
-
-  function renderMenuTitle(menus: Menu[]) {
+  }, [])  
+  hoverFooterIcon(full_menu)
+  function hoverFooterIcon(menus: Menu[]) {
     if(menus[0]!== undefined){
       let location = 'explore-and-equip'
-      console.log(location, menus[0].slug)
       if( menus[0].slug === location){
         jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
       }else{
@@ -28,6 +26,7 @@ const LiveMap: React.FC =  () => {
       }      
     }
   }
+  // TODO: Change with the common React way to do this!!!
 
   return (
     <IonPage>

@@ -72,6 +72,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     return result
   }
 
+  // Set a sort of contents in a map...
   function setMapContent(r: any) {
     switch(r.geometry.type) {
       case 'Point':
@@ -90,6 +91,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     }
   }
 
+  // Set a Polygon
   function setPolygon(r: any){
     var polygon = twistCoordinates(Object.values(r.geometry.coordinates[0]))
     return <Polygon
@@ -99,6 +101,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     />
   }
 
+  // Set a PolyLine
   function setPolyLine(r: any){
     var polyLine = twistCoordinates(Object.values(r.geometry.coordinates))
     start = r.geometry.coordinates[0]
@@ -110,6 +113,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     />
   }
 
+  // Set a Marker
   function setMarker(lat:number, long:number, icon: any, popContent:any){
     return (
       <Marker
@@ -120,31 +124,35 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
       </Marker>      
     )
   }
-  
-  function renderMenuTitle(menus: Menu[]) {
-    if(menus[0]!== undefined){
-      let location = window.location.pathname.split('/') ?? null
-      if( menus[0].slug === location[2]){
-        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
-      }else{
-        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-      }      
-    }
-  }
 
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
-  }, [])
-  
-  renderMenuTitle(full_menu)
+  // TODO: Change with the common React way to do this!!!
+      const [full_menu, setMenu] = useState<Menu[]>([])
+      useEffect(() => {
+        fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
+      }, [])  
+
+      // TODO:  Move to components, for now is only a little chapuza more
+      function renderNavigateHeader(menus: Menu[]) {
+        var titleText = ''
+        if(menus[0]!== undefined){
+          let location = window.location.pathname.split('/') ?? null
+          if( menus[0].slug === location[2]){
+            titleText = menus[0].name
+            jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+          }else{
+            jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+          }      
+        }
+        return <IonToolbar>
+          <IonTitle>{titleText}</IonTitle>
+        </IonToolbar>
+      }
+  // TODO: Change with the common React way to do this!!!
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>{name}</IonTitle>
-        </IonToolbar>
+        {renderNavigateHeader(full_menu)}
       </IonHeader>
       <IonContent>
 
@@ -157,6 +165,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
         >
 
           <TileLayer
+            /*onLoad={(e:any)=> { e.target._map.invalidateSize()}}*/
             attribution={MyConst.mapAttribution}
             url={MyConst.tileUrl}
           />

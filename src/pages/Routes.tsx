@@ -39,18 +39,27 @@ const Routes: React.FC<MapProps> = ({match}) => {
   // Default route data
   var name = MyConst.labels.routeName
   var zoom = MyConst.main_zoom
-  //var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
 
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
-  //var end   = [MyConst.main_center[0], MyConst.main_center[1]] ?? []
+
+  var creator_id = localStorage.getItem('creator::id') ?? 4
 
   const [routes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
-    fetch(MyConst.RestAPI + 'my-routes?created_by='+match.params.owner_id)
+    fetch(MyConst.RestAPI + 'my-routes?creator='+creator_id)
       .then(res => res.json())
       .then(setRoutes)
-  }, [match.params.owner_id])
+  }, [creator_id])
+
+  const [routePois, setRoutePois] = useState<MyRoute[]>([])
+  useEffect(() => {
+    fetch(MyConst.RestAPI + 'my-locations?created_by='+creator_id)
+      .then(res => res.json())
+      .then(setRoutePois)
+  }, [creator_id])
+
+
 
   /*
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
@@ -113,30 +122,29 @@ const Routes: React.FC<MapProps> = ({match}) => {
 
   function renderRoutesList(routes: MyRoute[]) {
     return routes.map((r: MyRoute, index) => (
-      <IonItem key={index}>
+      <IonItem key={index} href={'/LiveMap/navigate/'+r.id}>
         <IonLabel>0{index+1} - {t(r.name)}</IonLabel>
       </IonItem>
     ))
   }
 
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
-  }, [])
-  
-  renderMenuTitle(full_menu)
-
-  function renderMenuTitle(menus: Menu[]) {
-    if(menus[0]!== undefined){
-      let location = 'explore-and-equip'
-      console.log(location, menus[0].slug)
-      if( menus[0].slug === location){
-        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
-      }else{
-        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-      }      
+  // TODO: Change with the common React way to do this!!!
+    const [full_menu, setMenu] = useState<Menu[]>([])
+    useEffect(() => {
+      fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
+    }, [])
+    hoverFooterIcon(full_menu)
+    function hoverFooterIcon(menus: Menu[]) {
+      if(menus[0]!== undefined){
+        let location = 'explore-and-equip'
+        if( menus[0].slug === location){
+          jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+        }else{
+          jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+        }      
+      }
     }
-  }
+  // TODO: Change with the common React way to do this!!!
 
   return (
     <IonPage>
@@ -184,7 +192,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
           </Marker>*/}
 
         </MapContainer>
-        {renderRoutesList(routes)}
+        {/*renderRoutesList(routes)*/}
       </IonContent>
     </IonPage>
   )

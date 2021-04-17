@@ -43,7 +43,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
     return result
   }
 
-  function renderMenuTitle(menus: Menu[]) {
+  function renderHeader(menus: Menu[]) {
     
     setActiveFooterMenu(menus)
 
@@ -70,22 +70,25 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
         </IonHeader>      
     ))
 
-    if(menus[0]!== undefined){
-      setMargin(sub_menus.length)
-    }
+    // TODO: Change with flex right now!!!
+      if(menus[0]!== undefined){
+        setMargin(sub_menus.length)
+      }
+    // TODO: Change with flex right now!!!
 
     return result
     
   }
 
-  function setMargin(amount:number){
-    console.log('here!!');
-    let toset = (501/amount)+'px' 
-    jQuery('.hob_menu_button').css({ 'margin' : toset })
-  }
+  // TODO: Change with flex right now!!!
+    function setMargin(amount:number){
+      let toset = (501/amount)+'px' 
+      jQuery('.hob_menu_button').css({ 'margin' : toset })
+    }
+    setMargin(sub_menus.length)
+  // TODO: Change with flex right now!!!
 
-  setMargin(sub_menus.length)
-
+  // TODO: Is fine, but... if i can find the react way ^^ would be nice jiji (try with something like match!!!!)
   function setActiveFooterMenu(menus: Menu[]){
     if(menus[0]!== undefined){
       let location = window.location.pathname.split('/') ?? null
@@ -99,7 +102,7 @@ const LiveMenu: React.FC<FooterMenuProps> = ({match}) => {
 
   return(    
     <IonPage>                                
-      {renderMenuTitle(full_menu)}
+      {renderHeader(full_menu)}
       <IonContent>
         <IonList>
           {renderSubMenus(sub_menus)}
