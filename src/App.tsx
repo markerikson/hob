@@ -120,16 +120,20 @@ const App: React.FC = () => {
             <Route path='/Home' render={() => <Redirect to='/LiveMenu/home'/>} exact={true}/>           
             <Route path='/Access' component={Access}/>
             <Route path='/LiveMenu/navigate' component={LiveMap}/>
-
             <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/home'/>} exact={true}/>  
+
+
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
+
+
+
+            
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/Navigation' component={Navigation}/>
             <Route path='/LiveMap/:slug/:id' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
-            {/*<Route path='/Access/:slug' component={Access}/>*/}
           </IonRouterOutlet>          
           { MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1
             ? renderFooterMenu(main_menu)
