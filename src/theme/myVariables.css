@@ -1,15 +1,15 @@
 /* Ionic Variables and Theming. For more info, please see:*/
 
-@font-face {   
-  font-family: 'Advent Pro';
-  src: url('../fonts/AdventPro/AdventPro-Medium.ttf');
+@font-face {
+  font-family: "Advent Pro";
+  src: url("../fonts/AdventPro/AdventPro-Medium.ttf");
 }
 
 :root {
-  --ion-color-soft-blue: #E0F7FA;
-  --ion-color-soft-blue-rgb: 224,247,250;
+  --ion-color-soft-blue: #e0f7fa;
+  --ion-color-soft-blue-rgb: 224, 247, 250;
   --ion-color-soft-blue-contrast: #000000;
-  --ion-color-soft-blue-contrast-rgb: 0,0,0;
+  --ion-color-soft-blue-contrast-rgb: 0, 0, 0;
   --ion-color-soft-blue-shade: #c5d9dc;
   --ion-color-soft-blue-tint: #e3f8fb;
 
@@ -27,9 +27,9 @@
 
 :root {
   --ion-color-tag-grey: #d2d2d2;
-  --ion-color-tag-grey-rgb: 210,210,210;
+  --ion-color-tag-grey-rgb: 210, 210, 210;
   --ion-color-tag-grey-contrast: #000000;
-  --ion-color-tag-grey-contrast-rgb: 0,0,0;
+  --ion-color-tag-grey-contrast-rgb: 0, 0, 0;
   --ion-color-tag-grey-shade: #b9b9b9;
   --ion-color-tag-grey-tint: #d7d7d7;
 }
@@ -44,10 +44,29 @@
 }
 
 * {
-  font-family: 'Advent Pro' !important;
-  background-color:#ffffff;
+  font-family: "Advent Pro" !important;
+  /*background-color:#ffffff;*/
 }
 
+.hob_head_back {
+  width: 14px;
+  height: 21px;
+  margin: auto auto auto 17px;
+  background-color: #ffffff;
+}
+
+.hob_card > ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hob_card > ion-card-content > ion-textarea {
+  text-align: left!important;
+  max-width: 376px;
+}
+
+/*
 .footer_button {
   background-color: #F8F8F8  !important;
 }
@@ -66,20 +85,20 @@
 }
 
 .xc {
-  /*display: flex;*/
+  display: flex;
   align-items: center;
   --border-color: white;
-  /*justify-content: center;*/
+  justify-content: center;
 }
 
 .vcs {
-  /*display: flex;*/
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .hcs {
-  /*display: flex;*/
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
@@ -118,7 +137,6 @@
   width: 100%;
   max-width: 100%;
   max-height: none;
-  /*height: auto;*/
 }
 
 .ion-card-header + .card-content-md {
@@ -127,11 +145,6 @@
   margin-right: 17px;
 }
 
-.hob_head_back {
-  width: 2.5%;
-  margin: 2%;
-  background-color: #FFFFFF;
-}
 
 .hob_slide_textarea {
   height: 100%;
@@ -162,4 +175,21 @@
 
 .hob_menu_button {
   margin: 14%
+}*/
+
+/* 
+.hob_head_back {
+  width: 2.5%;
+  margin: 2%;
+  background-color: #FFFFFF;
+} */
+
+.hidden {
+  display: none;
+}
+
+.hob_card {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

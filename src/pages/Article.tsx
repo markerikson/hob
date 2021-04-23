@@ -144,8 +144,8 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     if( creator_id !== null ){
       console.log('Hello you have granted access, '+creator_id)
     }else{
-      alert("You don't have acces to this area...")
-      window.location.href = '/Access/train-yourself'
+      //alert("You don't have acces to this area...")
+      //window.location.href = '/Access/train-yourself'      
     }
   }
 
