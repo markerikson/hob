@@ -1,10 +1,10 @@
 [
     {
         "slug": "call-base",
-        "parent": "\/LiveMenu\/Assistance",
+        "parent": "\/LiveMenu\/assistance",
         "name": "CALL BASE",
         "resource": "\/LiveMenu\/call-base",
-        "active_icon": "",
+        "active_icon": "\/assets\/images\/dump\/CALL_BASE_EMERGENCIES_d9f2babcf3.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

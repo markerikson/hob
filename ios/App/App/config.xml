@@ -6,5 +6,9 @@
     <param name="ios-package" value="CDVLocation"/>
   </feature>
 
+  <feature name="RequestLocationAccuracy">
+    <param name="ios-package" value="RequestLocationAccuracy"/>
+  </feature>
+
   
 </widget>

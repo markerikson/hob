@@ -1,7 +1,7 @@
 [
     {
         "slug": "at-anchor",
-        "parent": "\/LiveMenu\/Anchoring",
+        "parent": "\/LiveMenu\/anchoring",
         "name": "At anchor",
         "resource": "\/Article\/at-anchor\/15",
         "active_icon": "",

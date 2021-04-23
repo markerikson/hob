@@ -44,13 +44,18 @@ class DumperClass {
         ],
         'strapi_trans' => [
             'url' => 'translations'
-        ]
-        /*
-        'all_menus' =>      [
-            'url' => 'app-menus',
-            'path'=> '../public/assets/dump/others/',
-            'filename' => '../public/assets/dump/others/all-menus.json'
         ],
+        'all_routes' =>      [
+            'url' => 'my-routes',
+            'path'=> '../public/assets/dump/routes/',
+            'filename' => '../public/assets/dump/routes/{id}.json'
+        ],        
+        'map_markers' =>      [
+            'url' => 'map_markers',
+            'path'=> '../public/assets/images/dump/icons/',
+            'filename' => '../src/static/icons/{slug}.json'
+        ],  
+        /*
         'menu' =>           [
             'url' => 'app-menus',
             'path'=> '../public/assets/dump/menus/',
@@ -78,8 +83,28 @@ class DumperClass {
         //////////////////////////////////////////////////////////////////////////////////////////
         // ARTICLES - Getting App Articles...
         //////////////////////////////////////////////////////////////////////////////////////////
-        foreach( $this->getContent('articles') as $key => $content ){
+        foreach( $this->getContent('articles') ?? [] as $key => $content ){
             $this->newArticles[$content->slug] = $content;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // ROUTES - Getting All routes to do a 100% offline version available...
+        //////////////////////////////////////////////////////////////////////////////////////////
+        foreach( $this->getContent('all_routes') ?? [] as $key => $content ){
+            $this->allRoutes[$content->id] = $content;
+            file_put_contents( str_replace('{id}', $content->id, $this->map['all_routes']['filename']), json_encode($content, JSON_PRETTY_PRINT));
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // APP-ICONS - Getting All routes to do a 100% offline version available...
+        //////////////////////////////////////////////////////////////////////////////////////////
+        foreach( $this->getContent('map_markers') ?? [] as $key => $content ){
+            $filename = explode('/', $content->image->url);
+            $ext = explode('.', $filename[2]);
+            $filename = $content->slug.'.'.$ext[1];
+            $url = $this->origin . $content->image->url;
+            file_put_contents('./static/icons/' . 
+            $filename, file_get_contents($url));
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +119,7 @@ class DumperClass {
         //////////////////////////////////////////////////////////////////////////////////////////
         // MENUS - Getting Menus... Created formated new menus object
         ////////////////////////////////////////////////////////////////////////////////////////// 
-        foreach( $this->getContent('main_menu') as $key => $menu ){
+        foreach( $this->getContent('main_menu') ?? [] as $key => $menu ){
             $this->oldMenus[$menu->slug] = $menu;
         }
 
@@ -108,7 +133,7 @@ class DumperClass {
             $newMenu[$key]['slug'] = $menu->slug;
 
             if(!empty($menu->parent_menu) ){
-                $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.ucfirst($menu->parent_menu->slug);
+                $newMenu[$key]['parent'] = '/'.$menu->parent_menu->ionic_resource.'/'.$menu->parent_menu->slug;
             }
 
             $newMenu[$key]['name'] = $this->getLabelTranslation($menu->label);
@@ -134,8 +159,10 @@ class DumperClass {
             $this->setChildren( $menu, $menu->background_color);
 
             if($menu->main){            
-                $newMenu[$key]['access'] = '/LiveMenu/'.$menu->slug; // TODO :Access
+                $newMenu[$key]['resource'] = '/'.$menu->ionic_resource.'/'.$menu->slug; // TODO :Access
                 $newMenu[$key]['has_main'] = true;
+                $newMenu[$key]['access'] = '/Access/'.$menu->slug; // TODO :Access
+
                 $mainMenu[] = $newMenu[$key] ?? [];
             }
 
@@ -224,7 +251,7 @@ class DumperClass {
                 }
 
                 if(isset($value->icon)) $this->getImages($value->icon);
-
+                if(isset($value->icon)) $this->getImages($value->icon_inactive);
                 $newSubMenu[$key][$key2]['active_icon'] = $this->getImageUrl(($value->icon->url ?? ''));
                 $newSubMenu[$key][$key2]['inactive_icon'] = $this->getImageUrl(($value->icon_inactive->url ?? ''));
                 $newSubMenu[$key][$key2]['background_color'] = (!empty($value->parent_menu->backgrond_color)) ? $value->parent_menu->backgrond_color : $color;            
@@ -356,7 +383,7 @@ class DumperClass {
                 if($extra_slug) $return = $return.'/'.$extra_slug;
             }break;
             case 'LiveMap':{
-                $return = '/'.$object->ionic_resource.'/1';
+                $return = '/'.$object->ionic_resource.'/navigate/1';
             }break;
             default:{
                 $return = '/'.$object->ionic_resource;

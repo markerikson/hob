@@ -12,13 +12,13 @@ interface SupportProps extends OwnProps, DispatchProps { }
 const Support: React.FC<SupportProps> = () => {
 
   const [message, setMessage] = useState('');
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [accesFormSubmitted, setAccesFormSubmitted] = useState(false);
   const [messageError, setMessageError] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
   const send = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setAccesFormSubmitted(true);
     if (!message) {
       setMessageError(true);
     }
@@ -53,7 +53,7 @@ const Support: React.FC<SupportProps> = () => {
               </IonTextarea>
             </IonItem>
 
-            {formSubmitted && messageError && <IonText color="danger">
+            {accesFormSubmitted && messageError && <IonText color="danger">
               <p className="ion-padding-start">
                 Support message is required
               </p>

@@ -1,13 +1,13 @@
 [
     {
         "slug": "train-yourself",
-        "parent": "\/HellMenu\/Home",
+        "parent": "\/LiveMenu\/home",
         "name": "TRAINING YOURSELF",
         "resource": "\/LiveMenu\/train-yourself",
         "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",
         "inactive_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_INACTIVE_6bf120c662.svg",
         "background_color": "soft-blue",
-        "access": "\/LiveMenu\/train-yourself",
-        "has_main": true
+        "has_main": true,
+        "access": "\/Access\/train-yourself"
     }
 ]

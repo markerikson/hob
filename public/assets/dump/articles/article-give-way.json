@@ -1,7 +1,7 @@
 [
     {
         "slug": "give-way",
-        "parent": "\/LiveMenu\/Cruising",
+        "parent": "\/LiveMenu\/cruising",
         "name": "GIVE WAY",
         "resource": "\/Article\/give-way\/6",
         "active_icon": "",

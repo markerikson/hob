@@ -5,54 +5,60 @@ import { useTranslation } from 'react-i18next'
 //import axios from 'axios'
 
 import { connect } from '../data/connect'
-import { setIsLoggedIn, setUsername } from '../data/user/user.actions'
+import { setAccessAllowed, setUserKey } from '../data/user/user.actions'
 
 //import { logIn } from 'ionicons/icons';
 
 interface OwnProps extends RouteComponentProps {}
 
 interface DispatchProps {
-  setIsLoggedIn: typeof setIsLoggedIn
-  setUsername: typeof setUsername
+  setAccessAllowed: typeof setAccessAllowed
+  setUserKey: typeof setUserKey
 }
 
 interface LoginProps extends OwnProps,  DispatchProps { }
 
 const Login: React.FC<LoginProps> = ({
-  setIsLoggedIn,
+  setAccessAllowed,
   history,
-  setUsername: setUsernameAction
+  setUserKey: setUserKeyAction
 }) => {
 
   const {t} = useTranslation()
 
-  const [username, setUsername] = useState('')
+  const [username, setUserKey] = useState('')
   const [password, setPassword] = useState('')
 
-  const [formSubmitted, setFormSubmitted] = useState(false)
-  const [usernameError, setUsernameError] = useState(false)
+  const [accesFormSubmitted, setAccesFormSubmitted] = useState(false)
+  const [userKeyError, setUserKeyError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
 
   const login = async (e: React.FormEvent) => {
 
     e.preventDefault()
 
-    setFormSubmitted(true)
+    setAccesFormSubmitted(true)
 
-    if(!username) {      setUsernameError(true)    }else{      setUsernameError(false)    }
+    if(!username) {      setUserKeyError(true)    }else{      setUserKeyError(false)    }
     if(!password) {      setPasswordError(true)    }else{      setPasswordError(false)    }
 
-    /*if(username && password) {
-      // TODO WAIT TO CORS SETTINGS READY TO RUN!!!
-      const { data } = await axios.post('http://localhost:1337/auth/local', {
-        //data :{
-          identifier: 'reader@strapi.io',
-          password: '2Y2s4qmliad',
-        //}
-      })
-      
-      console.log(data)
-    }*/
+    // Access to the platform for verify the app .env's and in the future 
+    /*
+    function appLogin() {
+      if(MyConst.corsSetted && !MyConst.JustTesting){
+        // TODO: SET CORS ON SERVER!!!
+        // TODO: Move to awaitable place!!!
+        //const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
+        //  identifier: MyConst.appUserEmail,
+        //  password:   MyConst.appPass,
+        //})
+        return appClient
+      }else{
+        return appClient
+      }
+    }  
+    console.log(appLogin())
+    */
 
   }
 
@@ -82,12 +88,12 @@ const Login: React.FC<LoginProps> = ({
             <IonItem>
               <IonLabel position='stacked' color='primary'>{t('Owner alias')}</IonLabel>
               <IonInput name='username' type='text' value={username} spellCheck={false}
-                autocapitalize='off' onIonChange={e => setUsername(e.detail.value!)}
+                autocapitalize='off' onIonChange={e => setUserKey(e.detail.value!)}
                 required>
               </IonInput>
             </IonItem>
 
-            {formSubmitted && usernameError && <IonText color='warning'>
+            {accesFormSubmitted && userKeyError && <IonText color='warning'>
               <p className='ion-padding-start'>{t('Owner alias is required')}</p>
             </IonText>}
 
@@ -98,7 +104,7 @@ const Login: React.FC<LoginProps> = ({
               </IonInput>
             </IonItem>
 
-            {formSubmitted && passwordError && <IonText color='warning'>
+            {accesFormSubmitted && passwordError && <IonText color='warning'>
               <p className='ion-padding-start'>{t('Password is required')}</p>
             </IonText>}
           </IonList>
@@ -119,8 +125,8 @@ const Login: React.FC<LoginProps> = ({
 
 export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: {
-    setIsLoggedIn,
-    setUsername
+    setAccessAllowed,
+    setUserKey
   },
   component: Login
 })

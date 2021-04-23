@@ -1,7 +1,7 @@
 [
     {
         "slug": "what-is-anchoring",
-        "parent": "\/LiveMenu\/Anchoring",
+        "parent": "\/LiveMenu\/anchoring",
         "name": "What is anchoring?",
         "resource": "\/Article\/what-is-anchoring\/0",
         "active_icon": "",

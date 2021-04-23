@@ -7,7 +7,7 @@
         "label": "",
         "num_tag": "1\/24",
         "index_num": 0,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_01_24_63e32d2608.svg",
         "description_md5": "7fa860858889072f4fdab44dc6b559b4"
     },
     {
@@ -18,7 +18,7 @@
         "label": "",
         "num_tag": "2\/24",
         "index_num": 1,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_02_24_e82c8cbc3f.svg",
         "description_md5": "b6247aa36f2bd4fbccd0c6ea659f080f"
     },
     {
@@ -29,7 +29,7 @@
         "label": "",
         "num_tag": "3\/24",
         "index_num": 2,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_03_24_137ba0657a.svg",
         "description_md5": "156544a6bee3d3b3376628c35510c69a"
     },
     {
@@ -40,7 +40,7 @@
         "label": "",
         "num_tag": "4\/24",
         "index_num": 3,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_04_24_c6854c4a72.svg",
         "description_md5": "0e8291619a49a2676764c1a516111970"
     },
     {
@@ -51,7 +51,7 @@
         "label": "",
         "num_tag": "5\/24",
         "index_num": 4,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_05_24_c5e1d1dfa1.svg",
         "description_md5": "ed3ac2da40eebb9c83bdfa67767beb6d"
     },
     {
@@ -62,7 +62,7 @@
         "label": "",
         "num_tag": "6\/24",
         "index_num": 5,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_06_24_a712668d53.svg",
         "description_md5": "e4c487b9c9b6473d4a3ba4b6924aa62b"
     },
     {
@@ -73,7 +73,7 @@
         "label": "Caution",
         "num_tag": "7\/24",
         "index_num": 6,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_07_24_930f713758.svg",
         "description_md5": "ba6d032c1828851e00f08f78de65ed37"
     },
     {
@@ -84,7 +84,7 @@
         "label": "Caution",
         "num_tag": "8\/24",
         "index_num": 7,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_08_24_b5ec026223.svg",
         "description_md5": "3cbbaafacafb97719af3a935aeb7ece1"
     },
     {
@@ -95,7 +95,7 @@
         "label": "Location",
         "num_tag": "9\/24",
         "index_num": 8,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_09_24_bafeec30b0.svg",
         "description_md5": "552aea2964f176da564225f260950f4e"
     },
     {
@@ -106,7 +106,7 @@
         "label": "",
         "num_tag": "10\/24",
         "index_num": 9,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_10_24_5050cefc8b.svg",
         "description_md5": "7bbc1655ec50d997c152b7824ef9ad19"
     },
     {
@@ -117,7 +117,7 @@
         "label": "",
         "num_tag": "11\/24",
         "index_num": 10,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_11_24_3992aa4943.svg",
         "description_md5": "8fc10540925bc32ee1ef870c367e0e2e"
     },
     {
@@ -128,7 +128,7 @@
         "label": "",
         "num_tag": "12\/24",
         "index_num": 11,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_12_24_893504e8ad.svg",
         "description_md5": "07846e3c6fedc2cddd59c4b594fa7a75"
     },
     {
@@ -139,7 +139,7 @@
         "label": "",
         "num_tag": "13\/24",
         "index_num": 12,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_13_24_d7cdf891e9.svg",
         "description_md5": "7d1cc3709b447ba4217a09a8c2912b52"
     },
     {
@@ -150,7 +150,7 @@
         "label": "",
         "num_tag": "14\/24",
         "index_num": 13,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_14_24_44cfa9ee43.svg",
         "description_md5": "d56ec94950356825145548d5b6af1114"
     },
     {
@@ -161,7 +161,7 @@
         "label": "",
         "num_tag": "15\/24",
         "index_num": 14,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_15_24_15b0620ae1.svg",
         "description_md5": "e238ec9d5b65bff23266128bc5b9edf6"
     },
     {
@@ -172,8 +172,8 @@
         "label": "Stability",
         "num_tag": "16\/24",
         "index_num": 15,
-        "image_url": "",
-        "description_md5": "a15129ae357eab03368c730fa4cf74f7"
+        "image_url": "\/assets\/images\/dump\/Anchoring_16_24_bd04014d47.svg",
+        "description_md5": "ad4826630188a277346085674237fce4"
     },
     {
         "slug": "at-anchor-swimming",
@@ -183,8 +183,8 @@
         "label": "Swimming",
         "num_tag": "17\/24",
         "index_num": 16,
-        "image_url": "",
-        "description_md5": "46d624ec64c45c3814481bcb25b8b2c3"
+        "image_url": "\/assets\/images\/dump\/Anchoring_17_24_2f4652fb29.svg",
+        "description_md5": "4ea35f0ee882c4a63007dab0ae4e5e23"
     },
     {
         "slug": "at-anchor-precautions",
@@ -194,8 +194,8 @@
         "label": "Precautions",
         "num_tag": "18\/24",
         "index_num": 17,
-        "image_url": "",
-        "description_md5": "88a61cda987f3fb3977b47603c4573cb"
+        "image_url": "\/assets\/images\/dump\/Anchoring_18_24_73716ed761.svg",
+        "description_md5": "2b30c2f1661a939be9103e39d936fcea"
     },
     {
         "slug": "picking-up-anchor-1",
@@ -205,7 +205,7 @@
         "label": "",
         "num_tag": "19\/24",
         "index_num": 18,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_19_24_b6099e0cf2.svg",
         "description_md5": "bfd349595e881866c8ca71e30346602b"
     },
     {
@@ -216,7 +216,7 @@
         "label": "",
         "num_tag": "20\/24",
         "index_num": 19,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_20_24_399d4d10cd.svg",
         "description_md5": "cc306b697bc908ed8ef9b5b0f88aa83e"
     },
     {
@@ -227,7 +227,7 @@
         "label": "",
         "num_tag": "21\/24",
         "index_num": 20,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_21_24_783a67bcba.svg",
         "description_md5": "d7d9f343fde747f60d66b2e11e91f7d5"
     },
     {
@@ -238,7 +238,7 @@
         "label": "",
         "num_tag": "22\/24",
         "index_num": 21,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_22_24_aec5e03429.svg",
         "description_md5": "999f4db98c8b1cb7d1cc81fed37936b7"
     },
     {
@@ -249,7 +249,7 @@
         "label": "",
         "num_tag": "23\/24",
         "index_num": 22,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_23_24_cd22ebeece.svg",
         "description_md5": "edfcd839dc3d6e235ebe6a920439a99d"
     },
     {
@@ -260,7 +260,7 @@
         "label": "",
         "num_tag": "24\/24",
         "index_num": 23,
-        "image_url": "",
+        "image_url": "\/assets\/images\/dump\/Anchoring_24_24_1cd472f5d2.svg",
         "description_md5": "958a0b98afe5f5831e60867bb5fd74fe"
     }
 ]

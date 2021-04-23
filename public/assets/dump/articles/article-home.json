@@ -2,7 +2,7 @@
     {
         "slug": "home",
         "name": "HOME",
-        "resource": "\/HellMenu",
+        "resource": "\/LiveMenu\/home",
         "active_icon": "",
         "inactive_icon": "",
         "background_color": "soft-blue"

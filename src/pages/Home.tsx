@@ -1,12 +1,16 @@
+import * as MyConst from '../static/constants'
 import React, { useEffect, useState } from 'react'
 import {
   IonPage, 
   IonContent, 
   IonTabButton,
   IonList,
+  IonRouterOutlet, IonTabBar, IonTabs 
 } from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
 import { RouteComponentProps } from 'react-router'
-
+import { Redirect, Route } from 'react-router-dom'
+import LiveMenu   from './LiveMenu'
 // Translations...
 import { useTranslation } from 'react-i18next'
 
@@ -23,17 +27,18 @@ const Home: React.FC<HomeProps> = ({match}) => {
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch('assets/dump/menus/main-menu.json').then(res => res.json()).then(setMenu)
+    fetch(MyConst.mainMenu).then(res => res.json()).then(setMenu)
   }, [])
 
-  function renderHomeMenu(list: Menu[]) {    
+  function renderHomeMenu(list: Menu[]) {
+    //var lineHeightPer = 100 / list.length
     return list.map((r: Menu, index) => (
       <IonTabButton
-        class='hob-footer'
         key={r.access}
         tab={r.access}
         href={r.access}
         disabled={false}
+        class='hob_home_button'
       >{/*TODO: Set inactive_icon when not in the location!! ->> */}
         <img 
           src={r.active_icon} 
@@ -48,7 +53,20 @@ const Home: React.FC<HomeProps> = ({match}) => {
     <IonPage>
       <IonContent>
         <IonList>
-          {renderHomeMenu(main_menu)}
+          <IonReactRouter>
+            <IonTabs>
+              <IonRouterOutlet>      
+                <Route path='/LiveMenu/:slug' component={LiveMenu}/>      
+                <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
+              </IonRouterOutlet>          
+              <IonTabBar slot='bottom' class='hob-footer'>
+                {renderHomeMenu(main_menu)}
+              </IonTabBar>
+            </IonTabs>
+          </IonReactRouter>
+          <IonTabBar slot='bottom' class='hob-footer'>
+            {renderHomeMenu(main_menu)}
+          </IonTabBar>
         </IonList>
       </IonContent>
     </IonPage>

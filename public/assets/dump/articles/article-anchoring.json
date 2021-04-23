@@ -1,7 +1,7 @@
 [
     {
         "slug": "anchoring",
-        "parent": "\/LiveMenu\/Train-yourself",
+        "parent": "\/LiveMenu\/train-yourself",
         "name": "ANCHORING",
         "resource": "\/LiveMenu\/anchoring\/0",
         "active_icon": "\/assets\/images\/dump\/ANCHORING_ec8d42d109.svg",

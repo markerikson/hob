@@ -1,19 +1,134 @@
-export const RestAPI = 'http://161.97.167.92:1337/'
-export const RestStorage = 'http://161.97.167.92:1337'
-export const PHOTO_STORAGE = 'http://161.97.167.92:1337/uploads/'
 
-export const DefaultLanguage = 'en-GB'
+// MAIN DEFAULTS !!
+  export const DefaultLanguage = 'en-GB'
+  // Cors seted: none!!
+  export const corsSetted = false
+  // App main user data!!
+  export const appSuperUser = 'system-app-user@maindomain.xyz'
+  export const appSuperPass = 'Qwer1234'
+  // The origin of backoffice stuff for the app
+  export const MyIP = '161.97.167.92'
+  export const originRoot = 'http://'+MyIP+':1337'
+// MAIN DEFAULTS !!
 
-export const sample_user = 'reader@strapi.io'
-export const sample_password = '2Y2s4qmliad'
+
+// Data dump origins!!! ;) TODO: clean duplicated ;);)
+export const LocalAPI = originRoot+'/'
+export const RestAPI = originRoot+'/'
+export const RestStorage = originRoot
+export const PHOTO_STORAGE = RestAPI + 'uploads/'
+
+
+
+export const menuSettings = {
+  'hiddenFooter' : [ '/Access', '/LiveMenu/home', '/Settings', '/LiveMap'],
+  'freeAccess' : [ '/LiveMenu/home', '/Access', '/Settings' ]
+}
+
+export const trainYourself = 'train-yourself'
+
 
 // TESTING PURPOSES!!!
 export const JustTesting = true
-export const LocalAPI = 'http://localhost:1337/'
 // TESTING PURPOSES!!!
 
+  // App ONLY FIRST TEST test!!
+  // TODO: MOVE TO 100% DINAMIC DISABLING JUST TESTING
+  export const accesUserKey = 'client-1-user-1@someone.com'// TODO: would be email, nickname....
+  export const accesUserPass = 'Qwer1234'
+  // App ONLY FIRST TEST test!!
+
+// TESTING PURPOSES!!!
+
+
+
+
+
+
+
+
+
+
+// OTHERS
+
+
+// Main messages
+export const messages = { 
+  'noData' : 'Waiting remote data... o.o!!',
+  'unavailable' : 'The type #type# is missed u.u!!',
+  'loading' : 'Loading ^_^!',
+  'routeStart' : 'The route starts here...',
+  'routeMeetingPoint' : 'This is your meeting point!!',
+  'routeEnd' : 'The route ends here...',
+
+  // ACCESS FORM
+
+  'accessFormTitle' : 'Access to the restricted data!!',
+
+  'userKeyLabel' : 'Owner alias',
+  'userKeyRequired' : 'User key is required...',
+
+  'userPassLabel' : 'Access key',
+  'userPassRequired' : 'Accessc key is required...',
+
+  'submitAcces' : 'Access',
+}
+
+// Main labels
+export const labels = { 
+  'routeName' : 'Route name...'
+}
+
+export const hideFooter = ['Home', ]
+
+// Main icons
+export const icons = {
+  'back' : '/assets/images/arrow-left.svg',
+  'camera' : 'leaflet/dist/images/marker-icon.png',//
+  'start' : 'leaflet/dist/images/marker-icon.png',//
+  'end' : 'leaflet/dist/images/marker-icon.png',//
+  'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
+}
+
+// Static Dumped
+export const publicDump   = 'assets/dump/'
+export const mainMenu     = publicDump+'menus/main-menu.json'
+export const menuDump     = publicDump+'menus/menu-'
+export const subMenuDump  = publicDump+'menus/sub-menu-'
+export const articleDump  = publicDump+'articles/article-'
+export const slideDump    = publicDump+'articles/slides/slide-'
+
+export const splashScreen = {
+  showDuration: 4000,
+  autoHide: true
+}
+
+export const fadeVelocity = 300
+
+// Map style and basics
+export const style = {
+  'map' : { 'width': '100%', 'height': '80vh' },
+  'polyLine' : { fillColor: '#a2a2a2' },
+  'polygon' : { fillColor: 'red' },
+}
+
+export const mapAttribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+export const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+// Map initial data
 export const main_zoom = 13
-export const main_center : [number, number] = [39.798052, 2.6952100]
+export const main_center : [number, number] = [ 39.798052, 2.6952100 ]
+
+export const slideOpts = {
+  initialSlide: '0',
+  speed: 500,
+  autoplay: false,
+  autoHeight: false,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
+  spaceBetween: 0,
+  loop: false
+}
 
 export const my_route = {
   "type": "FeatureCollection",
@@ -27,114 +142,6 @@ export const my_route = {
           [
             2.694740295410156,
             39.795809579006914
-          ],
-          [
-            2.6921653747558594,
-            39.79449063992477
-          ],
-          [
-            2.6905345916748047,
-            39.79482037706643
-          ],
-          [
-            2.6869297027587886,
-            39.79772199575064
-          ],
-          [
-            2.6870155334472656,
-            39.79989812942857
-          ],
-          [
-            2.6903629302978516,
-            39.805371130943854
-          ],
-          [
-            2.6987743377685547,
-            39.812953485405586
-          ],
-          [
-            2.701435089111328,
-            39.813612781053344
-          ],
-          [
-            2.703065872192383,
-            39.811832668291416
-          ],
-          [
-            2.703065872192383,
-            39.809854711155005
-          ],
-          [
-            2.703237533569336,
-            39.80847010729649
-          ],
-          [
-            2.7040958404541016,
-            39.81097556051997
-          ],
-          [
-            2.706155776977539,
-            39.81262383521031
-          ],
-          [
-            2.7083873748779297,
-            39.814008355406564
-          ],
-          [
-            2.710275650024414,
-            39.81532692014216
-          ],
-          [
-            2.7119922637939453,
-            39.817238794077774
-          ],
-          [
-            2.713451385498047,
-            39.81908469086112
-          ],
-          [
-            2.7196311950683594,
-            39.822908176476936
-          ],
-          [
-            2.724609375,
-            39.82356737663286
-          ],
-          [
-            2.726926803588867,
-            39.823501456901866
-          ],
-          [
-            2.7257680892944336,
-            39.82412769179301
-          ],
-          [
-            2.7254676818847656,
-            39.825215349354366
-          ],
-          [
-            2.727055549621582,
-            39.828478218731455
-          ],
-          [
-            2.742290496826172,
-            39.834640993640946
-          ],
-          [
-            2.74658203125,
-            39.83437735683739
-          ],
-          [
-            2.750015258789062,
-            39.8314772852108
-          ],
-          [
-            2.7489852905273438,
-            39.828577091142016
-          ],
-          [
-            2.7482986450195312,
-            39.82791793905047
           ]
         ]
       }
@@ -151,102 +158,6 @@ export const my_route = {
         "coordinates": [
           2.703237533569336,
           39.808453623749244
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.6968002319335938,
-          39.80599753104482
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {},
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.7338790893554688,
-          39.827126948192486
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "stroke": "#f4390b",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              2.7013492584228516,
-              39.812030460874844
-            ],
-            [
-              2.700662612915039,
-              39.81117335556963
-            ],
-            [
-              2.7016067504882812,
-              39.81084369683734
-            ],
-            [
-              2.7013492584228516,
-              39.812030460874844
-            ]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "stroke": "#ff0000",
-        "stroke-width": 2,
-        "stroke-opacity": 1,
-        "fill": "#555555",
-        "fill-opacity": 0.5
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              2.7045249938964844,
-              39.809854711155005
-            ],
-            [
-              2.7042675018310547,
-              39.80932724630671
-            ],
-            [
-              2.704610824584961,
-              39.80899757872133
-            ],
-            [
-              2.7048683166503906,
-              39.80952504609908
-            ],
-            [
-              2.7052116394042964,
-              39.8097887782703
-            ],
-            [
-              2.7045249938964844,
-              39.809854711155005
-            ]
-          ]
         ]
       }
     }

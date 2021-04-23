@@ -1,114 +1,198 @@
 import * as MyConst from '../static/constants'
-
-import React, {
-  useState,
-  useEffect
-} from 'react'
-
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar
-} from '@ionic/react'
-
+import React, { useState, useEffect  } from 'react'
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
+import { useTranslation } from 'react-i18next'
 
-import {
-  MapContainer, 
-  TileLayer,
-  Popup,
-  Circle,
-  CircleMarker,
-  Marker,
-  useMapEvents,
-  Polyline,
-  Polygon,
-  //Rectangle,
-  //GeoJSON,
-} from 'react-leaflet'
-
-import {
-  //Plugins
-} from '@capacitor/core'
-
-import {
-  useTranslation
-} from 'react-i18next'
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery'
 
 // About leafLet
+import L from 'leaflet'
+import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import 'leaflet/dist/leaflet.js'
 
+// Models for the route
+import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
-import { moveSyntheticComments } from 'typescript'
-
 import { RouteData } from '../models/RouteData'
-import { Geometry } from '../models/Geometry'
-import { Location } from '../models/Location'
-import { Coordinate } from '../models/Coordinate'
 
-const styleMap = { 'width': '100%', 'height': '80vh' }
-const fillBlueOptions = { fillColor: 'blue' }
-const redOptions = { color: 'red' }
+// Custom Map Markers
+import markerEndIconSvg from '../static/icons/end-marker.svg'
+import markerStartIconSvg from '../static/icons/start-marker.svg'
+import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+//------------------------------------------------------------------
+const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
 interface MapProps extends RouteComponentProps<{
-  id: string;
+  slug: string
+  id: string
 }> {}
 
-const LiveMap: React.FC<MapProps> =  ({match}) => {
+const LiveMap: React.FC<MapProps> = ({match}) => {
   
   const {t} = useTranslation()
+
+  // Default route data
+  var name = MyConst.labels.routeName
+  //var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
+  var zoom = MyConst.main_zoom
+  var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
+
+  // Route initial data
+  var start = [MyConst.main_center[0], MyConst.main_center[1]]
+  var end   = [MyConst.main_center[0], MyConst.main_center[1]]
+
   const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
     fetch(MyConst.RestAPI + 'my-routes?id='+match.params.id)
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.id])
-  
-  var lat = MyConst.main_center[0]
-  var lng = MyConst.main_center[1]
-  var zoom = MyConst.main_zoom
-  var data = JSON.parse(JSON.stringify(MyConst.my_route))//sample test!! 
-  
+ 
   if(typeof route[0] !== 'undefined'){
-
-    lat = route[0].center_lat
-    lng = route[0].center_long
+    name = route[0].name
+    //description = JSON.parse(JSON.stringify(route[0].description))
     zoom = route[0].zoom
-    data = route[0].data
-
+    data = route[0].map_data    
   }else{
-    console.log('Sin datos...')
+    if(MyConst.JustTesting){
+      console.log(MyConst.messages.noData)
+    } 
   }
 
-  function renderSwitch(type: string, coordinates: any) {
-    coordinates = Object.values(coordinates)
-    switch(type) {
+  // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
+  function twistCoordinates(coordinates: any) {
+    let result = []
+    for(var i = 0; i < coordinates.length; i++){
+      result.push([ coordinates[i][1], coordinates[i][0] ])
+    }
+    return result
+  }
+
+  // Set a sort of contents in a map...
+  function setMapContent(r: any) {
+    switch(r.geometry.type) {
+      case 'Point':
+        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraIcon, null)
+
+      case 'Polygon':
+        return setPolygon(r)
+
       case 'LineString':
-        return <Polygon pathOptions={redOptions} positions={coordinates} />
+        return setPolyLine(r)
+        
+      default:
+        if(MyConst.JustTesting){
+          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
+        }
     }
   }
+
+  // Set a Polygon
+  function setPolygon(r: any){
+    var polygon = twistCoordinates(Object.values(r.geometry.coordinates[0]))
+    return <Polygon
+      key={Math.random()} 
+      positions={[polygon]} 
+      //pathOptions={MyConst.style.polygon}
+    />
+  }
+
+  // Set a PolyLine
+  function setPolyLine(r: any){
+    var polyLine = twistCoordinates(Object.values(r.geometry.coordinates))
+    start = r.geometry.coordinates[0]
+    end = r.geometry.coordinates[r.geometry.coordinates.length - 1]
+    return <Polyline
+      key={Math.random()}
+      positions={polyLine}
+      //pathOptions={MyConst.style.polyLine}
+    />
+  }
+
+  // Set a Marker
+  function setMarker(lat:number, long:number, icon: any, popContent:any){
+    return (
+      <Marker
+        key={Math.random()}
+        position={[lat, long]}
+        icon={icon}
+      >{ popContent ? <Popup>{popContent}</Popup> : '' }        
+      </Marker>       
+    )
+  }
+
+  // TODO: Change with the common React way to do this!!!
+      const [full_menu, setMenu] = useState<Menu[]>([])
+      useEffect(() => {
+        fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
+      }, [])  
+
+      // TODO:  Move to components, for now is only a little chapuza more
+      function renderNavigateHeader(menus: Menu[]) {
+        var titleText = ''
+        if(menus[0]!== undefined){
+          let location = window.location.pathname.split('/') ?? null
+          if( menus[0].slug === location[2]){
+            titleText = menus[0].name
+            jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
+          }else{
+            jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
+          }      
+        }
+        return <IonToolbar>
+          <IonTitle>{titleText}</IonTitle>
+        </IonToolbar>
+      }
+  // TODO: Change with the common React way to do this!!!
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>{t('Route - Route title')}</IonTitle>
-        </IonToolbar>
+        {renderNavigateHeader(full_menu)}
       </IonHeader>
       <IonContent>
-        <MapContainer style={styleMap} center={[lat, lng]} zoom={zoom} scrollWheelZoom={false}>
+
+        {/* Loading map */}
+        <MapContainer
+          key='mainMap' 
+          style={MyConst.style.map}
+          center={[start[0], start[1]]}
+          zoom={zoom} scrollWheelZoom={false}
+        >
+
           <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            /*onLoad={(e:any)=> { e.target._map.invalidateSize()}}*/
+            attribution={MyConst.mapAttribution}
+            url={MyConst.tileUrl}
           />
+
+          {/* Loading map features
           {data.features.map((r: RouteData) => (
             r.type === 'Feature'
-              ? renderSwitch(r.geometry.type, r.geometry.coordinates)
-              : console.log('Not a feature... u.u!')
-          ))}
+              ? setMapContent(r)
+              : t(MyConst.messages.loading)
+          ))} */}
+
+          {/* Loading route start */}
+          <Marker
+            key='startMarker'
+            position={[start[1], start[0]]}
+            icon={startIcon}
+          ><Popup>{MyConst.messages.routeStart}</Popup>
+          </Marker>
+
+          {/* Loading route end */}
+          <Marker
+            key='endMarker'
+            position={[end[1], end[0]]}
+            icon={endIcon}
+          ><Popup>{MyConst.messages.routeEnd}</Popup>
+          </Marker>
+
         </MapContainer>
       </IonContent>
     </IonPage>
