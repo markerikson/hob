@@ -129,12 +129,23 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   function setActiveMenu(menus: Menu[]) {
     if(menus[0]!== undefined){
       let location = 'train-yourself'
-      console.log(location, menus[0].slug)
       if( menus[0].slug === location){
         jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
       }else{
         jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
       }      
+    }
+  }
+
+  var creator_id = localStorage.getItem('creator::id')
+  if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
+    console.log('You have free access here!! :)')  
+  }else{
+    if( creator_id !== null ){
+      console.log('Hello you have granted access, '+creator_id)
+    }else{
+      alert("You don't have acces to this area...")
+      window.location.href = '/Access/train-yourself'
     }
   }
 

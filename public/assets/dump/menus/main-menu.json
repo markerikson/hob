@@ -1,46 +1,46 @@
 [
     {
         "slug": "train-yourself",
-        "parent": "\/LiveMenu\/Home",
+        "parent": "\/LiveMenu\/home",
         "name": "TRAINING YOURSELF",
         "resource": "\/LiveMenu\/train-yourself",
         "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",
         "inactive_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_INACTIVE_6bf120c662.svg",
         "background_color": "soft-blue",
-        "access": "\/LiveMenu\/train-yourself",
-        "has_main": true
+        "has_main": true,
+        "access": "\/Access\/train-yourself"
     },
     {
         "slug": "explore-and-equip",
-        "parent": "\/LiveMenu\/Home",
+        "parent": "\/LiveMenu\/home",
         "name": "EXPLORE & EQUIP",
         "resource": "\/LiveMenu\/explore-and-equip",
         "active_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_ACTIVE_724f1c9969.svg",
         "inactive_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_INACTIVE_455b729e30.svg",
         "background_color": "soft-blue",
-        "access": "\/LiveMenu\/explore-and-equip",
-        "has_main": true
+        "has_main": true,
+        "access": "\/Access\/explore-and-equip"
     },
     {
         "slug": "navigate",
-        "parent": "\/LiveMenu\/Home",
+        "parent": "\/LiveMenu\/home",
         "name": "NAVIGATE",
-        "resource": "\/LiveMap\/navigate\/1",
+        "resource": "\/LiveMap\/navigate",
         "active_icon": "\/assets\/images\/dump\/NAVIGATE_ACTIVE_d2c977d14c.svg",
         "inactive_icon": "\/assets\/images\/dump\/NAVIGATE_INACTIVE_984d517b2d.svg",
         "background_color": "soft-blue",
-        "access": "\/LiveMenu\/navigate",
-        "has_main": true
+        "has_main": true,
+        "access": "\/Access\/navigate"
     },
     {
         "slug": "assistance",
-        "parent": "\/LiveMenu\/Home",
+        "parent": "\/LiveMenu\/home",
         "name": "ASSISTANCE !",
         "resource": "\/LiveMenu\/assistance",
         "active_icon": "\/assets\/images\/dump\/ASSISTANCE_ACTIVE_a70732cf07.svg",
         "inactive_icon": "\/assets\/images\/dump\/ASSISTANCE_INACTIVE_caeeb47aee.svg",
         "background_color": "soft-blue",
-        "access": "\/LiveMenu\/assistance",
-        "has_main": true
+        "has_main": true,
+        "access": "\/Access\/assistance"
     }
 ]

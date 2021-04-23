@@ -56,7 +56,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     name = route[0].name
     //description = JSON.parse(JSON.stringify(route[0].description))
     zoom = route[0].zoom
-    data = route[0].data    
+    data = route[0].map_data    
   }else{
     if(MyConst.JustTesting){
       console.log(MyConst.messages.noData)
@@ -121,7 +121,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
         position={[lat, long]}
         icon={icon}
       >{ popContent ? <Popup>{popContent}</Popup> : '' }        
-      </Marker>      
+      </Marker>       
     )
   }
 
@@ -170,12 +170,12 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
             url={MyConst.tileUrl}
           />
 
-          {/* Loading map features */}
+          {/* Loading map features
           {data.features.map((r: RouteData) => (
             r.type === 'Feature'
               ? setMapContent(r)
               : t(MyConst.messages.loading)
-          ))}
+          ))} */}
 
           {/* Loading route start */}
           <Marker

@@ -1,7 +1,7 @@
 [
     {
         "slug": "safety-margin",
-        "parent": "\/LiveMenu\/Cruising",
+        "parent": "\/LiveMenu\/cruising",
         "name": "Safety margin",
         "resource": "\/Article\/safety-margin\/3",
         "active_icon": "",

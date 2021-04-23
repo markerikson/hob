@@ -1,8 +1,8 @@
 {
     "id": 4,
-    "name": "My route name",
+    "name": "Sa Foradada",
     "created_at": "2021-02-28T22:16:31.000Z",
-    "updated_at": "2021-02-28T22:16:31.000Z",
+    "updated_at": "2021-04-18T00:49:38.000Z",
     "data": {
         "type": "FeatureCollection",
         "features": [
@@ -126,127 +126,15 @@
                         ]
                     ]
                 }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "marker-color": "#7e7e7e",
-                    "marker-size": "medium",
-                    "marker-symbol": ""
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        2.703237533569336,
-                        39.808453623749244
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {},
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        2.6968002319335938,
-                        39.80599753104482
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {},
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        2.7338790893554688,
-                        39.827126948192486
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "stroke": "#f4390b",
-                    "stroke-width": 2,
-                    "stroke-opacity": 1,
-                    "fill": "#555555",
-                    "fill-opacity": 0.5
-                },
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [
-                            [
-                                2.7013492584228516,
-                                39.812030460874844
-                            ],
-                            [
-                                2.700662612915039,
-                                39.81117335556963
-                            ],
-                            [
-                                2.7016067504882812,
-                                39.81084369683734
-                            ],
-                            [
-                                2.7013492584228516,
-                                39.812030460874844
-                            ]
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "stroke": "#ff0000",
-                    "stroke-width": 2,
-                    "stroke-opacity": 1,
-                    "fill": "#555555",
-                    "fill-opacity": 0.5
-                },
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [
-                            [
-                                2.7045249938964844,
-                                39.809854711155005
-                            ],
-                            [
-                                2.7042675018310547,
-                                39.80932724630671
-                            ],
-                            [
-                                2.704610824584961,
-                                39.80899757872133
-                            ],
-                            [
-                                2.7048683166503906,
-                                39.80952504609908
-                            ],
-                            [
-                                2.7052116394042964,
-                                39.8097887782703
-                            ],
-                            [
-                                2.7045249938964844,
-                                39.809854711155005
-                            ]
-                        ]
-                    ]
-                }
             }
         ]
     },
     "center_lat": null,
     "center_long": null,
     "zoom": null,
-    "slug": "my-routes-2",
-    "acces_key": null,
+    "slug": "my-routes-3",
     "permission": null,
-    "published_at": "2021-02-28T22:16:31.000Z",
+    "creator": 4,
     "description": [
         {
             "id": 3,

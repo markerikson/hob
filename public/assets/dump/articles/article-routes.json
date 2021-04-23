@@ -1,9 +1,9 @@
 [
     {
         "slug": "routes",
-        "parent": "\/LiveMenu\/Explore-and-equip",
+        "parent": "\/LiveMenu\/explore-and-equip",
         "name": "ROUTES",
-        "resource": "\/Routes\/6",
+        "resource": "\/Routes",
         "active_icon": "\/assets\/images\/dump\/ROUTES_737fa4a31d.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"

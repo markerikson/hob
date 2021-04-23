@@ -1,6 +1,6 @@
 export interface Menu {
   name: string
-  slug: string
+  slug : string
   access?: string
   resource: string
   section: string

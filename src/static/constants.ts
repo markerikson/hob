@@ -20,7 +20,12 @@ export const PHOTO_STORAGE = RestAPI + 'uploads/'
 
 
 
+export const menuSettings = {
+  'hiddenFooter' : [ '/Access', '/LiveMenu/home', '/Settings', '/LiveMap'],
+  'freeAccess' : [ '/LiveMenu/home', '/Access', '/Settings' ]
+}
 
+export const trainYourself = 'train-yourself'
 
 
 // TESTING PURPOSES!!!
@@ -53,6 +58,7 @@ export const messages = {
   'unavailable' : 'The type #type# is missed u.u!!',
   'loading' : 'Loading ^_^!',
   'routeStart' : 'The route starts here...',
+  'routeMeetingPoint' : 'This is your meeting point!!',
   'routeEnd' : 'The route ends here...',
 
   // ACCESS FORM

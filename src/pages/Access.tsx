@@ -71,6 +71,7 @@ const Access: React.FC<LoginProps> = ({
         offlineStore.setItem('creator::id', appClient.user.creator.toString())
         offlineStore.setItem('creator::data', JSON.stringify(appClient.user))
         // RODO Redirect to Routes ;);););)
+        window.location.href = "/LiveMenu/train-yourself";
 
       }
       

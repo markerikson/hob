@@ -55,7 +55,18 @@ SplashScreen.show(MyConst.splashScreen)
 
 const App: React.FC = () => {
 
-  let location = window.location.pathname.split('/') ?? null
+  // Temporary ninja acces control
+  var creator_id = localStorage.getItem('creator::id')
+  if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
+    console.log('You have free access here!! :)')  
+  }else{
+    if( creator_id !== '' ){
+      console.log('Hello you have granted access, '+creator_id)
+    }else{
+      alert("You don't have acces to this area...")
+      window.location.href = '/Access/train-yourself'
+    }
+  }
 
   const [main_menu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -96,17 +107,21 @@ const App: React.FC = () => {
     }
   }  
   console.log(appLogin())
-  */
+  
 
+  console.log(window.location.pathname)
+*/
   return(
     <IonApp>
       <IonReactRouter>
         <IonTabs>
-          <IonRouterOutlet>            
-            <Route path='/LiveMenu' render={() => <Redirect to='/Home'/>} exact={true}/>            
-            <Route path='/Home' component={Home}/>
+          <IonRouterOutlet>   
+            <Route path='/' render={() => <Redirect to='/LiveMenu/home'/>} exact={true}/>         
+            <Route path='/Home' render={() => <Redirect to='/LiveMenu/home'/>} exact={true}/>           
             <Route path='/Access' component={Access}/>
-            <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
+            <Route path='/LiveMenu/navigate' component={LiveMap}/>
+
+            <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/home'/>} exact={true}/>  
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>
             <Route path='/Equipment/:slug' component={Equipment}/>
@@ -116,7 +131,7 @@ const App: React.FC = () => {
             <Route path='/Settings' component={Settings}/>
             {/*<Route path='/Access/:slug' component={Access}/>*/}
           </IonRouterOutlet>          
-          {location[1] !=='Access' && location[1] !=='Home' && location[1] !=='Settings' 
+          { MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1
             ? renderFooterMenu(main_menu)
             : <IonTabBar slot='bottom' class='hob-footer hidden'></IonTabBar>
           }

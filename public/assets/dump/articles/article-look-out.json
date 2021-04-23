@@ -1,7 +1,7 @@
 [
     {
         "slug": "look-out",
-        "parent": "\/LiveMenu\/Cruising",
+        "parent": "\/LiveMenu\/cruising",
         "name": "Look out",
         "resource": "\/Article\/look-out\/4",
         "active_icon": "",
