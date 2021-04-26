@@ -92,7 +92,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
 
 
-
+  jQuery('#navigate').attr('src', jQuery('#navigate').data('active'))
 
 
 
@@ -164,11 +164,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     )
   }
 
-
-
-
-*/
-
+  */
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -178,41 +174,14 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
   // TODO:  Move to components, for now is only a little chapuza more
   function renderNavigateHeader(menus: Menu[]) {
-    //hoverFooterIcon(fullMenu);     
-    jQuery('#train-yourself').attr('src', jQuery('#train-yourself').data('inactive'))
-    jQuery('#explore-and-equip').attr('src', jQuery('#explore-and-equip').data('inactive')) 
-    jQuery('#assistance').attr('src', jQuery('#assistance').data('inactive'))   
     jQuery('#navigate').attr('src', jQuery('#navigate').data('active'))
+    //jQuery('#train-yourself').attr('src', jQuery('#train-yourself').data('inactive'))
+    //jQuery('#explore-and-equip').attr('src', jQuery('#explore-and-equip').data('inactive')) 
+    //jQuery('#assistance').attr('src', jQuery('#assistance').data('inactive'))   
     return <IonToolbar>
       <IonTitle></IonTitle>
     </IonToolbar>
   }
-  // TODO: Is fine, but... if i can find the react way ^^ would be nice jiji (try with something like match!!!!)
-  /*function hoverFooterIcon(menus: Menu[]) {
-    if(MyConst.holdHoverFooterIcon.indexOf(window.location.pathname) !== -1){
-      if (menus[0] !== undefined){
-        let icon =
-          window.location.pathname.split("/")[2]
-            ? menus[0].active_icon
-            : menus[0].inactive_icon;
-        jQuery("#" + menus[0].slug).attr("src", icon);
-      }
-    }
-  }
-
-  useIonViewWillEnter(() => {
-    console.log('useIonViewWillEnter')
-    //toggleFooter()
-  });
-
-  function toggleFooter(){
-    if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)');    
-    if( MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1){      
-      jQuery('.hob-footer').removeClass('hidden')
-    }else{
-      jQuery('.hob-footer').addClass('hidden')
-    }
-  }*/
 
   return (
     <IonPage>

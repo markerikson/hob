@@ -175,7 +175,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
         {/* Loading map */}
         <MapContainer
           key='mainMap' 
-          style={MyConst.style.map}
+          style={MyConst.style.routes}
           center={[start[0], start[1]]}
           zoom={zoom} scrollWheelZoom={false}
         >

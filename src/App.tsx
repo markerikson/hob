@@ -50,11 +50,6 @@ import Settings   from './pages/Settings'
 
 const App: React.FC = () => {
 
-  localStorage.setItem('creator::id', '4');  
-  localStorage.setItem('creator::contact_phone', '677628086');
-  //var creator_id = localStorage.getItem('creator::id');
-  //var contact_phone = localStorage.getItem('creator::contact_phone');
-
   const [mainMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.mainMenu).then(res => res.json()).then(setMenu)
@@ -91,7 +86,7 @@ const App: React.FC = () => {
           <IonRouterOutlet>
             <Route path='/' render={() => <Redirect to={MyConst.homeHref}/>} exact={true}/>         
             <Route path='/Home' render={() => <Redirect to={MyConst.homeHref}/>} exact={true}/>         
-            <Route path='/Access' component={Access}/>
+            <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>            
             <Route path='/LiveMap/navigate' component={LiveMap}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>            

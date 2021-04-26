@@ -111,10 +111,20 @@
   max-height: 120px;
 }
 
+.native-textarea[disabled]{
+  opacity: 0.9!important;
+  height: 32vh!important;
+  font-size: 2vh;
+}
 
+.sub-title {
+  padding: 0px;
+}
 
-
-
+.login-logo {
+  height: 25vh!important;
+  vertical-align: middle!important;
+}
 
 
 

@@ -41,6 +41,20 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
   const { t } = useTranslation();
   const history = useHistory();
+
+  var creator_id = localStorage.getItem("creator::id");
+  if (
+    MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1
+  ) {
+    //console.log("You have free access here!! :)");
+  } else {
+    if (creator_id !== null) {
+      //console.log("Hello you have granted access, " + creator_id);
+    } else {
+      console.log("You don't have acces to this area... ");
+      window.location.href = "/Access/"+window.location.pathname.split("/")[2];
+    }
+  }
     
   useIonViewWillEnter(() => {
     toggleFooter()
@@ -170,19 +184,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
     }
   }
 
-  var creator_id = localStorage.getItem("creator::id");
-  if (
-    MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1
-  ) {
-    //console.log("You have free access here!! :)");
-  } else {
-    if (creator_id !== null) {
-      //console.log("Hello you have granted access, " + creator_id);
-    } else {
-      console.log("You don't have acces to this area... ");
-      window.location.href = "/Access/train-yourself";
-    }
-  }
+
 
   return (
     <IonPage>
