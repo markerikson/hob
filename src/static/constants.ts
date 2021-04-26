@@ -18,14 +18,17 @@ export const RestAPI = originRoot+'/'
 export const RestStorage = originRoot
 export const PHOTO_STORAGE = RestAPI + 'uploads/'
 
-
-
 export const menuSettings = {
-  'hiddenFooter' : [ '/Access', '/LiveMenu/home', '/Settings', '/LiveMap'],
+  'hiddenFooter' : [ '/Access', '/LiveMenu/home', '/Settings'],
   'freeAccess' : [ '/LiveMenu/home', '/Access', '/Settings' ]
 }
 
-export const trainYourself = 'train-yourself'
+export const holdHoverFooterIcon = [
+  '/LiveMenu/train-yourself',
+  '/LiveMenu/explore-and-equip',
+  '/LiveMap/navigate',
+  '/LiveMenu/assistance'
+]
 
 
 // TESTING PURPOSES!!!
@@ -62,14 +65,15 @@ export const messages = {
   'routeEnd' : 'The route ends here...',
 
   // ACCESS FORM
+  'accessFormSuggest' : '',
 
-  'accessFormTitle' : 'Access to the restricted data!!',
+  'accessFormTitle' : 'Please put the access data!',
 
-  'userKeyLabel' : 'Owner alias',
-  'userKeyRequired' : 'User key is required...',
+  'userKeyLabel' : 'User email',
+  'userKeyRequired' : 'User email is required...',
 
-  'userPassLabel' : 'Access key',
-  'userPassRequired' : 'Accessc key is required...',
+  'userPassLabel' : 'Password',
+  'userPassRequired' : 'Password is required...',
 
   'submitAcces' : 'Access',
 }
@@ -79,7 +83,8 @@ export const labels = {
   'routeName' : 'Route name...'
 }
 
-export const hideFooter = ['Home', ]
+export const homeHref = '/LiveMenu/home'
+export const trainYourself = 'train-yourself'// Main after home!!
 
 // Main icons
 export const icons = {

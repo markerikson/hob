@@ -11,11 +11,11 @@ import { Menu } from '../models/Menu'
 const LiveMap: React.FC =  () => {
 
   // TODO: Change with the common React way to do this!!!
-  const [full_menu, setMenu] = useState<Menu[]>([])
+  const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
   }, [])  
-  hoverFooterIcon(full_menu)
+  hoverFooterIcon(fullMenu)
   function hoverFooterIcon(menus: Menu[]) {
     if(menus[0]!== undefined){
       let location = 'explore-and-equip'

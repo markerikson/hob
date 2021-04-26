@@ -13,7 +13,7 @@ export const SubMenu = styled.div`
     justify-content: space-evenly;
     align-items: center;
     &:first-child {
-        margin-top: -35px;
+        margin-top: -6%;//-35px
     }
 `;
 

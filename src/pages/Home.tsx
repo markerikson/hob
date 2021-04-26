@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({match}) => {
 
   const {t} = useTranslation()
 
-  const [main_menu, setMenu] = useState<Menu[]>([])
+  const [mainMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.mainMenu).then(res => res.json()).then(setMenu)
   }, [])
@@ -60,12 +60,12 @@ const Home: React.FC<HomeProps> = ({match}) => {
                 <Route path='/LiveMenu' render={() => <Redirect to='/LiveMenu/train-yourself'/>} exact={true}/>  
               </IonRouterOutlet>          
               <IonTabBar slot='bottom' class='hob-footer'>
-                {renderHomeMenu(main_menu)}
+                {renderHomeMenu(mainMenu)}
               </IonTabBar>
             </IonTabs>
           </IonReactRouter>
           <IonTabBar slot='bottom' class='hob-footer'>
-            {renderHomeMenu(main_menu)}
+            {renderHomeMenu(mainMenu)}
           </IonTabBar>
         </IonList>
       </IonContent>
