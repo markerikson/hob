@@ -3,7 +3,7 @@
         "slug": "home",
         "name": "HOME",
         "resource": "\/LiveMenu\/home",
-        "active_icon": "",
+        "active_icon": "\/assets\/images\/dump\/TRAIN_YOURSELF_ACTIVE_6169489c23.svg",
         "inactive_icon": "",
         "background_color": "soft-blue"
     }

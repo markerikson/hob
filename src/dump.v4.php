@@ -12,7 +12,7 @@ class DumperClass {
             'url'       => 'languages',
             'filename'  => '../public/assets/dump/others/languages.json'
         ],            
-        'main_menu' => [
+        'mainMenu' => [
             'url'       => 'app-menus', 
             'filename'  => '../public/assets/dump/menus/main-menu.json'
         ],
@@ -119,7 +119,7 @@ class DumperClass {
         //////////////////////////////////////////////////////////////////////////////////////////
         // MENUS - Getting Menus... Created formated new menus object
         ////////////////////////////////////////////////////////////////////////////////////////// 
-        foreach( $this->getContent('main_menu') ?? [] as $key => $menu ){
+        foreach( $this->getContent('mainMenu') ?? [] as $key => $menu ){
             $this->oldMenus[$menu->slug] = $menu;
         }
 
@@ -172,7 +172,7 @@ class DumperClass {
         }
 
         // Guardar todos los Menus Principales...
-        if(!empty($mainMenu)) file_put_contents( $this->map['main_menu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
+        if(!empty($mainMenu)) file_put_contents( $this->map['mainMenu']['filename'], json_encode(array_values($mainMenu), JSON_PRETTY_PRINT));
 
 
         //////////////////////////////////////////////////////////////////////////////////////////

@@ -3,18 +3,18 @@ import * as MyConst from '../static/constants'
 import React, { useState,
   //useEffect,  
 } from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
+import { IonHeader, IonToast, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
 import { useTranslation } from 'react-i18next'
-import { Redirect, Route } from 'react-router-dom'
+//import { Redirect, Route } from 'react-router-dom'
 import axios from 'axios'
 
 import { connect } from '../data/connect'
 import { setAccessAllowed, setUserKey } from '../data/user/user.actions'
 
 // Static
-import { appClient } from '../static/appClient'
+//import { appClient } from '../static/appClient'
 
 // Models
 //import { Menu } from '../models/Menu'
@@ -44,6 +44,7 @@ const Access: React.FC<LoginProps> = ({
   const [accesFormSubmitted, setAccesFormSubmitted] = useState(false)
   const [userKeyError, setUserKeyError] = useState(false)
   const [passwordError, setUserPassError] = useState(false)
+  const [showToast1, setShowToast1] = useState(false);
 
   var offlineStore = window.localStorage
 
@@ -51,29 +52,40 @@ const Access: React.FC<LoginProps> = ({
 
     e.preventDefault()
     setAccesFormSubmitted(true)
+    setShowToast1(true)
     
     if(!userKey) { setUserKeyError(true) }else{ setUserKeyError(false) }
     if(!userPass) { setUserPassError(true) }else{ setUserPassError(false) }
 
     if(userKey && userPass){
 
-      if(MyConst.corsSetted && !MyConst.JustTesting){
-        // TODO: SET CORS ON SERVER!!!
-        // TODO: Move to awaitable place!!!
-        //const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
-        //  identifier: MyConst.appUserEmail,
-        //  password:   MyConst.appPass,
-        //})
-        //return appClient
-      }else{
+      const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
+        identifier: userKey,
+        password:   userPass,
+      })/*.catch(function (error) {
 
-        if(MyConst.JustTesting) console.log('Saving client data!!')
-        offlineStore.setItem('creator::id', appClient.user.creator.toString())
-        offlineStore.setItem('creator::data', JSON.stringify(appClient.user))
-        // RODO Redirect to Routes ;);););)
-        window.location.href = "/LiveMenu/train-yourself";
+        if (error.response) {
 
-      }
+          // Request made and server responded
+          return error.response.data;
+          //console.log(error.response.status);
+          //console.log(error.response.headers);
+
+        } else if (error.request) {
+
+          // The request was made but no response was received
+          return error.request;
+
+        } else {
+
+          // Something happened in setting up the request that triggered an Error
+          return  error.message;
+
+        }
+      }*/
+
+      offlineStore.setItem('creator::id', data.user.creator.toString())
+      offlineStore.setItem('creator::data', JSON.stringify(data.user))
       
     }
 
@@ -182,6 +194,13 @@ const Access: React.FC<LoginProps> = ({
           </IonRow>
 
         </form>
+
+        <IonToast
+          isOpen={showToast1}
+          onDidDismiss={() => setShowToast1(false)}
+          message={t(MyConst.messages.submitAcces)}
+          duration={200}
+        />
 
       </IonContent>
 
