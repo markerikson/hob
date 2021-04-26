@@ -1,41 +1,31 @@
 import * as MyConst from '../static/constants'
 
 import React, { useState,
-  //useEffect,  
+  useEffect,  
 } from 'react'
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText } from '@ionic/react'
-import { RouteComponentProps } from 'react-router'
+import { IonHeader, IonToast, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, 
+  IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText, IonThumbnail, IonImg,
+  useIonViewWillEnter } from '@ionic/react'
+import { RouteComponentProps, useHistory } from 'react-router'
 
 import { useTranslation } from 'react-i18next'
-import { Redirect, Route } from 'react-router-dom'
+//import { Redirect, Route } from 'react-router-dom'
 import axios from 'axios'
 
-import { connect } from '../data/connect'
-import { setAccessAllowed, setUserKey } from '../data/user/user.actions'
+// Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from "jquery";
+// Models for the route
+import { Menu } from '../models/Menu'
 
-// Static
-import { appClient } from '../static/appClient'
-
-// Models
-//import { Menu } from '../models/Menu'
-
-interface OwnProps extends RouteComponentProps {}
-
-interface DispatchProps {
-  setAccessAllowed: typeof setAccessAllowed
-  setUserKey: typeof setUserKey
-}
-
-interface LoginProps extends OwnProps,  DispatchProps  {}
-
-const Access: React.FC<LoginProps> = ({
-    setAccessAllowed,
-    history,
-    setUserKey: setUserKeyAction, 
-    // TODO: Put slug!!!
-  }) => {
+interface PageProps
+  extends RouteComponentProps<{
+    slug: string;
+  }> {}
+  
+const Access: React.FC<PageProps> = ({ match }) => {
 
   const {t} = useTranslation()
+  const history = useHistory();
 
   const [userKey, setUserKey] = useState('')
   const [userPass, setUserPass] = useState('')
@@ -44,42 +34,86 @@ const Access: React.FC<LoginProps> = ({
   const [accesFormSubmitted, setAccesFormSubmitted] = useState(false)
   const [userKeyError, setUserKeyError] = useState(false)
   const [passwordError, setUserPassError] = useState(false)
+  const [showToast1, setShowToast1] = useState(false);
 
   var offlineStore = window.localStorage
+
+  const [fullMenu, setMenu] = useState<Menu[]>([]);
+
+  useEffect(() => {
+    fetch(MyConst.menuDump + match.params.slug + ".json")
+      .then((res) => res.json())
+      .then(setMenu);
+  }, [match.params.slug]);
+
+  var headerIcon = '';
+
+  if(fullMenu[0] !== undefined){
+    headerIcon = fullMenu[0].active_icon
+  }
+
+  console.log(fullMenu[0])
 
   const accesClientData = async (e: React.FormEvent) => {
 
     e.preventDefault()
     setAccesFormSubmitted(true)
+    setShowToast1(true)
     
     if(!userKey) { setUserKeyError(true) }else{ setUserKeyError(false) }
     if(!userPass) { setUserPassError(true) }else{ setUserPassError(false) }
 
     if(userKey && userPass){
 
-      if(MyConst.corsSetted && !MyConst.JustTesting){
-        // TODO: SET CORS ON SERVER!!!
-        // TODO: Move to awaitable place!!!
-        //const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
-        //  identifier: MyConst.appUserEmail,
-        //  password:   MyConst.appPass,
-        //})
-        //return appClient
-      }else{
+      const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
+        identifier: userKey,
+        password:   userPass,
+      })/*.catch(function (error) {
 
-        if(MyConst.JustTesting) console.log('Saving client data!!')
-        offlineStore.setItem('creator::id', appClient.user.creator.toString())
-        offlineStore.setItem('creator::data', JSON.stringify(appClient.user))
-        // RODO Redirect to Routes ;);););)
+        if (error.response) {
+
+          // Request made and server responded
+          return error.response.data;
+          //console.log(error.response.status);
+          //console.log(error.response.headers);
+
+        } else if (error.request) {
+
+          // The request was made but no response was received
+          return error.request;
+
+        } else {
+
+          // Something happened in setting up the request that triggered an Error
+          return  error.message;
+
+        }
+      }*/
+
+      if(data.user !== undefined){
+        offlineStore.setItem('creator::id', data.user.creator.toString())
+        offlineStore.setItem('creator::data', JSON.stringify(data.user))
         window.location.href = "/LiveMenu/train-yourself";
-
       }
+
       
     }
 
   }
 
+  useIonViewWillEnter(() => {
+    toggleFooter()
+  });
 
+  // Show and hide the footer over LiveMenu
+  function toggleFooter(){
+    if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)');
+    if( MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1){      
+      jQuery('.hob-footer').removeClass('hidden')
+    }else{
+      jQuery('.hob-footer').addClass('hidden')
+    }
+  }
   
   // In future show icon from App Settings
   //const [menu, setMenus] = useState<Menu[]>([])
@@ -89,40 +123,53 @@ const Access: React.FC<LoginProps> = ({
 
   //console.log(menu)
 
+  function renderHeader(fullMenu: Menu[]) {
+    return fullMenu.map((r: Menu, i) =>
+    <IonHeader 
+      key={"head_" + r.slug}
+      class="hob-header">
+      <IonToolbar class="hob-header">
+        <IonItem
+          key={"head_item_" + r.slug}
+          class="hob-header border-none">
+          <IonImg
+            class='back'
+            onClick={() => history.goBack()}
+            src={MyConst.icons.back}
+            slot="start"
+          ></IonImg>
+          <IonThumbnail>
+            <IonImg src={r.active_icon} alt={r.slug} />
+          </IonThumbnail>
+          <IonLabel key={"header-label" + r.slug} class='h1 bold'>{t(r.name)}</IonLabel>
+        </IonItem>
+      </IonToolbar>
+    </IonHeader>)
+  }
+
   return (
     <IonPage id='login-page'>
 
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot='start'>
-            <IonMenuButton></IonMenuButton>
-          </IonButtons>
-          <IonTitle>
-            <img
-              src='assets/images/dump/app-logo.png'
-              alt='Hoponboard.eu'
-              width='50px'/>
-              {t(MyConst.messages.accessFormTitle)}      
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      {renderHeader(fullMenu)}
 
       <IonContent>
 
-        <div className='login-logo'></div>
+        <div className='login-logo'>
+        </div>
+          <IonLabel 
+            class='access_text'
+            position='floating'>
+            {t(MyConst.messages.accessText)}      
+          </IonLabel>
 
         <form noValidate onSubmit={accesClientData}>
-          
           <IonList>
-
             <IonItem>
-
               <IonLabel 
                 color='primary'
                 position='stacked'>
                 {t(MyConst.messages.userKeyLabel)}      
               </IonLabel>
-
               <IonInput
                 name='userKey'
                 type='text'
@@ -132,7 +179,6 @@ const Access: React.FC<LoginProps> = ({
                 onIonChange={e => setUserKey(e.detail.value!)}
                 required>
               </IonInput>
-
             </IonItem>
 
             { accesFormSubmitted && userKeyError &&
@@ -183,6 +229,13 @@ const Access: React.FC<LoginProps> = ({
 
         </form>
 
+        <IonToast
+          isOpen={showToast1}
+          onDidDismiss={() => setShowToast1(false)}
+          message={t(MyConst.messages.submitAcces)}
+          duration={200}
+        />
+
       </IonContent>
 
     </IonPage>
@@ -190,7 +243,9 @@ const Access: React.FC<LoginProps> = ({
 
 }
 
-export default connect<OwnProps, {}, DispatchProps>({
+/*export default connect<OwnProps, {}, DispatchProps>({
   mapDispatchToProps: { setAccessAllowed, setUserKey },
   component: Access
-})
+})*/
+
+export default Access

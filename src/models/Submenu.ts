@@ -6,6 +6,6 @@ export interface Submenu {
   parent_icon: string
   background_color?: string
   slug:string
-  access?:string
+  access:string
   has_main: boolean
 }

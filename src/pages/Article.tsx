@@ -1,6 +1,23 @@
 import * as MyConst from '../static/constants'
 import React, { useEffect, useState } from 'react'
-import { IonPage, IonLabel, IonGrid, IonCard, IonTextarea, IonRow, IonCol, IonCardContent, IonContent, IonSlide, IonSlides, IonImg, IonItem, IonThumbnail, IonHeader, IonToolbar } from '@ionic/react'
+import {
+  IonPage,
+  IonLabel,
+  IonGrid,
+  IonCard,
+  IonTextarea,
+  IonRow,
+  IonCol,
+  IonCardContent,
+  IonContent,
+  IonSlide,
+  IonSlides,
+  IonImg,
+  IonItem,
+  IonThumbnail,
+  IonHeader,
+  IonToolbar
+} from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
@@ -23,7 +40,6 @@ interface ArticlePageProps extends RouteComponentProps<{
 const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const {t} = useTranslation()
-  //const location = useLocation()
 
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
@@ -52,7 +68,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
         </IonThumbnail>
         <IonGrid>
           <IonRow>
-            <IonCol><IonLabel>{t(r.name.toString())}</IonLabel></IonCol>
+            <IonCol><IonLabel class='bold'>{t(r.name.toString())}</IonLabel></IonCol>
           </IonRow>
           <IonRow>
             <IonCol><IonLabel class='sub_title'></IonLabel></IonCol>
@@ -79,7 +95,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
                 class='hob_slide_textarea'
                 disabled
                 readonly
-                value={t(r.description_md5.toString())}>
+                value={t(r.description_md5)}>
               </IonTextarea>
           </IonCardContent>
         </IonCard>
@@ -88,8 +104,8 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   }
   
   // Change the header subtitle pending on slide 'hidden content'
-  var labelClass = '.sub_title'
   const setLabel = async (event: any, slides: Slide[], title: any) => {
+    let labelClass = '.sub_title'
     let index = 1
     await event.target.getActiveIndex().then((value: any) => (index=value))
     if(slides[index] !== undefined){
@@ -120,34 +136,18 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     }
   }
 
-  // Activate the desired menu for now
-  const [full_menu, setMenu] = useState<Menu[]>([])
-  useEffect(() => {
-    fetch(MyConst.menuDump + 'train-yourself.json').then(res => res.json()).then(setMenu)
-  }, [])
-  setActiveMenu(full_menu)
-  function setActiveMenu(menus: Menu[]) {
-    if(menus[0]!== undefined){
-      let location = 'train-yourself'
-      if( menus[0].slug === location){
-        jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
-      }else{
-        jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-      }      
-    }
-  }
-
+  /*
   var creator_id = localStorage.getItem('creator::id')
   if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
-    console.log('You have free access here!! :)')  
+    //console.log('You have free access here!! :)')  
   }else{
     if( creator_id !== null ){
-      console.log('Hello you have granted access, '+creator_id)
+      //console.log('Hello you have granted access, '+creator_id)
     }else{
       //alert("You don't have acces to this area...")
       //window.location.href = '/Access/train-yourself'      
     }
-  }
+  }*/
 
   return(
     <IonPage>

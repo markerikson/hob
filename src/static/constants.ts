@@ -18,15 +18,25 @@ export const RestAPI = originRoot+'/'
 export const RestStorage = originRoot
 export const PHOTO_STORAGE = RestAPI + 'uploads/'
 
-
-
 export const menuSettings = {
-  'hiddenFooter' : [ '/Access', '/LiveMenu/home', '/Settings', '/LiveMap'],
+  'hiddenFooter' : [ 
+    '/Access',
+    '/LiveMenu/home',
+    '/Settings',
+    '/Access/train-yourself',
+    '/Access/explore-and-equip',
+    '/Access/navigate',
+    '/Access/assistance'
+  ],
   'freeAccess' : [ '/LiveMenu/home', '/Access', '/Settings' ]
 }
 
-export const trainYourself = 'train-yourself'
-
+export const holdHoverFooterIcon = [
+  '/LiveMenu/train-yourself',
+  '/LiveMenu/explore-and-equip',
+  '/LiveMap/navigate',
+  '/LiveMenu/assistance'
+]
 
 // TESTING PURPOSES!!!
 export const JustTesting = true
@@ -60,16 +70,18 @@ export const messages = {
   'routeStart' : 'The route starts here...',
   'routeMeetingPoint' : 'This is your meeting point!!',
   'routeEnd' : 'The route ends here...',
+  'accessText' : 'Access to the routes and the incredible data ;)',
 
   // ACCESS FORM
+  'accessFormSuggest' : '',
 
-  'accessFormTitle' : 'Access to the restricted data!!',
+  'accessFormTitle' : 'Please put the access data!',
 
-  'userKeyLabel' : 'Owner alias',
-  'userKeyRequired' : 'User key is required...',
+  'userKeyLabel' : 'User email',
+  'userKeyRequired' : 'User email is required...',
 
-  'userPassLabel' : 'Access key',
-  'userPassRequired' : 'Accessc key is required...',
+  'userPassLabel' : 'Password',
+  'userPassRequired' : 'Password is required...',
 
   'submitAcces' : 'Access',
 }
@@ -79,7 +91,8 @@ export const labels = {
   'routeName' : 'Route name...'
 }
 
-export const hideFooter = ['Home', ]
+export const homeHref = '/LiveMenu/home'
+export const trainYourself = 'train-yourself'// Main after home!!
 
 // Main icons
 export const icons = {
@@ -108,6 +121,7 @@ export const fadeVelocity = 300
 // Map style and basics
 export const style = {
   'map' : { 'width': '100%', 'height': '80vh' },
+  'routes' : { 'width': '100%', 'height': '60vh' },
   'polyLine' : { fillColor: '#a2a2a2' },
   'polygon' : { fillColor: 'red' },
 }

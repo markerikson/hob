@@ -1,6 +1,6 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
@@ -9,13 +9,22 @@ import jQuery from 'jquery'
 
 // About leafLet
 import L from 'leaflet'
-import { MapContainer, TileLayer, Popup, Marker, Polygon, Polyline } from 'react-leaflet'
+import {
+  MapContainer,
+  TileLayer,
+  /*
+  Popup,
+  Marker,
+  Polygon,
+  Polyline,
+  */
+} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 // Models for the route
 import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
-import { RouteData } from '../models/RouteData'
+//import { RouteData } from '../models/RouteData'
 
 // Custom Map Markers
 import markerEndIconSvg from '../static/icons/end-marker.svg'
@@ -35,11 +44,25 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   
   const {t} = useTranslation()
 
+  var creator_id = localStorage.getItem("creator::id");
+  if (
+    MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1
+  ) {
+    //console.log("You have free access here!! :)");
+  } else {
+    if (creator_id !== null) {
+      //console.log("Hello you have granted access, " + creator_id);
+    } else {
+      console.log("You don't have acces to this area... ");
+      window.location.href = "/Access/train-yourself";
+    }
+  }
+
   // Default route data
-  var name = MyConst.labels.routeName
+  //var name = MyConst.labels.routeName
   //var description = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!! 
   var zoom = MyConst.main_zoom
-  var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
+  //var data = JSON.parse(JSON.stringify(MyConst.my_route)) //sample test!!
 
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
@@ -53,18 +76,34 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   }, [match.params.id])
  
   if(typeof route[0] !== 'undefined'){
-    name = route[0].name
+    //name = route[0].name
     //description = JSON.parse(JSON.stringify(route[0].description))
-    zoom = route[0].zoom
-    data = route[0].map_data    
+    //zoom = route[0].zoom
+    //data = route[0].map_data    
   }else{
     if(MyConst.JustTesting){
       console.log(MyConst.messages.noData)
     } 
   }
 
+  jQuery('.hob-footer').removeClass('hidden')
+
+
+
+
+
+  jQuery('#navigate').attr('src', jQuery('#navigate').data('active'))
+
+
+
+
+
+
+
+
+
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
-  function twistCoordinates(coordinates: any) {
+  /*function twistCoordinates(coordinates: any) {
     let result = []
     for(var i = 0; i < coordinates.length; i++){
       result.push([ coordinates[i][1], coordinates[i][0] ])
@@ -125,34 +164,29 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     )
   }
 
-  // TODO: Change with the common React way to do this!!!
-      const [full_menu, setMenu] = useState<Menu[]>([])
-      useEffect(() => {
-        fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
-      }, [])  
+  */
 
-      // TODO:  Move to components, for now is only a little chapuza more
-      function renderNavigateHeader(menus: Menu[]) {
-        var titleText = ''
-        if(menus[0]!== undefined){
-          let location = window.location.pathname.split('/') ?? null
-          if( menus[0].slug === location[2]){
-            titleText = menus[0].name
-            jQuery('#'+menus[0].slug).attr('src',menus[0].active_icon)
-          }else{
-            jQuery('#'+menus[0].slug).attr('src',menus[0].inactive_icon)
-          }      
-        }
-        return <IonToolbar>
-          <IonTitle>{titleText}</IonTitle>
-        </IonToolbar>
-      }
-  // TODO: Change with the common React way to do this!!!
+  const [fullMenu, setMenu] = useState<Menu[]>([])
+  useEffect(() => {
+    fetch(MyConst.menuDump + 'navigate.json').then(res => res.json()).then(setMenu)
+  }, [])
+
+
+  // TODO:  Move to components, for now is only a little chapuza more
+  function renderNavigateHeader(menus: Menu[]) {
+    jQuery('#navigate').attr('src', jQuery('#navigate').data('active'))
+    //jQuery('#train-yourself').attr('src', jQuery('#train-yourself').data('inactive'))
+    //jQuery('#explore-and-equip').attr('src', jQuery('#explore-and-equip').data('inactive')) 
+    //jQuery('#assistance').attr('src', jQuery('#assistance').data('inactive'))   
+    return <IonToolbar>
+      <IonTitle></IonTitle>
+    </IonToolbar>
+  }
 
   return (
     <IonPage>
       <IonHeader>
-        {renderNavigateHeader(full_menu)}
+        {renderNavigateHeader(fullMenu)}
       </IonHeader>
       <IonContent>
 
@@ -177,21 +211,21 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
               : t(MyConst.messages.loading)
           ))} */}
 
-          {/* Loading route start */}
+          {/* Loading route start 
           <Marker
             key='startMarker'
             position={[start[1], start[0]]}
             icon={startIcon}
           ><Popup>{MyConst.messages.routeStart}</Popup>
-          </Marker>
+          </Marker>*/}
 
-          {/* Loading route end */}
+          {/* Loading route end
           <Marker
             key='endMarker'
             position={[end[1], end[0]]}
             icon={endIcon}
           ><Popup>{MyConst.messages.routeEnd}</Popup>
-          </Marker>
+          </Marker> */}
 
         </MapContainer>
       </IonContent>

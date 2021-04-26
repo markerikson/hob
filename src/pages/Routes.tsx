@@ -18,11 +18,11 @@ import { MyRoute } from '../models/MyRoute'
 //import { RouteData } from '../models/RouteData'
 
 // Custom Map Markers
-import markerEndIconSvg from '../static/icons/end-marker.svg'
+//import markerEndIconSvg from '../static/icons/end-marker.svg'
 import markerStartIconSvg from '../static/icons/start-marker.svg'
 import markerCameraIconSvg from '../static/icons/camera-marker.svg'
 //------------------------------------------------------------------
-const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+//const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
@@ -34,17 +34,25 @@ const Routes: React.FC<MapProps> = ({match}) => {
   
   const {t} = useTranslation()
   var creator_id = localStorage.getItem('creator::id')
+  if (
+    MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1
+  ) {
+    //console.log("You have free access here!! :)");
+  } else {
+    if (creator_id !== null) {
+      //console.log("Hello you have granted access, " + creator_id);
+    } else {
+      console.log("You don't have acces to this area... ");
+      window.location.href = "/Access/train-yourself";
+    }
+  }
 
-  const [routes, setRoutes] = useState<MyRoute[]>([])
+  const [mapRoutes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
     fetch(MyConst.RestAPI + 'routes?created_by='+creator_id)
       .then(res => res.json())
       .then(setRoutes)
   }, [creator_id])
-
-
-
-  //alert(creator_id)
 
   // Default route data
   var name = MyConst.labels.routeName
@@ -55,7 +63,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
 
   function setMapContent(r: any) {
     switch(r.geometry.type) {
-      case 'Point':
+      case 'Point':        
         return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraIcon, null)
 
       case 'Polygon':
@@ -111,18 +119,18 @@ const Routes: React.FC<MapProps> = ({match}) => {
   }
   
   // TODO: Change with the common React way to do this!!!
-    const [full_menu, setMenu] = useState<Menu[]>([])
+  /*  const [fullMenu, setMenu] = useState<Menu[]>([])
     useEffect(() => {
       fetch(MyConst.menuDump + 'explore-and-equip.json').then(res => res.json()).then(setMenu)
     }, [])
-    hoverFooterIcon(full_menu)
+    hoverFooterIcon(fullMenu)
     function hoverFooterIcon(menus: Menu[]) {
       if(menus[0]!== undefined){
         let location = 'explore-and-equip'
         let icon = ( menus[0].slug === location)?menus[0].active_icon:menus[0].inactive_icon;
         jQuery('#'+menus[0].slug).attr('src',icon)   
       }
-    }
+    }*/
   // TODO: Change with the common React way to do this!!!
 
 
@@ -155,8 +163,6 @@ const Routes: React.FC<MapProps> = ({match}) => {
     return result
   }
 
-  //console.log(cleanThePlaces(routes))
-
   return (
     <IonPage>
       <IonHeader>
@@ -169,7 +175,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
         {/* Loading map */}
         <MapContainer
           key='mainMap' 
-          style={MyConst.style.map}
+          style={MyConst.style.routes}
           center={[start[0], start[1]]}
           zoom={zoom} scrollWheelZoom={false}
         >
@@ -180,20 +186,18 @@ const Routes: React.FC<MapProps> = ({match}) => {
           />
 
           {/* Loading map features*/}
-          {cleanTheRoutes(routes).map((r: any) => (
-              r.features.map((r: any) => (
-                setMapContent(r)
-              )
+          {cleanTheRoutes(mapRoutes).map((r: any) => (
+            r.features.map((r: any) => (
+              setMapContent(r)
             )
-          ))} 
+          )))}
 
           {/* Loading places features */}
-          {cleanThePlaces(routes).map((r: any) => (
-              r.features.map((r: any) => (
-                setMapContent(r)
-              )
+          {cleanThePlaces(mapRoutes).map((routes: any) => (
+            routes.features.map((features: any) => (
+              setMapContent(features)
             )
-          ))} 
+          )))} 
 
           {/* Loading route start meeting point */}
           <Marker
@@ -212,7 +216,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
           </Marker>*/}
 
         </MapContainer>
-        {renderRoutesList(routes)}
+        {renderRoutesList(mapRoutes)}
       </IonContent>
     </IonPage>
   )

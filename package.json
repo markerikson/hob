@@ -25,6 +25,7 @@
     "@types/styled-components": "^5.1.9",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "call-number": "^1.0.1",
     "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-request-location-accuracy": "^2.3.0",
