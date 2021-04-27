@@ -6,7 +6,8 @@
         "resource": "Routes",
         "active_icon": "\/assets\/images\/dump\/ROUTES_737fa4a31d.svg",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/routes"
     },
     {
         "name": "EQUIPMENT",
@@ -15,6 +16,7 @@
         "resource": "Equipment",
         "active_icon": "\/assets\/images\/dump\/EQUIPMENT_8259221dcb.svg",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/equipment"
     }
 ]

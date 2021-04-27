@@ -6,7 +6,8 @@
         "resource": "Article\/anchoring\/what-is-anchoring\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/what-is-anchoring"
     },
     {
         "name": "Where to anchor?",
@@ -15,7 +16,8 @@
         "resource": "Article\/anchoring\/where-to-anchor\/2",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/where-to-anchor"
     },
     {
         "name": "How to anchor",
@@ -24,7 +26,8 @@
         "resource": "Article\/anchoring\/how-to-anchor\/9",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/how-to-anchor"
     },
     {
         "name": "At anchor",
@@ -33,7 +36,8 @@
         "resource": "Article\/anchoring\/at-anchor\/15",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/at-anchor"
     },
     {
         "name": "Picking up anchor",
@@ -42,7 +46,8 @@
         "resource": "Article\/anchoring\/picking-up-anchor\/18",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/picking-up-anchor"
     },
     {
         "name": "Please don't",
@@ -51,6 +56,7 @@
         "resource": "Article\/anchoring\/please-don-t\/23",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/please-don-t"
     }
 ]

@@ -6,7 +6,8 @@
         "resource": "Article\/troubleshooting\/motor-stopped-under-way\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/motor-stopped-under-way"
     },
     {
         "name": "Man over board",
@@ -15,7 +16,8 @@
         "resource": "Article\/troubleshooting\/man-over-board\/5",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/man-over-board"
     },
     {
         "name": "Anchor stuck",
@@ -24,6 +26,7 @@
         "resource": "Article\/troubleshooting\/anchor-stuck\/7",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/anchor-stuck"
     }
 ]

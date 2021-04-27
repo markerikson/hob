@@ -5,15 +5,13 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  //useIonViewWillEnter,
 } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { IonReactRouter } from '@ionic/react-router'
-//import { useHistory } from 'react-router'
 import { Redirect, Route } from 'react-router-dom'
+//import { useHistory } from 'react-router'
 import './components/i18n'
 //import axios from 'axios'
-//import { Plugins } from '@capacitor/core'
 
 //CSS required for Ionic components to work properly
 import '@ionic/react/css/core.css'
@@ -45,6 +43,7 @@ import LiveMap    from './pages/LiveMap'
 import Equipment  from './pages/Equipment'
 import Settings   from './pages/Settings'
 
+//import { Plugins } from '@capacitor/core'
 //const { SplashScreen } = Plugins
 //SplashScreen.show(MyConst.splashScreen)
 
@@ -59,7 +58,7 @@ const App: React.FC = () => {
     return <IonTabBar
       slot='bottom'
       class={'hob-footer'}>
-      {list.map((r: Menu, index) => (
+      {list.map((r: Menu) => (
         <IonTabButton
           key={r.resource}
           tab={r.slug}

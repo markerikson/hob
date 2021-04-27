@@ -52,7 +52,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
       //console.log("Hello you have granted access, " + creator_id);
     } else {
       console.log("You don't have acces to this area... ");
-      window.location.href = "/Access/"+window.location.pathname.split("/")[2];
+      //window.location.href = "/Access/"+window.location.pathname.split("/")[2];
     }
   }
     
@@ -74,6 +74,11 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
       .then(setMenus);
   }, [match.params.slug]);
 
+  var pageSlug = 'train-yourself';
+  if(fullMenu[0] !== undefined){
+    pageSlug = fullMenu[0].slug
+  }
+
   function renderHeader(fullMenu: Menu[]) { 
     hoverFooterIcon(fullMenu);
     return fullMenu.map((r: Menu, i) =>
@@ -83,10 +88,11 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
           style={{
             width: "100%",
             background: "#FFF",//TODO: Unforce the background to don't hurt light|dark!
-            height: 63,
+            height: 45,
             display: "flex",
             borderBottomColor: "none",
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            opacity: 1
           }}
         >
           <IonImg
@@ -104,7 +110,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
           <IonToolbar class="hob-header">
             <IonItem
               key={"head_item_" + r.slug}
-              class="hob-header border-none">
+              class="hob-header border-none remove_inner_bottom">
               <IonImg
                 class='back'
                 onClick={() => history.goBack()}
@@ -124,7 +130,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
     );
   }
 
-  function renderSubMenus(subMenus: Submenu[], fullMenu: Menu[]) {
+  function renderSubMenus(subMenus: Submenu[], pageSlug: any) {
     return subMenus.map((r: Submenu, index) =>
       !r.active_icon ? (
         <IonButton
@@ -139,7 +145,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
       ) : (
         <SubMenuItem
           key={'submenu_'+r.resource}
-          onClick={() => history.push( ((r.slug === 'home') ? `/${r?.access}` : `/${r?.resource}`))}
+          onClick={() => history.push( ((pageSlug === 'home') ? `${r?.access}` : `/${r?.resource}`))}
           className='hob_submenu_icon'
           >
           <img
@@ -184,14 +190,12 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
     }
   }
 
-
-
   return (
     <IonPage>
       {renderHeader(fullMenu)}
       <IonContent>
         <SubMenu>
-          {renderSubMenus(subMenus, fullMenu)}
+          {renderSubMenus(subMenus, pageSlug)}
         </SubMenu>
       </IonContent>
     </IonPage>

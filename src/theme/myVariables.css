@@ -23,8 +23,9 @@
   --ion-color-tag-grey-shade: #b9b9b9;
   --ion-color-tag-grey-tint: #d7d7d7;
 
-}
+  --inner-border-width: 0px 0px 0px 0px!important;
 
+}
 
 .ion-color-soft-blue {
   --ion-color-base: var(--ion-color-soft-blue);
@@ -49,7 +50,7 @@
   width: 14px;
   height: 21px;
   margin: auto auto auto 17px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .hob_card > ion-card-content {
@@ -98,7 +99,11 @@
   margin-left: 10px;
 }
 
-.hob_submenu_icon, .hob_head_back, .hob_menu_button, .back {
+.hob_submenu_icon, .hob_menu_button, .back {
+  cursor: pointer;
+}
+
+.hob_head_back {
   cursor: pointer;
 }
 
@@ -112,9 +117,9 @@
 }
 
 .native-textarea[disabled]{
-  opacity: 0.9!important;
+  opacity: 1!important;
   height: 32vh!important;
-  font-size: 2vh;
+  font-size: 2.4vh;
 }
 
 .sub-title {
@@ -127,17 +132,31 @@
 }
 
 
+.header_title {
+  padding: 0px;
+}
+
+.header_subtitle {
+  padding: 0px;
+}
 
 
+.border-none {
+  border: none!important;
+}
 
+.remove_inner_bottom{
+  --inner-border-width: 0;
+}
 
-
-
-
-
+.header_subtitle{
+  font-size: 2vh!important;
+  min-height: 2vh!important;
+}
 
 
 /*
+
 .footer_button {
   background-color: #F8F8F8  !important;
 }
@@ -192,9 +211,7 @@
   font-size: 18px;
 }
 
-.border-none {
-  border: none;
-}
+
 
 .inner-item {
   width: 80%;

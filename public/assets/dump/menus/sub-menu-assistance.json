@@ -6,7 +6,8 @@
         "resource": "LiveMenu\/call-base",
         "active_icon": "\/assets\/images\/dump\/CALL_BASE_EMERGENCIES_d9f2babcf3.svg",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/call-base"
     },
     {
         "name": "CALL EMERGENCIES",
@@ -15,6 +16,7 @@
         "resource": "LiveMenu\/call-emergencies",
         "active_icon": "\/assets\/images\/dump\/CALL_BASE_EMERGENCIES_d9f2babcf3.svg",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/call-emergencies"
     }
 ]

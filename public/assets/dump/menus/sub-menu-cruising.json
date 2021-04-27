@@ -6,7 +6,8 @@
         "resource": "Article\/cruising\/stability\/0",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/stability"
     },
     {
         "name": "Steering",
@@ -15,7 +16,8 @@
         "resource": "Article\/cruising\/steering\/1",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/steering"
     },
     {
         "name": "Speed",
@@ -24,7 +26,8 @@
         "resource": "Article\/cruising\/speed\/2",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/speed"
     },
     {
         "name": "Safety margin",
@@ -33,7 +36,8 @@
         "resource": "Article\/cruising\/safety-margin\/3",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/safety-margin"
     },
     {
         "name": "Look out",
@@ -42,7 +46,8 @@
         "resource": "Article\/cruising\/look-out\/4",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/look-out"
     },
     {
         "name": "GIVE WAY",
@@ -51,6 +56,7 @@
         "resource": "Article\/cruising\/give-way\/6",
         "active_icon": "",
         "inactive_icon": "",
-        "background_color": "soft-blue"
+        "background_color": "soft-blue",
+        "access": "\/Access\/give-way"
     }
 ]

@@ -1,21 +1,36 @@
 import * as MyConst from '../static/constants'
-
-import React, { useState,
-  useEffect,  
-} from 'react'
-import { IonHeader, IonToast, IonToolbar, IonTitle, IonContent, IonPage, IonButtons, IonMenuButton, 
-  IonRow, IonCol, IonButton, IonList, IonItem, IonLabel, IonInput, IonText, IonThumbnail, IonImg,
-  useIonViewWillEnter } from '@ionic/react'
+import {
+  IonHeader,
+  IonToast,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonPage,
+  IonButtons,
+  IonMenuButton, 
+  IonRow,
+  IonCol,
+  IonButton,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonInput,
+  IonText,
+  IonThumbnail,
+  IonImg,
+  useIonViewWillEnter
+} from '@ionic/react'
+import React, { useState, useEffect } from 'react'
 import { RouteComponentProps, useHistory } from 'react-router'
 
 import { useTranslation } from 'react-i18next'
-//import { Redirect, Route } from 'react-router-dom'
 import axios from 'axios'
+import { Menu } from '../models/Menu'
+//import { Redirect, Route } from 'react-router-dom'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
 import jQuery from "jquery";
-// Models for the route
-import { Menu } from '../models/Menu'
+
 
 interface PageProps
   extends RouteComponentProps<{
@@ -47,9 +62,11 @@ const Access: React.FC<PageProps> = ({ match }) => {
   }, [match.params.slug]);
 
   var headerIcon = '';
+  var slug = ''
 
   if(fullMenu[0] !== undefined){
     headerIcon = fullMenu[0].active_icon
+    slug = fullMenu[0].slug
   }
 
   console.log(fullMenu[0])
@@ -93,7 +110,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
       if(data.user !== undefined){
         offlineStore.setItem('creator::id', data.user.creator.toString())
         offlineStore.setItem('creator::data', JSON.stringify(data.user))
-        window.location.href = "/LiveMenu/train-yourself";
+        window.location.href = "/LiveMenu/"+slug;
       }
 
       
@@ -221,7 +238,9 @@ const Access: React.FC<PageProps> = ({ match }) => {
               <IonButton
                 type='submit'
                 expand='block'
-                color='soft-blue'>
+                color='soft-blue'
+                class='bold'
+                >
                 {t(MyConst.messages.submitAcces)}
               </IonButton>
             </IonCol>

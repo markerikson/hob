@@ -61,17 +61,17 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
  
   function renderHeader(menus: Menu[]) {
     return menus.map((r: Menu, i) => (
-      <IonItem class='hob-header' key={i}>
+      <IonItem class='hob-header border-none remove_inner_bottom' key={i}>
         <a href={r.parent}><img src='/assets/images/arrow-left.svg' alt={t('BACK')} slot='start'></img></a>
         <IonThumbnail>      
           <IonImg src={r.active_icon} alt={t(r.name.toString())}/>
         </IonThumbnail>
         <IonGrid>
           <IonRow>
-            <IonCol><IonLabel class='bold'>{t(r.name.toString())}</IonLabel></IonCol>
+            <IonCol><IonLabel class='header_title bold'>{t(r.name.toString())}</IonLabel></IonCol>
           </IonRow>
           <IonRow>
-            <IonCol><IonLabel class='sub_title'></IonLabel></IonCol>
+            <IonCol><IonLabel class='header_subtitle'></IonLabel></IonCol>
           </IonRow>
         </IonGrid>        
         {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
@@ -105,7 +105,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   
   // Change the header subtitle pending on slide 'hidden content'
   const setLabel = async (event: any, slides: Slide[], title: any) => {
-    let labelClass = '.sub_title'
+    let labelClass = '.header_subtitle'
     let index = 1
     await event.target.getActiveIndex().then((value: any) => (index=value))
     if(slides[index] !== undefined){
