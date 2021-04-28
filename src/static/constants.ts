@@ -71,6 +71,7 @@ export const messages = {
   'routeMeetingPoint' : 'This is your meeting point!!',
   'routeEnd' : 'The route ends here...',
   'accessText' : 'Access to the routes and the incredible data ;)',
+  'youAreHere' : 'You are here',
 
   // ACCESS FORM
   'accessFormSuggest' : '',

@@ -68,9 +68,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.mapId])
-
-  console.log(mapRoute)
-
+  
   function renderHeader(fullMenu: Menu[]) {
     return fullMenu.map((r: Menu, i) =>
       <IonItem
