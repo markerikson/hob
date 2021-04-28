@@ -29,18 +29,20 @@ import { useTranslation } from 'react-i18next'
 // Interfaces
 import { Slide } from '../models/Slide'
 import { Menu } from '../models/Menu'
+import { MyRoute } from '../models/MyRoute'
 //import { setAccessAllowedData } from '../data/dataApi'
 
-interface ArticlePageProps extends RouteComponentProps<{
-  slug:  string,
-  slide: string,
-  step:  string,
+interface RoutePageProps extends RouteComponentProps<{
+  mapId:  string,
+  step: string,
 }> {}
 
-const Article: React.FC<ArticlePageProps> = ({match}) => {
+const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
 
   const {t} = useTranslation()
   const history = useHistory()
+
+  var creator_id = localStorage.getItem('creator::id')
 
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
@@ -53,18 +55,27 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     loop: false
   }
 
-  const [article, setContent] = useState<Menu[]>([])
+  const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
-    fetch( MyConst.articleDump + match.params.slug+'.json' ).then(res => res.json()).then(setContent)
-  }, [match.params.slug])
+    fetch(MyConst.menuDump + "routes.json")
+      .then((res) => res.json())
+      .then(setMenu)
+  }, [])
 
-  var title = article[0] ? article[0].name : 'Article name'
- 
-  function renderHeader(menus: Menu[]) {
-    return menus.map((r: Menu, i) => (
+  const [mapRoute, setRoute] = useState<MyRoute[]>([])
+  useEffect(() => {
+    fetch(MyConst.RestAPI + 'routes?id='+match.params.mapId)
+      .then(res => res.json())
+      .then(setRoute)
+  }, [match.params.mapId])
+
+  console.log(mapRoute)
+
+  function renderHeader(fullMenu: Menu[]) {
+    return fullMenu.map((r: Menu, i) =>
       <IonItem
         class='hob-header border-none remove_inner_bottom'
-        key='flñerwhgwrt'>
+        key='qwerjlhwer'>
         <IonImg
           class='back'
           onClick={() => history.goBack()}
@@ -72,25 +83,27 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
           slot="start"
         ></IonImg>
         <IonThumbnail>      
-          <IonImg src={r.active_icon} alt={t(r.name.toString())}/>
+          <IonImg src={r.active_icon} alt={t(r.name)}/>
         </IonThumbnail>
         <IonGrid>
           <IonRow>
-            <IonCol><IonLabel class='header_title bold'>{t(r.name.toString())}</IonLabel></IonCol>
+            <IonCol><IonLabel class='header_title bold'>{t('Routes')}</IonLabel></IonCol>
           </IonRow>
-          <IonRow>
-            <IonCol><IonLabel class='header_subtitle'></IonLabel></IonCol>
-          </IonRow>
+          {/*<IonRow>
+            <IonCol><IonLabel class='header_subtitle'>{t('')}</IonLabel></IonCol>
+          </IonRow>*/}
         </IonGrid>        
         {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
       </IonItem>
-    ))
+    )    
   }
 
-  const [slides, setPages] = useState<Slide[]>([])
+  var title = 'a title';
+ 
+  /*const [slides, setPages] = useState<Slide[]>([])
   useEffect(() => {
-    fetch( MyConst.slideDump+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
-  }, [match.params.slug])
+    fetch( MyConst.slideDump+match.params.id+'.json' ).then(res => res.json()).then(setPages)
+  }, [match.params.slug])*/
 
   function renderSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
@@ -161,11 +174,11 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     <IonPage>
       <IonHeader class='hob-header'>
         <IonToolbar class='hob-header'>   
-          {renderHeader(article)}
+          {renderHeader(fullMenu)}
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonSlides
+        {/*<IonSlides
           key='MySlides'
           pager={true}
           options={slideOpts}
@@ -173,10 +186,18 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
           onIonSlideTransitionStart={(event: any)=> setLabel(event, slides, title)}          
         >{renderSlides(slides)}
         </IonSlides>
+              <IonSlide key={'sdfgdfterwg'}>*/}
+        <IonCard 
+          class='hob_card'>
+          <IonCardContent>
+dfdasfasd
+          </IonCardContent>
+        </IonCard>
+
       </IonContent>
     </IonPage>
   )
   
 }
 
-export default Article
+export default RouteOverview

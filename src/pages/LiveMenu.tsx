@@ -1,5 +1,5 @@
-import * as MyConst from "../static/constants";
-import React, { useEffect, useState } from "react";
+import * as MyConst from "../static/constants"
+import React, { useEffect, useState } from "react"
 import {
   IonPage,
   IonHeader,
@@ -18,71 +18,58 @@ import {
   useIonViewDidLeave,
   useIonViewWillLeave,
   */
-} from "@ionic/react";
-import { RouteComponentProps, useHistory } from "react-router";
-import { SubMenu, SubMenuItem } from "./Styles";
+} from "@ionic/react"
+import { RouteComponentProps, useHistory } from "react-router"
+import { SubMenu, SubMenuItem } from "./Styles"
 
 // Ohhh!!! :D :D This code looks happy now ^_^
-import jQuery from "jquery";
+import jQuery from "jquery"
 
 // Translations...
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
 // Models...
-import { Menu } from "../models/Menu";
-import { Submenu } from "../models/Submenu";
+import { Menu } from "../models/Menu"
+import { Submenu } from "../models/Submenu"
 
 interface PageProps
   extends RouteComponentProps<{
-    slug: string;
+    slug: string
   }> {}
 
 const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
-  const { t } = useTranslation();
-  const history = useHistory();
+  const { t } = useTranslation()
+  const history = useHistory()
 
-  var creator_id = localStorage.getItem("creator::id");
-  if (
-    MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1
-  ) {
-    //console.log("You have free access here!! :)");
-  } else {
-    if (creator_id !== null) {
-      //console.log("Hello you have granted access, " + creator_id);
-    } else {
-      console.log("You don't have acces to this area... ");
-      //window.location.href = "/Access/"+window.location.pathname.split("/")[2];
-    }
-  }
-    
+  var creator_id = localStorage.getItem("creator::id")    
   useIonViewWillEnter(() => {
     toggleFooter()
-  });
+  })
 
-  const [fullMenu, setMenu] = useState<Menu[]>([]);
+  const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.menuDump + match.params.slug + ".json")
       .then((res) => res.json())
-      .then(setMenu);
-  }, [match.params.slug]);
+      .then(setMenu)
+  }, [match.params.slug])
 
-  const [subMenus, setMenus] = useState<Submenu[]>([]);
+  const [subMenus, setMenus] = useState<Submenu[]>([])
   useEffect(() => {
     fetch(MyConst.subMenuDump + match.params.slug + ".json")
       .then((res) => res.json())
-      .then(setMenus);
-  }, [match.params.slug]);
+      .then(setMenus)
+  }, [match.params.slug])
 
-  var pageSlug = 'train-yourself';
+  var pageSlug = 'train-yourself'
   if(fullMenu[0] !== undefined){
     pageSlug = fullMenu[0].slug
   }
 
   function renderHeader(fullMenu: Menu[]) { 
-    hoverFooterIcon(fullMenu);
+    hoverFooterIcon(fullMenu)
     return fullMenu.map((r: Menu, i) =>
-      r.has_main && r.slug === "train-yourself" ? (
+      r.has_main && ( r.slug === "train-yourself" || r.slug === 'explore-and-equip' ) ? (
         <div
           key={"head_" + r.slug}
           style={{
@@ -127,7 +114,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
       ) : (
         ""
       )
-    );
+    )
   }
 
   function renderSubMenus(subMenus: Submenu[], pageSlug: any) {
@@ -145,7 +132,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
       ) : (
         <SubMenuItem
           key={'submenu_'+r.resource}
-          onClick={() => history.push( ((pageSlug === 'home') ? `${r?.access}` : `/${r?.resource}`))}
+          onClick={() => history.push( ((pageSlug === '--home') ? `${r?.access}` : `/${r?.resource}`))}
           className='hob_submenu_icon'
           >
           <img
@@ -163,7 +150,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
   // Show and hide the footer over LiveMenu
   function toggleFooter(){
-    if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)');
+    if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)')
     if( MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1){      
       jQuery('.hob-footer').removeClass('hidden')
     }else{
@@ -180,12 +167,12 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
         }
       }
       if (menus[0] !== undefined){
-        let subArea = window.location.pathname.split("/")[2];
+        let subArea = window.location.pathname.split("/")[2]
         let icon =
           menus[0].slug === subArea
             ? menus[0].active_icon
-            : menus[0].inactive_icon;
-        jQuery("#" + menus[0].slug).attr("src", icon);
+            : menus[0].inactive_icon
+        jQuery("#" + menus[0].slug).attr("src", icon)
       }
     }
   }
@@ -199,7 +186,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
         </SubMenu>
       </IonContent>
     </IonPage>
-  );
-};
+  )
+}
 
-export default LiveMenu;
+export default LiveMenu

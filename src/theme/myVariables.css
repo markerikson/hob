@@ -4,6 +4,11 @@
   src: url("../fonts/AdventPro/AdventPro-Medium.ttf");
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+
 * {
   font-family: "Advent Pro" !important;
 }
@@ -44,7 +49,6 @@
   --ion-color-shade: var(--ion-color-tag-grey-shade);
   --ion-color-tint: var(--ion-color-tag-grey-tint);
 }
-
 
 .hob_head_back {
   width: 14px;
@@ -120,6 +124,7 @@
   opacity: 1!important;
   height: 32vh!important;
   font-size: 2.4vh;
+  font-family: "Roboto" !important;
 }
 
 .sub-title {
@@ -130,7 +135,6 @@
   height: 25vh!important;
   vertical-align: middle!important;
 }
-
 
 .header_title {
   padding: 0px;
@@ -151,7 +155,13 @@
 
 .header_subtitle{
   font-size: 2vh!important;
+  height: 2.vh!important;
   min-height: 2vh!important;
+}
+
+.leaflet-container {
+  height: 60vh;
+  width: 100wh;
 }
 
 

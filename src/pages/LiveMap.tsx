@@ -53,7 +53,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     if (creator_id !== null) {
       //console.log("Hello you have granted access, " + creator_id);
     } else {
-      console.log("You don't have acces to this area... ");
+      //console.log("You don't have acces to this area... ");
       window.location.href = "/Access/train-yourself";
     }
   }
@@ -82,7 +82,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     //data = route[0].map_data    
   }else{
     if(MyConst.JustTesting){
-      console.log(MyConst.messages.noData)
+      //console.log(MyConst.messages.noData)
     } 
   }
 
@@ -201,7 +201,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
           <TileLayer
             /*onLoad={(e:any)=> { e.target._map.invalidateSize()}}*/
             attribution={MyConst.mapAttribution}
-            url={MyConst.tileUrl}
+            url={MyConst.mapTiles.basic}
           />
 
           {/* Loading map features

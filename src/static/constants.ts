@@ -103,6 +103,7 @@ export const icons = {
   'mapMarker' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Map_marker.svg/390px-Map_marker.svg.png',
 }
 
+
 // Static Dumped
 export const publicDump   = 'assets/dump/'
 export const mainMenu     = publicDump+'menus/main-menu.json'
@@ -120,14 +121,18 @@ export const fadeVelocity = 300
 
 // Map style and basics
 export const style = {
-  'map' : { 'width': '100%', 'height': '80vh' },
-  'routes' : { 'width': '100%', 'height': '60vh' },
+  'map' : { 'height': '80vh' , 'width': '100wh' },
+  'routes' : { 'height': '60vh', 'width': '100wh' },
   'polyLine' : { fillColor: '#a2a2a2' },
   'polygon' : { fillColor: 'red' },
 }
 
 export const mapAttribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-export const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+export const mapTiles = {
+  'basic': 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  'customized': 'https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key=3Vi6kgEIpBCTF4mZBN8z'
+}
 
 // Map initial data
 export const main_zoom = 13

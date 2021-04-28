@@ -69,8 +69,6 @@ const Access: React.FC<PageProps> = ({ match }) => {
     slug = fullMenu[0].slug
   }
 
-  console.log(fullMenu[0])
-
   const accesClientData = async (e: React.FormEvent) => {
 
     e.preventDefault()
@@ -148,7 +146,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
       <IonToolbar class="hob-header">
         <IonItem
           key={"head_item_" + r.slug}
-          class="hob-header border-none">
+          class="hob-header border-none remove_inner_bottom">
           <IonImg
             class='back'
             onClick={() => history.goBack()}

@@ -35,13 +35,14 @@ import './theme/myVariables.css'
 import { Menu } from './models/Menu'
 
 // App main pages
-import Access     from './pages/Access'// Login
-import LiveMenu   from './pages/LiveMenu'
-import Article    from './pages/Article'
-import Routes     from './pages/Routes'
-import LiveMap    from './pages/LiveMap'
-import Equipment  from './pages/Equipment'
-import Settings   from './pages/Settings'
+import Access         from './pages/Access'// Login
+import LiveMenu       from './pages/LiveMenu'
+import Article        from './pages/Article'
+import Routes         from './pages/Routes'
+import LiveMap        from './pages/LiveMap'
+import Equipment      from './pages/Equipment'
+import Settings       from './pages/Settings'
+import RouteOverview  from './pages/RouteOverview'
 
 //import { Plugins } from '@capacitor/core'
 //const { SplashScreen } = Plugins
@@ -90,6 +91,7 @@ const App: React.FC = () => {
             <Route path='/LiveMap/navigate' component={LiveMap}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>            
             <Route path='/Equipment/:slug' component={Equipment}/>
+            <Route path='/Route/Overview/:mapId/:step' component={RouteOverview}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/LiveMap' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
