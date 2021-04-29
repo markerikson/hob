@@ -35,18 +35,20 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   const {t} = useTranslation()
   const history = useHistory()
   var lang = localStorage.getItem("i18nextLng")
-  var title = '';
+  var title = t('Cala de deià!!')
 
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
-    //speed: 500,
-    //autoplay: false,
     autoHeight: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
     spaceBetween: 0,
-    loop: false
+    loop: false,
+    //speed: 500,
+    //autoplay: false,
   }
+
+  console.log(match.params)
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -61,6 +63,10 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.route])
+
+  if(mapRoute !== undefined){
+    //if(mapRoute[0] !== undefined) title = mapRoute[0].name
+  }
 
   function setSlidesData(mapRoute: any){
 
@@ -80,14 +86,16 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
         images.push(MyConst.originRoot+mapRoute[0].images[u].url)
       }
 
-      slideData.push({
+      var route = {
         'id'      : mapRoute[0].id,
         'step'    : 0,
         'name'    : mapRoute[0].name,
         'images'  : images[0],//de momento una
         'label'   : label_translation,
         'description' :  description_translation
-      })
+      }
+
+      slideData.push(route)
 
       for (var z = 0; z < mapRoute[0].places.length; z++) {
 
@@ -102,14 +110,16 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
           }
         }
 
-        slideData.push({
+        var theplace = {
           'id'      : place.id,
           'step'    : z+1,
           'name'    : place.name,
           'images'  : MyConst.originRoot+place.images[0].url,
           'label'   :  place_description_translation.label,
           'description' :  place_description_translation.description
-        })
+        }
+
+        slideData.push(theplace)
 
       }
 
@@ -139,9 +149,12 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     ))
   }
 
-  function renderHeader(fullMenu: Menu[]) {
-    return fullMenu.map((r: Menu, i) =>
-      <IonItem
+  function renderHeader(fullMenu: Menu[], mapRoute: any) {
+    title = mapRoute[0] ? mapRoute[0].name : ''
+    return fullMenu[0] ?
+    <IonHeader class='hob-header'>
+      <IonToolbar class='hob-header'>
+        <IonItem
         class='hob-header border-none remove_inner_bottom'
         key='qwerjlhwer'>
         <IonImg
@@ -150,62 +163,34 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
           src={MyConst.icons.back}
           slot="start"
         ></IonImg>
-        <IonThumbnail>      
-          <IonImg src={r.active_icon} alt={t(r.name)}/>
+        <IonThumbnail>
+          <IonImg
+            src={fullMenu[0].active_icon}
+            alt={title}
+          />
         </IonThumbnail>
         <IonGrid>
-          <IonRow>
-            <IonCol><IonLabel class='header_title bold'>{t('Routes')}</IonLabel></IonCol>
-          </IonRow>
-          {/*<IonRow>
-            <IonCol><IonLabel class='header_subtitle'>{t('')}</IonLabel></IonCol>
-          </IonRow>*/}
-        </IonGrid>        
-        {/*<IonSearchbar placeholder='Type here...' value={search} showCancelButton='focus'></IonSearchbar>*/}
+          <IonRow><IonCol><IonLabel class='header_title bold'>{(title).toUpperCase()}</IonLabel></IonCol></IonRow>
+          <IonRow><IonCol><IonLabel class='header_subtitle'></IonLabel></IonCol></IonRow>
+        </IonGrid>
       </IonItem>
-    )    
+      </IonToolbar>
+    </IonHeader> : ''
   }
 
-  var title = 'a title';
- 
-  /*const [slides, setPages] = useState<Slide[]>([])
-  useEffect(() => {
-    fetch( MyConst.slideDump+match.params.id+'.json' ).then(res => res.json()).then(setPages)
-  }, [match.params.slug])*/
-
-  /*
-  function renderSlides(list: Slide[]){
-    return list.map((r: Slide, i) => (
-      <IonSlide key={i}>
-        <IonCard 
-          class='hob_card'>
-          <IonCardContent>
-            <img src={r.image_url.toString()} alt={r.image_url}/><br/>
-              <IonTextarea
-                class='hob_slide_textarea'
-                disabled
-                readonly
-                value={t(r.description_md5)}>
-              </IonTextarea>
-          </IonCardContent>
-        </IonCard>
-      </IonSlide>
-    ))    
-  }
-  */
 
   // Change the header subtitle pending on slide 'hidden content'
-  const setLabel = async (event: any, slides: SlideRoute[], name: any) => {
+  const setLabel = async (event: any, slides: SlideRoute[], label: any) => {
     let labelClass = '.header_subtitle'
-    let index = 1
+    let index = 0
     await event.target.getActiveIndex().then((value: any) => (index=value))
     if(slides[index] !== undefined){
 
       let result = ''
       let now = jQuery(labelClass).html()
 
-      if( slides[index].name !== name ){
-        result += slides[index].name
+      if( slides[index].label !== undefined ){
+        result += slides[index].label
       }
 
       /*if(slides[index].name !== ''){
@@ -228,19 +213,15 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   }
 
   return(
-    <IonPage>
-      <IonHeader class='hob-header'>
-        <IonToolbar class='hob-header'>   
-          {renderHeader(fullMenu)}
-        </IonToolbar>
-      </IonHeader>
+    <IonPage>         
+      {renderHeader(fullMenu, mapRoute)}
       <IonContent>
         <IonSlides
           key='MySlides'
           pager={true}
           options={slideOpts}
-          onIonSlidesDidLoad={(event: any)=> setLabel(event, mapRoute, title)}
-          onIonSlideTransitionStart={(event: any)=> setLabel(event, mapRoute, title)}
+          onIonSlidesDidLoad={(event: any)=> setLabel(event, setSlidesData(mapRoute), title)}
+          onIonSlideTransitionStart={(event: any)=> setLabel(event, setSlidesData(mapRoute), title)}
         >{renderSlides(mapRoute)}
         </IonSlides>
       </IonContent>

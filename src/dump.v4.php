@@ -51,7 +51,7 @@ class DumperClass {
             'filename' => '../public/assets/dump/routes/{id}.json'
         ],        
         'map_markers' =>      [
-            'url' => 'map_markers',
+            'url' => 'map-markers',
             'path'=> '../public/assets/images/dump/icons/',
             'filename' => '../src/static/icons/{slug}.json'
         ],  
@@ -99,10 +99,10 @@ class DumperClass {
         // APP-ICONS - Getting All routes to do a 100% offline version available...
         //////////////////////////////////////////////////////////////////////////////////////////
         foreach( $this->getContent('map_markers') ?? [] as $key => $content ){
-            $filename = explode('/', $content->image->url);
+            $filename = explode('/', $content->icon->url);
             $ext = explode('.', $filename[2]);
             $filename = $content->slug.'.'.$ext[1];
-            $url = $this->origin . $content->image->url;
+            $url = $this->origin . $content->icon->url;
             file_put_contents('./static/icons/' . 
             $filename, file_get_contents($url));
         }

@@ -3,15 +3,11 @@ import React, { useState, useEffect  } from 'react'
 import { IonContent, IonPage, IonImg, IonGrid, IonRow, IonCol, IonThumbnail, IonItem, IonLabel } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
 import { useTranslation } from 'react-i18next'
-
-// Ohhh!!! :D :D This code looks happy now ^_^
-//import jQuery from 'jquery'
-
-// About leafLet
+//import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
 import L from 'leaflet'
 import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-// Models for the route
+
 import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
 //import { RouteData } from '../models/RouteData'
@@ -19,11 +15,15 @@ import { MyRoute } from '../models/MyRoute'
 //------------------------------------------------------------------
 // Custom Map Markers
 //------------------------------------------------------------------
-
-//import { constructOutline } from 'ionicons/icons'
-import markerEndIconSvg from '../static/icons/end-marker.svg'
-import markerStartIconSvg from '../static/icons/start-marker.svg'
-import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+import cameraMarkerSvg from '../static/icons/camera-marker.svg'
+import endMarkerSvg from '../static/icons/end-marker.svg'
+import startMarkerSvg from '../static/icons/start-marker.svg'
+/*
+import baseMarkerSvg from '../static/icons/base-marker.svg'
+import myLocationMarkerSvg from '../static/icons/mylocation-marker.svg'
+import restaurantMarkerSvg from '../static/icons/restauran-marker.svg'
+import standarMarkerSvg from '../static/icons/standar-marker.svg'
+*/
 
 import marker01 from '../static/icons/01.svg'
 import marker02 from '../static/icons/02.svg'
@@ -35,8 +35,8 @@ import marker07 from '../static/icons/07.svg'
 import marker08 from '../static/icons/08.svg'
 import marker09 from '../static/icons/09.svg'
 import marker10 from '../static/icons/00.svg'
-import { analytics } from 'ionicons/icons'
 
+//------------------------------------------------------------------
 const icons = {
   'icon01' : new L.Icon({ iconUrl: marker01, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
   'icon02' : new L.Icon({ iconUrl: marker02, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
@@ -50,11 +50,15 @@ const icons = {
   'icon10' : new L.Icon({ iconUrl: marker10, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
 }
 
-//------------------------------------------------------------------
-const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const icon01 = new L.Icon({ iconUrl: marker01, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const cameraMarker = new L.Icon({ iconUrl: cameraMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const startMarker = new L.Icon({ iconUrl: startMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const endMarker = new L.Icon({ iconUrl: endMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+/*
+const baseMarker = new L.Icon({ iconUrl: baseMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const myLocationMarker = new L.Icon({ iconUrl: myLocationMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const restaurantMarker = new L.Icon({ iconUrl: restaurantMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const standarMarker = new L.Icon({ iconUrl: standarMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+*/
 
 interface MapProps extends RouteComponentProps<{
   owner_id: string;
@@ -92,6 +96,10 @@ const Routes: React.FC<MapProps> = ({match}) => {
   var end = [MyConst.main_center[0], MyConst.main_center[1]]
   //var middle = [];
 
+
+
+  // MAIN LAYOUT
+  
   function renderHeader(fullMenu: Menu[]) {
     //hoverFooterIcon(fullMenu)
     return fullMenu.map((r: Menu, i) =>
@@ -108,7 +116,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
         </IonThumbnail>
         <IonGrid>
           <IonRow>
-            <IonCol><IonLabel class='header_title bold'>{t('Routes')}</IonLabel></IonCol>
+            <IonCol><IonLabel class='header_title bold'>{t(r.name)}</IonLabel></IonCol>
           </IonRow>
           {/*<IonRow>
             <IonCol><IonLabel class='header_subtitle'>{t('')}</IonLabel></IonCol>
@@ -119,22 +127,105 @@ const Routes: React.FC<MapProps> = ({match}) => {
     )    
   }
 
-  function setMapContent(r: any) {
-    switch(r.geometry.type) {
-      case 'Point':        
-        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraIcon, null)
+  function setMap(){
+    //* Loading map
+    return (
+      <MapContainer
+        key='mainMap' 
+        style={MyConst.style.routes}
+        center={[start[0], start[1]]}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        >
 
-      case 'Polygon':
-        return setPolygon(r)
+      <TileLayer
+        attribution={MyConst.mapAttribution}
+        url={MyConst.mapTiles.customized}
+      />
 
-      case 'LineString':
-        return setPolyLine(r)
-        
-      default:
-        if(MyConst.JustTesting){
-          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
-        }
+      {/* Loading map features*/}
+      {cleanTheRoutes(mapRoutes).map((r: any) => (
+        r.features.map((r: any) => ( setMapContent(r) )
+      )))}
+
+      {/* Loading places features */}
+      {cleanThePlaces(mapRoutes).map((route: any) => (
+        route.features.map((features: any) => ( setMapContent(features) ) )
+      ))} 
+
+      {/* Loading route start meeting point, base blah blah */}
+      <Marker
+        key='startMarker'
+        position={[start[1], start[0]]}
+        icon={startMarker}
+      ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
+      </Marker>
+
+      {/* Loading route end */}
+      <Marker
+        key='endMarker'
+        position={[end[1], end[0]]}
+        icon={endMarker}
+      ><Popup>{MyConst.messages.routeEnd}</Popup>
+      </Marker>
+
+      {/* Putting middle way markers*/}
+      {MiddleMarkers(mapRoutes)}
+
+      {/* Getting real location now!! */}
+      <LocationMarker />      
+
+    </MapContainer>)
+  }
+
+  function renderRoutesList(routes: MyRoute[]) {    
+    return routes.map((r: MyRoute, index) => (
+      <IonItem
+        key={Math.random()}
+        onClick={() => history.push('/Route/Overview/'+r.id+'/0')}
+        >
+        <IonLabel>0{index+1+' - '+r.name}</IonLabel>
+      </IonItem>
+    ))
+  }
+
+
+  // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
+  function twistCoordinates(coordinates: any) {
+    let result = []
+    for(var i = 0; i < coordinates.length; i++){
+      result.push([ coordinates[i][1], coordinates[i][0] ])
     }
+    return result
+  }
+
+  function cleanTheRoutes(list: any){
+    var result = []
+    for(var i = 0; i < list.length; i++){
+      result.push(list[i].map_data.data)
+    }
+    return result
+  }
+
+  function cleanThePlaces(list: any){
+    var result = []
+    for(var i = 0; i < list.length; i++){
+      for(var z = 0; z < list[i].places.length; z++){
+        result.push(list[i].places[z].map_data.data)
+      }
+    }
+    return result
+  }
+
+  function setMarker(lat:number, long:number, icon: any, popContent:any){
+    return (
+      <Marker
+        key={Math.random()}
+        position={[lat, long]}
+        icon={icon}
+      >{ popContent ? <Popup>{popContent}</Popup> : '' }        
+      </Marker>      
+    )
   }
 
   function setPolygon(r: any){
@@ -202,54 +293,22 @@ const Routes: React.FC<MapProps> = ({match}) => {
     )
   }
 
-  function setMarker(lat:number, long:number, icon: any, popContent:any){
-    return (
-      <Marker
-        key={Math.random()}
-        position={[lat, long]}
-        icon={icon}
-      >{ popContent ? <Popup>{popContent}</Popup> : '' }        
-      </Marker>      
-    )
-  }
+  function setMapContent(r: any) {
+    switch(r.geometry.type) {
+      case 'Point':        
+        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraMarker, null)
 
-  function renderRoutesList(routes: MyRoute[]) {    
-    return routes.map((r: MyRoute, index) => (
-      <IonItem
-        key={Math.random()}
-        onClick={() => history.push('/Route/Overview/'+r.id+'/0')}
-        >
-        <IonLabel>0{index+1+' - '+r.name}</IonLabel>
-      </IonItem>
-    ))
-  }
+      case 'Polygon':
+        return setPolygon(r)
 
-  function cleanTheRoutes(list: any){
-    var result = []
-    for(var i = 0; i < list.length; i++){
-      result.push(list[i].map_data.data)
+      case 'LineString':
+        return setPolyLine(r)
+        
+      default:
+        if(MyConst.JustTesting){
+          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
+        }
     }
-    return result
-  }
-
-  function cleanThePlaces(list: any){
-    var result = []
-    for(var i = 0; i < list.length; i++){
-      for(var z = 0; z < list[i].places.length; z++){
-        result.push(list[i].places[z].map_data.data)
-      }
-    }
-    //console.log(result)
-    return result
-  }
-
-  // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
-  function twistCoordinates(coordinates: any) {
-    let result = []
-    for(var i = 0; i < coordinates.length; i++){
-      result.push([ coordinates[i][1], coordinates[i][0] ])
-    }
-    return result
   }
 
   function LocationMarker() {
@@ -261,10 +320,10 @@ const Routes: React.FC<MapProps> = ({match}) => {
       },
       locationfound(e) {
         setPosition(e.latlng)
-        map.flyTo([start[1], start[0]], map.getZoom())
+        map.flyTo(e.latlng, map.getZoom())
       },
       load(e) {
-        console.log(e)
+        e.target.map.invalidateSize()
       }
     })
 
@@ -273,57 +332,6 @@ const Routes: React.FC<MapProps> = ({match}) => {
         <Popup>{t(MyConst.messages.youAreHere)}</Popup>
       </Marker>
     )
-  }
-
-  function setMap(){
-    //* Loading map
-    return (
-      <MapContainer
-        key='mainMap' 
-        style={MyConst.style.routes}
-        center={[start[0], start[1]]}
-        zoom={zoom}
-        scrollWheelZoom={false}
-        >
-
-      <TileLayer
-        attribution={MyConst.mapAttribution}
-        url={MyConst.mapTiles.customized}
-      />
-
-      {/* Loading map features*/}
-      {cleanTheRoutes(mapRoutes).map((r: any) => (
-        r.features.map((r: any) => ( setMapContent(r) )
-      )))}
-
-      {/* Loading places features */}
-      {cleanThePlaces(mapRoutes).map((route: any) => (
-        route.features.map((features: any) => ( setMapContent(features) ) )
-      ))} 
-
-      {/* Loading route start meeting point, base blah blah */}
-      <Marker
-        key='startMarker'
-        position={[start[1], start[0]]}
-        icon={startIcon}
-      ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
-      </Marker>
-
-      {/* Loading route end */}
-      <Marker
-        key='endMarker'
-        position={[end[1], end[0]]}
-        icon={endIcon}
-      ><Popup>{MyConst.messages.routeEnd}</Popup>
-      </Marker>
-
-      {/* Putting middle way markers*/}
-      {MiddleMarkers(mapRoutes)}
-
-      {/* Getting real location now!! */}
-      <LocationMarker />      
-
-    </MapContainer>)
   }
 
   return (

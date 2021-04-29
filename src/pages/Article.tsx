@@ -19,11 +19,7 @@ import {
   IonToolbar
 } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
-
-// Ohhh!!! :D :D This code looks happy now ^_^
-import jQuery from 'jquery'
-
-// Translations...
+import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
 import { useTranslation } from 'react-i18next'
 
 // Interfaces
@@ -44,13 +40,13 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
-    //speed: 500,
-    //autoplay: false,
     autoHeight: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
     spaceBetween: 0,
-    loop: false
+    loop: false,
+    //speed: 500,
+    //autoplay: false,
   }
 
   const [article, setContent] = useState<Menu[]>([])

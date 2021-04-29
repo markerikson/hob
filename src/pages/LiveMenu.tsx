@@ -42,7 +42,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
   const { t } = useTranslation()
   const history = useHistory()
 
-  var creator_id = localStorage.getItem("creator::id")    
+  //var creator_id = localStorage.getItem("creator::id")
   useIonViewWillEnter(() => {
     toggleFooter()
   })

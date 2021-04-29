@@ -3,11 +3,8 @@ import {
   IonHeader,
   IonToast,
   IonToolbar,
-  IonTitle,
   IonContent,
   IonPage,
-  IonButtons,
-  IonMenuButton, 
   IonRow,
   IonCol,
   IonButton,
@@ -19,6 +16,11 @@ import {
   IonThumbnail,
   IonImg,
   useIonViewWillEnter
+/*
+  IonTitle,
+  IonButtons,
+  IonMenuButton, 
+*/
 } from '@ionic/react'
 import React, { useState, useEffect } from 'react'
 import { RouteComponentProps, useHistory } from 'react-router'
@@ -61,11 +63,11 @@ const Access: React.FC<PageProps> = ({ match }) => {
       .then(setMenu);
   }, [match.params.slug]);
 
-  var headerIcon = '';
+  //var headerIcon = '';
   var slug = ''
 
   if(fullMenu[0] !== undefined){
-    headerIcon = fullMenu[0].active_icon
+    //headerIcon = fullMenu[0].active_icon
     slug = fullMenu[0].slug
   }
 
@@ -107,6 +109,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
       if(data.user !== undefined){
         offlineStore.setItem('creator::id', data.user.creator.toString())
+        offlineStore.setItem('creator::assistance_number', data.user.contact_number.toString())
         offlineStore.setItem('creator::data', JSON.stringify(data.user))
         window.location.href = "/LiveMenu/"+slug;
       }

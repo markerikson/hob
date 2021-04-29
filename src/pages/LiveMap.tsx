@@ -1,14 +1,17 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react'
+import {
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar,
+   //useIonViewWillEnter
+} from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
-import { useTranslation } from 'react-i18next'
+//import { useTranslation } from 'react-i18next'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
 import jQuery from 'jquery'
 
 // About leafLet
-import L from 'leaflet'
+//import L from 'leaflet'
 import {
   MapContainer,
   TileLayer,
@@ -26,6 +29,7 @@ import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
 //import { RouteData } from '../models/RouteData'
 
+/*
 // Custom Map Markers
 import markerEndIconSvg from '../static/icons/end-marker.svg'
 import markerStartIconSvg from '../static/icons/start-marker.svg'
@@ -34,6 +38,7 @@ import markerCameraIconSvg from '../static/icons/camera-marker.svg'
 const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+*/
 
 interface MapProps extends RouteComponentProps<{
   slug: string
@@ -42,7 +47,7 @@ interface MapProps extends RouteComponentProps<{
 
 const LiveMap: React.FC<MapProps> = ({match}) => {
   
-  const {t} = useTranslation()
+  //const {t} = useTranslation()
 
   var creator_id = localStorage.getItem("creator::id");
   if (
@@ -66,7 +71,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
-  var end   = [MyConst.main_center[0], MyConst.main_center[1]]
+  //var end   = [MyConst.main_center[0], MyConst.main_center[1]]
 
   const [route, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -201,7 +206,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
           <TileLayer
             /*onLoad={(e:any)=> { e.target._map.invalidateSize()}}*/
             attribution={MyConst.mapAttribution}
-            url={MyConst.mapTiles.basic}
+            url={MyConst.mapTiles.customized}
           />
 
           {/* Loading map features
