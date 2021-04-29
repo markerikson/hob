@@ -253,6 +253,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
   }
 
   function LocationMarker() {
+
     const [position, setPosition] = useState({'lat':0, 'lng':0})
     const map = useMapEvents({
       click() {
@@ -262,7 +263,11 @@ const Routes: React.FC<MapProps> = ({match}) => {
         setPosition(e.latlng)
         map.flyTo([start[1], start[0]], map.getZoom())
       },
-    })  
+      load(e) {
+        console.log(e)
+      }
+    })
+
     return position === null ? null : (
       <Marker position={[start[0], start[1]]}>
         <Popup>{t(MyConst.messages.youAreHere)}</Popup>

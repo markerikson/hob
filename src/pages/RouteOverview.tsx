@@ -11,7 +11,7 @@ import {
   IonCardContent,
   IonContent,
   IonSlide,
-  //IonSlides,
+  IonSlides,
   IonImg,
   IonItem,
   IonThumbnail,
@@ -19,30 +19,25 @@ import {
   IonToolbar
 } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
-
-// Ohhh!!! :D :D This code looks happy now ^_^
-import jQuery from 'jquery'
-
-// Translations...
 import { useTranslation } from 'react-i18next'
+import jQuery from 'jquery'// Ohhh!!! :D :D This code looks happy now ^_^
 
-// Interfaces
-import { Slide } from '../models/Slide'
 import { Menu } from '../models/Menu'
-import { MyRoute } from '../models/MyRoute'
-//import { setAccessAllowedData } from '../data/dataApi'
+import { SlideRoute } from '../models/SlideRoute'
 
 interface RoutePageProps extends RouteComponentProps<{
-  route:  string,
-  step: string,
+  route:  string
+  step:   string
 }> {}
 
 const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
 
   const {t} = useTranslation()
   const history = useHistory()
+  var lang = localStorage.getItem("i18nextLng")
+  var title = '';
 
-  /*const slideOpts = {
+  const slideOpts = {
     initialSlide: match.params.step ?? '0',
     //speed: 500,
     //autoplay: false,
@@ -51,7 +46,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     centeredSlidesBounds: true,
     spaceBetween: 0,
     loop: false
-  }*/
+  }
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -60,14 +55,89 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       .then(setMenu)
   }, [])
 
-  const [mapRoute, setRoute] = useState<MyRoute[]>([])
+  const [mapRoute, setRoute] = useState<[]>([])
   useEffect(() => {
     fetch(MyConst.RestAPI + 'routes?id='+match.params.route)
       .then(res => res.json())
       .then(setRoute)
   }, [match.params.route])
 
-  console.log(mapRoute)
+  function setSlidesData(mapRoute: any){
+
+    var slideData = []
+    if(mapRoute[0] !== undefined){
+      
+      for (var i = 0; i < mapRoute[0].description.length; i++) {
+        var description = mapRoute[0].description[i]
+        if(description.language.code === lang){
+          var label_translation = description.label
+          var description_translation = description.description
+        }
+      }
+
+      var images = []
+      for (var u = 0; u < mapRoute[0].images.length; u++) {
+        images.push(MyConst.originRoot+mapRoute[0].images[u].url)
+      }
+
+      slideData.push({
+        'id'      : mapRoute[0].id,
+        'step'    : 0,
+        'name'    : mapRoute[0].name,
+        'images'  : images[0],//de momento una
+        'label'   : label_translation,
+        'description' :  description_translation
+      })
+
+      for (var z = 0; z < mapRoute[0].places.length; z++) {
+
+        var place = mapRoute[0].places[z]
+        var desc = place.description
+
+        for (var v = 0; v < desc.length; v++) {
+          var place_description_translation = []
+          var place_description = desc[v]
+          if(place_description.language.code === lang){
+            place_description_translation = desc[v]
+          }
+        }
+
+        slideData.push({
+          'id'      : place.id,
+          'step'    : z+1,
+          'name'    : place.name,
+          'images'  : MyConst.originRoot+place.images[0].url,
+          'label'   :  place_description_translation.label,
+          'description' :  place_description_translation.description
+        })
+
+      }
+
+    }
+
+    return slideData
+
+  }
+  
+  // First slide is the route cover::
+  function renderSlides(mapRoute: any){
+    return setSlidesData(mapRoute).map((slide: SlideRoute, i) => (
+      <IonSlide key={i}>
+        <IonCard 
+          class='hob_card'>
+          <IonCardContent>
+            <img src={slide.images} alt={slide.images}/><br/>
+            <IonTextarea
+              class='hob_slide_textarea'
+              disabled
+              readonly
+              value={slide.description}>
+            </IonTextarea>
+          </IonCardContent>
+        </IonCard>
+      </IonSlide>
+    ))
+  }
 
   function renderHeader(fullMenu: Menu[]) {
     return fullMenu.map((r: Menu, i) =>
@@ -96,7 +166,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     )    
   }
 
-  //var title = 'a title';
+  var title = 'a title';
  
   /*const [slides, setPages] = useState<Slide[]>([])
   useEffect(() => {
@@ -122,9 +192,10 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       </IonSlide>
     ))    
   }
+  */
 
   // Change the header subtitle pending on slide 'hidden content'
-  const setLabel = async (event: any, slides: Slide[], title: any) => {
+  const setLabel = async (event: any, slides: SlideRoute[], name: any) => {
     let labelClass = '.header_subtitle'
     let index = 1
     await event.target.getActiveIndex().then((value: any) => (index=value))
@@ -133,14 +204,14 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       let result = ''
       let now = jQuery(labelClass).html()
 
-      if( slides[index].title !== title ){
-        result += slides[index].title
+      if( slides[index].name !== name ){
+        result += slides[index].name
       }
 
-      if(slides[index].label !== ''){
+      /*if(slides[index].name !== ''){
         if(result !== '') result += ' - '        
         result += slides[index].label
-      }
+      }*/
 
       if(result !== now){
         var fadeVelocity = (match.params.step === index.toString()) ? 100 : MyConst.fadeVelocity
@@ -156,8 +227,6 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     }
   }
 
-  */
-
   return(
     <IonPage>
       <IonHeader class='hob-header'>
@@ -166,22 +235,14 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {/*<IonSlides
+        <IonSlides
           key='MySlides'
           pager={true}
           options={slideOpts}
-          onIonSlidesDidLoad={(event: any)=> setLabel(event, slides, title)}
-          onIonSlideTransitionStart={(event: any)=> setLabel(event, slides, title)}          
-        >{renderSlides(slides)}
+          onIonSlidesDidLoad={(event: any)=> setLabel(event, mapRoute, title)}
+          onIonSlideTransitionStart={(event: any)=> setLabel(event, mapRoute, title)}
+        >{renderSlides(mapRoute)}
         </IonSlides>
-              <IonSlide key={'sdfgdfterwg'}>*/}
-        <IonCard 
-          class='hob_card'>
-          <IonCardContent>
-            dfdasfasd
-          </IonCardContent>
-        </IonCard>
-
       </IonContent>
     </IonPage>
   )
