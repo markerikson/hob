@@ -11,7 +11,7 @@ import {
   IonCardContent,
   IonContent,
   IonSlide,
-  IonSlides,
+  //IonSlides,
   IonImg,
   IonItem,
   IonThumbnail,
@@ -33,7 +33,7 @@ import { MyRoute } from '../models/MyRoute'
 //import { setAccessAllowedData } from '../data/dataApi'
 
 interface RoutePageProps extends RouteComponentProps<{
-  mapId:  string,
+  route:  string,
   step: string,
 }> {}
 
@@ -42,9 +42,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   const {t} = useTranslation()
   const history = useHistory()
 
-  var creator_id = localStorage.getItem('creator::id')
-
-  const slideOpts = {
+  /*const slideOpts = {
     initialSlide: match.params.step ?? '0',
     //speed: 500,
     //autoplay: false,
@@ -53,7 +51,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     centeredSlidesBounds: true,
     spaceBetween: 0,
     loop: false
-  }
+  }*/
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -64,11 +62,13 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
 
   const [mapRoute, setRoute] = useState<MyRoute[]>([])
   useEffect(() => {
-    fetch(MyConst.RestAPI + 'routes?id='+match.params.mapId)
+    fetch(MyConst.RestAPI + 'routes?id='+match.params.route)
       .then(res => res.json())
       .then(setRoute)
-  }, [match.params.mapId])
-  
+  }, [match.params.route])
+
+  console.log(mapRoute)
+
   function renderHeader(fullMenu: Menu[]) {
     return fullMenu.map((r: Menu, i) =>
       <IonItem
@@ -96,13 +96,14 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     )    
   }
 
-  var title = 'a title';
+  //var title = 'a title';
  
   /*const [slides, setPages] = useState<Slide[]>([])
   useEffect(() => {
     fetch( MyConst.slideDump+match.params.id+'.json' ).then(res => res.json()).then(setPages)
   }, [match.params.slug])*/
 
+  /*
   function renderSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
       <IonSlide key={i}>
@@ -121,7 +122,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       </IonSlide>
     ))    
   }
-  
+
   // Change the header subtitle pending on slide 'hidden content'
   const setLabel = async (event: any, slides: Slide[], title: any) => {
     let labelClass = '.header_subtitle'
@@ -155,18 +156,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     }
   }
 
-  /*
-  var creator_id = localStorage.getItem('creator::id')
-  if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
-    //console.log('You have free access here!! :)')  
-  }else{
-    if( creator_id !== null ){
-      //console.log('Hello you have granted access, '+creator_id)
-    }else{
-      //alert("You don't have acces to this area...")
-      //window.location.href = '/Access/train-yourself'      
-    }
-  }*/
+  */
 
   return(
     <IonPage>
@@ -188,7 +178,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
         <IonCard 
           class='hob_card'>
           <IonCardContent>
-dfdasfasd
+            dfdasfasd
           </IonCardContent>
         </IonCard>
 

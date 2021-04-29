@@ -91,7 +91,7 @@ const App: React.FC = () => {
             <Route path='/LiveMap/navigate' component={LiveMap}/>
             <Route path='/Article/:slug/:slide/:step' component={Article}/>            
             <Route path='/Equipment/:slug' component={Equipment}/>
-            <Route path='/Route/Overview/:mapId/:step' component={RouteOverview}/>
+            <Route path='/Route/Overview/:route/:step' component={RouteOverview}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/LiveMap' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>

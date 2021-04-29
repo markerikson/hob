@@ -1,11 +1,11 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
-import { IonContent, IonHeader, IonPage, IonTitle, IonImg, IonToolbar, IonGrid, IonRow, IonCol, IonThumbnail, IonItem, IonLabel } from '@ionic/react'
+import { IonContent, IonPage, IonImg, IonGrid, IonRow, IonCol, IonThumbnail, IonItem, IonLabel } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
-import jQuery from 'jquery'
+//import jQuery from 'jquery'
 
 // About leafLet
 import L from 'leaflet'
@@ -20,7 +20,7 @@ import { MyRoute } from '../models/MyRoute'
 // Custom Map Markers
 //------------------------------------------------------------------
 
-import { constructOutline } from 'ionicons/icons'
+//import { constructOutline } from 'ionicons/icons'
 import markerEndIconSvg from '../static/icons/end-marker.svg'
 import markerStartIconSvg from '../static/icons/start-marker.svg'
 import markerCameraIconSvg from '../static/icons/camera-marker.svg'
@@ -35,6 +35,7 @@ import marker07 from '../static/icons/07.svg'
 import marker08 from '../static/icons/08.svg'
 import marker09 from '../static/icons/09.svg'
 import marker10 from '../static/icons/00.svg'
+import { analytics } from 'ionicons/icons'
 
 const icons = {
   'icon01' : new L.Icon({ iconUrl: marker01, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
@@ -83,13 +84,13 @@ const Routes: React.FC<MapProps> = ({match}) => {
   //console.log(mapRoutes)
 
   // Default route data
-  var name = MyConst.labels.routeName
+  //var name = MyConst.labels.routeName
   var zoom = MyConst.main_zoom
 
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
   var end = [MyConst.main_center[0], MyConst.main_center[1]]
-  var middle = [];
+  //var middle = [];
 
   function renderHeader(fullMenu: Menu[]) {
     //hoverFooterIcon(fullMenu)
@@ -159,18 +160,23 @@ const Routes: React.FC<MapProps> = ({match}) => {
   function MiddleMarkers(mapRoutes: any){
     var middleCoords  = [];
     for (var i = 0; i < mapRoutes.length; i++) {
+      var routeId = mapRoutes[i].id
       var mapData =  mapRoutes[i].map_data.data;
       var coordinates = mapData.features[0].geometry.coordinates
       var middleRoad = Math.floor(coordinates.length/2);
       if(coordinates[middleRoad][0] !== undefined && coordinates[middleRoad][1] !== undefined){
-        middleCoords.push(coordinates[middleRoad])
+        middleCoords.push({ routeId: routeId, mapCoords: coordinates[middleRoad]})
       }
     }
-    return middleCoords.map((l: any, index) => 
+    return middleCoords.map((mapLocation: any, index) => 
       <Marker
         key={Math.random()}
-        position={[l[1], l[0]]}
-        icon={( index === 0 )
+        position={[mapLocation.mapCoords[1], mapLocation.mapCoords[0]]}
+        eventHandlers={{
+          click: (e) => {
+            history.push('/Route/Overview/'+mapLocation.routeId+'/0')
+          },
+        }}        icon={( index === 0 )
             ? icons["icon01"]
             : index === 1 
               ? icons["icon02"]
@@ -247,17 +253,16 @@ const Routes: React.FC<MapProps> = ({match}) => {
   }
 
   function LocationMarker() {
-    const [position, setPosition] = useState([])
+    const [position, setPosition] = useState({'lat':0, 'lng':0})
     const map = useMapEvents({
       click() {
         map.locate()
       },
       locationfound(e) {
-        //setPosition(start)
+        setPosition(e.latlng)
         map.flyTo([start[1], start[0]], map.getZoom())
       },
-    })
-  
+    })  
     return position === null ? null : (
       <Marker position={[start[0], start[1]]}>
         <Popup>{t(MyConst.messages.youAreHere)}</Popup>
