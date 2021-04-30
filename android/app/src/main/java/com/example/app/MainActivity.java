@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.example.app;
 
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class MainActivity extends BridgeActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
-    SplashScreen.show(this);  // here
     super.onCreate(savedInstanceState);
 
     // Initializes the Bridge

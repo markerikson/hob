@@ -95,7 +95,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route path='/' render={() => <Redirect to={MyConst.homeHref}/>} exact={true}/>         
+            <Route path='/' render={() => <Redirect to={'Access/train-yourself'}/>} exact={true}/>         
             <Route path='/Home' render={() => <Redirect to={MyConst.homeHref}/>} exact={true}/>         
             <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>            

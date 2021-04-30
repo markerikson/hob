@@ -70,7 +70,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
     slug = fullMenu[0].slug
   }
 
-  const accesClientData = async (e: React.FormEvent) => {
+  const accessClientData = async (e: React.FormEvent) => {
 
     e.preventDefault()
     setAccesFormSubmitted(true)
@@ -179,7 +179,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
             {t(MyConst.messages.accessText)}      
           </IonLabel>
 
-        <form noValidate onSubmit={accesClientData}>
+        <form noValidate onSubmit={accessClientData}>
           <IonList>
             <IonItem>
               <IonLabel 

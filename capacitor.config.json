@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "HOB",
+  "appId": "com.example.app",
+  "appName": "hob-app",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
