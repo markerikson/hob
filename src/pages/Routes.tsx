@@ -153,21 +153,21 @@ const Routes: React.FC<MapProps> = ({match}) => {
         route.features.map((features: any) => ( setMapContent(features) ) )
       ))} 
 
-      {/* Loading route start meeting point, base blah blah */}
+      {/* Loading route start meeting point, base blah blah 
       <Marker
         key='startMarker'
         position={[start[1], start[0]]}
         icon={startMarker}
       ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
-      </Marker>
+      </Marker>*/}
 
-      {/* Loading route end */}
+      {/* Loading route end 
       <Marker
         key='endMarker'
-        position={[end[0], end[0]]}
+        position={[end[1], end[0]]}
         icon={endMarker}
       ><Popup>{MyConst.messages.routeEnd}</Popup>
-      </Marker>
+      </Marker>*/}
 
       {/* Putting middle way markers*/}
       {MiddleMarkers(mapRoutes)}

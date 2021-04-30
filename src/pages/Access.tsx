@@ -108,7 +108,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
       if(data.user !== undefined){
         window.localStorage.setItem('creator::id', data.user.creator.toString())
-        window.localStorage.setItem('creator::assistance_number', data.user.contact_number.toString())
+       // window.localStorage.setItem('creator::assistance_number', data.user.contact_number.toString())
         window.localStorage.setItem('creator::data', JSON.stringify(data.user))
         window.location.href = "/LiveMenu/"+slug;
       }

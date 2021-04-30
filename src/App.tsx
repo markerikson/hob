@@ -58,7 +58,7 @@ const App: React.FC = () => {
     console.log(data)
   }
 
-  console.log(accesClientData)
+  //console.log(accesClientData)
 
   const [mainMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {

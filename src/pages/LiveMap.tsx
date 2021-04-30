@@ -5,7 +5,7 @@ import {
    //useIonViewWillEnter
 } from '@ionic/react'
 import { RouteComponentProps } from 'react-router'
-//import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
 import jQuery from 'jquery'
@@ -15,9 +15,10 @@ import jQuery from 'jquery'
 import {
   MapContainer,
   TileLayer,
-  /*
   Popup,
   Marker,
+  useMapEvents,
+  /*
   Polygon,
   Polyline,
   */
@@ -47,7 +48,7 @@ interface MapProps extends RouteComponentProps<{
 
 const LiveMap: React.FC<MapProps> = ({match}) => {
   
-  //const {t} = useTranslation()
+  const {t} = useTranslation()
 
   var creator_id = localStorage.getItem("creator::id");
   if (
@@ -188,6 +189,30 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     </IonToolbar>
   }
 
+  function LocationMarker() {
+
+    const [position, setPosition] = useState({'lat':0, 'lng':0})
+    const map = useMapEvents({
+      click() {
+        map.locate()
+      },
+      locationfound(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
+      load(e) {
+        e.target.map.invalidateSize()
+      }
+    })
+
+    return position === null ? null : (
+      <Marker position={[start[0], start[1]]}>
+        <Popup>{t(MyConst.messages.youAreHere)}</Popup>
+      </Marker>
+    )
+  }
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -231,7 +256,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
             icon={endIcon}
           ><Popup>{MyConst.messages.routeEnd}</Popup>
           </Marker> */}
-
+          <LocationMarker/>
         </MapContainer>
       </IonContent>
     </IonPage>
