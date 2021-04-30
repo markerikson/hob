@@ -16,8 +16,8 @@ import { MyRoute } from '../models/MyRoute'
 // Custom Map Markers
 //------------------------------------------------------------------
 import cameraMarkerSvg from '../static/icons/camera-marker.svg'
-import endMarkerSvg from '../static/icons/end-marker.svg'
 import startMarkerSvg from '../static/icons/start-marker.svg'
+import endMarkerSvg from '../static/icons/end-marker.svg'
 /*
 import baseMarkerSvg from '../static/icons/base-marker.svg'
 import myLocationMarkerSvg from '../static/icons/mylocation-marker.svg'
@@ -164,7 +164,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
       {/* Loading route end */}
       <Marker
         key='endMarker'
-        position={[end[1], end[0]]}
+        position={[end[0], end[0]]}
         icon={endMarker}
       ><Popup>{MyConst.messages.routeEnd}</Popup>
       </Marker>

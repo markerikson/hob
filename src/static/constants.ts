@@ -87,6 +87,8 @@ export const messages = {
   'submitAcces' : 'Access',
 }
 
+export const mapboxToken = "pk.eyJ1IjoiZHJ1bGxhbiIsImEiOiJja2l4eDBpNWUxOTJtMnRuejE1YWYyYThzIn0.y7nuRLnfl72qFp2Rq06Wlg"
+
 // Main labels
 export const labels = { 
   'routeName' : 'Route name...'

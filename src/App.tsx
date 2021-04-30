@@ -11,7 +11,7 @@ import { IonReactRouter } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
 //import { useHistory } from 'react-router'
 import './components/i18n'
-//import axios from 'axios'
+import axios from 'axios'
 
 //CSS required for Ionic components to work properly
 import '@ionic/react/css/core.css'
@@ -43,12 +43,22 @@ import LiveMap        from './pages/LiveMap'
 import Equipment      from './pages/Equipment'
 import Settings       from './pages/Settings'
 import RouteOverview  from './pages/RouteOverview'
-
+import Panoja  from './pages/Panoja'
 //import { Plugins } from '@capacitor/core'
 //const { SplashScreen } = Plugins
 //SplashScreen.show(MyConst.splashScreen)
 
 const App: React.FC = () => {
+
+  const accesClientData = async (e: any) => {
+    const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
+      identifier: MyConst.accesUserKey,
+      password:   MyConst.accesUserPass,
+    })
+    console.log(data)
+  }
+
+  console.log(accesClientData)
 
   const [mainMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -58,7 +68,8 @@ const App: React.FC = () => {
   function renderFooterMenu(list: Menu[]) {
     return <IonTabBar
       slot='bottom'
-      class={'hob-footer'}>
+      class={'hob-footer'}
+      onClick={accesClientData}>
       {list.map((r: Menu) => (
         <IonTabButton
           key={r.resource}
@@ -94,6 +105,7 @@ const App: React.FC = () => {
             <Route path='/Route/Overview/:route/:step' component={RouteOverview}/>
             <Route path='/Routes' component={Routes}/>
             <Route path='/LiveMap' component={LiveMap}/>
+            <Route path='/Panoja' component={Panoja}/>
             <Route path='/Settings' component={Settings}/>
           </IonRouterOutlet>          
           {renderFooterMenu(mainMenu)}

@@ -46,14 +46,13 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
   const [userKey, setUserKey] = useState('')
   const [userPass, setUserPass] = useState('')
-  //const [access_menu, setAccessMenu] = useState('')
 
   const [accesFormSubmitted, setAccesFormSubmitted] = useState(false)
+
   const [userKeyError, setUserKeyError] = useState(false)
   const [passwordError, setUserPassError] = useState(false)
+  
   const [showToast1, setShowToast1] = useState(false);
-
-  var offlineStore = window.localStorage
 
   const [fullMenu, setMenu] = useState<Menu[]>([]);
 
@@ -108,9 +107,9 @@ const Access: React.FC<PageProps> = ({ match }) => {
       }*/
 
       if(data.user !== undefined){
-        offlineStore.setItem('creator::id', data.user.creator.toString())
-        offlineStore.setItem('creator::assistance_number', data.user.contact_number.toString())
-        offlineStore.setItem('creator::data', JSON.stringify(data.user))
+        window.localStorage.setItem('creator::id', data.user.creator.toString())
+        window.localStorage.setItem('creator::assistance_number', data.user.contact_number.toString())
+        window.localStorage.setItem('creator::data', JSON.stringify(data.user))
         window.location.href = "/LiveMenu/"+slug;
       }
 
