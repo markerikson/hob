@@ -43,22 +43,24 @@ import LiveMap        from './pages/LiveMap'
 import Equipment      from './pages/Equipment'
 import Settings       from './pages/Settings'
 import RouteOverview  from './pages/RouteOverview'
-import Panoja  from './pages/Panoja'
-//import { Plugins } from '@capacitor/core'
-//const { SplashScreen } = Plugins
-//SplashScreen.show(MyConst.splashScreen)
+import Panoja         from './pages/Panoja'
+
+import { Plugins } from '@capacitor/core'
+
+const { SplashScreen } = Plugins
+SplashScreen.show(MyConst.splashScreen)
 
 const App: React.FC = () => {
+
+  var creator_id = window.localStorage.getItem('creator::id')
+  console.log(creator_id)
 
   const accesClientData = async (e: any) => {
     const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
       identifier: MyConst.accesUserKey,
       password:   MyConst.accesUserPass,
     })
-    console.log(data)
   }
-
-  //console.log(accesClientData)
 
   const [mainMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -95,7 +97,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route path='/' render={() => <Redirect to={'Access/train-yourself'}/>} exact={true}/>         
+            <Route path='/' render={() => <Redirect to={ creator_id ? '/LiveMenu/home' : '/Access/train-yourself'}/>} exact={true}/>         
             <Route path='/Home' render={() => <Redirect to={MyConst.homeHref}/>} exact={true}/>         
             <Route path='/Access/:slug' component={Access}/>
             <Route path='/LiveMenu/:slug' component={LiveMenu}/>            

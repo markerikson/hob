@@ -123,10 +123,10 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
         <IonButton
           class="hob_menu_button"
           key={'submenu_'+r.resource}
-          color={r.background_color}
-          onClick={() => history.push(`/${r?.resource}`)}
+          color={r.background_color}          
+          href={r?.resource}
           expand="block"
-        >
+        >{/*onClick={() => history.push(`/${r?.resource}`)}*/}
           {t(r.name)}
         </IonButton>
       ) : (

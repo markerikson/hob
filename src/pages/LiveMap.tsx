@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import jQuery from 'jquery'
 
 // About leafLet
-//import L from 'leaflet'
+import L from 'leaflet'
 import {
   MapContainer,
   TileLayer,
@@ -28,17 +28,54 @@ import 'leaflet/dist/leaflet.css'
 // Models for the route
 import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
-//import { RouteData } from '../models/RouteData'
 
-/*
-// Custom Map Markers
-import markerEndIconSvg from '../static/icons/end-marker.svg'
-import markerStartIconSvg from '../static/icons/start-marker.svg'
-import markerCameraIconSvg from '../static/icons/camera-marker.svg'
+
 //------------------------------------------------------------------
-const endIcon = new L.Icon({ iconUrl: markerEndIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const startIcon = new L.Icon({ iconUrl: markerStartIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-const cameraIcon = new L.Icon({ iconUrl: markerCameraIconSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+// Custom Map Markers
+//------------------------------------------------------------------
+import cameraMarkerSvg from '../static/icons/camera-marker.svg'
+import startMarkerSvg from '../static/icons/start-marker.svg'
+import endMarkerSvg from '../static/icons/end-marker.svg'
+import myLocationMarkerSvg from '../static/icons/mylocation-marker.svg'
+/*
+import baseMarkerSvg from '../static/icons/base-marker.svg'
+import restaurantMarkerSvg from '../static/icons/restauran-marker.svg'
+import standarMarkerSvg from '../static/icons/standar-marker.svg'
+*/
+
+import marker01 from '../static/icons/01.svg'
+import marker02 from '../static/icons/02.svg'
+import marker03 from '../static/icons/03.svg'
+import marker04 from '../static/icons/04.svg'
+import marker05 from '../static/icons/05.svg'
+import marker06 from '../static/icons/06.svg'
+import marker07 from '../static/icons/07.svg'
+import marker08 from '../static/icons/08.svg'
+import marker09 from '../static/icons/09.svg'
+import marker10 from '../static/icons/00.svg'
+
+//------------------------------------------------------------------
+const icons = {
+  'icon01' : new L.Icon({ iconUrl: marker01, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon02' : new L.Icon({ iconUrl: marker02, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon03' : new L.Icon({ iconUrl: marker03, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon04' : new L.Icon({ iconUrl: marker04, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon05' : new L.Icon({ iconUrl: marker05, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon06' : new L.Icon({ iconUrl: marker06, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon07' : new L.Icon({ iconUrl: marker07, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon08' : new L.Icon({ iconUrl: marker08, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon09' : new L.Icon({ iconUrl: marker09, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+  'icon10' : new L.Icon({ iconUrl: marker10, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]}),
+}
+
+const cameraMarker = new L.Icon({ iconUrl: cameraMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const startMarker = new L.Icon({ iconUrl: startMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const endMarker = new L.Icon({ iconUrl: endMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const myLocationMarker = new L.Icon({ iconUrl: myLocationMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+/*
+const baseMarker = new L.Icon({ iconUrl: baseMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const restaurantMarker = new L.Icon({ iconUrl: restaurantMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const standarMarker = new L.Icon({ iconUrl: standarMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 */
 
 interface MapProps extends RouteComponentProps<{
@@ -94,19 +131,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
 
   jQuery('.hob-footer').removeClass('hidden')
 
-
-
-
-
   jQuery('#navigate').attr('src', jQuery('#navigate').data('active'))
-
-
-
-
-
-
-
-
 
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
   /*function twistCoordinates(coordinates: any) {
@@ -206,11 +231,15 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
     })
 
     return position === null ? null : (
-      <Marker position={[start[0], start[1]]}>
+      <Marker
+        position={map.getCenter()}
+        icon={myLocationMarker}
+        >
         <Popup>{t(MyConst.messages.youAreHere)}</Popup>
       </Marker>
     )
   }
+
 
 
   return (
@@ -256,7 +285,9 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
             icon={endIcon}
           ><Popup>{MyConst.messages.routeEnd}</Popup>
           </Marker> */}
+          
           <LocationMarker/>
+
         </MapContainer>
       </IonContent>
     </IonPage>

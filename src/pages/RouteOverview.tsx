@@ -38,7 +38,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   var title = t('Cala de deià!!')
 
   const slideOpts = {
-    initialSlide: match.params.step ?? '0',
+    initialSlide: match.params.step.toString(),
     autoHeight: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
@@ -47,8 +47,13 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     //speed: 500,
     //autoplay: false,
   }
+/*
+  console.log(slideOpts)
 
-  console.log(match.params)
+  ionSlidesDidLoad(() => {
+    console.log( console.log(slideOpts))
+  });
+*/
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -132,7 +137,8 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   // First slide is the route cover::
   function renderSlides(mapRoute: any){
     return setSlidesData(mapRoute).map((slide: SlideRoute, i) => (
-      <IonSlide key={i}>
+      <IonSlide
+        key={i+'2'}>
         <IonCard 
           class='hob_card'>
           <IonCardContent>
@@ -178,7 +184,6 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     </IonHeader> : ''
   }
 
-
   // Change the header subtitle pending on slide 'hidden content'
   const setLabel = async (event: any, slides: SlideRoute[], label: any) => {
     let labelClass = '.header_subtitle'
@@ -217,7 +222,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       {renderHeader(fullMenu, mapRoute)}
       <IonContent>
         <IonSlides
-          key='MySlides'
+          key='MySlides2'
           pager={true}
           options={slideOpts}
           onIonSlidesDidLoad={(event: any)=> setLabel(event, setSlidesData(mapRoute), title)}

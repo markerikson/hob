@@ -52,7 +52,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
   const [userKeyError, setUserKeyError] = useState(false)
   const [passwordError, setUserPassError] = useState(false)
   
-  const [showToast1, setShowToast1] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const [fullMenu, setMenu] = useState<Menu[]>([]);
 
@@ -62,11 +62,9 @@ const Access: React.FC<PageProps> = ({ match }) => {
       .then(setMenu);
   }, [match.params.slug]);
 
-  //var headerIcon = '';
   var slug = ''
 
   if(fullMenu[0] !== undefined){
-    //headerIcon = fullMenu[0].active_icon
     slug = fullMenu[0].slug
   }
 
@@ -74,7 +72,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
     e.preventDefault()
     setAccesFormSubmitted(true)
-    setShowToast1(true)
+    setShowToast(true)
     
     if(!userKey) { setUserKeyError(true) }else{ setUserKeyError(false) }
     if(!userPass) { setUserPassError(true) }else{ setUserPassError(false) }
@@ -84,33 +82,16 @@ const Access: React.FC<PageProps> = ({ match }) => {
       const { data } = await axios.post(MyConst.RestAPI+'auth/local', {
         identifier: userKey,
         password:   userPass,
-      })/*.catch(function (error) {
-
-        if (error.response) {
-
-          // Request made and server responded
-          return error.response.data;
-          //console.log(error.response.status);
-          //console.log(error.response.headers);
-
-        } else if (error.request) {
-
-          // The request was made but no response was received
-          return error.request;
-
-        } else {
-
-          // Something happened in setting up the request that triggered an Error
-          return  error.message;
-
-        }
-      }*/
+      })
 
       if(data.user !== undefined){
+        console.log(data.user)
         window.localStorage.setItem('creator::id', data.user.creator.toString())
        // window.localStorage.setItem('creator::assistance_number', data.user.contact_number.toString())
         window.localStorage.setItem('creator::data', JSON.stringify(data.user))
         window.location.href = "/LiveMenu/"+slug;
+      }else{
+        setShowToast(true)
       }
 
       
@@ -249,8 +230,8 @@ const Access: React.FC<PageProps> = ({ match }) => {
         </form>
 
         <IonToast
-          isOpen={showToast1}
-          onDidDismiss={() => setShowToast1(false)}
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
           message={t(MyConst.messages.submitAcces)}
           duration={200}
         />

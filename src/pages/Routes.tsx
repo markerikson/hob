@@ -10,7 +10,6 @@ import 'leaflet/dist/leaflet.css'
 
 import { Menu } from '../models/Menu'
 import { MyRoute } from '../models/MyRoute'
-//import { RouteData } from '../models/RouteData'
 
 //------------------------------------------------------------------
 // Custom Map Markers
@@ -18,12 +17,10 @@ import { MyRoute } from '../models/MyRoute'
 import cameraMarkerSvg from '../static/icons/camera-marker.svg'
 import startMarkerSvg from '../static/icons/start-marker.svg'
 import endMarkerSvg from '../static/icons/end-marker.svg'
-/*
-import baseMarkerSvg from '../static/icons/base-marker.svg'
 import myLocationMarkerSvg from '../static/icons/mylocation-marker.svg'
+import baseMarkerSvg from '../static/icons/base-marker.svg'
 import restaurantMarkerSvg from '../static/icons/restauran-marker.svg'
 import standarMarkerSvg from '../static/icons/standar-marker.svg'
-*/
 
 import marker01 from '../static/icons/01.svg'
 import marker02 from '../static/icons/02.svg'
@@ -53,12 +50,11 @@ const icons = {
 const cameraMarker = new L.Icon({ iconUrl: cameraMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const startMarker = new L.Icon({ iconUrl: startMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const endMarker = new L.Icon({ iconUrl: endMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-/*
-const baseMarker = new L.Icon({ iconUrl: baseMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const myLocationMarker = new L.Icon({ iconUrl: myLocationMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
+const baseMarker = new L.Icon({ iconUrl: baseMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const restaurantMarker = new L.Icon({ iconUrl: restaurantMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const standarMarker = new L.Icon({ iconUrl: standarMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
-*/
+
 
 interface MapProps extends RouteComponentProps<{
   owner_id: string;
@@ -127,6 +123,56 @@ const Routes: React.FC<MapProps> = ({match}) => {
     )    
   }
 
+  function setRoutesPolylines(mapRoutes: any){
+    return cleanTheRoutes(mapRoutes).map((r: any) => (
+      r.features.map((r: any) => (
+        setMapContent(r)
+      )
+    )))
+  }
+  
+  function setRoutesMarkers(mapRoutes: any){
+    var markers = [];
+    for(var i = 0; i < mapRoutes.length; i++){
+      var route = mapRoutes[i]
+      for(var ii = 0; ii < route.places.length; ii++){
+        var place = route.places[ii]
+        var marker = place.map_marker
+        for(var iii = 0; iii < place.map_data.data.features.length; iii++){
+          var feature = place.map_data.data.features[iii]
+          markers.push({
+            'href' : '/Route/Overview/'+route.id+'/'+ii,
+            'marker' : marker,
+            'lat' : feature.geometry.coordinates[1],
+            'lng' : feature.geometry.coordinates[0]
+          })
+        }
+      }
+    }
+
+    return markers.map((marker: any) => ( 
+      setGotoMarker(
+        marker.lat,
+        marker.lng, 
+        marker.marker === 1 
+          ? startMarker
+          : marker.marker === 2
+            ? endMarker
+            : marker.marker === 3
+              ? standarMarker
+              : marker.marker === 4
+                ? cameraMarker
+                : marker.marker === 5
+                  ? restaurantMarker
+                  : marker.marker === 7
+                    ? myLocationMarker
+                    : marker.marker === 8
+                      ? baseMarker
+                      : standarMarker,        
+        marker.href)
+    ))
+  }
+
   function setMap(){
     //* Loading map
     return (
@@ -143,37 +189,17 @@ const Routes: React.FC<MapProps> = ({match}) => {
         url={MyConst.mapTiles.customized}
       />
 
-      {/* Loading map features*/}
-      {cleanTheRoutes(mapRoutes).map((r: any) => (
-        r.features.map((r: any) => ( setMapContent(r) )
-      )))}
+      {setRoutesPolylines(mapRoutes)}
+      {MiddleMarkers(mapRoutes)}
+      {setRoutesMarkers(mapRoutes)}
 
-      {/* Loading places features */}
-      {cleanThePlaces(mapRoutes).map((route: any) => (
-        route.features.map((features: any) => ( setMapContent(features) ) )
-      ))} 
-
-      {/* Loading route start meeting point, base blah blah 
+      {/* Loading route start meeting point, base blah blah */}
       <Marker
         key='startMarker'
         position={[start[1], start[0]]}
         icon={startMarker}
       ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
-      </Marker>*/}
-
-      {/* Loading route end 
-      <Marker
-        key='endMarker'
-        position={[end[1], end[0]]}
-        icon={endMarker}
-      ><Popup>{MyConst.messages.routeEnd}</Popup>
-      </Marker>*/}
-
-      {/* Putting middle way markers*/}
-      {MiddleMarkers(mapRoutes)}
-
-      {/* Getting real location now!! */}
-      <LocationMarker />      
+      </Marker>     
 
     </MapContainer>)
   }
@@ -211,20 +237,41 @@ const Routes: React.FC<MapProps> = ({match}) => {
     var result = []
     for(var i = 0; i < list.length; i++){
       for(var z = 0; z < list[i].places.length; z++){
-        result.push(list[i].places[z].map_data.data)
+        result.push({ 'data' : list[i].places[z], 'coords' : list[i].places[z].map_data.data})
       }
     }
     return result
   }
 
-  function setMarker(lat:number, long:number, icon: any, popContent:any){
+  function setMarker(lat:number, long:number, icon: any, popContent:any, href: any){
     return (
       <Marker
         key={Math.random()}
         position={[lat, long]}
         icon={icon}
+        eventHandlers={{
+          click: (e) => {
+            history.push(href)
+          },
+        }}
       >{ popContent ? <Popup>{popContent}</Popup> : '' }        
-      </Marker>      
+      </Marker>
+    )
+  }
+
+  function setGotoMarker(lat:number, long:number, icon: any, href: any){
+    return (
+      <Marker
+        key={Math.random()}
+        position={[lat, long]}
+        icon={icon}
+        eventHandlers={{
+          click: (e) => {
+            window.location.href = href
+          },
+        }}
+      >  
+      </Marker>
     )
   }
 
@@ -296,7 +343,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
   function setMapContent(r: any) {
     switch(r.geometry.type) {
       case 'Point':        
-        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraMarker, null)
+        return setMarker(r.geometry.coordinates[1], r.geometry.coordinates[0], cameraMarker, null, null)
 
       case 'Polygon':
         return setPolygon(r)
@@ -328,7 +375,10 @@ const Routes: React.FC<MapProps> = ({match}) => {
     })
 
     return position === null ? null : (
-      <Marker position={[start[0], start[1]]}>
+      <Marker
+        position={map.getCenter()}
+        icon={myLocationMarker}
+        >
         <Popup>{t(MyConst.messages.youAreHere)}</Popup>
       </Marker>
     )

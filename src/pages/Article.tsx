@@ -16,7 +16,8 @@ import {
   IonItem,
   IonThumbnail,
   IonHeader,
-  IonToolbar
+  IonToolbar,
+  useIonViewWillEnter,
 } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
 import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
@@ -37,6 +38,10 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   const {t} = useTranslation()
   const history = useHistory()
+
+  useIonViewWillEnter(() => {
+    console.log(match.params.step);  
+  })
 
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
@@ -92,6 +97,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     return list.map((r: Slide, i) => (
       <IonSlide key={i}>
         <IonCard 
+          onLoad={() => console.log('test')}
           class='hob_card'>
           <IonCardContent>
             <img src={r.image_url.toString()} alt={r.image_url}/><br/>
