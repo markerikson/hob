@@ -147,7 +147,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   }
 
   /*
-  var creator_id = localStorage.getItem('creator::id')
+  var creator_id = localStorage.getItem('creator:id')
   if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
     //console.log('You have free access here!! :)')  
   }else{

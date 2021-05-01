@@ -1,23 +1,6 @@
 import * as MyConst from '../static/constants'
+import {  IonPage,  IonLabel,  IonGrid,  IonCard,  IonTextarea,  IonRow,  IonCol,  IonCardContent,  IonContent,  IonSlide,  IonSlides,  IonImg,  IonItem,  IonThumbnail,  IonHeader,  IonToolbar } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
-import {
-  IonPage,
-  IonLabel,
-  IonGrid,
-  IonCard,
-  IonTextarea,
-  IonRow,
-  IonCol,
-  IonCardContent,
-  IonContent,
-  IonSlide,
-  IonSlides,
-  IonImg,
-  IonItem,
-  IonThumbnail,
-  IonHeader,
-  IonToolbar
-} from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import jQuery from 'jquery'// Ohhh!!! :D :D This code looks happy now ^_^
@@ -36,6 +19,8 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   const history = useHistory()
   var lang = localStorage.getItem("i18nextLng")
   var title = t('Cala de deià!!')
+
+  localStorage.setItem('selected_route::id', match.params.route) 
 
   const slideOpts = {
     initialSlide: match.params.step.toString(),

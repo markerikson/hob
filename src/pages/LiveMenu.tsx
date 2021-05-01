@@ -42,7 +42,9 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
   const { t } = useTranslation()
   const history = useHistory()
 
-  //var creator_id = localStorage.getItem("creator::id")
+  //var creator_id = localStorage.getItem("creator:id")
+  var contact_phone = localStorage.getItem('creator:contact_number') ?? ''
+  var assistance_number = localStorage.getItem('creator:assistance_number') ?? ''
   useIonViewWillEnter(() => {
     toggleFooter()
   })
@@ -118,6 +120,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
   }
 
   function renderSubMenus(subMenus: Submenu[], pageSlug: any) {
+    console.log(pageSlug)
     return subMenus.map((r: Submenu, index) =>
       !r.active_icon ? (
         <IonButton
@@ -129,10 +132,29 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
         >{/*onClick={() => history.push(`/${r?.resource}`)}*/}
           {t(r.name)}
         </IonButton>
-      ) : (
+      ) :
+        pageSlug === 'assistance' 
+        ?       (
+          <a  key={'submenu_'+r.resource} className='text_decoration_none' href={(r.resource === 'contact_phone') ? 'tel:'+contact_phone : 'tel:'+assistance_number}>
+            <SubMenuItem
+             
+              className='hob_submenu_icon'
+              >
+              <img
+                key={r.resource}
+                src={r.active_icon}
+                alt=""
+                height="auto"
+                max-height="250px"
+              />
+              <IonLabel class='bold'>{t(r.name)}</IonLabel>
+            </SubMenuItem>
+          </a>
+        )
+      :      (
         <SubMenuItem
           key={'submenu_'+r.resource}
-          onClick={() => history.push( ((pageSlug === '--home') ? `${r?.access}` : `/${r?.resource}`))}
+          onClick={() => history.push(`/${r?.resource}`)}
           className='hob_submenu_icon'
           >
           <img
@@ -146,6 +168,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
         </SubMenuItem>
       )
     )
+
   }
 
   // Show and hide the footer over LiveMenu

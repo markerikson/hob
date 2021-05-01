@@ -5,7 +5,7 @@ import { RouteComponentProps, useHistory } from 'react-router'
 import { useTranslation } from 'react-i18next'
 //import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
 import L from 'leaflet'
-import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon, useMapEvents } from 'react-leaflet'
+import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 
 import { Menu } from '../models/Menu'
@@ -65,7 +65,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
   const {t} = useTranslation()
   const history = useHistory();
 
-  var creator_id = localStorage.getItem('creator::id')
+  var creator_id = localStorage.getItem('creator:id')
 
   const [mapRoutes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -90,9 +90,8 @@ const Routes: React.FC<MapProps> = ({match}) => {
   // Route initial data
   var start = [MyConst.main_center[0], MyConst.main_center[1]]
   var end = [MyConst.main_center[0], MyConst.main_center[1]]
+  console.log(end)
   //var middle = [];
-
-
 
   // MAIN LAYOUT
   
@@ -182,6 +181,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
         center={[start[0], start[1]]}
         zoom={zoom}
         scrollWheelZoom={false}
+        zoomControl={false}
         >
 
       <TileLayer
@@ -229,16 +229,6 @@ const Routes: React.FC<MapProps> = ({match}) => {
     var result = []
     for(var i = 0; i < list.length; i++){
       result.push(list[i].map_data.data)
-    }
-    return result
-  }
-
-  function cleanThePlaces(list: any){
-    var result = []
-    for(var i = 0; i < list.length; i++){
-      for(var z = 0; z < list[i].places.length; z++){
-        result.push({ 'data' : list[i].places[z], 'coords' : list[i].places[z].map_data.data})
-      }
     }
     return result
   }
@@ -356,32 +346,6 @@ const Routes: React.FC<MapProps> = ({match}) => {
           console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
         }
     }
-  }
-
-  function LocationMarker() {
-
-    const [position, setPosition] = useState({'lat':0, 'lng':0})
-    const map = useMapEvents({
-      click() {
-        map.locate()
-      },
-      locationfound(e) {
-        setPosition(e.latlng)
-        map.flyTo(e.latlng, map.getZoom())
-      },
-      load(e) {
-        e.target.map.invalidateSize()
-      }
-    })
-
-    return position === null ? null : (
-      <Marker
-        position={map.getCenter()}
-        icon={myLocationMarker}
-        >
-        <Popup>{t(MyConst.messages.youAreHere)}</Popup>
-      </Marker>
-    )
   }
 
   return (

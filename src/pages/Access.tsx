@@ -55,7 +55,6 @@ const Access: React.FC<PageProps> = ({ match }) => {
   const [showToast, setShowToast] = useState(false);
 
   const [fullMenu, setMenu] = useState<Menu[]>([]);
-
   useEffect(() => {
     fetch(MyConst.menuDump + match.params.slug + ".json")
       .then((res) => res.json())
@@ -85,19 +84,25 @@ const Access: React.FC<PageProps> = ({ match }) => {
       })
 
       if(data.user !== undefined){
-        console.log(data.user)
-        window.localStorage.setItem('creator::id', data.user.creator.toString())
-       // window.localStorage.setItem('creator::assistance_number', data.user.contact_number.toString())
-        window.localStorage.setItem('creator::data', JSON.stringify(data.user))
-        window.location.href = "/LiveMenu/"+slug;
-      }else{
-        setShowToast(true)
-      }
 
+        console.log(data.user)
+
+        window.localStorage.setItem('creator:id', data.user.creator.toString())
+        window.localStorage.setItem('creator:contact_number', data.user.contact_number)
+        window.localStorage.setItem('creator:assistance_number', '061')
+        window.localStorage.setItem('creator:data', JSON.stringify(data.user))
+
+        window.location.href = "/LiveMenu/"+slug;
+        
+      }else{
+        alert("You don't have acces permission or somethign where wrong with your credentials. Please, try again!")
+      }
       
     }
+    console.log('Problems to access to th erestricted area...')
 
   }
+
 
   useIonViewWillEnter(() => {
     toggleFooter()
@@ -152,13 +157,13 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
       <IonContent>
 
-        <div className='login-logo'>
-        </div>
-          <IonLabel 
-            class='access_text'
-            position='floating'>
-            {t(MyConst.messages.accessText)}      
-          </IonLabel>
+        <div className='login-logo'></div>
+
+        {/*<IonLabel 
+          class='access_text'
+          position='floating'>
+          {t(MyConst.messages.accessText)}      
+        </IonLabel>*/}
 
         <form noValidate onSubmit={accessClientData}>
           <IonList>
@@ -230,6 +235,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
         </form>
 
         <IonToast
+          id='accessToast'
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
           message={t(MyConst.messages.submitAcces)}
