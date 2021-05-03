@@ -22,6 +22,7 @@ import {
   IonMenuButton, 
 */
 } from '@ionic/react'
+import { Redirect } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { RouteComponentProps, useHistory } from 'react-router'
 
@@ -85,24 +86,21 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
       if(data.user !== undefined){
 
-        console.log(data.user)
-
         window.localStorage.setItem('creator:id', data.user.creator.toString())
         window.localStorage.setItem('creator:contact_number', data.user.contact_number)
         window.localStorage.setItem('creator:assistance_number', '061')
         window.localStorage.setItem('creator:data', JSON.stringify(data.user))
 
-        window.location.href = "/LiveMenu/"+slug;
-        
+        history.replace("/LiveMenu/"+slug)
+
       }else{
         alert("You don't have acces permission or somethign where wrong with your credentials. Please, try again!")
       }
       
     }
-    console.log('Problems to access to th erestricted area...')
+    //console.log('Problems to access to th erestricted area...')
 
   }
-
 
   useIonViewWillEnter(() => {
     toggleFooter()
@@ -110,11 +108,11 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
   // Show and hide the footer over LiveMenu
   function toggleFooter(){
-    if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)');
+    //if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)');
     if( MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1){      
-      jQuery('.hob-footer').removeClass('hidden')
+      jQuery('.footer_tab').removeClass('hidden')
     }else{
-      jQuery('.hob-footer').addClass('hidden')
+      jQuery('.footer_tab').addClass('hidden')
     }
   }
   

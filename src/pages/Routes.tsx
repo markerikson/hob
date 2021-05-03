@@ -1,9 +1,11 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
 import { IonContent, IonPage, IonImg, IonGrid, IonRow, IonCol, IonThumbnail, IonItem, IonLabel } from '@ionic/react'
-import { RouteComponentProps, useHistory } from 'react-router'
+import { 
+  //RouteComponentProps, 
+  useHistory } from 'react-router'
 import { useTranslation } from 'react-i18next'
-//import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
 import L from 'leaflet'
 import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -55,17 +57,18 @@ const baseMarker = new L.Icon({ iconUrl: baseMarkerSvg, iconSize: [32, 32], icon
 const restaurantMarker = new L.Icon({ iconUrl: restaurantMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 const standarMarker = new L.Icon({ iconUrl: standarMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 
-
-interface MapProps extends RouteComponentProps<{
-  owner_id: string;
-}> {}
-
-const Routes: React.FC<MapProps> = ({match}) => {
+const Routes: React.FC = () => {
   
   const {t} = useTranslation()
   const history = useHistory();
-
   var creator_id = localStorage.getItem('creator:id')
+
+  jQuery('#button-train-yourself').attr('src', jQuery('#button-train-yourself').data('inactive')) 
+  jQuery('#button-explore-and-equip').attr('src', jQuery('#button-explore-and-equip').data('active')) 
+  jQuery('#button-navigate').attr('src', jQuery('#button-navigate').data('inactive')) 
+  jQuery('#button-assistance').attr('src', jQuery('#button-assistance').data('inactive'))
+
+  jQuery('.leaflet-control-attribution').hide()
 
   const [mapRoutes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -343,7 +346,7 @@ const Routes: React.FC<MapProps> = ({match}) => {
         
       default:
         if(MyConst.JustTesting){
-          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
+          //console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
         }
     }
   }

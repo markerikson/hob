@@ -17,7 +17,7 @@ import {
   IonThumbnail,
   IonHeader,
   IonToolbar,
-  useIonViewWillEnter,
+  //useIonViewWillEnter
 } from '@ionic/react'
 import { RouteComponentProps, useHistory } from 'react-router'
 import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
@@ -39,10 +39,6 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   const {t} = useTranslation()
   const history = useHistory()
 
-  useIonViewWillEnter(() => {
-    console.log(match.params.step);  
-  })
-
   const slideOpts = {
     initialSlide: match.params.step ?? '0',
     autoHeight: false,
@@ -53,6 +49,11 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     //speed: 500,
     //autoplay: false,
   }
+
+  jQuery('#button-train-yourself').attr('src', jQuery('#button-train-yourself').data('active')) 
+  jQuery('#button-explore-and-equip').attr('src', jQuery('#button-explore-and-equip').data('inactive')) 
+  jQuery('#button-navigate').attr('src', jQuery('#button-navigate').data('inactive')) 
+  jQuery('#button-assistance').attr('src', jQuery('#button-assistance').data('inactive')) 
 
   const [article, setContent] = useState<Menu[]>([])
   useEffect(() => {
@@ -97,7 +98,6 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     return list.map((r: Slide, i) => (
       <IonSlide key={i}>
         <IonCard 
-          onLoad={() => console.log('test')}
           class='hob_card'>
           <IonCardContent>
             <img src={r.image_url.toString()} alt={r.image_url}/><br/>
@@ -145,19 +145,6 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       jQuery(labelClass).fadeOut('fast')
     }
   }
-
-  /*
-  var creator_id = localStorage.getItem('creator:id')
-  if(MyConst.menuSettings.freeAccess.indexOf(window.location.pathname) !== -1){
-    //console.log('You have free access here!! :)')  
-  }else{
-    if( creator_id !== null ){
-      //console.log('Hello you have granted access, '+creator_id)
-    }else{
-      //alert("You don't have acces to this area...")
-      //window.location.href = '/Access/train-yourself'      
-    }
-  }*/
 
   return(
     <IonPage>

@@ -1,9 +1,14 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
-import { IonContent, IonPage, IonImg, IonThumbnail, IonItem, IonSelect, IonSelectOption } from '@ionic/react'
-import { RouteComponentProps, useHistory } from 'react-router'
+import { IonContent, IonPage, IonImg, IonThumbnail, IonItem, IonSelect, IonSelectOption,
+//useIonViewWillEnter
+} from '@ionic/react'
+import { 
+  //RouteComponentProps,
+  useHistory
+} from 'react-router'
 import { useTranslation } from 'react-i18next'
-//import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
+import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
 import L from 'leaflet'
 import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -58,17 +63,19 @@ const restaurantMarker = new L.Icon({ iconUrl: restaurantMarkerSvg, iconSize: [3
 const standarMarker = new L.Icon({ iconUrl: standarMarkerSvg, iconSize: [32, 32], iconAnchor: [2, 2], popupAnchor: [0, -2]})
 //------------------------------------------------------------------
 
-interface MapProps extends RouteComponentProps<{
-  owner_id: string;
-}> {}
-
-const LiveMap: React.FC<MapProps> = ({match}) => {
+const LiveMap: React.FC = () => {
 
   const {t} = useTranslation()
   const history = useHistory();
-
   var creator_id = localStorage.getItem('creator:id')
-  var selected_route =  localStorage.getItem('selected_route::id') 
+  var selected_route = localStorage.getItem('selected_route::id')
+
+  jQuery('#button-train-yourself').attr('src', jQuery('#button-train-yourself').data('inactive')) 
+  jQuery('#button-explore-and-equip').attr('src', jQuery('#button-explore-and-equip').data('inactive')) 
+  jQuery('#button-navigate').attr('src', jQuery('#button-navigate').data('active')) 
+  jQuery('#button-assistance').attr('src', jQuery('#button-assistance').data('inactive')) 
+  
+  jQuery('.leaflet-control-attribution').hide()
 
   const [mapRoutes, setRoutes] = useState<MyRoute[]>([])
   useEffect(() => {
@@ -116,7 +123,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
             value={(selected_route !== '') ? Number(selected_route) : 0}
             cancelText={t('Dismiss')}
             onIonChange={e =>loadRoute(e.detail.value)}>
-            <IonSelectOption key={'first_option'} value={0}><b>{t('Select route...')}</b></IonSelectOption>
+            <IonSelectOption key={'first_option'} value={0}><b>{t('Choose Route')}</b></IonSelectOption>
             {mapRoutes.map((route: any) =>
               <IonSelectOption
                 key={route.id}
@@ -185,12 +192,13 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
   function setMap(mapRoutes: any){
     return (
       <MapContainer
-        key='mainMap2' 
+        key='mainMap2'
+        id='mainMap2' 
         style={MyConst.style.map}
         center={[start[0], start[1]]}
         zoom={zoom}
         scrollWheelZoom={true}
-        zoomControl={false}
+        zoomControl={false}        
         >
 
       <TileLayer
@@ -293,7 +301,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
         return setPolyLine(r)        
       default:
         if(MyConst.JustTesting){
-          console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
+          //console.log(MyConst.messages.unavailable.replace('#type#',r.geometry.type))
         }
     }
   }
@@ -310,7 +318,7 @@ const LiveMap: React.FC<MapProps> = ({match}) => {
         map.flyTo(e.latlng, map.getZoom())
       },
       load(e) {
-        e.target.map.invalidateSize()
+        map.invalidateSize()
       }
     })
 

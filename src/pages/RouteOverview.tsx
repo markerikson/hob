@@ -20,25 +20,24 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   var lang = localStorage.getItem("i18nextLng")
   var title = t('Cala de deià!!')
 
-  localStorage.setItem('selected_route::id', match.params.route) 
+  localStorage.setItem('selected_route::id', match.params.route)
+
+  jQuery('#button-train-yourself').attr('src', jQuery('#button-train-yourself').data('inactive')) 
+  jQuery('#button-explore-and-equip').attr('src', jQuery('#button-explore-and-equip').data('active')) 
+  jQuery('#button-navigate').attr('src', jQuery('#button-navigate').data('inactive')) 
+  jQuery('#button-assistance').attr('src', jQuery('#button-assistance').data('inactive')) 
 
   const slideOpts = {
-    initialSlide: match.params.step.toString(),
+    initialSlide: match.params.step.toString() ?? '0',
     autoHeight: false,
     centeredSlides: true,
     centeredSlidesBounds: true,
     spaceBetween: 0,
+    pagination: false,
     loop: false,
     //speed: 500,
     //autoplay: false,
   }
-/*
-  console.log(slideOpts)
-
-  ionSlidesDidLoad(() => {
-    console.log( console.log(slideOpts))
-  });
-*/
 
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
@@ -128,6 +127,9 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
           class='hob_card'>
           <IonCardContent>
             <img src={slide.images} alt={slide.images}/><br/>
+            <IonRow>
+              {renderThumbs(slide)}
+            </IonRow>
             <IonTextarea
               class='hob_slide_textarea'
               disabled
@@ -140,6 +142,19 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     ))
   }
 
+  function renderThumbs(thisSlide:any){
+    return setSlidesData(mapRoute).map((slide: SlideRoute, i) => (
+      <IonCol class='equipment_col' size="3">
+        <a href={'/Route/Overview/'+match.params.route+'/'+slide.step}>        
+          <IonThumbnail 
+            class={'equipment_thumb '+ ((thisSlide.step === slide.step) ? 'resalted_thumb' : '')}>
+            <IonImg src={slide.images} alt={slide.name} />
+          </IonThumbnail>
+        </a>
+      </IonCol>
+    ))
+  }
+
   function renderHeader(fullMenu: Menu[], mapRoute: any) {
     title = mapRoute[0] ? mapRoute[0].name : ''
     return fullMenu[0] ?
@@ -147,7 +162,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
       <IonToolbar class='hob-header'>
         <IonItem
         class='hob-header border-none remove_inner_bottom'
-        key='qwerjlhwer'>
+        key='qwerjlrerthwer'>
         <IonImg
           class='back'
           onClick={() => history.goBack()}
