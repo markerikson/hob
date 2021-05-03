@@ -75,7 +75,6 @@ const LiveMap: React.FC =  () => {
       for (var z = 0; z < appEquipments[i].description.length; z++) {
         var description = appEquipments[i].description[z]  
         if(description.language.code === lang){
-          console.log(description)
           var name = description.name
         }
       }  
@@ -90,8 +89,10 @@ const LiveMap: React.FC =  () => {
     }
 
     return byTypes.map((equipment: any, index) =>
-      <IonCol class='equipment_col' size="4">
-        <IonThumbnail class='equipment_thumb'>
+      <IonCol key={'byTypesCol'+Math.random()} class='equipment_col' size="4">
+        <IonThumbnail
+          key={equipment.name}
+          class='equipment_thumb'>
           <IonImg src={equipment.icon} alt={equipment.icon} />
         </IonThumbnail>
         {equipment.name}

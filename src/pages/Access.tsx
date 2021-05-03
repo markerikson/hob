@@ -22,7 +22,7 @@ import {
   IonMenuButton, 
 */
 } from '@ionic/react'
-import { Redirect } from 'react-router-dom'
+//import { Redirect } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { RouteComponentProps, useHistory } from 'react-router'
 
@@ -35,10 +35,9 @@ import { Menu } from '../models/Menu'
 import jQuery from "jquery";
 
 
-interface PageProps
-  extends RouteComponentProps<{
-    slug: string;
-  }> {}
+interface PageProps extends RouteComponentProps<{
+  slug: string;
+}> {}
   
 const Access: React.FC<PageProps> = ({ match }) => {
 

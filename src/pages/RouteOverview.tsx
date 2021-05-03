@@ -27,18 +27,6 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   jQuery('#button-navigate').attr('src', jQuery('#button-navigate').data('inactive')) 
   jQuery('#button-assistance').attr('src', jQuery('#button-assistance').data('inactive')) 
 
-  const slideOpts = {
-    initialSlide: match.params.step.toString() ?? '0',
-    autoHeight: false,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
-    spaceBetween: 0,
-    pagination: false,
-    loop: false,
-    //speed: 500,
-    //autoplay: false,
-  }
-
   const [fullMenu, setMenu] = useState<Menu[]>([])
   useEffect(() => {
     fetch(MyConst.menuDump + "routes.json")
@@ -127,14 +115,16 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
           class='hob_card'>
           <IonCardContent>
             <img src={slide.images} alt={slide.images}/><br/>
-            <IonRow>
-              {renderThumbs(slide)}
+            <IonRow key={'slide_row_'+i}>
+              {renderPlacesThumbs(slide)}
             </IonRow>
             <IonTextarea
               class='hob_slide_textarea'
+              key={'textarea_'+i}
               disabled
               readonly
-              value={slide.description}>
+              value={slide.description}
+            >
             </IonTextarea>
           </IonCardContent>
         </IonCard>
@@ -142,15 +132,34 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     ))
   }
 
-  function renderThumbs(thisSlide:any){
+  var slideOpts = {
+    initialSlide: match.params.step ?? '0',
+    autoHeight: false,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    spaceBetween: 0,
+    pagination: true,
+    loop: false,
+    //speed: 500,
+    //autoplay: false,
+  }
+
+  function jumpToSlide(slide:any){
+    console.log('gotoreplace')
+    history.push('/Route/Overview/'+match.params.route+'/'+slide.step)
+    
+  }
+
+  function renderPlacesThumbs(thisSlide:any){
     return setSlidesData(mapRoute).map((slide: SlideRoute, i) => (
-      <IonCol class='equipment_col' size="3">
-        <a href={'/Route/Overview/'+match.params.route+'/'+slide.step}>        
-          <IonThumbnail 
-            class={'equipment_thumb '+ ((thisSlide.step === slide.step) ? 'resalted_thumb' : '')}>
-            <IonImg src={slide.images} alt={slide.name} />
-          </IonThumbnail>
-        </a>
+      <IonCol key={'slide_col_'+i} class={'equipment_col'+thisSlide.step} size="3">
+        <IonThumbnail
+          onClick={() => jumpToSlide(slide)}
+          class={'equipment_thumb '+ ((thisSlide.step === slide.step) ? 'resalted_thumb' : '')}
+          key={'equipment_thumb_'+i}
+          >
+          <IonImg src={slide.images} alt={slide.name} />
+        </IonThumbnail>
       </IonCol>
     ))
   }
@@ -185,7 +194,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   }
 
   // Change the header subtitle pending on slide 'hidden content'
-  const setLabel = async (event: any, slides: SlideRoute[], label: any) => {
+  const switchHeaderLabel = async (event: any, slides: SlideRoute[], label: any) => {
     let labelClass = '.header_subtitle'
     let index = 0
     await event.target.getActiveIndex().then((value: any) => (index=value))
@@ -225,8 +234,8 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
           key='MySlides2'
           pager={true}
           options={slideOpts}
-          onIonSlidesDidLoad={(event: any)=> setLabel(event, setSlidesData(mapRoute), title)}
-          onIonSlideTransitionStart={(event: any)=> setLabel(event, setSlidesData(mapRoute), title)}
+          onIonSlidesDidLoad={(event: any)=> switchHeaderLabel(event, setSlidesData(mapRoute), title)}
+          onIonSlideTransitionStart={(event: any)=> switchHeaderLabel(event, setSlidesData(mapRoute), title)}
         >{renderSlides(mapRoute)}
         </IonSlides>
       </IonContent>

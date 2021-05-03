@@ -239,7 +239,7 @@ const Routes: React.FC = () => {
   function setMarker(lat:number, long:number, icon: any, popContent:any, href: any){
     return (
       <Marker
-        key={Math.random()}
+        key={'marker_'+href}
         position={[lat, long]}
         icon={icon}
         eventHandlers={{
@@ -255,7 +255,7 @@ const Routes: React.FC = () => {
   function setGotoMarker(lat:number, long:number, icon: any, href: any){
     return (
       <Marker
-        key={Math.random()}
+        key={'marker_'+href}
         position={[lat, long]}
         icon={icon}
         eventHandlers={{

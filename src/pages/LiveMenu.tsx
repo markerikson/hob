@@ -141,14 +141,18 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
           class="hob_menu_button"
           key={'submenu_'+r.resource}
           color={r.background_color}          
-          href={r?.resource}
+          onClick={() => history.push(`/${r?.resource}`)}
           expand="block"
         >{t(r.name)}
         </IonButton>
       ) :
         pageSlug === 'assistance' 
         ? (
-          <a  key={'submenu_'+r.resource} className='text_decoration_none' href={(r.resource === 'contact_phone') ? 'tel:'+contact_phone : 'tel:'+assistance_number}>
+          <a key={'submenu_'+r.resource}
+            className='text_decoration_none' 
+            href={(r.resource === 'contact_phone')
+              ? 'tel:'+contact_phone
+              : 'tel:'+assistance_number}>
             <SubMenuItem             
               className='hob_submenu_icon'
               >

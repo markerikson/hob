@@ -94,9 +94,9 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     fetch( MyConst.slideDump+match.params.slug+'.json' ).then(res => res.json()).then(setPages)
   }, [match.params.slug])
 
-  function renderSlides(list: Slide[]){
+  function renderArticleSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
-      <IonSlide key={i}>
+      <IonSlide key={'article_slide_'+r.slug+i}>
         <IonCard 
           class='hob_card'>
           <IonCardContent>
@@ -114,7 +114,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   }
   
   // Change the header subtitle pending on slide 'hidden content'
-  const setLabel = async (event: any, slides: Slide[], title: any) => {
+  const switchHeaderLabel = async (event: any, slides: Slide[], title: any) => {
     let labelClass = '.header_subtitle'
     let index = 1
     await event.target.getActiveIndex().then((value: any) => (index=value))
@@ -158,9 +158,9 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
           key='MySlides'
           pager={true}
           options={slideOpts}
-          onIonSlidesDidLoad={(event: any)=> setLabel(event, slides, title)}
-          onIonSlideTransitionStart={(event: any)=> setLabel(event, slides, title)}          
-        >{renderSlides(slides)}
+          onIonSlidesDidLoad={(event: any)=> switchHeaderLabel(event, slides, title)}
+          onIonSlideTransitionStart={(event: any)=> switchHeaderLabel(event, slides, title)}          
+        >{renderArticleSlides(slides)}
         </IonSlides>
       </IonContent>
     </IonPage>

@@ -13,6 +13,7 @@ import { IonReactRouter } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
 //import { useHistory } from 'react-router'
 import './components/i18n'
+import { Plugins } from '@capacitor/core'
 //import axios from 'axios'
 
 //CSS required for Ionic components to work properly
@@ -34,7 +35,7 @@ import './theme/variables.css'
 import './theme/myVariables.css'
 
 // Ohhh!!! :D :D This code looks happy now ^_^
-import jQuery from "jquery"
+//import jQuery from "jquery"
 
 // Models
 import { Menu } from './models/Menu'
@@ -49,18 +50,13 @@ import Equipment      from './pages/Equipment'
 import Settings       from './pages/Settings'
 import RouteOverview  from './pages/RouteOverview'
 
-/*
-import { Plugins } from '@capacitor/core'
-
 var SplashOnce = localStorage.getItem('SplashOnce!!')
 
 if(SplashOnce !== ''){
   const { SplashScreen } = Plugins
   SplashScreen.show(MyConst.splashScreen)
-  SplashScreen.hide()
   localStorage.setItem('SplashOnce!!', 'true')  
 }
-*/
 
 const App: React.FC = () => {
 
@@ -112,7 +108,7 @@ const App: React.FC = () => {
             class='footer_tab'>
             {mainMenu.map((r: Menu) => (
               <IonTabButton
-                key={r.resource}
+                key={r.resource+'_footer'}
                 tab={r.slug}
                 href={r.resource}
                 disabled={false}

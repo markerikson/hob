@@ -9,6 +9,7 @@ import {
 } from 'react-router'
 import { useTranslation } from 'react-i18next'
 import jQuery from 'jquery' // Ohhh!!! :D :D This code looks happy now ^_^
+
 import L from 'leaflet'
 import { MapContainer,  TileLayer, Polyline, Popup, Marker, Polygon, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -139,7 +140,7 @@ const LiveMap: React.FC = () => {
 
   function loadRoute( routeId: number ){
     localStorage.setItem('selected_route::id', routeId.toString())
-    window.location.href = '/LiveMap/navigate/'+routeId;
+    history.replace('/LiveMap/navigate/'+routeId)
   }
 
   function setRoutesPolylines(mapRoutes: any){
@@ -197,27 +198,28 @@ const LiveMap: React.FC = () => {
         style={MyConst.style.map}
         center={[start[0], start[1]]}
         zoom={zoom}
-        scrollWheelZoom={true}
-        zoomControl={false}        
-        >
+      >
 
-      <TileLayer
-        attribution={MyConst.mapAttribution}
-        url={MyConst.mapTiles.customized}
-      />
+        <TileLayer
+          attribution={MyConst.mapAttribution}
+          url={MyConst.mapTiles.customized}
+        />
 
-      {setRoutesPolylines(mapRoutes)}
-      {setRoutesMarkers(mapRoutes)}
+        {setRoutesPolylines(mapRoutes)}
+        {setRoutesMarkers(mapRoutes)}
 
-      {/* Loading route start meeting point, base blah blah */}
-      <Marker
-        key='startMarker'
-        position={[start[1], start[0]]}
-        icon={startMarker}
-      ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
-      </Marker>     
-      <LocationMarker/>
-    </MapContainer>)
+        {/* Loading route start meeting point, base blah blah */}
+        <Marker
+          key='startMarker'
+          position={[start[1], start[0]]}
+          icon={startMarker}
+        ><Popup>{MyConst.messages.routeMeetingPoint}</Popup>
+        </Marker>
+
+        <LocationMarker/>
+
+      </MapContainer>
+    )
   }
 
   // Sadly, the GeoJSON comes twist from geojson.io. Then, I gonna twist  the content, So sorry u.u!!!
@@ -242,7 +244,7 @@ const LiveMap: React.FC = () => {
   function setMarker(lat:number, long:number, icon: any, popContent:any, href: any){
     return (
       <Marker
-        key={Math.random()}
+        key={'marker_'+href}
         position={[lat, long]}
         icon={icon}
         eventHandlers={{
@@ -258,7 +260,7 @@ const LiveMap: React.FC = () => {
   function setGotoMarker(lat:number, long:number, icon: any, href: any){
     return (
       <Marker
-        key={Math.random()}
+        key={'marker_'+href}
         position={[lat, long]}
         icon={icon}
         eventHandlers={{
@@ -274,7 +276,7 @@ const LiveMap: React.FC = () => {
   function setPolygon(r: any){
     var polygon = twistCoordinates(Object.values(r.geometry.coordinates[0]))
     return <Polygon
-      key={Math.random()} 
+      key={'polygon_'+r.id} 
       positions={[polygon]} 
       //pathOptions={MyConst.style.polygon}
     />
@@ -285,7 +287,7 @@ const LiveMap: React.FC = () => {
     start = r.geometry.coordinates[0]
     end = r.geometry.coordinates[r.geometry.coordinates.length - 1]
     return <Polyline
-        key={Math.random()}
+        key={'polyline_'+r.id} 
         positions={polyLine}
         //pathOptions={MyConst.style.polyLine}
       />

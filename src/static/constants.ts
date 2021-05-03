@@ -125,7 +125,12 @@ export const fadeVelocity = 300
 // Map style and basics
 export const style = {
   'map' : { 'height': '95vh' , 'width': '100wh' },
-  'routes' : { 'height': '60vh', 'width': '100wh' },
+  'routes' : {
+    'height': '60vh',
+    'width': '100wh',
+    'scrollWheelZoom' :false,
+    'zoomControl' : false,
+  },
   'polyLine' : { fillColor: '#a2a2a2' },
   'polygon' : { fillColor: 'red' },
 }
