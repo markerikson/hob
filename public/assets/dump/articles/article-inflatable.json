@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "inflatable",
+        "parent": "\/LiveMenu\/train-yourself",
+        "name": "INFLATABLES",
+        "resource": "\/Article\/inflatable\/2",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

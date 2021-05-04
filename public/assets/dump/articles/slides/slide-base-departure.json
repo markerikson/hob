@@ -1,0 +1,112 @@
+[
+    {
+        "slug": "base-briefing",
+        "id": 24,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE BRIEFING",
+        "label": "",
+        "num_tag": "1\/10",
+        "index_num": 0,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_01_10_4d8678e058.svg",
+        "description_md5": "e8fc2d461af4dca281be2d9cc3145010"
+    },
+    {
+        "slug": "base-safety-life-jackets",
+        "id": 25,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE SAFETY",
+        "label": "Life jackets",
+        "num_tag": "2\/10",
+        "index_num": 1,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_02_10_ac82d667fe.svg",
+        "description_md5": "2f70ef1569d6cf54293c797645659613"
+    },
+    {
+        "slug": "base-safety-extinguishers",
+        "id": 26,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE SAFETY",
+        "label": "Extinguishers",
+        "num_tag": "3\/10",
+        "index_num": 2,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_03_10_0252db571c.svg",
+        "description_md5": "7e6b6032b71e3ccb84618d343ed42c3f"
+    },
+    {
+        "slug": "base-departure-stability",
+        "id": 27,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "Stability",
+        "num_tag": "4\/10",
+        "index_num": 3,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_04_10_1aa97d9353.svg",
+        "description_md5": "716bd2ba0003509513a6b725e4c34420"
+    },
+    {
+        "slug": "base-departure-traffic-flow",
+        "id": 28,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "Traffic flow",
+        "num_tag": "5\/10",
+        "index_num": 4,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_05_10_4e5540a438.svg",
+        "description_md5": "c80ede09c11e00b5d5fe890c2791154b"
+    },
+    {
+        "slug": "base-departure-3",
+        "id": 29,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "",
+        "num_tag": "6\/10",
+        "index_num": 5,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_06_10_fa0ee4e20b.svg",
+        "description_md5": "70a7fd9844e0c4ce4f87f4cfe2e971ff"
+    },
+    {
+        "slug": "base-departure-6",
+        "id": 32,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "",
+        "num_tag": "7\/10",
+        "index_num": 6,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_07_10_78c2a7ff17.svg",
+        "description_md5": "2048656756fedec530c953df7cd39bac"
+    },
+    {
+        "slug": "base-departure-4",
+        "id": 30,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "",
+        "num_tag": "8\/10",
+        "index_num": 7,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_08_10_25c2e9db49.svg",
+        "description_md5": "d59779ec44705fb306044e7ad4a3e6df"
+    },
+    {
+        "slug": "base-departure-7",
+        "id": 33,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "",
+        "num_tag": "9\/10",
+        "index_num": 8,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_09_10_1ac20f9604.svg",
+        "description_md5": "4d1f14c17db887722f6c3353e0d7f66a"
+    },
+    {
+        "slug": "base-departure-5",
+        "id": 31,
+        "icon": "\/assets\/images\/dump\/BASE_DEPARTURE_4667963796.svg",
+        "title": "BASE DEPARTURE",
+        "label": "",
+        "num_tag": "10\/10",
+        "index_num": 9,
+        "image_url": "\/assets\/images\/dump\/Base_Departure_10_10_9b64b8a5e0.svg",
+        "description_md5": "a3960b745cbc56fc48e14b30efbf190f"
+    }
+]

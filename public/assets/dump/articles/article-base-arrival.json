@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "base-arrival",
+        "parent": "\/LiveMenu\/train-yourself",
+        "name": "BASE ARRIVAL",
+        "resource": "\/Article\/base-arrival\/0",
+        "active_icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

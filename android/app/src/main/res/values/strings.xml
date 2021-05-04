@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">photo-gallery-capacitor-react</string>
-    <string name="title_activity_main">photo-gallery-capacitor-react</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">hob-app</string>
+    <string name="title_activity_main">hob-app</string>
+    <string name="package_name">com.example.app</string>
+    <string name="custom_url_scheme">com.example.app</string>
 </resources>

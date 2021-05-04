@@ -1,4 +1,4 @@
-import { getUserData, setIsLoggedInData, setUsernameData, setHasSeenTutorialData } from '../dataApi';
+import { getUserData, setAccessAllowedData, setUserKeyData, setHasSeenTutorialData } from '../dataApi';
 import { ActionType } from '../../util/types';
 import { UserState } from './user.state';
 
@@ -21,20 +21,20 @@ export const setData = (data: Partial<UserState>) => ({
 } as const);
 
 export const logoutUser = () => async (dispatch: React.Dispatch<any>) => {
-  await setIsLoggedInData(false);
-  dispatch(setUsername());
+  await setAccessAllowedData(false);
+  dispatch(setUserKey());
 };
 
-export const setIsLoggedIn = (loggedIn: boolean) => async (dispatch: React.Dispatch<any>) => {
-  await setIsLoggedInData(loggedIn);
+export const setAccessAllowed = (loggedIn: boolean) => async (dispatch: React.Dispatch<any>) => {
+  await setAccessAllowedData(loggedIn);
   return ({
     type: 'set-is-loggedin',
     loggedIn
   } as const)
 };
 
-export const setUsername = (username?: string) => async (dispatch: React.Dispatch<any>) => {
-  await setUsernameData(username);
+export const setUserKey = (username?: string) => async (dispatch: React.Dispatch<any>) => {
+  await setUserKeyData(username);
   return ({
     type: 'set-username',
     username
@@ -57,7 +57,7 @@ export const setDarkMode = (darkMode: boolean) => ({
 export type UserActions =
   | ActionType<typeof setLoading>
   | ActionType<typeof setData>
-  | ActionType<typeof setIsLoggedIn>
-  | ActionType<typeof setUsername>
+  | ActionType<typeof setAccessAllowed>
+  | ActionType<typeof setUserKey>
   | ActionType<typeof setHasSeenTutorial>
   | ActionType<typeof setDarkMode>

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "solid-hull",
+        "parent": "\/LiveMenu\/train-yourself",
+        "name": "SOLID HULL",
+        "resource": "\/Article\/solid-hull\/0",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

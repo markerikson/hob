@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "call-emergencies",
+        "parent": "\/LiveMenu\/assistance",
+        "name": "CALL EMERGENCIES",
+        "resource": "\/emergencies_phone",
+        "active_icon": "\/assets\/images\/dump\/CALL_BASE_EMERGENCIES_d9f2babcf3.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

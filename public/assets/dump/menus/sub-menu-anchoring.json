@@ -1,0 +1,62 @@
+[
+    {
+        "name": "What is anchoring?",
+        "slug": "what-is-anchoring",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/what-is-anchoring\/0",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/what-is-anchoring"
+    },
+    {
+        "name": "Where to anchor?",
+        "slug": "where-to-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/where-to-anchor\/2",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/where-to-anchor"
+    },
+    {
+        "name": "How to anchor",
+        "slug": "how-to-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/how-to-anchor\/9",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/how-to-anchor"
+    },
+    {
+        "name": "At anchor",
+        "slug": "at-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/at-anchor\/15",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/at-anchor"
+    },
+    {
+        "name": "Picking up anchor",
+        "slug": "picking-up-anchor",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/picking-up-anchor\/18",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/picking-up-anchor"
+    },
+    {
+        "name": "Please don't",
+        "slug": "please-don-t",
+        "parent": "LiveMenu\/anchoring",
+        "resource": "Article\/anchoring\/please-don-t\/23",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/please-don-t"
+    }
+]

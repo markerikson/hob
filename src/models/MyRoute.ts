@@ -1,7 +1,10 @@
 export interface MyRoute {
   id:number,
   name:string,
-  data:string,
+  map_data:string,
   center_lat:number,
-  center_long:number
+  center_long:number,
+  zoom:number,
+  slug:number,
+  description:number;
 }

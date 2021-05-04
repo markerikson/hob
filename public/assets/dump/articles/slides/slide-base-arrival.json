@@ -1,0 +1,68 @@
+[
+    {
+        "slug": "base-arrival-1",
+        "id": 68,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "",
+        "num_tag": "1\/6",
+        "index_num": 0,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_01_06_2fc2c07eac.svg",
+        "description_md5": "fe58b22ca44ece36b721c41a5bfe10ce"
+    },
+    {
+        "slug": "base-arrival-2",
+        "id": 69,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "Entering the port",
+        "num_tag": "2\/6",
+        "index_num": 1,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_02_06_228e18ff36.svg",
+        "description_md5": "ef3c5e074db75b1e28d2b897fd7e4a36"
+    },
+    {
+        "slug": "base-arrival-3",
+        "id": 70,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "Mooring Aproach",
+        "num_tag": "3\/6",
+        "index_num": 2,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_03_06_07cf28c65a.svg",
+        "description_md5": "01d6e54b65be41948bf588ce5b839d17"
+    },
+    {
+        "slug": "base-arrival-4",
+        "id": 71,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "Entering the mooring.",
+        "num_tag": "4\/6",
+        "index_num": 3,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_04_06_0696b45549.svg",
+        "description_md5": "8d0a0d5ddad9691dbd7f6c0a7415e1af"
+    },
+    {
+        "slug": "base-arrival-5",
+        "id": 72,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "",
+        "num_tag": "5\/6",
+        "index_num": 4,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_05_06_95aab627f0.svg",
+        "description_md5": "8d6bcbe4cbd49255bd969d12a5f27f3f"
+    },
+    {
+        "slug": "base-arrival-6",
+        "id": 73,
+        "icon": "\/assets\/images\/dump\/BASE_ARRIVAL_e8b9d68d8a.svg",
+        "title": "BASE ARRIVAL",
+        "label": "",
+        "num_tag": "6\/6",
+        "index_num": 5,
+        "image_url": "\/assets\/images\/dump\/Base_Arrival_06_06_11bcd2f4ce.svg",
+        "description_md5": "f6e0c250979475d8488f89a23c68e967"
+    }
+]

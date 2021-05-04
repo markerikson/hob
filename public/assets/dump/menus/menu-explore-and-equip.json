@@ -1,0 +1,13 @@
+[
+    {
+        "slug": "explore-and-equip",
+        "parent": "\/LiveMenu\/home",
+        "name": "EXPLORE & EQUIP",
+        "resource": "\/LiveMenu\/explore-and-equip",
+        "active_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_ACTIVE_724f1c9969.svg",
+        "inactive_icon": "\/assets\/images\/dump\/EXPLORE_and_EQUIP_INACTIVE_455b729e30.svg",
+        "background_color": "soft-blue",
+        "has_main": true,
+        "access": "\/Access\/explore-and-equip"
+    }
+]

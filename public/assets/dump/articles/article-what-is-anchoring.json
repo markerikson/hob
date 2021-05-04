@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "what-is-anchoring",
+        "parent": "\/LiveMenu\/anchoring",
+        "name": "What is anchoring?",
+        "resource": "\/Article\/what-is-anchoring\/0",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

@@ -1,0 +1,123 @@
+[
+    {
+        "slug": "cruising-stability",
+        "id": 34,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Stability",
+        "num_tag": "1\/11",
+        "index_num": 0,
+        "image_url": "\/assets\/images\/dump\/Cruising_01_11_8dd7b09c06.svg",
+        "description_md5": "90dda2e5bad250cfbe1a1534f34a8212"
+    },
+    {
+        "slug": "cruising-steering",
+        "id": 35,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Steering",
+        "num_tag": "2\/11",
+        "index_num": 1,
+        "image_url": "\/assets\/images\/dump\/Cruising_02_11_6e066e486a.svg",
+        "description_md5": "0add253b687b7c4c54a65bd9fac6f7f4"
+    },
+    {
+        "slug": "cruising-speed",
+        "id": 36,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Speed",
+        "num_tag": "3\/11",
+        "index_num": 2,
+        "image_url": "\/assets\/images\/dump\/Cruising_03_11_13913247c9.svg",
+        "description_md5": "ccefa6ce0e98b77a8ebba64331d3085e"
+    },
+    {
+        "slug": "cruising-safety-margin",
+        "id": 37,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Safety Margin",
+        "num_tag": "4\/11",
+        "index_num": 3,
+        "image_url": "\/assets\/images\/dump\/Cruising_04_11_1db96c40e4.svg",
+        "description_md5": "3c373a9c86fec94132c1d5b3875d9e11"
+    },
+    {
+        "slug": "cruising-look-out",
+        "id": 38,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Look Out",
+        "num_tag": "5\/11",
+        "index_num": 4,
+        "image_url": "\/assets\/images\/dump\/Cruising_05_11_5d359bc28c.svg",
+        "description_md5": "388bb7f4515919a9130f3583c7dd5752"
+    },
+    {
+        "slug": "cruising-stability-2",
+        "id": 43,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Stability",
+        "num_tag": "6\/11",
+        "index_num": 5,
+        "image_url": "\/assets\/images\/dump\/Cruising_06_11_edca619e76.svg",
+        "description_md5": "5803780d26dc9c4762ef58782e309d98"
+    },
+    {
+        "slug": "cruising-give-way-1",
+        "id": 39,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "7\/11",
+        "index_num": 6,
+        "image_url": "\/assets\/images\/dump\/Cruising_07_11_de9d73fb48.svg",
+        "description_md5": "2e7af8cee05eda190a21d308684b0813"
+    },
+    {
+        "slug": "cruising-give-way-2",
+        "id": 40,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "8\/11",
+        "index_num": 7,
+        "image_url": "\/assets\/images\/dump\/Cruising_08_11_78e68afb8f.svg",
+        "description_md5": "ba8336ec8cdc520ba335da5de7bf08c4"
+    },
+    {
+        "slug": "cruising-give-way-3",
+        "id": 41,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "9\/11",
+        "index_num": 8,
+        "image_url": "\/assets\/images\/dump\/Cruising_09_11_e72a20c869.svg",
+        "description_md5": "1f859293e9ee63669acc83e61d6d2b9e"
+    },
+    {
+        "slug": "cruising-give-way-4",
+        "id": 42,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "10\/11",
+        "index_num": 9,
+        "image_url": "\/assets\/images\/dump\/Cruising_10_11_d3440ad3d1.svg",
+        "description_md5": "9d8b4e9ef0815ed2f80067bd4ed17b22"
+    },
+    {
+        "slug": "cruising-give-way-5",
+        "id": 83,
+        "icon": "",
+        "title": "CRUISING",
+        "label": "Give way",
+        "num_tag": "11\/11",
+        "index_num": 10,
+        "image_url": "\/assets\/images\/dump\/Cruising_11_11_e22a085743.svg",
+        "description_md5": "5f883d90167f2cfb193f5638c4526eb0"
+    }
+]

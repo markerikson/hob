@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "at-anchor",
+        "parent": "\/LiveMenu\/anchoring",
+        "name": "At anchor",
+        "resource": "\/Article\/at-anchor\/15",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

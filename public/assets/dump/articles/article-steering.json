@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "steering",
+        "parent": "\/LiveMenu\/cruising",
+        "name": "Steering",
+        "resource": "\/Article\/steering\/1",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

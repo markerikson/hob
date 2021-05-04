@@ -21,18 +21,12 @@ export const getConfData = async () => {
   const sessions = parseSessions(schedule);
   const speakers = responseData.speakers as Speaker[];
   const locations = await response[1].json() as Location[];
-  const allTracks = sessions
-    .reduce((all, session) => all.concat(session.tracks), [] as string[])
-    .filter((trackName, index, array) => array.indexOf(trackName) === index)
-    .sort();
 
   const data = {
     schedule,
     sessions,
     locations,
     speakers,
-    allTracks,
-    filteredTracks: [...allTracks]
   }
   return data;
 }
@@ -53,7 +47,7 @@ export const getUserData = async () => {
   return data;
 }
 
-export const setIsLoggedInData = async (isLoggedIn: boolean) => {
+export const setAccessAllowedData = async (isLoggedIn: boolean) => {
   await Storage.set({ key: HAS_LOGGED_IN, value: JSON.stringify(isLoggedIn) });
 }
 
@@ -61,7 +55,7 @@ export const setHasSeenTutorialData = async (hasSeenTutorial: boolean) => {
   await Storage.set({ key: HAS_SEEN_TUTORIAL, value: JSON.stringify(hasSeenTutorial) });
 }
 
-export const setUsernameData = async (username?: string) => {
+export const setUserKeyData = async (username?: string) => {
   if (!username) {
     await Storage.remove({ key: USERNAME });
   } else {

@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "safety-margin",
+        "parent": "\/LiveMenu\/cruising",
+        "name": "Safety margin",
+        "resource": "\/Article\/safety-margin\/3",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

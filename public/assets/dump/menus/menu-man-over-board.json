@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "man-over-board",
+        "parent": "\/LiveMenu\/troubleshooting",
+        "name": "Man over board",
+        "resource": "\/Article\/man-over-board\/5",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]

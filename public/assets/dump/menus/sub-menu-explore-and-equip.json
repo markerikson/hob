@@ -1,16 +1,22 @@
 [
     {
-        "name": "Routes",
-        "resource": "\/LiveMap\/1",
-        "icon_url": "assets\/images\/dump\/live_map_3308755788.PNG",
-        "background_color": "#F8DDD1",
-        "parent": "\/LiveMenu\/explore-and-equip"
+        "name": "ROUTES",
+        "slug": "routes",
+        "parent": "LiveMenu\/explore-and-equip",
+        "resource": "Routes",
+        "active_icon": "\/assets\/images\/dump\/ROUTES_737fa4a31d.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/routes"
     },
     {
-        "name": "Equipment",
-        "resource": "\/Equipment",
-        "icon_url": "assets\/images\/dump\/equipment_19aea1da08.png",
-        "background_color": "#F8DDD1",
-        "parent": "\/LiveMenu\/explore-and-equip"
+        "name": "EQUIPMENT",
+        "slug": "equipment",
+        "parent": "LiveMenu\/explore-and-equip",
+        "resource": "Equipment",
+        "active_icon": "\/assets\/images\/dump\/EQUIPMENT_8259221dcb.svg",
+        "inactive_icon": "",
+        "background_color": "soft-blue",
+        "access": "\/Access\/equipment"
     }
 ]

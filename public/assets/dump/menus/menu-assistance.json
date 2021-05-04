@@ -1,0 +1,13 @@
+[
+    {
+        "slug": "assistance",
+        "parent": "\/LiveMenu\/home",
+        "name": "ASSISTANCE !",
+        "resource": "\/LiveMenu\/assistance",
+        "active_icon": "\/assets\/images\/dump\/ASSISTANCE_ACTIVE_a70732cf07.svg",
+        "inactive_icon": "\/assets\/images\/dump\/ASSISTANCE_INACTIVE_caeeb47aee.svg",
+        "background_color": "soft-blue",
+        "has_main": true,
+        "access": "\/Access\/assistance"
+    }
+]

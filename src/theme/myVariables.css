@@ -1,0 +1,228 @@
+/* MyStyle : Hoponboard style */
+@font-face {
+  font-family: "Advent Pro";
+  src: url("../fonts/AdventPro/AdventPro-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
+}
+
+* {
+  font-family: "Advent Pro" !important;
+}
+
+:root {
+  --ion-color-soft-blue: #e0f7fa;
+  --ion-color-soft-blue-rgb: 224, 247, 250;
+  --ion-color-soft-blue-contrast: #000000;
+  --ion-color-soft-blue-contrast-rgb: 0, 0, 0;
+  --ion-color-soft-blue-shade: #c5d9dc;
+  --ion-color-soft-blue-tint: #e3f8fb;
+
+  --ion-color-tag-grey: #d2d2d2;
+  --ion-color-tag-grey-rgb: 210, 210, 210;
+  --ion-color-tag-grey-contrast: #000000;
+  --ion-color-tag-grey-contrast-rgb: 0, 0, 0;
+  --ion-color-tag-grey-shade: #b9b9b9;
+  --ion-color-tag-grey-tint: #d7d7d7;
+
+  --inner-border-width: 0px 0px 0px 0px!important;
+
+}
+
+.ion-color-soft-blue {
+  --ion-color-base: var(--ion-color-soft-blue);
+  --ion-color-base-rgb: var(--ion-color-soft-blue-rgb);
+  --ion-color-contrast: var(--ion-color-soft-blue-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-soft-blue-contrast-rgb);
+  --ion-color-shade: var(--ion-color-soft-blue-shade);
+  --ion-color-tint: var(--ion-color-soft-blue-tint);
+}
+
+.ion-color-tag-grey {
+  --ion-color-base: var(--ion-color-tag-grey);
+  --ion-color-base-rgb: var(--ion-color-tag-grey-rgb);
+  --ion-color-contrast: var(--ion-color-tag-grey-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-tag-grey-contrast-rgb);
+  --ion-color-shade: var(--ion-color-tag-grey-shade);
+  --ion-color-tint: var(--ion-color-tag-grey-tint);
+}
+
+.hob_head_back {
+  width: 14px;
+  height: 21px;
+  margin: auto auto auto 17px;
+  background-color: #fff;
+}
+
+.hob_card > ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hob_card > ion-card-content > ion-textarea {
+  text-align: left!important;
+  max-width: 376px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hob_card {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hob_menu_button {
+  font-weight: bold;
+  min-width: 39%;
+}
+
+/*EXTRAS*/
+.button-inner {
+  font-weight: bold!important;
+  --box-shadow:none!important;
+}
+
+.button-native {
+  padding: 26px;
+  --box-shadow:none!important;
+}
+
+.bold {
+  font-weight: bold!important;
+}
+
+.h1 {
+  font-size: 45px;
+  margin-left: 10px;
+}
+
+.hob_submenu_icon, .hob_menu_button, .back {
+  cursor: pointer;
+}
+
+.hob_head_back {
+  cursor: pointer;
+}
+
+.back {
+  margin-right: 2%;
+}
+
+.footer_tab_button {
+  width: 60%;
+  max-height: 120px;
+}
+
+.native-textarea[disabled]{
+  opacity: 1!important;
+  height: 32vh!important;
+  font-size: 2.4vh;
+  font-family: "Roboto" !important;
+}
+
+.sub-title {
+  padding: 0px;
+}
+
+.login-logo {
+  height: 25vh!important;
+  vertical-align: middle!important;
+}
+
+.header_title {
+  padding: 0px;
+}
+
+.header_subtitle{
+  padding: 0px;
+  font-size: 2vh!important;
+  height: 2.vh!important;
+  min-height: 2vh!important;
+}
+
+.leaflet-container {
+  height: 60vh;
+  width: 100wh;
+}
+
+#route_selector {
+  width: 80%;
+  --inner-border-width: 0;
+  --border-radius: 10px;
+
+}
+
+#map_route_selector{
+  width: 100%;
+}
+
+.overflow_hidden {
+  overflow: hidden;
+}
+
+.text_decoration_none{
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+}
+
+.border-none {
+  border: none!important;
+}
+
+.remove_inner_bottom{
+  --inner-border-width: 0;
+}
+
+.hob_equipment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.equipment_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left_equipment {
+  padding-left: 5%!important;
+}
+
+
+.equipment_thumb {
+  --border-radius: 50%
+}
+
+.resalted_thumb {
+  border: 5px solid #555;
+}
+
+.swiper-pagination {
+  bottom: 41% !important;
+}
+
+
+.swiper-pagination-bullet-active {
+  background: var(--bullet-background-active);
+  height: 10px;
+  width: 10px;
+}
+
+.swiper-pagination-bullet-inactive {
+  background: var(--bullet-background-active);
+  height: 7px;
+  width: 7px;  
+}
+
+.leaflet-control-attribution{
+  display: none!important;
+}

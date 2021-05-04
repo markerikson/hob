@@ -1,0 +1,11 @@
+[
+    {
+        "slug": "stability",
+        "parent": "\/LiveMenu\/cruising",
+        "name": "Stability",
+        "resource": "\/Article\/stability\/0",
+        "active_icon": "",
+        "inactive_icon": "",
+        "background_color": "soft-blue"
+    }
+]
