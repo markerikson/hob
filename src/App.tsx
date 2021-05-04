@@ -13,7 +13,7 @@ import { IonReactRouter } from '@ionic/react-router'
 import { Redirect, Route } from 'react-router-dom'
 //import { useHistory } from 'react-router'
 import './components/i18n'
-import { Plugins } from '@capacitor/core'
+//import { Plugins } from '@capacitor/core'
 //import axios from 'axios'
 
 //CSS required for Ionic components to work properly
