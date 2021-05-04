@@ -208,12 +208,12 @@ const Routes: React.FC = () => {
   }
 
   function renderRoutesList(routes: MyRoute[]) {    
-    return routes.map((r: MyRoute, index) => (
+    return routes.map((r: MyRoute, i) => (
       <IonItem
-        key={Math.random()}
+        key={'routes_list_item_'+i}
         onClick={() => history.push('/Route/Overview/'+r.id+'/0')}
         >
-        <IonLabel>0{index+1+' - '+r.name}</IonLabel>
+        <IonLabel>0{i+1+' - '+r.name}</IonLabel>
       </IonItem>
     ))
   }

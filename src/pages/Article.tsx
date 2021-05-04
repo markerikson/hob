@@ -66,7 +66,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
     return menus.map((r: Menu, i) => (
       <IonItem
         class='hob-header border-none remove_inner_bottom'
-        key='flñerwhgwrt'>
+        key='article_header'>
         <IonImg
           class='back'
           onClick={() => history.goBack()}
@@ -96,11 +96,14 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
 
   function renderArticleSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
-      <IonSlide key={'article_slide_'+r.slug+i}>
+      <IonSlide 
+        key={'article_slide_'+r.id}>
         <IonCard 
           class='hob_card'>
           <IonCardContent>
-            <img src={r.image_url.toString()} alt={r.image_url}/><br/>
+            <img
+              src={r.image_url.toString()}
+              alt={r.image_url}/><br/>
               <IonTextarea
                 class='hob_slide_textarea'
                 disabled
@@ -155,7 +158,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
       </IonHeader>
       <IonContent>
         <IonSlides
-          key='MySlides'
+          key='MyArticlesSlides'
           pager={true}
           options={slideOpts}
           onIonSlidesDidLoad={(event: any)=> switchHeaderLabel(event, slides, title)}

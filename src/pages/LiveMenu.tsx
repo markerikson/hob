@@ -20,7 +20,7 @@ import {
   */
 } from "@ionic/react"
 import { RouteComponentProps, useHistory } from "react-router"
-import { SubMenu, SubMenuItem } from "./Styles"
+import { SubMenu, SubMenuItem } from "../components/Styles"
 
 // Ohhh!!! :D :D This code looks happy now ^_^
 import jQuery from "jquery"

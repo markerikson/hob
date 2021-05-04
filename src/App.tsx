@@ -49,14 +49,18 @@ import LiveMap        from './pages/LiveMap'
 import Equipment      from './pages/Equipment'
 import Settings       from './pages/Settings'
 import RouteOverview  from './pages/RouteOverview'
+//TESTS
+import Segment  from './pages/test/Segment'
 
+
+/*
 var SplashOnce = localStorage.getItem('SplashOnce!!')
-
 if(SplashOnce !== ''){
   const { SplashScreen } = Plugins
   SplashScreen.show(MyConst.splashScreen)
   localStorage.setItem('SplashOnce!!', 'true')  
 }
+*/
 
 const App: React.FC = () => {
 
@@ -102,6 +106,7 @@ const App: React.FC = () => {
             <Route path='/Routes' component={Routes}/>
             <Route path='/LiveMap' component={LiveMap}/>
             <Route path='/Settings' component={Settings}/>
+            <Route path='/Segment' component={Segment}/>
           </IonRouterOutlet>          
           <IonTabBar
             slot='bottom'
