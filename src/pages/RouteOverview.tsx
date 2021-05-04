@@ -140,27 +140,25 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
     spaceBetween: 0,
     pagination: true,
     loop: false,
-    //speed: 500,
-    //autoplay: false,
   }
 
   function jumpToSlide(slide:any){
     console.log('gotoreplace')
-    history.push('/Route/Overview/'+match.params.route+'/'+slide.step)
-    
+    history.push('/Route/Overview/'+match.params.route+'/'+slide.step)    
   }
 
   function renderPlacesThumbs(thisSlide:any){
     return setSlidesData(mapRoute).map((slide: SlideRoute, i) => (
-      <IonCol key={'slide_col_'+i} class={'equipment_col'+thisSlide.step} size="3">
-        <IonThumbnail
-          onClick={() => jumpToSlide(slide)}
-          class={'equipment_thumb '+ ((thisSlide.step === slide.step) ? 'resalted_thumb' : '')}
-          key={'equipment_thumb_'+i}
-          >
-          <IonImg src={slide.images} alt={slide.name} />
-        </IonThumbnail>
-      </IonCol>
+      <a key={'slide_href_'+slide.id} href={'/Route/Overview/'+match.params.route+'/'+slide.step} >
+        <IonCol key={'slide_col_'+slide.id} class={'equipment_col'+thisSlide.step} size="3">
+          <IonThumbnail           
+            class={'equipment_thumb '+ ((thisSlide.step === slide.step) ? 'resalted_thumb' : '')}
+            key={'equipment_thumb_'+i}
+            > {/*onClick={() => jumpToSlide(slide)} /**being the best choince, don't run propertly with slides BUT also appears */}
+            <IonImg src={slide.images} alt={slide.name} />
+          </IonThumbnail>
+        </IonCol>
+      </a>
     ))
   }
 
@@ -227,7 +225,7 @@ const RouteOverview: React.FC<RoutePageProps> = ({match}) => {
   }
 
   return(
-    <IonPage>         
+    <IonPage>
       {renderHeader(fullMenu, mapRoute)}
       <IonContent>
         <IonSlides

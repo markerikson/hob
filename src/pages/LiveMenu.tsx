@@ -45,9 +45,10 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
   useIonViewWillEnter(() => { hoverTabIcon() })
   function hoverTabIcon(){
-    if(MyConst.holdHoverFooterIcon.indexOf(window.location.pathname) !== -1){        
-      console.log('This url require hover a button LIVE MENU!!!')
-      var slug = window.location.pathname.split('/')[2]
+    var slug = window.location.pathname.split('/')[2]
+    var isAccess = window.location.pathname.split('/')[1] === 'Access' || window.location.pathname.split('/')[1] === 'LiveMap'
+    if(MyConst.holdHoverFooterIcon.indexOf(window.location.pathname) !== -1 || isAccess){        
+      console.log('This url require hover a button LIVE MENU!!!')      
       resetHoverFooter()
       jQuery('#button-'+slug).attr('src', jQuery('#button-'+slug).data('active'))         
     }
@@ -86,7 +87,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
   function renderHeader(fullMenu: Menu[]) { 
     return fullMenu.map((r: Menu, i) =>
-      r.has_main && ( r.slug === "train-yourself" || r.slug === 'explore-and-equip' ) ? (
+      r.has_main && ( r.slug === "train-yourself" || r.slug === 'explore-and-equip' || r.slug === 'assistance' ) ? (
         <div
           key={"head_" + r.slug}
           style={{
@@ -136,19 +137,19 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
 
   function renderSubMenus(subMenus: Submenu[], pageSlug: any) {
     return subMenus.map((r: Submenu, index) =>
-      !r.active_icon ? (
+      ! r.active_icon ? (
         <IonButton
           class="hob_menu_button"
-          key={'submenu_'+r.resource}
-          color={r.background_color}          
-          onClick={() => history.push(`/${r?.resource}`)}
+          key={'submenu-X_'+r.resource}
+          color={r.background_color}   
+          href={r?.resource}
           expand="block"
         >{t(r.name)}
         </IonButton>
       ) :
         pageSlug === 'assistance' 
         ? (
-          <a key={'submenu_'+r.resource}
+          <a key={'submenu_Z_'+r.resource}
             className='text_decoration_none' 
             href={(r.resource === 'contact_phone')
               ? 'tel:'+contact_phone
@@ -168,7 +169,7 @@ const LiveMenu: React.FC<PageProps> = ({ match }) => {
           </a>
         ) : (
           <SubMenuItem
-            key={'submenu_'+r.resource}
+            key={'submenu_Y_'+r.resource}
             onClick={() => history.push(`/${r?.resource}`)}
             className='hob_submenu_icon'
             >

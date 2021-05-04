@@ -1,8 +1,6 @@
 import * as MyConst from '../static/constants'
 import React, { useState, useEffect  } from 'react'
-import { IonContent, IonPage, IonImg, IonThumbnail, IonItem, IonSelect, IonSelectOption,
-//useIonViewWillEnter
-} from '@ionic/react'
+import { IonContent, IonPage, IonImg, IonThumbnail, IonItem, IonSelect, IonSelectOption, useIonViewWillEnter } from '@ionic/react'
 import { 
   //RouteComponentProps,
   useHistory
@@ -70,6 +68,17 @@ const LiveMap: React.FC = () => {
   const history = useHistory();
   var creator_id = localStorage.getItem('creator:id')
   var selected_route = localStorage.getItem('selected_route::id')
+
+  useIonViewWillEnter(() => { toggleFooter() })
+  // Show and hide the footer over LiveMenu and in advance ;)
+  function toggleFooter(){
+    //if(MyConst.JustTesting) console.info('Toggle footer! (LiveMenu::useIonViewWillEnter)')
+    if( MyConst.menuSettings.hiddenFooter.indexOf(window.location.pathname) === -1){      
+      jQuery('.footer_tab').removeClass('hidden')
+    }else{
+      jQuery('.footer_tab').addClass('hidden')
+    }
+  }
 
   jQuery('#button-train-yourself').attr('src', jQuery('#button-train-yourself').data('inactive')) 
   jQuery('#button-explore-and-equip').attr('src', jQuery('#button-explore-and-equip').data('inactive')) 
@@ -140,7 +149,7 @@ const LiveMap: React.FC = () => {
 
   function loadRoute( routeId: number ){
     localStorage.setItem('selected_route::id', routeId.toString())
-    history.replace('/LiveMap/navigate/'+routeId)
+    window.location.href = '/LiveMap/navigate/'+routeId
   }
 
   function setRoutesPolylines(mapRoutes: any){
@@ -189,6 +198,8 @@ const LiveMap: React.FC = () => {
         marker.href)
     ))
   }
+
+
 
   function setMap(mapRoutes: any){
     return (

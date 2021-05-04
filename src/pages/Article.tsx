@@ -31,7 +31,7 @@ import { Menu } from '../models/Menu'
 interface ArticlePageProps extends RouteComponentProps<{
   slug:  string,
   slide: string,
-  step:  string,
+  step?:  string,
 }> {}
 
 const Article: React.FC<ArticlePageProps> = ({match}) => {
@@ -97,7 +97,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   function renderArticleSlides(list: Slide[]){
     return list.map((r: Slide, i) => (
       <IonSlide 
-        key={'article_slide_'+r.id}>
+        key={'article_slide_'+r?.id}>
         <IonCard 
           class='hob_card'>
           <IonCardContent>
@@ -118,9 +118,12 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
   
   // Change the header subtitle pending on slide 'hidden content'
   const switchHeaderLabel = async (event: any, slides: Slide[], title: any) => {
+    
     let labelClass = '.header_subtitle'
     let index = 1
+
     await event.target.getActiveIndex().then((value: any) => (index=value))
+
     if(slides[index] !== undefined){
 
       let result = ''
@@ -163,7 +166,7 @@ const Article: React.FC<ArticlePageProps> = ({match}) => {
           options={slideOpts}
           onIonSlidesDidLoad={(event: any)=> switchHeaderLabel(event, slides, title)}
           onIonSlideTransitionStart={(event: any)=> switchHeaderLabel(event, slides, title)}          
-        >{renderArticleSlides(slides)}
+        >{renderArticleSlides(slides) ?? ''}
         </IonSlides>
       </IonContent>
     </IonPage>

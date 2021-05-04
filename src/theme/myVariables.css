@@ -143,8 +143,8 @@
 .header_subtitle{
   padding: 0px;
   font-size: 2vh!important;
-  height: 2.vh!important;
-  min-height: 2vh!important;
+  /*height: 2vh!important;*/
+  /*min-height: 2vh!important;*/
 }
 
 .leaflet-container {
@@ -203,7 +203,7 @@
 }
 
 .resalted_thumb {
-  border: 5px solid #555;
+  border: 5px solid #4fc3f7;
 }
 
 .swiper-pagination {

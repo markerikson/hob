@@ -78,13 +78,14 @@ export const messages = {
 
   'accessFormTitle' : 'Please put the access data!',
 
-  'userKeyLabel' : 'User email',
+  'userKeyLabel' : 'USER EMAIL',
   'userKeyRequired' : 'User email is required...',
 
-  'userPassLabel' : 'Password',
+  'userPassLabel' : 'PASSWORD',
   'userPassRequired' : 'Password is required...',
 
-  'submitAcces' : 'Access',
+  'submitAcces' : 'LOGIN',
+  'submitLoading' : 'LOGIN',
 }
 
 export const mapboxToken = "pk.eyJ1IjoiZHJ1bGxhbiIsImEiOiJja2l4eDBpNWUxOTJtMnRuejE1YWYyYThzIn0.y7nuRLnfl72qFp2Rq06Wlg"

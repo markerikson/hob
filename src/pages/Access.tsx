@@ -36,7 +36,8 @@ import jQuery from "jquery";
 
 
 interface PageProps extends RouteComponentProps<{
-  slug: string;
+  user: string;
+  password: string;
 }> {}
   
 const Access: React.FC<PageProps> = ({ match }) => {
@@ -56,15 +57,15 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
   const [fullMenu, setMenu] = useState<Menu[]>([]);
   useEffect(() => {
-    fetch(MyConst.menuDump + match.params.slug + ".json")
+    fetch(MyConst.menuDump + "train-yourself.json")
       .then((res) => res.json())
       .then(setMenu);
-  }, [match.params.slug]);
+  }, []);
 
-  var slug = ''
+  var menuSlug = ''
 
   if(fullMenu[0] !== undefined){
-    slug = fullMenu[0].slug
+    menuSlug = fullMenu[0].slug
   }
 
   const accessClientData = async (e: React.FormEvent) => {
@@ -90,7 +91,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
         window.localStorage.setItem('creator:assistance_number', '061')
         window.localStorage.setItem('creator:data', JSON.stringify(data.user))
 
-        history.replace("/LiveMenu/"+slug)
+        history.replace("/LiveMenu/"+menuSlug)
 
       }else{
         alert("You don't have acces permission or somethign where wrong with your credentials. Please, try again!")
@@ -98,6 +99,15 @@ const Access: React.FC<PageProps> = ({ match }) => {
       
     }
     //console.log('Problems to access to th erestricted area...')
+
+  }
+
+  if(match.params.user !== undefined && match.params.password !== undefined ){
+    console.log('Auto Login!!!')
+    jQuery('#userKey').attr('value', 'asdfasf')
+    //localStorage.setItem('user', match.params.user)
+    //localStorage.setItem('password', match.params.password)    
+    //istory.replace("/")
 
   }
 
@@ -141,7 +151,7 @@ const Access: React.FC<PageProps> = ({ match }) => {
           <IonThumbnail>
             <IonImg src={r.active_icon} alt={r.slug} />
           </IonThumbnail>
-          <IonLabel key={"header-label" + r.slug} class='h1 bold'>{t(r.name)}</IonLabel>
+          <IonLabel key={"header-label" + r.slug} class='h1 bold'>{t('WELLCOME TO HOPONBOARD.EU')}</IonLabel>
         </IonItem>
       </IonToolbar>
     </IonHeader>)
@@ -164,62 +174,61 @@ const Access: React.FC<PageProps> = ({ match }) => {
 
         <form noValidate onSubmit={accessClientData}>
           <IonList>
+
             <IonItem>
-              <IonLabel 
-                color='primary'
+              <IonLabel
+                class='bold'
                 position='stacked'>
                 {t(MyConst.messages.userKeyLabel)}      
               </IonLabel>
               <IonInput
+                id='userKey'
                 name='userKey'
-                type='text'
+                type='email'
                 value={userKey}
                 spellCheck={false}
                 autocapitalize='off'
                 onIonChange={e => setUserKey(e.detail.value!)}
                 required>
               </IonInput>
+              { accesFormSubmitted && userKeyError &&
+                <IonText color='primary'>
+                  <p className='ion-padding-start bold'>
+                    {t(MyConst.messages.userKeyRequired)}
+                  </p>
+                </IonText>
+              }
             </IonItem>
 
-            { accesFormSubmitted && userKeyError &&
-              <IonText color='warning'>
-                <p className='ion-padding-start'>
-                  {t(MyConst.messages.userKeyRequired)}
-                </p>
-              </IonText>
-            }
-
             <IonItem>
-
               <IonLabel
-                color='primary'
-                position='stacked'>
+                class='bold'
+                position='stacked'
+                >
                 {t(MyConst.messages.userPassLabel)}
               </IonLabel>
-
               <IonInput
+                id='password'
                 name='password'
                 type='password'
                 value={userPass}
                 onIonChange={e => setUserPass(e.detail.value!)}>
               </IonInput>
-
+              { accesFormSubmitted && passwordError && 
+                <IonText color='primary'>
+                  <p className='ion-padding-start bold'>
+                  {t(MyConst.messages.userPassRequired)}
+                  </p>
+                </IonText>
+              }
             </IonItem>
-
-            { accesFormSubmitted && passwordError && 
-              <IonText color='warning'>
-                <p className='ion-padding-start'>
-                {t(MyConst.messages.userPassRequired)}
-                </p>
-              </IonText>
-            }
-
           </IonList>
 
           <IonRow>
             <IonCol>
               <IonButton
                 type='submit'
+                id='loginSubmit'
                 expand='block'
                 color='soft-blue'
                 class='bold'
